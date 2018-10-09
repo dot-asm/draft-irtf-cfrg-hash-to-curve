@@ -26,7 +26,7 @@ body {
   font-weight: bold;
   color: #333;
   line-height: 100%;
-  margin: 0.8em 0 0.3em;
+  margin: 1.2em 0 0.3em;
 }
 .title, #rfc\.title h1 { font-size: 32px; }
 h1, section h1, h2, section h2, section h3, nav h2 { font-size: 20px; }
@@ -165,12 +165,17 @@ a[href]:hover {
   background-color: #eee;
 }
 
-ol, ul, li, p {
+p, ol, ul, li {
   padding: 0;
-  margin: 0.5em 0 0.5em 2em;
 }
-li, p {
-  margin-left: 0;
+p {
+  margin: 0.5em 0;
+}
+ol, ul {
+  margin: 0.2em 0 0.2em 2em;
+}
+li {
+  margin: 0.2em 0;
 }
 address {
   font-style: normal;
@@ -314,15 +319,17 @@ ul.toc li {
 <link href="#rfc.appendix.C.2" rel="Chapter" title="C.2 Shallue-Woestijne-Ulas Method">
 <link href="#rfc.appendix.C.3" rel="Chapter" title="C.3 Simplified SWU Method">
 <link href="#rfc.appendix.C.4" rel="Chapter" title="C.4 Elligator2 Method">
+<link href="#rfc.appendix.C.5" rel="Chapter" title="C.5 HashToBase">
+<link href="#rfc.appendix.C.5.1" rel="Chapter" title="C.5.1 Considerations">
 <link href="#rfc.authors" rel="Chapter">
 
 
-  <meta name="generator" content="xml2rfc version 2.9.9 - https://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.10.3 - https://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Scott, S., Sullivan, N., and C. Wood" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-irtf-cfrg-hash-to-curve-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2018-07-01" />
+  <meta name="dct.issued" scheme="ISO8601" content="2018-10-09" />
   <meta name="dct.abstract" content="This document specifies a number of algorithms that may be used to hash arbitrary strings to Elliptic Curves." />
   <meta name="description" content="This document specifies a number of algorithms that may be used to hash arbitrary strings to Elliptic Curves." />
 
@@ -346,7 +353,7 @@ ul.toc li {
 <td class="right">N. Sullivan</td>
 </tr>
 <tr>
-<td class="left">Expires: January 2, 2019</td>
+<td class="left">Expires: April 12, 2019</td>
 <td class="right">Cloudflare</td>
 </tr>
 <tr>
@@ -359,7 +366,7 @@ ul.toc li {
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">July 01, 2018</td>
+<td class="right">October 09, 2018</td>
 </tr>
 
     	
@@ -375,7 +382,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on January 2, 2019.</p>
+<p>This Internet-Draft will expire on April 12, 2019.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2018 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -461,7 +468,11 @@ ul.toc li {
 </li>
 <li>C.4.   <a href="#rfc.appendix.C.4">Elligator2 Method</a>
 </li>
-</ul><li><a href="#rfc.authors">Authors' Addresses</a>
+<li>C.5.   <a href="#rfc.appendix.C.5">HashToBase</a>
+</li>
+<ul><li>C.5.1.   <a href="#rfc.appendix.C.5.1">Considerations</a>
+</li>
+</ul></ul><li><a href="#rfc.authors">Authors' Addresses</a>
 </li>
 
 
@@ -616,16 +627,17 @@ ul.toc li {
 </tbody>
 </table>
 <h1 id="rfc.section.4">
-<a href="#rfc.section.4">4.</a> <a href="#utility-functions" id="utility-functions">Utility Functions</a>
+<a href="#rfc.section.4">4.</a> <a href="#utility" id="utility">Utility Functions</a>
 </h1>
 <p id="rfc.section.4.p.1">Algorithms in this document make use of utility functions described below.</p>
 <p></p>
 
 <ul>
-<li>HashToBase(x): H(x)[0:log2(p) + 1], i.e., hash-truncate-reduce, where H is a cryptographic hash function, such as SHA256, and p is the prime order of base field Fp.</li>
+<li>round(x): floor(ceil(2*x)/2), i.e. rounding to the nearest integer, rounding down when the remainder is precisely 0.5.</li>
+<li>HashToBase(x): H(x)[0:round(log2(p))] mod p.  <br><br> This method is parametrized by the cryptographic hash function H, which must output at least round(log2(p)) bits, where p is the prime order of base field Fp. The function first computes the bitstring H(x), and truncates this down to round(log2(p)) bits. The result of this is converted to an integer, and reduced modulo p to give an element of Fp. We suggest a more detailed algorithm in <a href="#hashtobase" class="xref">Appendix C.5</a>.</li>
 <li>CMOV(a, b, c): If c = 1, return a, else return b.</li>
+<li>Legendre(x, p): x^((p-1)/2).  The Legendre symbol computes whether the value x is a &#8220;quadratic residue&#8221; modulo p, and takes values 1, -1, 0, for when x is a residue, non-residue, or zero, respectively. Due to Euler&#8217;s criterion, this can be computed in constant time, with respect to a fixed p, using the equation x^((p-1)/2). For clarity, we will generally prefer using the formula directly, and annotate the usage with this definition.</li>
 </ul>
-<p id="rfc.section.4.p.3">Note: We assume that HashToBase maps its input to the base field uniformly.  In practice, there may be inherent biases in p, e.g., p = 2^k - 1 will have non-negligible bias in higher bits.</p>
 <h1 id="rfc.section.5">
 <a href="#rfc.section.5">5.</a> <a href="#deterministic-encodings" id="deterministic-encodings">Deterministic Encodings</a>
 </h1>
@@ -840,10 +852,10 @@ Steps:
 <pre>
 1. r = HashToBase(alpha)
 2. d = -A / (1 + ur^2)
-3. e = f(d)^((p-1)/2)
+3. e = f(d)^((p-1)/2) // = Legendre(f(d))
 4. u = ed - (1 - e)A/u
 </pre>
-<p id="rfc.section.5.2.4.p.3">Here, e is the Legendre symbol of y = (d^3 + Ad^2 + d), which will be 1 if y is a quadratic residue (square) mod p, and -1 otherwise.  (Note that raising y to ((p -1) / 2) is a common way to compute the Legendre symbol.)</p>
+<p id="rfc.section.5.2.4.p.3">Here, e is the Legendre symbol of (d^3 + Ad^2 + Bd), which will be 1 if y is a quadratic residue (square) mod p, and -1 otherwise.  (We compute the Legendre symbol by raising to ((p -1) / 2) as defined in <a href="#utility" class="xref">Section 4</a>).</p>
 <p id="rfc.section.5.2.4.p.4">The following procedure implements this algorithm.</p>
 <pre>
 map2curve_elligator2(alpha)
@@ -874,7 +886,7 @@ Steps:
 11.  e = v3 * v (mod p)
 12. v2 = v2 * A (mod p)
 13.  e = v2 * e (mod p)
-14.  e = e^((p - 1) / 2)  // Legendre symbol
+14.  e = e^((p - 1) / 2)  // = Legendre(e)
 15. nv = v * -1 (mod p)
 16.  v = CMOV(v, nv, e)   // If e = 1, choose v, else choose nv
 17. v2 = CMOV(0, A, e)    // If e = 1, choose 0, else choose A
@@ -1084,7 +1096,7 @@ H1(alpha) = HashToBase(1 || alpha)
 </pre>
 <p id="rfc.section.B.p.2">I2OSP is a function that converts a nonnegative integer to octet string as defined in Section 4.1 of <a href="#RFC8017" class="xref">[RFC8017]</a>, and RS2ECP is a function that converts of a random 2n-octet string to an EC point as specified in Section 5.1.3 of <a href="#RFC8032" class="xref">[RFC8032]</a>.</p>
 <h1 id="rfc.appendix.C">
-<a href="#rfc.appendix.C">Appendix C.</a> <a href="#sample-code" id="sample-code">Sample Code</a>
+<a href="#rfc.appendix.C">Appendix C.</a> <a href="#samplecode" id="samplecode">Sample Code</a>
 </h1>
 <p id="rfc.section.C.p.1">This section contains reference implementations for each map2curve variant built using <a href="#hacspec" class="xref">[hacspec]</a>.</p>
 <h1 id="rfc.appendix.C.1">
@@ -1260,6 +1272,43 @@ def map2curve25519(r:felem_t) -&gt; felem_t:
 
     return x
 </pre>
+<h1 id="rfc.appendix.C.5">
+<a href="#rfc.appendix.C.5">C.5.</a> <a href="#hashtobase" id="hashtobase">HashToBase</a>
+</h1>
+<p id="rfc.section.C.5.p.1">The following procedure implements HashToBase.</p>
+<pre>
+HashToBase(x)
+
+Parameters:
+
+  H - cryptographic hash function to use
+  c - small constant multiple
+  p - order of the base field Fp.
+
+Input:
+
+  x - value to be hashed, an octet string
+
+Output:
+
+  y - a value in the field Fp
+
+Steps:
+
+  1. x1 = H(x)
+  2. tlen = round(c * log2(p))
+  3. x2 = x1 &amp; ((1 &lt;&lt; tlen) - 1)
+  4. x3 = OS2IP(x2)
+  5. y = x3 (mod p)
+  6. Output y
+</pre>
+<p id="rfc.section.C.5.p.2">where using OS2IP <a href="#RFC8017" class="xref">[RFC8017]</a> is used to convert an octet string to an integer.</p>
+<h1 id="rfc.appendix.C.5.1">
+<a href="#rfc.appendix.C.5.1">C.5.1.</a> <a href="#considerations" id="considerations">Considerations</a>
+</h1>
+<p id="rfc.section.C.5.1.p.1">We assume that HashToBase maps its input to the base field uniformly. In practice, there will be inherent biases. For example, taking H as SHA256, over the finite field of Curve25519 we have p = 2^255 - 19, round(log2(p)) = 255, and thus the values of 0 .. 19 will be twice as likely to occur. This is a standard problem in generating uniformly distributed integers from a bitstring. For the proposed algorithms, this bias should be negligible, since approaches to produce in differentiable hashing already combine multiple outputs in order to address non-uniform outputs from the encoding functions.</p>
+<p id="rfc.section.C.5.1.p.2">To address this, implementers may instead consider defining an additional constant c, such that c*log2(p) is  closer to an integral value, and taking round(c*log2(p)) random bits from the hash function H.</p>
+<p id="rfc.section.C.5.1.p.3">Implementers should not implement any iterated procedure, such as rejection sampling, for HashToBase since this can be hard to reliably implement in constant time.</p>
 <h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
 <div class="avoidbreak">
   <address class="vcard">
