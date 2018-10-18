@@ -1,6 +1,114 @@
 [
 
   {
+    "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/58",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/58/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/58/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/58/events",
+    "html_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/58",
+    "id": 371220110,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjIzNzE2NDY4",
+    "number": 58,
+    "title": "Correcting some parts of the text",
+    "user": {
+      "login": "armfazh",
+      "id": 10335519,
+      "node_id": "MDQ6VXNlcjEwMzM1NTE5",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10335519?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/armfazh",
+      "html_url": "https://github.com/armfazh",
+      "followers_url": "https://api.github.com/users/armfazh/followers",
+      "following_url": "https://api.github.com/users/armfazh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/armfazh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/armfazh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/armfazh/subscriptions",
+      "organizations_url": "https://api.github.com/users/armfazh/orgs",
+      "repos_url": "https://api.github.com/users/armfazh/repos",
+      "events_url": "https://api.github.com/users/armfazh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/armfazh/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2018-10-17T18:54:48Z",
+    "updated_at": "2018-10-18T23:36:03Z",
+    "closed_at": "2018-10-18T23:36:03Z",
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/pulls/58",
+      "html_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/58",
+      "diff_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/58.diff",
+      "patch_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/58.patch"
+    },
+    "body": "This PR corrects some parts of the texts that are imprecise.\r\nElligator2 must consider mapping the 0 \\in Fp  to the point (0,0); thus a clear cofactor phase must be added later."
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/57",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/57/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/57/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/57/events",
+    "html_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/57",
+    "id": 370871756,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjIzNDQ5Nzky",
+    "number": 57,
+    "title": "Ciphersuite changes",
+    "user": {
+      "login": "grittygrease",
+      "id": 5125095,
+      "node_id": "MDQ6VXNlcjUxMjUwOTU=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/5125095?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/grittygrease",
+      "html_url": "https://github.com/grittygrease",
+      "followers_url": "https://api.github.com/users/grittygrease/followers",
+      "following_url": "https://api.github.com/users/grittygrease/following{/other_user}",
+      "gists_url": "https://api.github.com/users/grittygrease/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/grittygrease/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/grittygrease/subscriptions",
+      "organizations_url": "https://api.github.com/users/grittygrease/orgs",
+      "repos_url": "https://api.github.com/users/grittygrease/repos",
+      "events_url": "https://api.github.com/users/grittygrease/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/grittygrease/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2018-10-17T02:26:00Z",
+    "updated_at": "2018-10-17T02:39:56Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/pulls/57",
+      "html_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/57",
+      "diff_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/57.diff",
+      "patch_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/57.patch"
+    },
+    "body": ""
+  },
+  {
     "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/56",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/56/labels{/name}",
@@ -280,7 +388,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -289,8 +397,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-09-01T23:22:25Z",
-    "updated_at": "2018-09-01T23:22:25Z",
-    "closed_at": null,
+    "updated_at": "2018-10-09T05:19:51Z",
+    "closed_at": "2018-10-09T05:19:51Z",
     "author_association": "OWNER",
     "body": ""
   },
@@ -1443,7 +1551,10 @@
     "closed_at": "2018-07-13T20:23:42Z",
     "author_association": "OWNER",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/28",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
@@ -1539,10 +1650,7 @@
     "closed_at": "2018-07-13T20:23:42Z",
     "author_association": "OWNER",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/26",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
@@ -2649,17 +2757,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 3,
+    "comments": 4,
     "created_at": "2018-03-01T01:47:40Z",
-    "updated_at": "2018-06-01T18:51:42Z",
-    "closed_at": null,
+    "updated_at": "2018-10-18T20:58:08Z",
+    "closed_at": "2018-10-18T20:58:08Z",
     "author_association": "OWNER",
     "body": ""
   },
