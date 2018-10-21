@@ -1,6 +1,67 @@
 [
 
   {
+    "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/59",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/59/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/59/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/59/events",
+    "html_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/59",
+    "id": 372127401,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjI0NDE5MTY4",
+    "number": 59,
+    "title": "WIP specifics of HashToBase.",
+    "user": {
+      "login": "samscott89",
+      "id": 13355482,
+      "node_id": "MDQ6VXNlcjEzMzU1NDgy",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/13355482?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/samscott89",
+      "html_url": "https://github.com/samscott89",
+      "followers_url": "https://api.github.com/users/samscott89/followers",
+      "following_url": "https://api.github.com/users/samscott89/following{/other_user}",
+      "gists_url": "https://api.github.com/users/samscott89/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/samscott89/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/samscott89/subscriptions",
+      "organizations_url": "https://api.github.com/users/samscott89/orgs",
+      "repos_url": "https://api.github.com/users/samscott89/repos",
+      "events_url": "https://api.github.com/users/samscott89/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/samscott89/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 1097591278,
+        "node_id": "MDU6TGFiZWwxMDk3NTkxMjc4",
+        "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/labels/WIP",
+        "name": "WIP",
+        "color": "fbca04",
+        "default": false
+      }
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 2,
+    "created_at": "2018-10-19T21:50:04Z",
+    "updated_at": "2018-10-21T19:50:31Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/pulls/59",
+      "html_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/59",
+      "diff_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/59.diff",
+      "patch_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/59.patch"
+    },
+    "body": "Some attempts to formalize HashToBase a bit more.\r\nIncludes sage script for computing.\r\nPartially includes #54 #42 #12 "
+  },
+  {
     "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/58",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/58/labels{/name}",
@@ -88,7 +149,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -97,8 +158,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-10-17T02:26:00Z",
-    "updated_at": "2018-10-17T02:39:56Z",
-    "closed_at": null,
+    "updated_at": "2018-10-20T05:23:31Z",
+    "closed_at": "2018-10-20T05:23:31Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/pulls/57",
@@ -220,7 +281,7 @@
     "id": 367282463,
     "node_id": "MDU6SXNzdWUzNjcyODI0NjM=",
     "number": 54,
-    "title": "Choosing a square root",
+    "title": "Choosing the sign of the encoded point",
     "user": {
       "login": "samscott89",
       "id": 13355482,
@@ -251,9 +312,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-10-05T16:28:01Z",
-    "updated_at": "2018-10-05T16:43:11Z",
+    "updated_at": "2018-10-20T16:02:43Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "As in #53, many algorithms require taking a square root and choosing one. In some cases we have an additional bit left over from HashToBase (e.g. with Curve25519 and SHA256, there is a free bit).\r\nWe can consider using this bit as a sign (as at the end of 2.6 of https://signal.org/docs/specifications/xeddsa/#hashing-to-a-point-with-elligator-2)."
@@ -443,9 +504,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-09-01T23:13:39Z",
-    "updated_at": "2018-09-01T23:13:39Z",
+    "updated_at": "2018-10-21T20:11:45Z",
     "closed_at": null,
     "author_association": "OWNER",
     "body": "1. Section 2 states that n = qh + r, where n is order of the group of elliptic curve points, q is a prime order of a subgroup of the group of elliptic curve points, h is a cofactor and r is a remainder. Is there any sense to use value r? Every nonzero r directly violates Lagrange's theorem.\r\n\r\n2. In the sixth paragraph of Section 2 states that n can be estimated using Hasse's theorem as |n-p| < 2 * sqrt(p). This is true for the prime field case, otherwise we have to use Hasse-Weil theorem.\r\n\r\n3. The same paragraph refers that if point (x, y) belongs to some curve, then (x, -y) also does. It must be stated explicitly, that it is true for certain curve forms – because this is not true for some coordinate forms like twisted Edwards.\r\n\r\n4. The second paragraph of Section 2.1.1 states that \"In most cases, the curve E is over a finite field GF(p^k), with p > 2.\". Are you sure about it? The vast majority of standardized curves defined over extension fields seems to have p = 2.\r\n\r\n5. Some clarifications about two separate HashToBase implementations should be added into Section 5.2.2.\r\n\r\n6. Section 5.2.2, paragraph 6. Add word <<short>> before <<Weierstrass form>>.\r\n\r\n7. Section 5.2.4. Description of Elligator2 method uses f(x) function and returns its value instead of a pair of coordinates.\r\n\r\n8. Appendix B, paragraph 1. “Section Section”.\r\n\r\n9. Appendix B, algorithm description, step 4E. Does symbol ^ stay here for scalar point multiplication?\r\n\r\n10. I believe that the HashToBase function has to be described as explicitly as it is possible (including byte order, possible hash function sets for different curves) (the same issue with “be as explicit as possible” applies to our “Randomness improvements …” draft also J\r\n\r\n11. Appendix A.5. “&#8746” instead of cup symbol?\r\n\r\n12. Misprints: “artbirary”, “simplified”."
@@ -731,9 +792,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-08-15T02:48:48Z",
-    "updated_at": "2018-08-15T22:09:32Z",
+    "updated_at": "2018-10-20T05:24:26Z",
     "closed_at": null,
     "author_association": "FIRST_TIMER",
     "pull_request": {
@@ -1503,7 +1564,10 @@
     "closed_at": "2018-07-13T20:23:42Z",
     "author_association": "OWNER",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/29",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
@@ -1551,10 +1615,7 @@
     "closed_at": "2018-07-13T20:23:42Z",
     "author_association": "OWNER",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/28",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
