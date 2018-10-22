@@ -354,6 +354,10 @@ Internet-Draft                hash-to-curve                 October 2018
       will be either 0 if all bits of c are zero, or 1 if at least one
       bit of c is 1.
 
+   o  CTEQ(a, b): Returns a == b.  Inputs a and b must be the same
+      length (as bytestrings) and the comparison must be implemented in
+      constant time.
+
    o  Legendre(x, p): x^((p-1)/2).  The Legendre symbol computes whether
       the value x is a "quadratic residue" modulo p, and takes values 1,
       -1, 0, for when x is a residue, non-residue, or zero,
@@ -383,16 +387,16 @@ Internet-Draft                hash-to-curve                 October 2018
 
    o  P384
 
-   o  Curve1174
-
-   o  Curve448
-
 
 
 Scott, et al.            Expires April 25, 2019                 [Page 7]
 
 Internet-Draft                hash-to-curve                 October 2018
 
+
+   o  Curve1174
+
+   o  Curve448
 
    Unsupported curves include: P224, P256, P521, and Curve25519 since,
    for each, p = 1 mod 3.
@@ -408,10 +412,6 @@ Internet-Draft                hash-to-curve                 October 2018
    The following procedure implements this algorithm in a straight-line
    fashion.  It requires knowledge of A and B, the constants from the
    curve Weierstrass form.  It outputs a point with affine coordinates.
-
-
-
-
 
 
 
@@ -650,13 +650,10 @@ Internet-Draft                hash-to-curve                 October 2018
    18.   h3 = h3 + i3 (mod p)
    19.   y1 = h2 ^ ((p + 1) / 4) (mod p)
    20.   y2 = h3 ^ ((p + 1) / 4) (mod p)
-   21.    e = ((y1 ^ 2) == h2)   // Constant-time equality
+   21.    e = CTEQ(y1 ^ 2, h2)   // Constant-time equality
    22.    x = CMOV(x2, x3, e)    // If e = 1, choose x2, else choose x3
    23.    y = CMOV(y1, y2, e)    // If e = 1, choose y1, else choose y2
    24. Output (x, y)
-
-   Note that Step 21 requires a constant-time equality check so as to
-   avoid side channel leaks.
 
 5.2.4.  Elligator2 Method
 
@@ -666,6 +663,9 @@ Internet-Draft                hash-to-curve                 October 2018
    x(x^2 + Ax + B), i.e., a Montgomery form with (0,0), a point of order
    2, this algorithm works as shown below.  (Note that any curve with a
    point of order 2 is isomorphic to this representation.)
+
+
+
 
 
 
