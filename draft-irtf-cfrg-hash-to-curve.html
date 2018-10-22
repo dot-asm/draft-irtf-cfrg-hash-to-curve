@@ -497,12 +497,9 @@ ul.toc li {
 </h1>
 <p id="rfc.section.2.p.1">Here we give a brief definition of elliptic curves, with an emphasis on defining important parameters and their relation to encoding.</p>
 <p id="rfc.section.2.p.2">Let F be the finite field GF(p^k). We say that F is a field of characteristic p. For most applications, F is a prime field, in which case k=1 and we will simply write GF(p).</p>
-<p id="rfc.section.2.p.3">Elliptic curves come in many variants, including, but not limited to: Weierstrass, Montgomery, and Edwards. Each of these variants correspond to a different category of curve equation.  For example, the short Weierstrass equation is <samp>y^2 = x^3 + Ax + B</samp>. Certain encoding functions may have requirements on the curve form, the characteristic of the field, and the parameters, such as A and B in the previous example.</p>
-<p id="rfc.section.2.p.4">An elliptic curve E is specified by its equation, and a finite field F.  The curve E forms a group, whose elements correspond to those who satisfy the curve equation, with values taken from the field F. As a group, E has order n, which is the number of points on the curve. For security reasons, it is a strong requirement that all cryptographic operations take place in a prime order group. However, not all elliptic curves generate groups of prime order.  In those cases, it is allowed to work with elliptic curves of order n = qh, where q is a large prime, and h is a short number known as the cofactor.  Thus, we may wish an encoding that returns points on the subgroup of order q. Multiplying a point P on E by the cofactor h guarantees that hP is a point in the subgroup of order q.</p>
-<p id="rfc.section.2.p.5">In practice, the input of a given cryptographic algorithm will be a bitstring of arbitrary length, denoted  {0, 1}^*. Hence, a concern for virtually all protocols involving elliptic curves is how to convert this input into a curve point.</p>
-<p id="rfc.section.2.p.6">Note that the number of points on an elliptic curve E is within 2*sqrt(p) of p by Hasse&#8217;s Theorem. As a rule of thumb, for every x in GF(p), there is approximately a 1/2 chance that there exist a corresponding y value such that (x, y) is on the curve E. Since the point (x, -y) is also on the curve, then this sums to approximately p points.</p>
-<p id="rfc.section.2.p.7">Ultimately, an encoding function takes a bitstring {0, 1}^* and maps it to a point P=(x,y) on E of order q, where x and y are in GF(p).</p>
-<p id="rfc.section.2.p.8">Summary of quantities:</p>
+<p id="rfc.section.2.p.3">Elliptic curves can be represented by equations of different standard forms, including, but not limited to: Weierstrass, Montgomery, and Edwards. Each of these variants correspond to a different category of curve equation.  For example, the short Weierstrass equation is <samp>y^2 = x^3 + Ax + B</samp>. Certain encoding functions may have requirements on the curve form, the characteristic of the field, and the parameters, such as A and B in the previous example.</p>
+<p id="rfc.section.2.p.4">An elliptic curve E is specified by its equation, and a finite field F.  The curve E forms a group, whose elements correspond to those who satisfy the curve equation, with values taken from the field F. As a group, E has order n, which is the number of points on the curve. For security reasons, it is a strong requirement that all cryptographic operations take place in a prime order group. However, not all elliptic curves generate groups of prime order.  In those cases, it is allowed to work with elliptic curves of order n = qh, where q is a large prime, and h is a short number known as the cofactor.  Thus, we may wish an encoding that returns points on the subgroup of order q.  Multiplying a point P on E by the cofactor h guarantees that hP is a point in the subgroup of order q.</p>
+<p id="rfc.section.2.p.5">Summary of quantities:</p>
 <table cellpadding="3" cellspacing="0" class="tt full center">
 <thead><tr>
 <th class="center">Symbol</th>
@@ -513,7 +510,7 @@ ul.toc li {
 <tr>
 <td class="center">p</td>
 <td class="left">Order of finite field, F = GF(p)</td>
-<td class="left">Curve points need to be represented in terms of p. For prime powers, we write F = GF(p^k).</td>
+<td class="left">Curve points need to be represented in terms of p. For prime power extension fields, we write F = GF(p^k).</td>
 </tr>
 <tr>
 <td class="center">n</td>
@@ -539,9 +536,8 @@ ul.toc li {
 <h1 id="rfc.section.2.1.1">
 <a href="#rfc.section.2.1.1">2.1.1.</a> <a href="#term-encoding" id="term-encoding">Encoding</a>
 </h1>
-<p id="rfc.section.2.1.1.p.1">The general term &#8220;encoding&#8221; is used to refer to the process of producing an elliptic curve point given as input a bitstring. In some protocols, the original message may also be recovered through a decoding procedure.  An encoding may be deterministic or probabilistic, although the latter is problematic in potentially leaking plaintext information as a side-channel.</p>
-<p id="rfc.section.2.1.1.p.2">In most cases, the curve E is over a finite field GF(p^k), with p &gt; 2.  Suppose as the input to the encoding function we wish to use a fixed-length bitstring of length L. Comparing sizes of the sets, 2^L and n, an encoding function cannot be both deterministic and bijective.</p>
-<p id="rfc.section.2.1.1.p.3">We can instead use an injective encoding from {0, 1}^L to E, with <samp>L &lt; log2(n)- 1</samp>,  which is a bijection over a subset of points in E.  This ensures that encoded plaintext messages can be recovered.</p>
+<p id="rfc.section.2.1.1.p.1">In practice, the input of a given cryptographic algorithm will be a bitstring of arbitrary length, denoted {0, 1}^*. Hence, a concern for virtually all protocols involving elliptic curves is how to convert this input into a curve point.  The general term &#8220;encoding&#8221; refers to the process of producing an elliptic curve point given as input a bitstring. In some protocols, the original message may also be recovered through a decoding procedure. An encoding may be deterministic or probabilistic, although the latter is problematic in potentially leaking plaintext information as a side-channel.</p>
+<p id="rfc.section.2.1.1.p.2">Suppose as the input to the encoding function we wish to use a fixed-length bitstring of length L. Comparing sizes of the sets, 2^L and n, an encoding function cannot be both deterministic and bijective.  We can instead use an injective encoding from {0, 1}^L to E, with <samp>L &lt; log2(n)- 1</samp>,  which is a bijection over a subset of points in E.  This ensures that encoded plaintext messages can be recovered.</p>
 <h1 id="rfc.section.2.1.2">
 <a href="#rfc.section.2.1.2">2.1.2.</a> <a href="#term-serialization" id="term-serialization">Serialization</a>
 </h1>
@@ -713,7 +709,7 @@ Steps:
 <h1 id="rfc.section.5.2.2">
 <a href="#rfc.section.5.2.2">5.2.2.</a> <a href="#swu" id="swu">Shallue-Woestijne-Ulas Method</a>
 </h1>
-<p id="rfc.section.5.2.2.p.1">The Shallue-Woestijne-Ulas (SWU) method, originated in part by Shallue and Woestijne <a href="#SW06" class="xref">[SW06]</a> and later simplified and extended by Ulas <a href="#SWU07" class="xref">[SWU07]</a>, deterministically encodes an artbirary string to a point on a curve.  This algorithm works for any curve over F_{p^n}. Given curve equation g(x) = x^3 + Ax + B, this algorithm works as follows:</p>
+<p id="rfc.section.5.2.2.p.1">The Shallue-Woestijne-Ulas (SWU) method, originated in part by Shallue and Woestijne <a href="#SW06" class="xref">[SW06]</a> and later simplified and extended by Ulas <a href="#SWU07" class="xref">[SWU07]</a>, deterministically encodes an arbitrary string to a point on a curve.  This algorithm works for any curve over F_{p^n}. Given curve equation g(x) = x^3 + Ax + B, this algorithm works as follows:</p>
 <pre>
 1.  t = HashToBase(alpha, 0)
 2.  u = HashToBase(alpha, 1)
@@ -785,7 +781,7 @@ Steps:
 <h1 id="rfc.section.5.2.3">
 <a href="#rfc.section.5.2.3">5.2.3.</a> <a href="#simple-swu" id="simple-swu">Simplified SWU Method</a>
 </h1>
-<p id="rfc.section.5.2.3.p.1">The following map2curve_simple_swu(alpha) implements the simplfied Shallue-Woestijne-Ulas algorithm from <a href="#SimpleSWU" class="xref">[SimpleSWU]</a>. This algorithm works for any curve over F_{p^n}, where p = 3 mod 4, including:</p>
+<p id="rfc.section.5.2.3.p.1">The following map2curve_simple_swu(alpha) implements the simplified Shallue-Woestijne-Ulas algorithm from <a href="#SimpleSWU" class="xref">[SimpleSWU]</a>. This algorithm works for any curve over F_{p^n}, where p = 3 mod 4, including:</p>
 <p></p>
 
 <ul>
@@ -888,8 +884,9 @@ Steps:
 15. nv = v * -1 (mod p)
 16.  v = CMOV(v, nv, e)   // If e = 1, choose v, else choose nv
 17. v2 = CMOV(0, A, e)    // If e = 1, choose 0, else choose A
-18.  u = v - v2 (mod p)
-19. Output (u, -e*sqrt(u^3+Au^2+Bu) )
+18.  x = v - v2 (mod p)
+19.  y = -e*sqrt(x^3+Ax^2+Bx)
+19. Output (x, y)
 </pre>
 <p id="rfc.section.5.2.4.p.4">Elligator2 can be simplified with projective coordinates.</p>
 <p id="rfc.section.5.2.4.p.5">((TODO: write this variant))</p>
@@ -1063,6 +1060,10 @@ H1(alpha) = HashToBase(alpha, 3)
 <td class="top">"<a>Indifferentiable deterministic hashing to elliptic and hyperelliptic curves</a>", n.d..</td>
 </tr>
 <tr>
+<td class="reference"><b id="FIPS-186-4">[FIPS-186-4]</b></td>
+<td class="top">"<a href="https://csrc.nist.gov/publications/detail/fips/186/4/final">Digital Signature Standard (DSS), FIPS PUB 186-4, July 2013</a>", n.d..</td>
+</tr>
+<tr>
 <td class="reference"><b id="hacspec">[hacspec]</b></td>
 <td class="top">"<a href="https://github.com/HACS-workshop/hacspec">hacspec</a>", n.d..</td>
 </tr>
@@ -1158,16 +1159,16 @@ H1(alpha) = HashToBase(alpha, 3)
 <h1 id="rfc.appendix.B">
 <a href="#rfc.appendix.B">Appendix B.</a> <a href="#try" id="try">Try-and-Increment Method</a>
 </h1>
-<p id="rfc.section.B.p.1">In cases where constant time execution is not required, the so-called try-and-increment method may be appropriate. As discussion in Section <a href="#introduction" class="xref">Section 1</a>, this variant works by hashing input m using a standard hash function (&#8220;Hash&#8221;), e.g., SHA256, and then checking to see if the resulting point E(m, f(m)), for curve function f, belongs on E.  This is detailed below.</p>
+<p id="rfc.section.B.p.1">In cases where constant time execution is not required, the so-called try-and-increment method may be appropriate. As discussion in <a href="#introduction" class="xref">Section 1</a>, this variant works by hashing input m using a standard hash function (&#8220;Hash&#8221;), e.g., SHA256, and then checking to see if the resulting point E(m, f(m)), for curve function f, belongs on E.  This is detailed below.</p>
 <pre>
 1. ctr = 0
-3. h = "INVALID"
-4. While h is "INVALID" or h is EC point at infinity:
-   A.  CTR = I2OSP(ctr, 4)
-   B.  ctr = ctr + 1
-   C.  attempted_hash = Hash(m || CTR)
-   D.  h = RS2ECP(attempted_hash)
-   E.  If h is not "INVALID" and cofactor &gt; 1, set h = h^cofactor
+2. h = "INVALID"
+3. While h is "INVALID" or h is EC point at infinity:
+4.1   CTR = I2OSP(ctr, 4)
+4.2   ctr = ctr + 1
+4.3   attempted_hash = Hash(m || CTR)
+4.4   h = RS2ECP(attempted_hash)
+4.5   If h is not "INVALID" and cofactor &gt; 1, set h = h * cofactor
 5. Output h
 </pre>
 <p id="rfc.section.B.p.2">I2OSP is a function that converts a nonnegative integer to octet string as defined in Section 4.1 of <a href="#RFC8017" class="xref">[RFC8017]</a>, and RS2ECP is a function that converts of a random 2n-octet string to an EC point as specified in Section 5.1.3 of <a href="#RFC8032" class="xref">[RFC8032]</a>.</p>
