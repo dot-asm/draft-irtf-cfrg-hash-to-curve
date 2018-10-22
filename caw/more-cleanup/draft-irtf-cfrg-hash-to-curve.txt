@@ -900,7 +900,7 @@ Internet-Draft                hash-to-curve                 October 2018
 
    o  HashToCurve is defined to be {#elligator2} with the curve function
       defined to be the Montgomery form of Curve448 (y^2 = x^3 +
-      156326x^2 + x) and u = 2.
+      156326x^2 + x) and u = -1.
 
    o  The final output is multiplied by the cofactor of Curve448, 4.
 

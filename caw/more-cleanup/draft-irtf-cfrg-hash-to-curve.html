@@ -993,7 +993,7 @@ H1(alpha) = HashToBase(alpha, 3)
 <ul>
 <li>The destination group is the points on Curve448, with curve parameters as specified in <a href="#RFC7748" class="xref">[RFC7748]</a> (Section 4.1).</li>
 <li>HashToBase is defined as {#hashtobase} with the hash function defined as SHA-512 as specified in <a href="#RFC6234" class="xref">[RFC6234]</a>, and p set to the prime field used in Curve448 (2^448 - 2^224 - 1).</li>
-<li>HashToCurve is defined to be {#elligator2} with the curve function defined to be the Montgomery form of Curve448 (y^2 = x^3 + 156326x^2 + x) and u = 2.</li>
+<li>HashToCurve is defined to be {#elligator2} with the curve function defined to be the Montgomery form of Curve448 (y^2 = x^3 + 156326x^2 + x) and u = -1.</li>
 <li>The final output is multiplied by the cofactor of Curve448, 4.</li>
 </ul>
 <p id="rfc.section.8.p.13">H2C-Curve25519-SHA512-Elligator2-FFSTV is defined as in H2C-Curve25519-SHA-512-Elligator2-Clear except HashToCurve is defined to be {#ffstv} where F is {#elligator2}.</p>
