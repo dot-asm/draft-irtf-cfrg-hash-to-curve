@@ -1,6 +1,366 @@
 [
 
   {
+    "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/70",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/70/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/70/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/70/events",
+    "html_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/70",
+    "id": 372957533,
+    "node_id": "MDU6SXNzdWUzNzI5NTc1MzM=",
+    "number": 70,
+    "title": "Can x and label can be empty bytestrings in HashToBase?",
+    "user": {
+      "login": "cygnusv",
+      "id": 2564234,
+      "node_id": "MDQ6VXNlcjI1NjQyMzQ=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/2564234?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/cygnusv",
+      "html_url": "https://github.com/cygnusv",
+      "followers_url": "https://api.github.com/users/cygnusv/followers",
+      "following_url": "https://api.github.com/users/cygnusv/following{/other_user}",
+      "gists_url": "https://api.github.com/users/cygnusv/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/cygnusv/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/cygnusv/subscriptions",
+      "organizations_url": "https://api.github.com/users/cygnusv/orgs",
+      "repos_url": "https://api.github.com/users/cygnusv/repos",
+      "events_url": "https://api.github.com/users/cygnusv/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/cygnusv/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 2,
+    "created_at": "2018-10-23T11:46:56Z",
+    "updated_at": "2018-10-23T14:57:45Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The motivation of this question is that current draft doesn't state what's the intended behaviour of HashToBase if the input `x` and parameter `label` are empty bytestrings. If they are simply ignored (e.g., `\"abc\" || empty_bytestring == \"abc\"`), then there are potential collisions in HashToBase.\r\n\r\nLet's focus on the input of the hash function during the first step of HashToBase:\r\n`H(\"h2c\" || label || I2OSP(i, 4) || x)`\r\n\r\nAssume that `I2OSP(i, 4)` has some specific value (e.g., '00000000', which is the default). The hash `H(\"h2c\" || 00000000 || 00000000)` corresponds to two different configurations:\r\n\r\n- `label = 00000000` and `x` is empty\r\n- `label` is empty and `x = 00000000`\r\n\r\nA possible solution is to prepend the length of `label` and `x` to both values."
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/69",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/69/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/69/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/69/events",
+    "html_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/69",
+    "id": 372869435,
+    "node_id": "MDU6SXNzdWUzNzI4Njk0MzU=",
+    "number": 69,
+    "title": "SWU when A=0 in curve equation?",
+    "user": {
+      "login": "cygnusv",
+      "id": 2564234,
+      "node_id": "MDQ6VXNlcjI1NjQyMzQ=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/2564234?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/cygnusv",
+      "html_url": "https://github.com/cygnusv",
+      "followers_url": "https://api.github.com/users/cygnusv/followers",
+      "following_url": "https://api.github.com/users/cygnusv/following{/other_user}",
+      "gists_url": "https://api.github.com/users/cygnusv/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/cygnusv/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/cygnusv/subscriptions",
+      "organizations_url": "https://api.github.com/users/cygnusv/orgs",
+      "repos_url": "https://api.github.com/users/cygnusv/repos",
+      "events_url": "https://api.github.com/users/cygnusv/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/cygnusv/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2018-10-23T08:24:18Z",
+    "updated_at": "2018-10-23T15:00:40Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "Current version of the draft asserts the following with respect to the SWU method:\r\n\r\n> This algorithm works for any curve over F_{p^n}\r\n\r\n\r\n> Every elliptic curve can be converted to an equivalent curve in short Weierstrass form ([BL07] Theorem 2.1), making SWU a generic algorithm that can be used for all curves\r\n\r\nHowever, the SWU method (and its simplified version) require the computation of `-B/A`, which is undefined when `A=0`. \r\n\r\nThis is related to #9 and #39, since it's a problem for curve SECP256K1, with curve equation `y^2 = x^3 + 7` (i.e, `A=0` and `B=7`)."
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/68",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/68/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/68/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/68/events",
+    "html_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/68",
+    "id": 372696935,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjI0ODExODUy",
+    "number": 68,
+    "title": "Minor fixes",
+    "user": {
+      "login": "armfazh",
+      "id": 10335519,
+      "node_id": "MDQ6VXNlcjEwMzM1NTE5",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10335519?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/armfazh",
+      "html_url": "https://github.com/armfazh",
+      "followers_url": "https://api.github.com/users/armfazh/followers",
+      "following_url": "https://api.github.com/users/armfazh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/armfazh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/armfazh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/armfazh/subscriptions",
+      "organizations_url": "https://api.github.com/users/armfazh/orgs",
+      "repos_url": "https://api.github.com/users/armfazh/repos",
+      "events_url": "https://api.github.com/users/armfazh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/armfazh/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2018-10-22T20:57:16Z",
+    "updated_at": "2018-10-22T22:53:38Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/pulls/68",
+      "html_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/68",
+      "diff_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/68.diff",
+      "patch_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/68.patch"
+    },
+    "body": "Added some minor fixes on the text.\r\nIn algorithms, the operations are performed over the finite field; thus removing (mod p) is more precise."
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/67",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/67/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/67/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/67/events",
+    "html_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/67",
+    "id": 372690523,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjI0ODA3MTA4",
+    "number": 67,
+    "title": "Fix bug in Icart definition.",
+    "user": {
+      "login": "samscott89",
+      "id": 13355482,
+      "node_id": "MDQ6VXNlcjEzMzU1NDgy",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/13355482?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/samscott89",
+      "html_url": "https://github.com/samscott89",
+      "followers_url": "https://api.github.com/users/samscott89/followers",
+      "following_url": "https://api.github.com/users/samscott89/following{/other_user}",
+      "gists_url": "https://api.github.com/users/samscott89/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/samscott89/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/samscott89/subscriptions",
+      "organizations_url": "https://api.github.com/users/samscott89/orgs",
+      "repos_url": "https://api.github.com/users/samscott89/repos",
+      "events_url": "https://api.github.com/users/samscott89/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/samscott89/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2018-10-22T20:40:55Z",
+    "updated_at": "2018-10-22T20:42:34Z",
+    "closed_at": "2018-10-22T20:42:34Z",
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/pulls/67",
+      "html_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/67",
+      "diff_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/67.diff",
+      "patch_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/67.patch"
+    },
+    "body": "Fixes #61."
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/66",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/66/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/66/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/66/events",
+    "html_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/66",
+    "id": 372689049,
+    "node_id": "MDU6SXNzdWUzNzI2ODkwNDk=",
+    "number": 66,
+    "title": "SWU  with p = 1 (mod 4)",
+    "user": {
+      "login": "samscott89",
+      "id": 13355482,
+      "node_id": "MDQ6VXNlcjEzMzU1NDgy",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/13355482?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/samscott89",
+      "html_url": "https://github.com/samscott89",
+      "followers_url": "https://api.github.com/users/samscott89/followers",
+      "following_url": "https://api.github.com/users/samscott89/following{/other_user}",
+      "gists_url": "https://api.github.com/users/samscott89/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/samscott89/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/samscott89/subscriptions",
+      "organizations_url": "https://api.github.com/users/samscott89/orgs",
+      "repos_url": "https://api.github.com/users/samscott89/repos",
+      "events_url": "https://api.github.com/users/samscott89/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/samscott89/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2018-10-22T20:37:05Z",
+    "updated_at": "2018-10-22T20:37:05Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "For SWU, we write\r\n>  This algorithm works for any curve over F_{p^n}. \r\n\r\nWhich is true, but as far as I understand, to make it work with p = 1 (mod 4), (ignoring n>1 case for now), you need to use a modified Tonelli-Shanks algorithm to keep it constant time. We should probably specify this."
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/65",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/65/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/65/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/65/events",
+    "html_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/65",
+    "id": 372683642,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjI0ODAxODgx",
+    "number": 65,
+    "title": "More cleanup and missing details.",
+    "user": {
+      "login": "chris-wood",
+      "id": 2172048,
+      "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chris-wood",
+      "html_url": "https://github.com/chris-wood",
+      "followers_url": "https://api.github.com/users/chris-wood/followers",
+      "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+      "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+      "repos_url": "https://api.github.com/users/chris-wood/repos",
+      "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2018-10-22T20:22:13Z",
+    "updated_at": "2018-10-22T20:33:23Z",
+    "closed_at": "2018-10-22T20:33:23Z",
+    "author_association": "OWNER",
+    "pull_request": {
+      "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/pulls/65",
+      "html_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/65",
+      "diff_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/65.diff",
+      "patch_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/65.patch"
+    },
+    "body": "Addresses #38, #14, and #11."
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/64",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/64/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/64/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/64/events",
+    "html_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/64",
+    "id": 372679331,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjI0Nzk4NzQ4",
+    "number": 64,
+    "title": "Add general CMOV implementation suggestion.",
+    "user": {
+      "login": "chris-wood",
+      "id": 2172048,
+      "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chris-wood",
+      "html_url": "https://github.com/chris-wood",
+      "followers_url": "https://api.github.com/users/chris-wood/followers",
+      "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+      "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+      "repos_url": "https://api.github.com/users/chris-wood/repos",
+      "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2018-10-22T20:10:54Z",
+    "updated_at": "2018-10-22T20:12:58Z",
+    "closed_at": "2018-10-22T20:12:58Z",
+    "author_association": "OWNER",
+    "pull_request": {
+      "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/pulls/64",
+      "html_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/64",
+      "diff_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/64.diff",
+      "patch_url": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/pull/64.patch"
+    },
+    "body": ""
+  },
+  {
     "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/63",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/63/labels{/name}",
@@ -130,7 +490,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -139,8 +499,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-10-22T13:27:35Z",
-    "updated_at": "2018-10-22T13:27:35Z",
-    "closed_at": null,
+    "updated_at": "2018-10-22T20:42:34Z",
+    "closed_at": "2018-10-22T20:42:34Z",
     "author_association": "COLLABORATOR",
     "body": "Some issues from Greg Rubin:\r\n> Please check steps 15-17 in map2curve_icart on page 7. It doesn't make sense.\r\nAccording to the comment (and code) at the end of step 16, `t1 = (2p - 1)/3`, however in step 17 you raise _x_ (with a current value of `v^2 - b - u^6/27` from step 14) to the power of _t1_ and claim the result is `(v^2 - b - u^6/27) ^ (1/3)`.  Unless I'm missing something in the math, you actually get `(v^2 - b - u^6/27) ^ ((2p - 1)/3)`.\r\n\r\n> Thinking about it, step 15 doesn't really make sense anyway. As the whole thing is `mod p`, isn't that step just equivalent to `t1 = -1 mod p`? I'm clearly missing something.\r\n\r\nStep 15 is in the group of exponents, i.e. `mod (p-1)`. Which is what gives the equivalence required (2p-1)/3 = 1/3 `mod (p-1)`.\r\n"
   },
@@ -695,7 +1055,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -704,8 +1064,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2018-09-01T23:13:39Z",
-    "updated_at": "2018-10-21T20:11:45Z",
-    "closed_at": null,
+    "updated_at": "2018-10-22T19:29:13Z",
+    "closed_at": "2018-10-22T19:29:13Z",
     "author_association": "OWNER",
     "body": "1. Section 2 states that n = qh + r, where n is order of the group of elliptic curve points, q is a prime order of a subgroup of the group of elliptic curve points, h is a cofactor and r is a remainder. Is there any sense to use value r? Every nonzero r directly violates Lagrange's theorem.\r\n\r\n2. In the sixth paragraph of Section 2 states that n can be estimated using Hasse's theorem as |n-p| < 2 * sqrt(p). This is true for the prime field case, otherwise we have to use Hasse-Weil theorem.\r\n\r\n3. The same paragraph refers that if point (x, y) belongs to some curve, then (x, -y) also does. It must be stated explicitly, that it is true for certain curve forms – because this is not true for some coordinate forms like twisted Edwards.\r\n\r\n4. The second paragraph of Section 2.1.1 states that \"In most cases, the curve E is over a finite field GF(p^k), with p > 2.\". Are you sure about it? The vast majority of standardized curves defined over extension fields seems to have p = 2.\r\n\r\n5. Some clarifications about two separate HashToBase implementations should be added into Section 5.2.2.\r\n\r\n6. Section 5.2.2, paragraph 6. Add word <<short>> before <<Weierstrass form>>.\r\n\r\n7. Section 5.2.4. Description of Elligator2 method uses f(x) function and returns its value instead of a pair of coordinates.\r\n\r\n8. Appendix B, paragraph 1. “Section Section”.\r\n\r\n9. Appendix B, algorithm description, step 4E. Does symbol ^ stay here for scalar point multiplication?\r\n\r\n10. I believe that the HashToBase function has to be described as explicitly as it is possible (including byte order, possible hash function sets for different curves) (the same issue with “be as explicit as possible” applies to our “Randomness improvements …” draft also J\r\n\r\n11. Appendix A.5. “&#8746” instead of cup symbol?\r\n\r\n12. Misprints: “artbirary”, “simplified”."
   },
@@ -743,17 +1103,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-09-01T23:11:41Z",
-    "updated_at": "2018-09-01T23:11:41Z",
-    "closed_at": null,
+    "updated_at": "2018-10-22T19:29:48Z",
+    "closed_at": "2018-10-22T19:29:48Z",
     "author_association": "OWNER",
     "body": ""
   },
@@ -1123,17 +1483,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-07-25T03:19:16Z",
-    "updated_at": "2018-07-25T03:19:16Z",
-    "closed_at": null,
+    "updated_at": "2018-10-22T20:12:10Z",
+    "closed_at": "2018-10-22T20:12:10Z",
     "author_association": "OWNER",
     "body": ""
   },
@@ -1184,7 +1544,10 @@
     "closed_at": null,
     "author_association": "OWNER",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/40",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
@@ -1315,7 +1678,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -1324,8 +1687,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-07-23T21:40:07Z",
-    "updated_at": "2018-07-23T21:40:07Z",
-    "closed_at": null,
+    "updated_at": "2018-10-22T20:33:38Z",
+    "closed_at": "2018-10-22T20:33:38Z",
     "author_association": "OWNER",
     "body": ""
   },
@@ -1558,10 +1921,7 @@
     "closed_at": null,
     "author_association": "OWNER",
     "body": "https://eprint.iacr.org/2014/043.pdf"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/33",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
@@ -2333,9 +2693,9 @@
       }
     ],
     "milestone": null,
-    "comments": 4,
+    "comments": 5,
     "created_at": "2018-05-11T12:25:10Z",
-    "updated_at": "2018-10-08T16:58:24Z",
+    "updated_at": "2018-10-22T23:31:13Z",
     "closed_at": null,
     "author_association": "FIRST_TIMER",
     "pull_request": {
@@ -2632,17 +2992,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 2,
     "created_at": "2018-03-26T13:48:32Z",
-    "updated_at": "2018-03-26T13:48:32Z",
-    "closed_at": null,
+    "updated_at": "2018-10-23T14:52:40Z",
+    "closed_at": "2018-10-22T20:33:44Z",
     "author_association": "OWNER",
     "body": "- Clarify the meaning of \"2n-octet string” when introducing RS2ECP. Also, RS2ECP is not explicitly defined in RFC8032, but in https://tools.ietf.org/id/draft-goldbe-vrf-01.html#suites. According to that, only when curve is Ed25519, RS2ECP is defined in Section 5.1.3 of [RFC8032].\r\n"
   },
@@ -2776,7 +3136,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -2785,11 +3145,14 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-03-26T13:42:37Z",
-    "updated_at": "2018-03-26T13:42:37Z",
-    "closed_at": null,
+    "updated_at": "2018-10-22T20:33:48Z",
+    "closed_at": "2018-10-22T20:33:48Z",
     "author_association": "OWNER",
     "body": "Step \"21\" indicates an equality comparison.  Unless implemented specially, these could lead to side-channel attacks as an equality check of equal values takes longer than one where the values are unequal. It might be more secure to separately compute both comparisons, i.e. also compute \"e_2 = (y2 ^ 2 == h3)\" as a mitigation strategy or alternative to implementing constant time equality checks, which might not be readily available in different BigInteger libraries/languages.\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/10",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
@@ -3208,10 +3571,7 @@
     "closed_at": null,
     "author_association": "OWNER",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve/issues/3",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-sullivan-cfrg-hash-to-curve",
