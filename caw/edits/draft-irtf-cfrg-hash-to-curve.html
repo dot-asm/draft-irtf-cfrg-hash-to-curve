@@ -547,14 +547,14 @@ ul.toc li {
 <h1 id="rfc.section.2.1.3">
 <a href="#rfc.section.2.1.3">2.1.3.</a> <a href="#term-rom" id="term-rom">Random Oracle</a>
 </h1>
-<p id="rfc.section.2.1.3.p.1">It is often the case that the output of the encoding function <a href="#term-encoding" class="xref">Section 2.1.1</a> should be (a) distributed uniformly at random on the elliptic curve and (b) invertible.  That is, there is no discernible relation existing between outputs that can be computed based on the inputs. Moreover, given such an encoding function F from bitstrings to points on the curve, as well as a single point y, it is computationally intractable to produce an input x that maps to a y via F. In practice, these requirement stem from needing a random oracle which outputs elliptic curve points:  one way to construct this is by first taking a regular random oracle, operating entirely on bitstrings, and applying a suitable encoding function to the output.</p>
+<p id="rfc.section.2.1.3.p.1">It is often the case that the output of the encoding function <a href="#term-encoding" class="xref">Section 2.1.1</a> should be (a) distributed uniformly at random on the elliptic curve and (b) non-invertible.  That is, there is no discernible relation existing between outputs that can be computed based on the inputs. Moreover, given such an encoding function F from bitstrings to points on the curve, as well as a single point y, it is computationally intractable to produce an input x that maps to a y via F. In practice, these requirement stem from needing a random oracle which outputs elliptic curve points:  one way to construct this is by first taking a regular random oracle, operating entirely on bitstrings, and applying a suitable encoding function to the output.</p>
 <p id="rfc.section.2.1.3.p.2">This motivates the term &#8220;hashing to the curve&#8221;, since cryptographic hash functions are typically modeled as random oracles. However, this still leaves open the question of what constitutes a suitable encoding method, which is a primary concern of this document.</p>
 <p id="rfc.section.2.1.3.p.3">A random oracle onto an elliptic curve can also be instantiated using direct constructions, however these tend to rely on many group operations and are less efficient than hash and encode methods.</p>
 <h1 id="rfc.section.3">
 <a href="#rfc.section.3">3.</a> <a href="#recommendations" id="recommendations">Algorithm Recommendations</a>
 </h1>
 <p id="rfc.section.3.p.1">In practice, two types of mappings are common: (1) Injective encodings, as can be used to construct a PRF as F(k, m) = k*H(m), and (2) Random Oracles, as required by PAKEs <a href="#BMP00" class="xref">[BMP00]</a>, BLS <a href="#BLS01" class="xref">[BLS01]</a>, and IBE <a href="#BF01" class="xref">[BF01]</a>. (Some applications, such as IBE, have additional requirements, such as a Supersingular, pairing-friendly curve.)</p>
-<p id="rfc.section.3.p.2">The following table lists recommended algorithms for different curves and mappings. To select a suitable algorithm, choose the mapping associated with the target curve. For example, Elligator2 is the recommended injective encoding function for Curve25519, whereas Simple SWU is the recommended injective encoding for P-256.</p>
+<p id="rfc.section.3.p.2">The following table lists recommended algorithms for different curves and mappings. To select a suitable algorithm, choose the mapping associated with the target curve. For example, Elligator2 is the recommended injective encoding function for Curve25519, whereas Simple SWU is the recommended injective encoding for P-256. Similarly, the FFSTV Random Oracle construction described in <a href="#ffstv" class="xref">Section 6.2</a> composed with Elligator2 should be used for Random Oracle mappings to Curve25519. When the required mapping is not clear, applications SHOULD use a Random Oracle.</p>
 <table cellpadding="3" cellspacing="0" class="tt full center">
 <thead><tr>
 <th class="left">Curve</th>
@@ -566,25 +566,29 @@ ul.toc li {
 <td class="left">P-256</td>
 <td class="left">Simple SWU <a href="#simple-swu" class="xref">Section 5.2.3</a>
 </td>
-<td class="left">FFSTV(SWU)</td>
+<td class="left">FFSTV(SWU) <a href="#ffstv" class="xref">Section 6.2</a>
+</td>
 </tr>
 <tr>
 <td class="left">P-384</td>
 <td class="left">Icart <a href="#icart" class="xref">Section 5.2.1</a>
 </td>
-<td class="left">FFSTV(Icart)</td>
+<td class="left">FFSTV(Icart) <a href="#ffstv" class="xref">Section 6.2</a>
+</td>
 </tr>
 <tr>
 <td class="left">Curve25519</td>
 <td class="left">Elligator2 <a href="#elligator2" class="xref">Section 5.2.4</a>
 </td>
-<td class="left">FFSTV(Elligator2)</td>
+<td class="left">FFSTV(Elligator2) <a href="#ffstv" class="xref">Section 6.2</a>
+</td>
 </tr>
 <tr>
 <td class="left">Curve448</td>
 <td class="left">Elligator2 <a href="#elligator2" class="xref">Section 5.2.4</a>
 </td>
-<td class="left">FFSTV(Elligator2)s</td>
+<td class="left">FFSTV(Elligator2) <a href="#ffstv" class="xref">Section 6.2</a>
+</td>
 </tr>
 </tbody>
 </table>

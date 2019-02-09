@@ -71,7 +71,7 @@ Table of Contents
    4.  Utility Functions . . . . . . . . . . . . . . . . . . . . . .   6
    5.  Deterministic Encodings . . . . . . . . . . . . . . . . . . .   7
      5.1.  Interface . . . . . . . . . . . . . . . . . . . . . . . .   7
-     5.2.  Encoding Variants . . . . . . . . . . . . . . . . . . . .   7
+     5.2.  Encoding Variants . . . . . . . . . . . . . . . . . . . .   8
        5.2.1.  Icart Method  . . . . . . . . . . . . . . . . . . . .   8
        5.2.2.  Shallue-Woestijne-Ulas Method . . . . . . . . . . . .   9
        5.2.3.  Simplified SWU Method . . . . . . . . . . . . . . . .  11
@@ -265,12 +265,12 @@ Internet-Draft                hash-to-curve                February 2019
 
    It is often the case that the output of the encoding function
    Section 2.1.1 should be (a) distributed uniformly at random on the
-   elliptic curve and (b) invertible.  That is, there is no discernible
-   relation existing between outputs that can be computed based on the
-   inputs.  Moreover, given such an encoding function F from bitstrings
-   to points on the curve, as well as a single point y, it is
-   computationally intractable to produce an input x that maps to a y
-   via F.  In practice, these requirement stem from needing a random
+   elliptic curve and (b) non-invertible.  That is, there is no
+   discernible relation existing between outputs that can be computed
+   based on the inputs.  Moreover, given such an encoding function F
+   from bitstrings to points on the curve, as well as a single point y,
+   it is computationally intractable to produce an input x that maps to
+   a y via F.  In practice, these requirement stem from needing a random
    oracle which outputs elliptic curve points: one way to construct this
    is by first taking a regular random oracle, operating entirely on
    bitstrings, and applying a suitable encoding function to the output.
@@ -304,23 +304,39 @@ Internet-Draft                hash-to-curve                February 2019
    associated with the target curve.  For example, Elligator2 is the
    recommended injective encoding function for Curve25519, whereas
    Simple SWU is the recommended injective encoding for P-256.
+   Similarly, the FFSTV Random Oracle construction described in
+   Section 6.2 composed with Elligator2 should be used for Random Oracle
+   mappings to Curve25519.  When the required mapping is not clear,
+   applications SHOULD use a Random Oracle.
 
-      +------------+--------------------------+--------------------+
-      | Curve      | Inj. Encoding            | Random Oracle      |
-      +------------+--------------------------+--------------------+
-      | P-256      | Simple SWU Section 5.2.3 | FFSTV(SWU)         |
-      |            |                          |                    |
-      | P-384      | Icart Section 5.2.1      | FFSTV(Icart)       |
-      |            |                          |                    |
-      | Curve25519 | Elligator2 Section 5.2.4 | FFSTV(Elligator2)  |
-      |            |                          |                    |
-      | Curve448   | Elligator2 Section 5.2.4 | FFSTV(Elligator2)s |
-      +------------+--------------------------+--------------------+
+   +------------+------------------------+-----------------------------+
+   | Curve      | Inj. Encoding          | Random Oracle               |
+   +------------+------------------------+-----------------------------+
+   | P-256      | Simple SWU             | FFSTV(SWU) Section 6.2      |
+   |            | Section 5.2.3          |                             |
+   |            |                        |                             |
+   | P-384      | Icart Section 5.2.1    | FFSTV(Icart) Section 6.2    |
+   |            |                        |                             |
+   | Curve25519 | Elligator2             | FFSTV(Elligator2)           |
+   |            | Section 5.2.4          | Section 6.2                 |
+   |            |                        |                             |
+   | Curve448   | Elligator2             | FFSTV(Elligator2)           |
+   |            | Section 5.2.4          | Section 6.2                 |
+   +------------+------------------------+-----------------------------+
 
 4.  Utility Functions
 
    Algorithms in this document make use of utility functions described
    below.
+
+
+
+
+
+Scott, et al.            Expires August 13, 2019                [Page 6]
+
+Internet-Draft                hash-to-curve                February 2019
+
 
    o  HashToBase(x, i).  This method is parametrized by p and H, where p
       is the prime order of the base field Fp, and H is a cryptographic
@@ -330,14 +346,6 @@ Internet-Draft                hash-to-curve                February 2019
 
       We provide a more detailed algorithm in Appendix C.5.  The value
       of i is used to separate inputs when used multiple times in one
-
-
-
-Scott, et al.            Expires August 13, 2019                [Page 6]
-
-Internet-Draft                hash-to-curve                February 2019
-
-
       algorithm (see Section 6.2 for example).  When i is omitted, we
       set it to 0.
 
@@ -376,14 +384,6 @@ Internet-Draft                hash-to-curve                February 2019
 
    where alpha is a message to encode on a curve.
 
-5.2.  Encoding Variants
-
-   As a rough style guide for the following, we use (x, y) to be the
-   output coordinates of the encoding method.  Indexed values are used
-   when the algorithm will choose between candidate values.  For
-   example, the SWU algorithm computes three candidates (x1, y1), (x2,
-   y2), (x3, y3), from which the final (x, y) output is chosen via
-   constant time comparison operations.
 
 
 
@@ -393,6 +393,15 @@ Scott, et al.            Expires August 13, 2019                [Page 7]
 
 Internet-Draft                hash-to-curve                February 2019
 
+
+5.2.  Encoding Variants
+
+   As a rough style guide for the following, we use (x, y) to be the
+   output coordinates of the encoding method.  Indexed values are used
+   when the algorithm will choose between candidate values.  For
+   example, the SWU algorithm computes three candidates (x1, y1), (x2,
+   y2), (x3, y3), from which the final (x, y) output is chosen via
+   constant time comparison operations.
 
    We use u, v to denote the values in Fp output from HashToBase, and
    use as initial values in the encoding.
@@ -432,15 +441,6 @@ Internet-Draft                hash-to-curve                February 2019
    The following procedure implements this algorithm in a straight-line
    fashion.  It requires knowledge of A and B, the constants from the
    curve Weierstrass form.  It outputs a point with affine coordinates.
-
-
-
-
-
-
-
-
-
 
 
 
