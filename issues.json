@@ -1,6 +1,210 @@
 [
 
   {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/84",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/84/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/84/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/84/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/84",
+    "id": 409568503,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjUyNTIyMTQz",
+    "number": 84,
+    "title": "Make more emphasis on preconditions for each algorithm.",
+    "user": {
+      "login": "armfazh",
+      "id": 10335519,
+      "node_id": "MDQ6VXNlcjEwMzM1NTE5",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10335519?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/armfazh",
+      "html_url": "https://github.com/armfazh",
+      "followers_url": "https://api.github.com/users/armfazh/followers",
+      "following_url": "https://api.github.com/users/armfazh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/armfazh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/armfazh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/armfazh/subscriptions",
+      "organizations_url": "https://api.github.com/users/armfazh/orgs",
+      "repos_url": "https://api.github.com/users/armfazh/repos",
+      "events_url": "https://api.github.com/users/armfazh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/armfazh/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-02-13T00:38:47Z",
+    "updated_at": "2019-02-13T00:38:47Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/84",
+      "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/84",
+      "diff_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/84.diff",
+      "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/84.patch"
+    },
+    "body": "This PR adds few things about formatting of algorithms. \r\nMakes a visible separation between Weierstrass and Montgomery curves.\r\n"
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/83",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/83/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/83/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/83/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/83",
+    "id": 409567562,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjUyNTIxNDQ4",
+    "number": 83,
+    "title": "Removes the index from HashToBase function.",
+    "user": {
+      "login": "armfazh",
+      "id": 10335519,
+      "node_id": "MDQ6VXNlcjEwMzM1NTE5",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10335519?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/armfazh",
+      "html_url": "https://github.com/armfazh",
+      "followers_url": "https://api.github.com/users/armfazh/followers",
+      "following_url": "https://api.github.com/users/armfazh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/armfazh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/armfazh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/armfazh/subscriptions",
+      "organizations_url": "https://api.github.com/users/armfazh/orgs",
+      "repos_url": "https://api.github.com/users/armfazh/repos",
+      "events_url": "https://api.github.com/users/armfazh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/armfazh/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-02-13T00:34:51Z",
+    "updated_at": "2019-02-13T18:34:04Z",
+    "closed_at": "2019-02-13T18:33:54Z",
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/83",
+      "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/83",
+      "diff_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/83.diff",
+      "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/83.patch"
+    },
+    "body": "Fixes: issue #80\r\n\r\nChanges:\r\n - Description of HashToBase in main document.\r\n - Sage scripts updated.\r\n - SWU test vectors were updated."
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/82",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/82/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/82/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/82/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/82",
+    "id": 409007423,
+    "node_id": "MDU6SXNzdWU0MDkwMDc0MjM=",
+    "number": 82,
+    "title": "Fix a selection method for roots",
+    "user": {
+      "login": "armfazh",
+      "id": 10335519,
+      "node_id": "MDQ6VXNlcjEwMzM1NTE5",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10335519?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/armfazh",
+      "html_url": "https://github.com/armfazh",
+      "followers_url": "https://api.github.com/users/armfazh/followers",
+      "following_url": "https://api.github.com/users/armfazh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/armfazh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/armfazh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/armfazh/subscriptions",
+      "organizations_url": "https://api.github.com/users/armfazh/orgs",
+      "repos_url": "https://api.github.com/users/armfazh/repos",
+      "events_url": "https://api.github.com/users/armfazh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/armfazh/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 5,
+    "created_at": "2019-02-11T22:31:35Z",
+    "updated_at": "2019-02-12T20:12:43Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "### background\r\nThe `sqrt(x)` function mathematically provides two correct answers, say r0, r1 \\in Fp such that `r0^2=r1^2=x` and r0+r1 = p\r\n### issue\r\nMost of the encoding papers prove how to obtain points on a elliptic curve internally using the `sqrt` function and this is enough for mathematical purposes. \r\nHowever, for implementation purposes this could bring a source of errors/incompatibilities if the `sqrt` function is not defined accordingly. \r\nI see two options to fix this issue:\r\n\r\n1. Declare explicitly how to compute the `sqrt` function for each case. Although that for `p=3 mod 4` is easy, the remainder cases are not easy to state.\r\n\r\n2. Declare explicitly which root to choose. Relying on math, the document can state, for example, that the valid root to use is the one that is odd (or even). It is known that either `r0` or `r1` will be odd. This allows the implementer to use the best-known algorithm for computing `sqrt` as soon as the root returned by it be the one that is odd (or even).\r\n\r\nI believe that Option 2 is suitable and more flexible. \r\nHappy to hear your comments about it.\r\n\r\n"
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/81",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/81/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/81/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/81/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/81",
+    "id": 409005786,
+    "node_id": "MDU6SXNzdWU0MDkwMDU3ODY=",
+    "number": 81,
+    "title": "Consider to deprecate hash2increment?",
+    "user": {
+      "login": "armfazh",
+      "id": 10335519,
+      "node_id": "MDQ6VXNlcjEwMzM1NTE5",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10335519?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/armfazh",
+      "html_url": "https://github.com/armfazh",
+      "followers_url": "https://api.github.com/users/armfazh/followers",
+      "following_url": "https://api.github.com/users/armfazh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/armfazh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/armfazh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/armfazh/subscriptions",
+      "organizations_url": "https://api.github.com/users/armfazh/orgs",
+      "repos_url": "https://api.github.com/users/armfazh/repos",
+      "events_url": "https://api.github.com/users/armfazh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/armfazh/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 2,
+    "created_at": "2019-02-11T22:26:44Z",
+    "updated_at": "2019-02-11T22:35:59Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "The purpose of the document is to avoid this bad practice (hash&increment), maybe it must be deprecated or recommended at last resort.\r\n@grittygrease "
+  },
+  {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/80",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/80/labels{/name}",
@@ -41,9 +245,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 12,
     "created_at": "2019-02-11T21:55:12Z",
-    "updated_at": "2019-02-11T21:55:12Z",
+    "updated_at": "2019-02-13T00:41:11Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "I am aware that the index allows to separate calls to `hash2base` function inside of SWU and on the construction of Random Oracles. \r\nHowever, I think that the index can be handled externally as follows:\r\n```\r\nRandomOracle(alpha) = hash2Base( alpha || 0 ) + hash2Base( alpha || 1 )\r\n```\r\nand SWU can be handled in the same fashion.  \r\n```\r\ndef SWU(alpha):\r\n    u = hash2Base(label || alpha || 0 ) \r\n    v = hash2Base(label || alpha || 1 )\r\n```\r\nThis modification eases the internal implementation of `hash2base` function and does not require to indicate default values for index in the cases where it is not present.\r\n"
@@ -137,9 +341,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-02-11T21:00:56Z",
-    "updated_at": "2019-02-11T21:00:56Z",
+    "updated_at": "2019-02-11T22:08:23Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -1344,7 +1548,10 @@
     "closed_at": "2019-01-26T01:30:48Z",
     "author_association": "COLLABORATOR",
     "body": "As per the title, as one concrete existing implementation of this functionality, plus an existing spec. We should consider whether we want to agree with the existing Signal specification https://signal.org/docs/specifications/xeddsa/."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/54",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -1536,10 +1743,7 @@
     "closed_at": "2018-10-09T05:19:51Z",
     "author_association": "OWNER",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/50",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -2153,9 +2357,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-07-23T21:40:18Z",
-    "updated_at": "2018-07-23T21:40:18Z",
+    "updated_at": "2019-02-12T06:36:55Z",
     "closed_at": null,
     "author_association": "OWNER",
     "body": ""
@@ -2925,7 +3129,10 @@
       "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/25.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/24",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -3167,10 +3374,7 @@
       "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/21.patch"
     },
     "body": "WIP on new recommendations table.\r\n\r\nCan use this to start filling out with any applications we want to cover?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/20",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
