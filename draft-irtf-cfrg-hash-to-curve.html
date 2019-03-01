@@ -324,7 +324,7 @@ ul.toc li {
 <link href="#rfc.appendix.C.4" rel="Chapter" title="C.4 Boneh-Franklin Method">
 <link href="#rfc.appendix.C.5" rel="Chapter" title="C.5 Fouque-Tibouchi Method">
 <link href="#rfc.appendix.C.6" rel="Chapter" title="C.6 Elligator2 Method">
-<link href="#rfc.appendix.C.7" rel="Chapter" title="C.7 HashToBase">
+<link href="#rfc.appendix.C.7" rel="Chapter" title="C.7 hash2base">
 <link href="#rfc.appendix.C.7.1" rel="Chapter" title="C.7.1 Considerations">
 <link href="#rfc.appendix.D" rel="Chapter" title="D Test Vectors">
 <link href="#rfc.appendix.D.1" rel="Chapter" title="D.1 Elligator2 to Curve25519">
@@ -333,7 +333,7 @@ ul.toc li {
 <link href="#rfc.appendix.D.4" rel="Chapter" title="D.4 Simple SWU to P-256">
 <link href="#rfc.appendix.D.5" rel="Chapter" title="D.5 Boneh-Franklin to P-503">
 <link href="#rfc.appendix.D.6" rel="Chapter" title="D.6 Fouque-Tibouchi to BN256">
-<link href="#rfc.appendix.D.7" rel="Chapter" title="D.7 Sample HashToBase">
+<link href="#rfc.appendix.D.7" rel="Chapter" title="D.7 Sample hash2base">
 <link href="#rfc.authors" rel="Chapter">
 
 
@@ -491,7 +491,7 @@ ul.toc li {
 </li>
 <li>C.6.   <a href="#rfc.appendix.C.6">Elligator2 Method</a>
 </li>
-<li>C.7.   <a href="#rfc.appendix.C.7">HashToBase</a>
+<li>C.7.   <a href="#rfc.appendix.C.7">hash2base</a>
 </li>
 <ul><li>C.7.1.   <a href="#rfc.appendix.C.7.1">Considerations</a>
 </li>
@@ -509,7 +509,7 @@ ul.toc li {
 </li>
 <li>D.6.   <a href="#rfc.appendix.D.6">Fouque-Tibouchi to BN256</a>
 </li>
-<li>D.7.   <a href="#rfc.appendix.D.7">Sample HashToBase</a>
+<li>D.7.   <a href="#rfc.appendix.D.7">Sample hash2base</a>
 </li>
 </ul><li><a href="#rfc.authors">Authors' Addresses</a>
 </li>
@@ -635,7 +635,7 @@ ul.toc li {
 <p></p>
 
 <ul>
-<li>HashToBase(x).  This method is parametrized by p and H, where p is the prime order of the base field Fp, and H is a cryptographic hash function which outputs at least floor(log2(p)) + 1 bits.  The function first hashes x, converts the result to an integer, and reduces modulo p to give an element of Fp.  We provide a more detailed algorithm in <a href="#hashtobase" class="xref">Appendix C.7</a>.</li>
+<li>hash2base(x).  This method is parametrized by p and H, where p is the prime order of the base field Fp, and H is a cryptographic hash function which outputs at least floor(log2(p)) + 1 bits.  The function first hashes x, converts the result to an integer, and reduces modulo p to give an element of Fp.  We provide a more detailed algorithm in <a href="#hashtobase" class="xref">Appendix C.7</a>.</li>
 <li>CMOV(a, b, c): If c = 1, return a, else return b.  <br><br> Common software implementations of constant-time selects assume c = 1 or c = 0. CMOV may be implemented by computing the desired selector (0 or 1) by ORing all bits of c together. The end result will be either 0 if all bits of c are zero, or 1 if at least one bit of c is 1.</li>
 <li>CTEQ(a, b): Returns a == b.  Inputs a and b must be the same length (as bytestrings) and the comparison must be implemented in constant time.</li>
 <li>Legendre(x, p): x^((p-1)/2).  The Legendre symbol computes whether the value x is a &#8220;quadratic residue&#8221; modulo p, and takes values 1, -1, 0, for when x is a residue, non-residue, or zero, respectively. Due to Euler&#8217;s criterion, this can be computed in constant time, with respect to a fixed p, using the equation x^((p-1)/2). For clarity, we will generally prefer using the formula directly, and annotate the usage with this definition.</li>
@@ -662,7 +662,7 @@ map2curve(alpha)
 <a href="#rfc.section.5.2">5.2.</a> <a href="#notation" id="notation">Notation</a>
 </h1>
 <p id="rfc.section.5.2.p.1">As a rough style guide for the following, we use (x, y) to be the output coordinates of the encoding method. Indexed values are used when the algorithm will choose between candidate values. For example, the SWU algorithm computes three candidates (x1, y1), (x2, y2), (x3, y3), from which the final (x, y) output is chosen via constant time comparison operations.</p>
-<p id="rfc.section.5.2.p.2">We use u, v to denote the values in Fp output from HashToBase, and use as initial values in the encoding.</p>
+<p id="rfc.section.5.2.p.2">We use u, v to denote the values in Fp output from hash2base, and use as initial values in the encoding.</p>
 <p id="rfc.section.5.2.p.3">We use t1, t2, &#8230;, as reusable temporary variables. For notable variables, we will use a distinct name, for ease of debugging purposes when correlating with test vectors.</p>
 <p id="rfc.section.5.2.p.4">The code presented here corresponds to the example Sage <a href="#SAGE" class="xref">[SAGE]</a> code found at <a href="#github-repo" class="xref">[github-repo]</a>. Which is additionally used to generate intermediate test vectors. The Sage code is also checked against the hacspec implementation.</p>
 <p id="rfc.section.5.2.p.5">Note that each encoding requires that certain preconditions must hold in order to be applied.</p>
@@ -694,7 +694,7 @@ map2curve(alpha)
 <ul><li>(x,y), a point in E.</li></ul>
 <p id="rfc.section.5.3.1.p.11">Operations:</p>
 <pre>
-u = HashToBase(alpha)
+u = hash2base(alpha)
 v = ((3A - u^4) / 6u)
 x = (v^2 - B - (u^6 / 27))^(1/3) + (u^2 / 3)
 y = ux + v
@@ -722,7 +722,7 @@ Precomputations:
 
 Steps:
 
-1.   u = HashToBase(alpha)   // {0,1}^* -&gt; Fp
+1.   u = hash2base(alpha)   // {0,1}^* -&gt; Fp
 2.  u2 = u^2                 // u^2
 3.  u4 = u2^2                // u^4
 4.   v = 3 * A               // 3A in Fp
@@ -770,8 +770,8 @@ Steps:
 <ul><li>(x,y), a point in E.</li></ul>
 <p id="rfc.section.5.3.2.p.11">Operations:</p>
 <pre>
-1.  u = HashToBase(alpha || 0x00)
-2.  v = HashToBase(alpha || 0x01)
+1.  u = hash2base(alpha || 0x00)
+2.  v = hash2base(alpha || 0x01)
 3. x1 = v
 4. x2 = (-B / A)(1 + 1 / (u^4 * g(v)^2 + u^2 * g(v)))
 5. x3 = u^2 * g(v)^2  * g(x2)
@@ -804,8 +804,8 @@ Precomputations:
 
 Steps:
 
-1.    u = HashToBase(alpha || 0x00)  // {0,1}^* -&gt; Fp
-2.    v = HashToBase(alpha || 0x01)  // {0,1}^* -&gt; Fp
+1.    u = hash2base(alpha || 0x00)  // {0,1}^* -&gt; Fp
+2.    v = hash2base(alpha || 0x01)  // {0,1}^* -&gt; Fp
 3.   x1 = v                     // x1 = v
 4.   gv = v^3
 5.   gv = gv + (A * v)
@@ -864,7 +864,7 @@ Steps:
 <p id="rfc.section.5.3.3.p.11">Operations:</p>
 <pre>
 1. Define g(x) = x^3 + Ax + B
-2. u = HashToBase(alpha)
+2. u = hash2base(alpha)
 3. x1 = -B/A * (1 + (1 / (u^4 - u^2)))
 4. x2 = &#8722;u^2 * x1
 5. If g(x1) is square, output (x1, sqrt(g(x1)))
@@ -890,7 +890,7 @@ Precomputations:
 
 Steps:
 
-1.    u = HashToBase(alpha)  // {0,1}^* -&gt; Fp
+1.    u = hash2base(alpha)  // {0,1}^* -&gt; Fp
 2.   u2 = u^2
 3.   u2 = -u2                // u2 = -u^2
 4.   u4 = u2^2
@@ -940,7 +940,7 @@ Steps:
 <samp>(x, y)</samp>: a point in E.</li></ul>
 <p id="rfc.section.5.3.4.p.11">Operations:</p>
 <pre>
-1. u = HashToBase(alpha)
+1. u = hash2base(alpha)
 2. x = (u^2 - B)^((2 * q - 1) / 3)
 3. Output (x, u)
 </pre>
@@ -964,7 +964,7 @@ Precomputations:
 
 Steps:
 
-1.  u = HashToBase(alpha)  // {0,1}^* -&gt; F_q
+1.  u = hash2base(alpha)  // {0,1}^* -&gt; F_q
 2. t0 = u^2                // t0 = u^2
 3. t1 = t0 - B             // t1 = u^2 - B
 4.  x = t1^c               // x  = (u^2 - B)^((2 * q - 1) / 3)
@@ -1007,7 +1007,7 @@ Steps:
 <ul><li>(x, y): a point in E.</li></ul>
 <p id="rfc.section.5.3.5.p.11">Operations:</p>
 <pre>
-1. t = HashToBase(alpha)
+1. t = hash2base(alpha)
 2. w = (s * t)/(1 + B + t^2)
 3. x1 = ((-1 + s) / 2) - t * w
 4. x2 = -1 - x1
@@ -1038,7 +1038,7 @@ Precomputations:
 
 Steps:
 
-1.  t = HashToBase(alpha)  // {0,1}^* -&gt; Fp
+1.  t = hash2base(alpha)  // {0,1}^* -&gt; Fp
 2.  k = t^2                // t^2
 3.  k = k + B + 1          // t^2 + B + 1
 4.  k = 1 / k              // 1 / (t^2 + B + 1)
@@ -1095,7 +1095,7 @@ Steps:
 <p id="rfc.section.5.4.1.p.11">Operations:</p>
 <pre>
 1. Define g(x) = x(x^2 + Ax + B)
-2. u = HashToBase(alpha)
+2. u = hash2base(alpha)
 3. v = -A/(1 + N*u^2)
 4. e = Legendre(g(v))
 5.1. If u != 0, then
@@ -1127,7 +1127,7 @@ Precomputations:
 
 Steps:
 
-1.   u = HashToBase(alpha)
+1.   u = hash2base(alpha)
 2.  t1 = u^2
 3.  t1 = N * t1
 4.  t1 = 1 + t1
@@ -1184,7 +1184,7 @@ hash2curveRO(alpha) = hash2curve(alpha || 0x02) + hash2curve(alpha || 0x03)
 
 <ul>
 <li>Destination Group (e.g. P256 or Curve25519)</li>
-<li>HashToBase algorithm</li>
+<li>hash2base algorithm</li>
 <li>HashToCurve algorithm (e.g. SSWU, Icart)</li>
 <li>(Optional) Transformation (e.g. FFSTV, cofactor clearing)</li>
 </ul>
@@ -1207,7 +1207,7 @@ hash2curveRO(alpha) = hash2curve(alpha || 0x02) + hash2curve(alpha || 0x03)
 
 <ul>
 <li>The destination group is the set of points on the NIST P-256 elliptic curve, with curve parameters as specified in <a href="#DSS" class="xref">[DSS]</a> (Section D.1.2.3) and <a href="#RFC5114" class="xref">[RFC5114]</a> (Section 2.6).</li>
-<li>HashToBase is defined as {#hashtobase} with the hash function defined as SHA-256 as specified in <a href="#RFC6234" class="xref">[RFC6234]</a>, and p set to the prime field used in P-256 (2^256 - 2^224 + 2^192 + 2^96 - 1).</li>
+<li>hash2base is defined as {#hashtobase} with the hash function defined as SHA-256 as specified in <a href="#RFC6234" class="xref">[RFC6234]</a>, and p set to the prime field used in P-256 (2^256 - 2^224 + 2^192 + 2^96 - 1).</li>
 <li>HashToCurve is defined to be {#sswu} with A and B taken from the definition of P-256 (A=-3, B=41058363725152142129326129780047268409114441015993725554835256314039467401291).</li>
 </ul>
 <p id="rfc.section.8.p.8">H2C-P384-SHA512-Icart- is defined as follows:</p>
@@ -1215,7 +1215,7 @@ hash2curveRO(alpha) = hash2curve(alpha || 0x02) + hash2curve(alpha || 0x03)
 
 <ul>
 <li>The destination group is the set of points on the NIST P-384 elliptic curve, with curve parameters as specified in <a href="#DSS" class="xref">[DSS]</a> (Section D.1.2.4) and <a href="#RFC5114" class="xref">[RFC5114]</a> (Section 2.7).</li>
-<li>HashToBase is defined as {#hashtobase} with the hash function defined as SHA-512 as specified in <a href="#RFC6234" class="xref">[RFC6234]</a>, and p set to the prime field used in P-384 (2^384 - 2^128 - 2^96 + 2^32 - 1).</li>
+<li>hash2base is defined as {#hashtobase} with the hash function defined as SHA-512 as specified in <a href="#RFC6234" class="xref">[RFC6234]</a>, and p set to the prime field used in P-384 (2^384 - 2^128 - 2^96 + 2^32 - 1).</li>
 <li>HashToCurve is defined to be {#icart} with A and B taken from the definition of P-384 (A=-3, B=27580193559959705877849011840389048093056905856361568521428707301988689241309860865136260764883745107765439761230575).</li>
 </ul>
 <p id="rfc.section.8.p.10">H2C-Curve25519-SHA512-Elligator2-Clear is defined as follows:</p>
@@ -1223,7 +1223,7 @@ hash2curveRO(alpha) = hash2curve(alpha || 0x02) + hash2curve(alpha || 0x03)
 
 <ul>
 <li>The destination group is the points on Curve25519, with curve parameters as specified in <a href="#RFC7748" class="xref">[RFC7748]</a> (Section 4.1).</li>
-<li>HashToBase is defined as {#hashtobase} with the hash function defined as SHA-512 as specified in <a href="#RFC6234" class="xref">[RFC6234]</a>, and p set to the prime field used in Curve25519 (2^255 - 19).</li>
+<li>hash2base is defined as {#hashtobase} with the hash function defined as SHA-512 as specified in <a href="#RFC6234" class="xref">[RFC6234]</a>, and p set to the prime field used in Curve25519 (2^255 - 19).</li>
 <li>HashToCurve is defined to be {#elligator2} with the curve function defined to be the Montgomery form of Curve25519 (y^2 = x^3 + 486662x^2 + x) and N = 2.</li>
 <li>The final output is multiplied by the cofactor of Curve25519, 8.</li>
 </ul>
@@ -1232,7 +1232,7 @@ hash2curveRO(alpha) = hash2curve(alpha || 0x02) + hash2curve(alpha || 0x03)
 
 <ul>
 <li>The destination group is the points on Curve448, with curve parameters as specified in <a href="#RFC7748" class="xref">[RFC7748]</a> (Section 4.1).</li>
-<li>HashToBase is defined as {#hashtobase} with the hash function defined as SHA-512 as specified in <a href="#RFC6234" class="xref">[RFC6234]</a>, and p set to the prime field used in Curve448 (2^448 - 2^224 - 1).</li>
+<li>hash2base is defined as {#hashtobase} with the hash function defined as SHA-512 as specified in <a href="#RFC6234" class="xref">[RFC6234]</a>, and p set to the prime field used in Curve448 (2^448 - 2^224 - 1).</li>
 <li>HashToCurve is defined to be {#elligator2} with the curve function defined to be the Montgomery form of Curve448 (y^2 = x^3 + 156326x^2 + x) and N = -1.</li>
 <li>The final output is multiplied by the cofactor of Curve448, 4.</li>
 </ul>
@@ -1698,11 +1698,11 @@ def map2curve25519(r:felem_t) -&gt; felem_t:
     return x
 </pre>
 <h1 id="rfc.appendix.C.7">
-<a href="#rfc.appendix.C.7">C.7.</a> <a href="#hashtobase" id="hashtobase">HashToBase</a>
+<a href="#rfc.appendix.C.7">C.7.</a> <a href="#hashtobase" id="hashtobase">hash2base</a>
 </h1>
-<p id="rfc.section.C.7.p.1">The following procedure implements HashToBase.</p>
+<p id="rfc.section.C.7.p.1">The following procedure implements hash2base.</p>
 <pre>
-HashToBase(x)
+hash2base(x)
 
 Parameters:
 
@@ -1734,14 +1734,14 @@ Steps:
 <h1 id="rfc.appendix.C.7.1">
 <a href="#rfc.appendix.C.7.1">C.7.1.</a> <a href="#considerations" id="considerations">Considerations</a>
 </h1>
-<p id="rfc.section.C.7.1.p.1">Performance: HashToBase requires hashing the entire input x. In some algorithms/ciphersuite combinations, HashToBase is called multiple times. For large inputs, implementers can therefore consider hashing x before calling HashToBase. I.e. HashToBase(H&#8217;(x)).</p>
-<p id="rfc.section.C.7.1.p.2">Most algorithms assume that HashToBase maps its input to the base field uniformly. In practice, there will be inherent biases. For example, taking H as SHA256, over the finite field used by Curve25519 we have p = 2^255 - 19, and thus when reducing from 255 bits, the values of 0 .. 19 will be twice as likely to occur. This is a standard problem in generating uniformly distributed integers from a bitstring. In this example, the resulting bias is negligible, but for others this bias can be significant.</p>
-<p id="rfc.section.C.7.1.p.3">To address this, our HashToBase algorithm greedily takes as many bits as possible before reducing mod p, in order to smooth out this bias. This is preferable to an iterated procedure, such as rejection sampling, since this can be hard to reliably implement in constant time.</p>
+<p id="rfc.section.C.7.1.p.1">Performance: hash2base requires hashing the entire input x. In some algorithms/ciphersuite combinations, hash2base is called multiple times. For large inputs, implementers can therefore consider hashing x before calling hash2base. I.e. hash2base(H&#8217;(x)).</p>
+<p id="rfc.section.C.7.1.p.2">Most algorithms assume that hash2base maps its input to the base field uniformly. In practice, there will be inherent biases. For example, taking H as SHA256, over the finite field used by Curve25519 we have p = 2^255 - 19, and thus when reducing from 255 bits, the values of 0 .. 19 will be twice as likely to occur. This is a standard problem in generating uniformly distributed integers from a bitstring. In this example, the resulting bias is negligible, but for others this bias can be significant.</p>
+<p id="rfc.section.C.7.1.p.3">To address this, our hash2base algorithm greedily takes as many bits as possible before reducing mod p, in order to smooth out this bias. This is preferable to an iterated procedure, such as rejection sampling, since this can be hard to reliably implement in constant time.</p>
 <p id="rfc.section.C.7.1.p.4">The running time of each map2curve function is dominated by the cost of finite field inversion. Assuming T_i(F) is the time of inversion in field F, a rough bound on the running time of each map2curve function is O(T_i(F)) for the associated field.</p>
 <h1 id="rfc.appendix.D">
 <a href="#rfc.appendix.D">Appendix D.</a> <a href="#test-vectors" id="test-vectors">Test Vectors</a>
 </h1>
-<p id="rfc.section.D.p.1">This section contains test vectors, generated from reference Sage code, for each map2curve variant and the HashToBase function described in <a href="#hashtobase" class="xref">Appendix C.7</a>.</p>
+<p id="rfc.section.D.p.1">This section contains test vectors, generated from reference Sage code, for each map2curve variant and the hash2base function described in <a href="#hashtobase" class="xref">Appendix C.7</a>.</p>
 <h1 id="rfc.appendix.D.1">
 <a href="#rfc.appendix.D.1">D.1.</a> <a href="#elligator2-to-curve25519" id="elligator2-to-curve25519">Elligator2 to Curve25519</a>
 </h1>
@@ -2473,18 +2473,17 @@ Output:
           71ab33035e
 </pre>
 <h1 id="rfc.appendix.D.7">
-<a href="#rfc.appendix.D.7">D.7.</a> <a href="#sample-hashtobase" id="sample-hashtobase">Sample HashToBase</a>
+<a href="#rfc.appendix.D.7">D.7.</a> <a href="#sample-hash2base" id="sample-hash2base">Sample hash2base</a>
 </h1>
 <pre>
-HashToBase("H2C-Curve25519-SHA256-Elligator-Clear", 1234)
-    = 1e10b542835e7b227c727bd0a7b2790f39ca1e09fc8538b3c70ef736cb1c298f
+hash2base("H2C-Curve25519-SHA256-Elligator-Clear", 1234) 
+  = 1e10b542835e7b227c727bd0a7b2790f39ca1e09fc8538b3c70ef736cb1c298f
 
-HashToBase("H2C-P256-SHA512-SWU-", 1234)
-    = 4fabef095423c97566bd28b70ee70fb4dd95acfeec076862f4e40981a6c9dd85
+hash2base("H2C-P256-SHA512-SWU-", 1234) 
+  = 4fabef095423c97566bd28b70ee70fb4dd95acfeec076862f4e40981a6c9dd85
 
-HashToBase("H2C-P256-SHA512-SSWU-", 1234)
-    = d6f685079d692e24ae13ab154684ae46c5311b78a704c6e11b2f44f4db4c6e47
-
+hash2base("H2C-P256-SHA512-SSWU-", 1234) 
+  = d6f685079d692e24ae13ab154684ae46c5311b78a704c6e11b2f44f4db4c6e47
 </pre>
 <h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
 <div class="avoidbreak">
