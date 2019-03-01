@@ -1,6 +1,156 @@
 [
 
   {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/87",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/87/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/87/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/87/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/87",
+    "id": 415263180,
+    "node_id": "MDU6SXNzdWU0MTUyNjMxODA=",
+    "number": 87,
+    "title": "Two minor bugs",
+    "user": {
+      "login": "crockeea",
+      "id": 4899463,
+      "node_id": "MDQ6VXNlcjQ4OTk0NjM=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4899463?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/crockeea",
+      "html_url": "https://github.com/crockeea",
+      "followers_url": "https://api.github.com/users/crockeea/followers",
+      "following_url": "https://api.github.com/users/crockeea/following{/other_user}",
+      "gists_url": "https://api.github.com/users/crockeea/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/crockeea/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/crockeea/subscriptions",
+      "organizations_url": "https://api.github.com/users/crockeea/orgs",
+      "repos_url": "https://api.github.com/users/crockeea/repos",
+      "events_url": "https://api.github.com/users/crockeea/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/crockeea/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-02-27T18:23:12Z",
+    "updated_at": "2019-02-27T19:50:52Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "In the description of HashToBase in section 4, there is a requirement that “H is a hash function which outputs at least floor(log2(p))+**2** bits. In appendix C.5 however, the precondition says that the hash function should output >= floor(log2(p))+**1** bits. I'm not sure which is correct, but they should be consistent.\r\n\r\nIn the algorithm for SimpleSWU, the overview says that the right factor of alpha is (1+(1/(t^4 **+** t^2))), but the original paper (Prop 7) shows (1+(1/(t^4 **-** t^2))). The problem is only in the overview; the algorithm details look correct because step 3 negates alpha.\r\n"
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/86",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/86/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/86/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/86/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/86",
+    "id": 410082784,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjUyOTA4MTQy",
+    "number": 86,
+    "title": "Includes encodings for Weierstrass curves with A=0",
+    "user": {
+      "login": "armfazh",
+      "id": 10335519,
+      "node_id": "MDQ6VXNlcjEwMzM1NTE5",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10335519?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/armfazh",
+      "html_url": "https://github.com/armfazh",
+      "followers_url": "https://api.github.com/users/armfazh/followers",
+      "following_url": "https://api.github.com/users/armfazh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/armfazh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/armfazh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/armfazh/subscriptions",
+      "organizations_url": "https://api.github.com/users/armfazh/orgs",
+      "repos_url": "https://api.github.com/users/armfazh/repos",
+      "events_url": "https://api.github.com/users/armfazh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/armfazh/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 5,
+    "created_at": "2019-02-14T01:30:09Z",
+    "updated_at": "2019-03-01T16:12:19Z",
+    "closed_at": "2019-03-01T16:12:18Z",
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/86",
+      "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/86",
+      "diff_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/86.diff",
+      "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/86.patch"
+    },
+    "body": "Changes:\r\n - Adds two new encodings FT and BF.\r\n - BF works for supersingular curves.\r\n - It is based on the suggested changes of\r\n   Ela B. Lee (#20) for the case of pairing-friendly\r\n   curves.\r\n - FT encoding supports all pairing-friendly curves.\r\n - FT also supports SECP256K1 (Bitcoin curve).\r\n\r\nAddresses: #16, #9 (partially), #39."
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/85",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/85/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/85/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/85/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/85",
+    "id": 409949356,
+    "node_id": "MDU6SXNzdWU0MDk5NDkzNTY=",
+    "number": 85,
+    "title": "Awkward description of FFSTV",
+    "user": {
+      "login": "samscott89",
+      "id": 13355482,
+      "node_id": "MDQ6VXNlcjEzMzU1NDgy",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/13355482?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/samscott89",
+      "html_url": "https://github.com/samscott89",
+      "followers_url": "https://api.github.com/users/samscott89/followers",
+      "following_url": "https://api.github.com/users/samscott89/following{/other_user}",
+      "gists_url": "https://api.github.com/users/samscott89/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/samscott89/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/samscott89/subscriptions",
+      "organizations_url": "https://api.github.com/users/samscott89/orgs",
+      "repos_url": "https://api.github.com/users/samscott89/repos",
+      "events_url": "https://api.github.com/users/samscott89/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/samscott89/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 2,
+    "created_at": "2019-02-13T18:50:14Z",
+    "updated_at": "2019-02-13T23:19:41Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "I think the way we specify the FFSTV (and potentially all the algorithms) is a bit clunky (at best) or ambiguous.\r\n\r\nIf we look at https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/blob/master/draft-irtf-cfrg-hash-to-curve.md#general-construction-ffstv13-ffstv\r\n\r\n```\r\n~~~\r\nhash2curve(alpha) = F(H0(alpha)) + F(H1(alpha))\r\n~~~\r\n\r\nThis construction works for the Icart, SWU, and Simplfied SWU encodings.\r\n\r\nHere, H0 and H1 are constructed as follows:\r\n\r\n~~~\r\nH0(alpha) = HashToBase(alpha || 0x2)\r\nH1(alpha) = HashToBase(alpha || 0x3)\r\n~~~\r\n```\r\n\r\nJust to check we are in agreement with what this is/should be doing. As it is written, you will hash alpha (with 0x02 or 0x03), pass the result to F. Which generally speaking will compute another hash. \r\n\r\nI.e. in Icart, you would effectively have `u = HashToBase(HashToBase(alpha || 0x02))` when computing the first of those? Which is a bit confusing since HashToBase outputs an element in Fp.\r\n\r\nAs an alternative, would we consider rewriting the algorithms to all be `Fp -> E`... Which saves the redundant hashing for some algorithms, but is messy since SWU actually needs `(Fp x Fp) -> E`.\r\n\r\nAnyway, just checking that the above is a correct reading."
+  },
+  {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/84",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/84/labels{/name}",
@@ -41,9 +191,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-02-13T00:38:47Z",
-    "updated_at": "2019-02-13T00:38:47Z",
+    "updated_at": "2019-02-15T00:18:53Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -149,9 +299,9 @@
 
     ],
     "milestone": null,
-    "comments": 5,
+    "comments": 6,
     "created_at": "2019-02-11T22:31:35Z",
-    "updated_at": "2019-02-12T20:12:43Z",
+    "updated_at": "2019-02-28T01:35:35Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "### background\r\nThe `sqrt(x)` function mathematically provides two correct answers, say r0, r1 \\in Fp such that `r0^2=r1^2=x` and r0+r1 = p\r\n### issue\r\nMost of the encoding papers prove how to obtain points on a elliptic curve internally using the `sqrt` function and this is enough for mathematical purposes. \r\nHowever, for implementation purposes this could bring a source of errors/incompatibilities if the `sqrt` function is not defined accordingly. \r\nI see two options to fix this issue:\r\n\r\n1. Declare explicitly how to compute the `sqrt` function for each case. Although that for `p=3 mod 4` is easy, the remainder cases are not easy to state.\r\n\r\n2. Declare explicitly which root to choose. Relying on math, the document can state, for example, that the valid root to use is the one that is odd (or even). It is known that either `r0` or `r1` will be odd. This allows the implementer to use the best-known algorithm for computing `sqrt` as soon as the root returned by it be the one that is odd (or even).\r\n\r\nI believe that Option 2 is suitable and more flexible. \r\nHappy to hear your comments about it.\r\n\r\n"
@@ -1392,7 +1542,10 @@
       "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/58.patch"
     },
     "body": "This PR corrects some parts of the texts that are imprecise.\r\nElligator2 must consider mapping the 0 \\in Fp  to the point (0,0); thus a clear cofactor phase must be added later."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/57",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -1548,10 +1701,7 @@
     "closed_at": "2019-01-26T01:30:48Z",
     "author_association": "COLLABORATOR",
     "body": "As per the title, as one concrete existing implementation of this functionality, plus an existing spec. We should consider whether we want to agree with the existing Signal specification https://signal.org/docs/specifications/xeddsa/."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/54",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -2979,7 +3129,10 @@
     "closed_at": "2018-07-13T20:23:42Z",
     "author_association": "OWNER",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/27",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -3129,10 +3282,7 @@
       "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/25.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/24",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
