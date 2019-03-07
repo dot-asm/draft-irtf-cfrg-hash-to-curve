@@ -1,6 +1,108 @@
 [
 
   {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/89",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/89/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/89/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/89/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/89",
+    "id": 416273949,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjU3NTc3ODg3",
+    "number": 89,
+    "title": "Rename HashToBase.",
+    "user": {
+      "login": "chris-wood",
+      "id": 2172048,
+      "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chris-wood",
+      "html_url": "https://github.com/chris-wood",
+      "followers_url": "https://api.github.com/users/chris-wood/followers",
+      "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+      "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+      "repos_url": "https://api.github.com/users/chris-wood/repos",
+      "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-03-01T20:50:18Z",
+    "updated_at": "2019-03-01T21:13:31Z",
+    "closed_at": "2019-03-01T21:13:31Z",
+    "author_association": "OWNER",
+    "pull_request": {
+      "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/89",
+      "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/89",
+      "diff_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/89.diff",
+      "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/89.patch"
+    },
+    "body": "Fixes #88."
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/88",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/88/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/88/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/88/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/88",
+    "id": 416178785,
+    "node_id": "MDU6SXNzdWU0MTYxNzg3ODU=",
+    "number": 88,
+    "title": "Consider renaming HashToBase to hash2base for consistency",
+    "user": {
+      "login": "chris-wood",
+      "id": 2172048,
+      "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chris-wood",
+      "html_url": "https://github.com/chris-wood",
+      "followers_url": "https://api.github.com/users/chris-wood/followers",
+      "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+      "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+      "repos_url": "https://api.github.com/users/chris-wood/repos",
+      "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-03-01T16:24:34Z",
+    "updated_at": "2019-03-01T21:13:31Z",
+    "closed_at": "2019-03-01T21:13:31Z",
+    "author_association": "OWNER",
+    "body": ""
+  },
+  {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/87",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/87/labels{/name}",
@@ -34,17 +136,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2019-02-27T18:23:12Z",
-    "updated_at": "2019-02-27T19:50:52Z",
-    "closed_at": null,
+    "updated_at": "2019-03-01T16:23:55Z",
+    "closed_at": "2019-03-01T16:23:55Z",
     "author_association": "NONE",
     "body": "In the description of HashToBase in section 4, there is a requirement that “H is a hash function which outputs at least floor(log2(p))+**2** bits. In appendix C.5 however, the precondition says that the hash function should output >= floor(log2(p))+**1** bits. I'm not sure which is correct, but they should be consistent.\r\n\r\nIn the algorithm for SimpleSWU, the overview says that the right factor of alpha is (1+(1/(t^4 **+** t^2))), but the original paper (Prop 7) shows (1+(1/(t^4 **-** t^2))). The problem is only in the overview; the algorithm details look correct because step 3 negates alpha.\r\n"
   },
@@ -136,17 +238,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 3,
     "created_at": "2019-02-13T18:50:14Z",
-    "updated_at": "2019-02-13T23:19:41Z",
-    "closed_at": null,
+    "updated_at": "2019-03-01T18:29:19Z",
+    "closed_at": "2019-03-01T18:29:18Z",
     "author_association": "COLLABORATOR",
     "body": "I think the way we specify the FFSTV (and potentially all the algorithms) is a bit clunky (at best) or ambiguous.\r\n\r\nIf we look at https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/blob/master/draft-irtf-cfrg-hash-to-curve.md#general-construction-ffstv13-ffstv\r\n\r\n```\r\n~~~\r\nhash2curve(alpha) = F(H0(alpha)) + F(H1(alpha))\r\n~~~\r\n\r\nThis construction works for the Icart, SWU, and Simplfied SWU encodings.\r\n\r\nHere, H0 and H1 are constructed as follows:\r\n\r\n~~~\r\nH0(alpha) = HashToBase(alpha || 0x2)\r\nH1(alpha) = HashToBase(alpha || 0x3)\r\n~~~\r\n```\r\n\r\nJust to check we are in agreement with what this is/should be doing. As it is written, you will hash alpha (with 0x02 or 0x03), pass the result to F. Which generally speaking will compute another hash. \r\n\r\nI.e. in Icart, you would effectively have `u = HashToBase(HashToBase(alpha || 0x02))` when computing the first of those? Which is a bit confusing since HashToBase outputs an element in Fp.\r\n\r\nAs an alternative, would we consider rewriting the algorithms to all be `Fp -> E`... Which saves the redundant hashing for some algorithms, but is messy since SWU actually needs `(Fp x Fp) -> E`.\r\n\r\nAnyway, just checking that the above is a correct reading."
   },
@@ -184,7 +286,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -193,8 +295,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-02-13T00:38:47Z",
-    "updated_at": "2019-02-15T00:18:53Z",
-    "closed_at": null,
+    "updated_at": "2019-03-01T16:16:25Z",
+    "closed_at": "2019-03-01T16:16:25Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/84",
@@ -299,9 +401,9 @@
 
     ],
     "milestone": null,
-    "comments": 6,
+    "comments": 10,
     "created_at": "2019-02-11T22:31:35Z",
-    "updated_at": "2019-02-28T01:35:35Z",
+    "updated_at": "2019-03-04T18:00:22Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "### background\r\nThe `sqrt(x)` function mathematically provides two correct answers, say r0, r1 \\in Fp such that `r0^2=r1^2=x` and r0+r1 = p\r\n### issue\r\nMost of the encoding papers prove how to obtain points on a elliptic curve internally using the `sqrt` function and this is enough for mathematical purposes. \r\nHowever, for implementation purposes this could bring a source of errors/incompatibilities if the `sqrt` function is not defined accordingly. \r\nI see two options to fix this issue:\r\n\r\n1. Declare explicitly how to compute the `sqrt` function for each case. Although that for `p=3 mod 4` is easy, the remainder cases are not easy to state.\r\n\r\n2. Declare explicitly which root to choose. Relying on math, the document can state, for example, that the valid root to use is the one that is odd (or even). It is known that either `r0` or `r1` will be odd. This allows the implementer to use the best-known algorithm for computing `sqrt` as soon as the root returned by it be the one that is odd (or even).\r\n\r\nI believe that Option 2 is suitable and more flexible. \r\nHappy to hear your comments about it.\r\n\r\n"
@@ -340,17 +442,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 3,
     "created_at": "2019-02-11T22:26:44Z",
-    "updated_at": "2019-02-11T22:35:59Z",
-    "closed_at": null,
+    "updated_at": "2019-03-01T16:25:26Z",
+    "closed_at": "2019-03-01T16:25:26Z",
     "author_association": "CONTRIBUTOR",
     "body": "The purpose of the document is to avoid this bad practice (hash&increment), maybe it must be deprecated or recommended at last resort.\r\n@grittygrease "
   },
@@ -388,17 +490,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 12,
+    "comments": 13,
     "created_at": "2019-02-11T21:55:12Z",
-    "updated_at": "2019-02-13T00:41:11Z",
-    "closed_at": null,
+    "updated_at": "2019-03-01T16:28:11Z",
+    "closed_at": "2019-03-01T16:28:11Z",
     "author_association": "CONTRIBUTOR",
     "body": "I am aware that the index allows to separate calls to `hash2base` function inside of SWU and on the construction of Random Oracles. \r\nHowever, I think that the index can be handled externally as follows:\r\n```\r\nRandomOracle(alpha) = hash2Base( alpha || 0 ) + hash2Base( alpha || 1 )\r\n```\r\nand SWU can be handled in the same fashion.  \r\n```\r\ndef SWU(alpha):\r\n    u = hash2Base(label || alpha || 0 ) \r\n    v = hash2Base(label || alpha || 1 )\r\n```\r\nThis modification eases the internal implementation of `hash2base` function and does not require to indicate default values for index in the cases where it is not present.\r\n"
   },
@@ -484,7 +586,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -493,8 +595,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-02-11T21:00:56Z",
-    "updated_at": "2019-02-11T22:08:23Z",
-    "closed_at": null,
+    "updated_at": "2019-03-01T16:21:41Z",
+    "closed_at": "2019-03-01T16:21:41Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/78",
@@ -1427,7 +1529,10 @@
       "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/60.patch"
     },
     "body": "For #50."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/59",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -1542,10 +1647,7 @@
       "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/58.patch"
     },
     "body": "This PR corrects some parts of the texts that are imprecise.\r\nElligator2 must consider mapping the 0 \\in Fp  to the point (0,0); thus a clear cofactor phase must be added later."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/57",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -2500,17 +2602,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2018-07-23T21:40:18Z",
-    "updated_at": "2019-02-12T06:36:55Z",
-    "closed_at": null,
+    "updated_at": "2019-03-01T16:29:18Z",
+    "closed_at": "2019-03-01T16:29:18Z",
     "author_association": "OWNER",
     "body": ""
   },
@@ -2596,7 +2698,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -2605,8 +2707,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-07-23T21:39:54Z",
-    "updated_at": "2018-07-23T21:39:54Z",
-    "closed_at": null,
+    "updated_at": "2019-03-01T16:28:29Z",
+    "closed_at": "2019-03-01T16:28:29Z",
     "author_association": "OWNER",
     "body": ""
   },
@@ -3033,7 +3135,10 @@
     "closed_at": "2018-07-13T20:23:42Z",
     "author_association": "OWNER",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/29",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -3129,10 +3234,7 @@
     "closed_at": "2018-07-13T20:23:42Z",
     "author_association": "OWNER",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/27",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -3559,7 +3661,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": {
       "login": "samscott89",
@@ -3604,10 +3706,10 @@
       }
     ],
     "milestone": null,
-    "comments": 5,
+    "comments": 6,
     "created_at": "2018-05-11T12:25:10Z",
-    "updated_at": "2018-10-22T23:31:13Z",
-    "closed_at": null,
+    "updated_at": "2019-03-01T16:18:04Z",
+    "closed_at": "2019-03-01T16:18:04Z",
     "author_association": "FIRST_TIMER",
     "pull_request": {
       "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/20",
@@ -3807,17 +3909,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-03-28T17:08:04Z",
-    "updated_at": "2019-02-10T00:12:21Z",
-    "closed_at": null,
+    "updated_at": "2019-03-01T16:25:43Z",
+    "closed_at": "2019-03-01T16:25:43Z",
     "author_association": "OWNER",
     "body": "https://link.springer.com/chapter/10.1007/978-3-642-33481-8_1\r\nhttp://ieeexplore.ieee.org/abstract/document/6827966/\r\n\r\nThe technique builds on SWU and Icart's variant, with a new encoding function suitable for BN curves."
   },
@@ -4143,17 +4245,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-03-26T13:38:49Z",
-    "updated_at": "2018-03-26T13:38:49Z",
-    "closed_at": null,
+    "updated_at": "2019-03-01T16:30:51Z",
+    "closed_at": "2019-03-01T16:30:51Z",
     "author_association": "OWNER",
     "body": ""
   },
@@ -4335,7 +4437,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": {
       "login": "chris-wood",
@@ -4380,10 +4482,10 @@
       }
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2018-02-27T15:41:53Z",
-    "updated_at": "2019-02-10T03:05:37Z",
-    "closed_at": null,
+    "updated_at": "2019-03-01T16:31:29Z",
+    "closed_at": "2019-03-01T16:31:29Z",
     "author_association": "OWNER",
     "body": ""
   },
