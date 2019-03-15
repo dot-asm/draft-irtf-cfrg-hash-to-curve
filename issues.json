@@ -1,6 +1,60 @@
 [
 
   {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/92",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/92/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/92/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/92/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/92",
+    "id": 421299270,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjYxMzgyNTIz",
+    "number": 92,
+    "title": "Fix non-ascii character",
+    "user": {
+      "login": "samscott89",
+      "id": 13355482,
+      "node_id": "MDQ6VXNlcjEzMzU1NDgy",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/13355482?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/samscott89",
+      "html_url": "https://github.com/samscott89",
+      "followers_url": "https://api.github.com/users/samscott89/followers",
+      "following_url": "https://api.github.com/users/samscott89/following{/other_user}",
+      "gists_url": "https://api.github.com/users/samscott89/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/samscott89/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/samscott89/subscriptions",
+      "organizations_url": "https://api.github.com/users/samscott89/orgs",
+      "repos_url": "https://api.github.com/users/samscott89/repos",
+      "events_url": "https://api.github.com/users/samscott89/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/samscott89/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-03-15T00:15:06Z",
+    "updated_at": "2019-03-15T00:15:06Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/92",
+      "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/92",
+      "diff_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/92.diff",
+      "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/92.patch"
+    },
+    "body": "≠ symbol appears as `&#8800;` in the HTML version"
+  },
+  {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/91",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/91/labels{/name}",
@@ -1481,7 +1535,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/62",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -1529,10 +1586,7 @@
     "closed_at": "2019-02-09T21:26:37Z",
     "author_association": "COLLABORATOR",
     "body": "Some requested improvements to the algorithms:\r\n\r\n - > Please do *not* reuse variables across different data types. (Step 2 of Simplified SWU changes the type of _alpha_ from an octet string to an integer.)\r\n - > Please add at least one known answer test for each algorithm (you don't need it per curve)\r\n - > separate your precomputable/reusable values from those which aren't. "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/61",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -3049,7 +3103,10 @@
       "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/33.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/32",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -3135,10 +3192,7 @@
     "closed_at": "2019-02-09T16:39:03Z",
     "author_association": "OWNER",
     "body": "https://eprint.iacr.org/2014/585.pdf"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/31",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -4776,7 +4830,10 @@
     "closed_at": "2018-11-05T00:05:42Z",
     "author_association": "OWNER",
     "body": "It's often useful to transform a Montgomery curve to a Weierstrass curve, and vice versa. We should provide details on how to do this."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/2",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -4824,10 +4881,7 @@
     "closed_at": "2018-06-01T00:30:29Z",
     "author_association": "OWNER",
     "body": "See the neat and tidy version in https://eprint.iacr.org/2009/340.pdf.\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/1",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
