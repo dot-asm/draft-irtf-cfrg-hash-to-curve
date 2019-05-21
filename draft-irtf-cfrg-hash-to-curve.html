@@ -78,13 +78,14 @@ table.header td, table#rfc\.headerblock td {
   line-height: 100%;
   margin: 10px 0 32px;
 }
-#rfc\.abstract+p, #rfc\.abstract p {
+#rfc\.abstract+p, #rfc\.abstract+p code, #rfc\.abstract+p samp, #rfc\.abstract+p tt {
   font-size: 20px;
   line-height: 28px;
 }
 
 samp, tt, code, pre, span.tt {
-  font: 13.5px Consolas, monospace;
+  font-size: 13.5px;
+  font-family: Consolas, monospace;
   font-size-adjust: none;
 }
 pre {
@@ -291,26 +292,29 @@ ul.toc li {
 <link href="#rfc.section.2.2.3" rel="Chapter" title="2.2.3 Random Oracle">
 <link href="#rfc.section.3" rel="Chapter" title="3 Utility Functions">
 <link href="#rfc.section.4" rel="Chapter" title="4 Hashing to a Finite Field">
-<link href="#rfc.section.4.1" rel="Chapter" title="4.1 Implementation">
+<link href="#rfc.section.4.1" rel="Chapter" title="4.1 Security and performance considerations">
+<link href="#rfc.section.4.2" rel="Chapter" title="4.2 Implementation">
 <link href="#rfc.section.5" rel="Chapter" title="5 Deterministic Encodings">
 <link href="#rfc.section.5.1" rel="Chapter" title="5.1 Interface">
 <link href="#rfc.section.5.2" rel="Chapter" title="5.2 Notation">
-<link href="#rfc.section.5.3" rel="Chapter" title="5.3 Clearing Cofactor">
-<link href="#rfc.section.5.4" rel="Chapter" title="5.4 Encodings for Weierstrass curves">
-<link href="#rfc.section.5.4.1" rel="Chapter" title="5.4.1 Icart Method">
-<link href="#rfc.section.5.4.2" rel="Chapter" title="5.4.2 Shallue-Woestijne-Ulas Method">
-<link href="#rfc.section.5.4.3" rel="Chapter" title="5.4.3 Simplified SWU Method">
-<link href="#rfc.section.5.5" rel="Chapter" title="5.5 Encodings for Montgomery curves">
-<link href="#rfc.section.5.5.1" rel="Chapter" title="5.5.1 Elligator2 Method">
-<link href="#rfc.section.5.6" rel="Chapter" title="5.6 Encodings for twisted Edwards curves">
-<link href="#rfc.section.5.6.1" rel="Chapter" title="5.6.1 Elligator2 Method">
-<link href="#rfc.section.5.7" rel="Chapter" title="5.7 Encodings for Supersingular curves">
-<link href="#rfc.section.5.7.1" rel="Chapter" title="5.7.1 Boneh-Franklin Method">
-<link href="#rfc.section.5.7.2" rel="Chapter" title="5.7.2 Elligator2A0 Method">
-<link href="#rfc.section.5.8" rel="Chapter" title="5.8 Encodings for Pairing-Friendly curves">
-<link href="#rfc.section.5.8.1" rel="Chapter" title="5.8.1 Fouque-Tibouchi Method">
+<link href="#rfc.section.5.3" rel="Chapter" title="5.3 Clearing the cofactor">
+<link href="#rfc.section.5.4" rel="Chapter" title="5.4 Sign of the resulting point">
+<link href="#rfc.section.5.5" rel="Chapter" title="5.5 Exceptional cases">
+<link href="#rfc.section.5.6" rel="Chapter" title="5.6 Encodings for Weierstrass curves">
+<link href="#rfc.section.5.6.1" rel="Chapter" title="5.6.1 Icart Method">
+<link href="#rfc.section.5.6.2" rel="Chapter" title="5.6.2 Simplified Shallue-van de Woestijne-Ulas Method">
+<link href="#rfc.section.5.7" rel="Chapter" title="5.7 Encodings for Montgomery curves">
+<link href="#rfc.section.5.7.1" rel="Chapter" title="5.7.1 Elligator 2 Method">
+<link href="#rfc.section.5.8" rel="Chapter" title="5.8 Encodings for twisted Edwards curves">
+<link href="#rfc.section.5.8.1" rel="Chapter" title="5.8.1 Elligator 2 Method">
+<link href="#rfc.section.5.9" rel="Chapter" title="5.9 Encodings for Supersingular curves">
+<link href="#rfc.section.5.9.1" rel="Chapter" title="5.9.1 Boneh-Franklin Method">
+<link href="#rfc.section.5.9.2" rel="Chapter" title="5.9.2 Elligator 2, A=0 Method">
+<link href="#rfc.section.5.10" rel="Chapter" title="5.10 Encodings for Pairing-Friendly curves">
+<link href="#rfc.section.5.10.1" rel="Chapter" title="5.10.1 Shallue-van de Woestijne Method">
+<link href="#rfc.section.5.10.2" rel="Chapter" title="5.10.2 Simplified SWU for Pairing-Friendly Curves">
 <link href="#rfc.section.6" rel="Chapter" title="6 Random Oracles">
-<link href="#rfc.section.6.1" rel="Chapter" title="6.1 Interface">
+<link href="#rfc.section.6.1" rel="Chapter" title="6.1 Implementation">
 <link href="#rfc.section.7" rel="Chapter" title="7 Suites for Hashing">
 <link href="#rfc.section.8" rel="Chapter" title="8 IANA Considerations">
 <link href="#rfc.section.9" rel="Chapter" title="9 Security Considerations">
@@ -324,16 +328,15 @@ ul.toc li {
 <link href="#rfc.appendix.B" rel="Chapter" title="B Try-and-Increment Method">
 <link href="#rfc.appendix.C" rel="Chapter" title="C Sample Code">
 <link href="#rfc.appendix.C.1" rel="Chapter" title="C.1 Icart Method">
-<link href="#rfc.appendix.C.2" rel="Chapter" title="C.2 Shallue-Woestijne-Ulas Method">
-<link href="#rfc.appendix.C.3" rel="Chapter" title="C.3 Simplified SWU Method">
-<link href="#rfc.appendix.C.4" rel="Chapter" title="C.4 Boneh-Franklin Method">
-<link href="#rfc.appendix.C.5" rel="Chapter" title="C.5 Fouque-Tibouchi Method">
-<link href="#rfc.appendix.C.6" rel="Chapter" title="C.6 Elligator2 Method">
+<link href="#rfc.appendix.C.2" rel="Chapter" title="C.2 Simplified SWU Method">
+<link href="#rfc.appendix.C.3" rel="Chapter" title="C.3 Boneh-Franklin Method">
+<link href="#rfc.appendix.C.4" rel="Chapter" title="C.4 Fouque-Tibouchi Method">
+<link href="#rfc.appendix.C.5" rel="Chapter" title="C.5 Elligator 2 Method">
 <link href="#rfc.appendix.D" rel="Chapter" title="D Test Vectors">
-<link href="#rfc.appendix.D.1" rel="Chapter" title="D.1 Elligator2 to Curve25519">
+<link href="#rfc.appendix.D.1" rel="Chapter" title="D.1 Elligator 2 to Curve25519">
 <link href="#rfc.appendix.D.2" rel="Chapter" title="D.2 Icart to P-384">
 <link href="#rfc.appendix.D.3" rel="Chapter" title="D.3 SWU to P-256">
-<link href="#rfc.appendix.D.4" rel="Chapter" title="D.4 Simple SWU to P-256">
+<link href="#rfc.appendix.D.4" rel="Chapter" title="D.4 Simplified SWU to P-256">
 <link href="#rfc.appendix.D.5" rel="Chapter" title="D.5 Boneh-Franklin to P-503">
 <link href="#rfc.appendix.D.6" rel="Chapter" title="D.6 Fouque-Tibouchi to BN256">
 <link href="#rfc.appendix.D.7" rel="Chapter" title="D.7 Sample hash2base">
@@ -345,7 +348,7 @@ ul.toc li {
 
   <meta name="dct.creator" content="Faz-Hernandez, A., Scott, S., Sullivan, N., and C. Wood" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-irtf-cfrg-hash-to-curve-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-04-26" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-05-21" />
   <meta name="dct.abstract" content="This document specifies a number of algorithms that may be used to encode or hash an arbitrary string to a point on an Elliptic Curve." />
   <meta name="description" content="This document specifies a number of algorithms that may be used to encode or hash an arbitrary string to a point on an Elliptic Curve." />
 
@@ -369,7 +372,7 @@ ul.toc li {
 <td class="right">S. Scott</td>
 </tr>
 <tr>
-<td class="left">Expires: October 28, 2019</td>
+<td class="left">Expires: November 22, 2019</td>
 <td class="right">Cornell Tech</td>
 </tr>
 <tr>
@@ -390,7 +393,7 @@ ul.toc li {
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">April 26, 2019</td>
+<td class="right">May 21, 2019</td>
 </tr>
 
     	
@@ -406,7 +409,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on October 28, 2019.</p>
+<p>This Internet-Draft will expire on November 22, 2019.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -436,7 +439,9 @@ ul.toc li {
 </li>
 <li>4.   <a href="#rfc.section.4">Hashing to a Finite Field</a>
 </li>
-<ul><li>4.1.   <a href="#rfc.section.4.1">Implementation</a>
+<ul><li>4.1.   <a href="#rfc.section.4.1">Security and performance considerations</a>
+</li>
+<li>4.2.   <a href="#rfc.section.4.2">Implementation</a>
 </li>
 </ul><li>5.   <a href="#rfc.section.5">Deterministic Encodings</a>
 </li>
@@ -444,37 +449,41 @@ ul.toc li {
 </li>
 <li>5.2.   <a href="#rfc.section.5.2">Notation</a>
 </li>
-<li>5.3.   <a href="#rfc.section.5.3">Clearing Cofactor</a>
+<li>5.3.   <a href="#rfc.section.5.3">Clearing the cofactor</a>
 </li>
-<li>5.4.   <a href="#rfc.section.5.4">Encodings for Weierstrass curves</a>
+<li>5.4.   <a href="#rfc.section.5.4">Sign of the resulting point</a>
 </li>
-<ul><li>5.4.1.   <a href="#rfc.section.5.4.1">Icart Method</a>
+<li>5.5.   <a href="#rfc.section.5.5">Exceptional cases</a>
 </li>
-<li>5.4.2.   <a href="#rfc.section.5.4.2">Shallue-Woestijne-Ulas Method</a>
+<li>5.6.   <a href="#rfc.section.5.6">Encodings for Weierstrass curves</a>
 </li>
-<li>5.4.3.   <a href="#rfc.section.5.4.3">Simplified SWU Method</a>
+<ul><li>5.6.1.   <a href="#rfc.section.5.6.1">Icart Method</a>
 </li>
-</ul><li>5.5.   <a href="#rfc.section.5.5">Encodings for Montgomery curves</a>
+<li>5.6.2.   <a href="#rfc.section.5.6.2">Simplified Shallue-van de Woestijne-Ulas Method</a>
 </li>
-<ul><li>5.5.1.   <a href="#rfc.section.5.5.1">Elligator2 Method</a>
+</ul><li>5.7.   <a href="#rfc.section.5.7">Encodings for Montgomery curves</a>
 </li>
-</ul><li>5.6.   <a href="#rfc.section.5.6">Encodings for twisted Edwards curves</a>
+<ul><li>5.7.1.   <a href="#rfc.section.5.7.1">Elligator 2 Method</a>
 </li>
-<ul><li>5.6.1.   <a href="#rfc.section.5.6.1">Elligator2 Method</a>
+</ul><li>5.8.   <a href="#rfc.section.5.8">Encodings for twisted Edwards curves</a>
 </li>
-</ul><li>5.7.   <a href="#rfc.section.5.7">Encodings for Supersingular curves</a>
+<ul><li>5.8.1.   <a href="#rfc.section.5.8.1">Elligator 2 Method</a>
 </li>
-<ul><li>5.7.1.   <a href="#rfc.section.5.7.1">Boneh-Franklin Method</a>
+</ul><li>5.9.   <a href="#rfc.section.5.9">Encodings for Supersingular curves</a>
 </li>
-<li>5.7.2.   <a href="#rfc.section.5.7.2">Elligator2A0 Method</a>
+<ul><li>5.9.1.   <a href="#rfc.section.5.9.1">Boneh-Franklin Method</a>
 </li>
-</ul><li>5.8.   <a href="#rfc.section.5.8">Encodings for Pairing-Friendly curves</a>
+<li>5.9.2.   <a href="#rfc.section.5.9.2">Elligator 2, A=0 Method</a>
 </li>
-<ul><li>5.8.1.   <a href="#rfc.section.5.8.1">Fouque-Tibouchi Method</a>
+</ul><li>5.10.   <a href="#rfc.section.5.10">Encodings for Pairing-Friendly curves</a>
+</li>
+<ul><li>5.10.1.   <a href="#rfc.section.5.10.1">Shallue-van de Woestijne Method</a>
+</li>
+<li>5.10.2.   <a href="#rfc.section.5.10.2">Simplified SWU for Pairing-Friendly Curves</a>
 </li>
 </ul></ul><li>6.   <a href="#rfc.section.6">Random Oracles</a>
 </li>
-<ul><li>6.1.   <a href="#rfc.section.6.1">Interface</a>
+<ul><li>6.1.   <a href="#rfc.section.6.1">Implementation</a>
 </li>
 </ul><li>7.   <a href="#rfc.section.7">Suites for Hashing</a>
 </li>
@@ -502,25 +511,23 @@ ul.toc li {
 </li>
 <ul><li>C.1.   <a href="#rfc.appendix.C.1">Icart Method</a>
 </li>
-<li>C.2.   <a href="#rfc.appendix.C.2">Shallue-Woestijne-Ulas Method</a>
+<li>C.2.   <a href="#rfc.appendix.C.2">Simplified SWU Method</a>
 </li>
-<li>C.3.   <a href="#rfc.appendix.C.3">Simplified SWU Method</a>
+<li>C.3.   <a href="#rfc.appendix.C.3">Boneh-Franklin Method</a>
 </li>
-<li>C.4.   <a href="#rfc.appendix.C.4">Boneh-Franklin Method</a>
+<li>C.4.   <a href="#rfc.appendix.C.4">Fouque-Tibouchi Method</a>
 </li>
-<li>C.5.   <a href="#rfc.appendix.C.5">Fouque-Tibouchi Method</a>
-</li>
-<li>C.6.   <a href="#rfc.appendix.C.6">Elligator2 Method</a>
+<li>C.5.   <a href="#rfc.appendix.C.5">Elligator 2 Method</a>
 </li>
 </ul><li>Appendix D.   <a href="#rfc.appendix.D">Test Vectors</a>
 </li>
-<ul><li>D.1.   <a href="#rfc.appendix.D.1">Elligator2 to Curve25519</a>
+<ul><li>D.1.   <a href="#rfc.appendix.D.1">Elligator 2 to Curve25519</a>
 </li>
 <li>D.2.   <a href="#rfc.appendix.D.2">Icart to P-384</a>
 </li>
 <li>D.3.   <a href="#rfc.appendix.D.3">SWU to P-256</a>
 </li>
-<li>D.4.   <a href="#rfc.appendix.D.4">Simple SWU to P-256</a>
+<li>D.4.   <a href="#rfc.appendix.D.4">Simplified SWU to P-256</a>
 </li>
 <li>D.5.   <a href="#rfc.appendix.D.5">Boneh-Franklin to P-503</a>
 </li>
@@ -537,10 +544,10 @@ ul.toc li {
   <h1 id="rfc.section.1">
 <a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a>
 </h1>
-<p id="rfc.section.1.p.1">Many cryptographic protocols require a procedure which maps arbitrary input, e.g., passwords, to points on an elliptic curve (EC). Prominent examples include Simple Password Exponential Key Exchange <a href="#Jablon96" class="xref">[Jablon96]</a>, Password Authenticated Key Exchange <a href="#BMP00" class="xref">[BMP00]</a>, Identity-Based Encryption <a href="#BF01" class="xref">[BF01]</a> and Boneh-Lynn-Shacham signatures <a href="#BLS01" class="xref">[BLS01]</a>.</p>
-<p id="rfc.section.1.p.2">Unfortunately for implementors, the precise mapping which is suitable for a given scheme is not necessarily included in the description of the protocol.  Compounding this problem is the need to pick a suitable curve for the specific protocol.</p>
-<p id="rfc.section.1.p.3">This document aims to address this lapse by providing a thorough set of recommendations across a range of implementations, and curve types. We provide implementation and performance details for each mechanism, along with references to the security rationale behind each recommendation and guidance for applications not yet covered.</p>
-<p id="rfc.section.1.p.4">Each algorithm conforms to a common interface, i.e., it maps a bitstring {0, 1}^* to a point on an elliptic curve E. For each variant, we describe the requirements for E to make it work. Sample code for each variant is presented in the appendix.  Unless otherwise stated, all elliptic curve points are assumed to be represented as affine coordinates, i.e., the pair (x, y) denotes a point on an elliptic curve.</p>
+<p id="rfc.section.1.p.1">Many cryptographic protocols require a procedure which encodes arbitrary input, e.g., a password, to a point on an elliptic curve (EC). This procedure is known as hashing to an elliptic curve. Prominent examples of cryptosystems that hash to elliptic curves include Simple Password Exponential Key Exchange <a href="#J96" class="xref">[J96]</a>, Password Authenticated Key Exchange <a href="#BMP00" class="xref">[BMP00]</a>, Identity-Based Encryption <a href="#BF01" class="xref">[BF01]</a> and Boneh-Lynn-Shacham signatures <a href="#BLS01" class="xref">[BLS01]</a>.</p>
+<p id="rfc.section.1.p.2">Unfortunately for implementors, the precise encoding which is suitable for a given scheme is not necessarily included in the description of the protocol.  Compounding this problem is the need to pick a suitable curve for the specific protocol.</p>
+<p id="rfc.section.1.p.3">This document aims to bridge this gap by providing a thorough set of recommendations across a range of implementations and curve types. We provide implementation and performance details for each mechanism, along with references to the security rationale behind each recommendation and guidance for applications not yet covered.</p>
+<p id="rfc.section.1.p.4">Each algorithm conforms to a common interface, i.e., it encodes a bitstring {0, 1}^* to a point on an elliptic curve E. For each variant, we describe the requirements for E to make it work. Sample code for each variant is presented in the appendix.  Unless otherwise stated, all elliptic curve points are assumed to be represented as affine coordinates, i.e., the pair (x, y) denotes a point on an elliptic curve (see <a href="#bg-curves" class="xref">Section 2.1</a>).</p>
 <h1 id="rfc.section.1.1">
 <a href="#rfc.section.1.1">1.1.</a> <a href="#requirements" id="requirements">Requirements</a>
 </h1>
@@ -549,13 +556,14 @@ ul.toc li {
 <a href="#rfc.section.2">2.</a> <a href="#background" id="background">Background</a>
 </h1>
 <h1 id="rfc.section.2.1">
-<a href="#rfc.section.2.1">2.1.</a> <a href="#elliptic-curves" id="elliptic-curves">Elliptic curves</a>
+<a href="#rfc.section.2.1">2.1.</a> <a href="#bg-curves" id="bg-curves">Elliptic curves</a>
 </h1>
-<p id="rfc.section.2.1.p.1">The following is a brief definition of elliptic curves, with an emphasis on defining important parameters and their relation to encoding.</p>
-<p id="rfc.section.2.1.p.2">Let F be the finite field GF(q) of prime characteristic p.  For most applications, F is a prime field, in which case q=p, otherwise q=p^m for an integer m&gt;1.</p>
-<p id="rfc.section.2.1.p.3">Elliptic curves can be represented by equations of different standard forms, including, but not limited to Weierstrass, Montgomery, and Edwards. Each of these variants correspond to a different category of curve equation.  Certain encoding functions may have requirements on the curve form, the characteristic of the field, and the parameters of the curve.</p>
-<p id="rfc.section.2.1.p.4">An elliptic curve E is specified by an equation and a finite field F. The curve E forms a group, whose elements are points who satisfy the curve equation, and the coordinates of a point are elements of F. As a group, E has order n, which is the number of points on the curve. For security reasons, it is a strong requirement that all cryptographic operations take place in a prime order group. However, not all elliptic curves generate groups of prime order.  For example, some elliptic curves have order n = h*r, where r is a large prime, and h is a non-negative integer known as the cofactor. Thus, one may wish an encoding that returns points on a subgroup of order r. To this end, the cofactor clearing process consists on multiplying a point P on E by the cofactor h, this guarantees that hP is a point belonging to a subgroup of order r.</p>
-<p id="rfc.section.2.1.p.5">Summary of quantities:</p>
+<p id="rfc.section.2.1.p.1">The following is a brief definition of elliptic curves, with an emphasis on important parameters and their relation to hashing to curves.</p>
+<p id="rfc.section.2.1.p.2">Let F be the finite field GF(q) of prime characteristic p. In most cases F is a prime field, so q=p. Otherwise, F is a field extension, so q=p^m for an integer m &gt; 1. This document assumes that elements of field extensions are written in a primitive element or polynomial basis, i.e., as of m elements of GF(p) written in ascending order by degree. For example, if q=p^2 and the primitive element basis is {1, i}, then the vector (a, b) corresponds to the element a + b * i.</p>
+<p id="rfc.section.2.1.p.3">An elliptic curve E is specified by a cubic equation in two variables and a finite field F. An elliptic curve equation takes one of several standard forms, including (but not limited to) Weierstrass, Montgomery, and Edwards.</p>
+<p id="rfc.section.2.1.p.4">The curve E forms an algebraic group whose elements are the points (x, y) satisfying the curve equation, where x and y are elements of F. This group has order n, meaning that there are n distinct points (x, y). In general, security of cryptographic primitives requires using a group of prime order.  However, not all elliptic curves induce groups of prime order: most elliptic curves have order n = h * r, where r is a large prime and h is an integer called the cofactor. Thus, for cryptographic applications a hash function to the curve E should return points in the subgroup of order r. For a point not in the prime-order subgroup, the process of mapping to a point in the prime-order subgroup is called clearing the cofactor; we discuss this process in <a href="#cofactor-clearing" class="xref">Section 5.3</a>.</p>
+<p id="rfc.section.2.1.p.5">Certain encoding functions restrict the form of the curve equation, the characteristic of the field, and/or the parameters of the curve. For each encoding, this document lists the relevant restrictions.</p>
+<p id="rfc.section.2.1.p.6">Summary of quantities:</p>
 <table cellpadding="3" cellspacing="0" class="tt full center">
 <thead><tr>
 <th class="center">Symbol</th>
@@ -576,7 +584,7 @@ ul.toc li {
 <tr>
 <td class="center">n</td>
 <td class="left">Number of points on E, #E(F)=n.</td>
-<td class="left">This value can be factored as n=h*r.</td>
+<td class="left">This value can be factored as n=h * r.</td>
 </tr>
 <tr>
 <td class="center">r</td>
@@ -593,7 +601,7 @@ ul.toc li {
 <h1 id="rfc.section.2.2">
 <a href="#rfc.section.2.2">2.2.</a> <a href="#terminology" id="terminology">Terminology</a>
 </h1>
-<p id="rfc.section.2.2.p.1">In the following, we categorize the terminology for mapping bitstrings to points on elliptic curves.</p>
+<p id="rfc.section.2.2.p.1">In the following, we categorize the terminology for encoding bitstrings to points on elliptic curves.</p>
 <h1 id="rfc.section.2.2.1">
 <a href="#rfc.section.2.2.1">2.2.1.</a> <a href="#term-encoding" id="term-encoding">Encoding</a>
 </h1>
@@ -607,66 +615,104 @@ ul.toc li {
 <h1 id="rfc.section.2.2.3">
 <a href="#rfc.section.2.2.3">2.2.3.</a> <a href="#term-rom" id="term-rom">Random Oracle</a>
 </h1>
-<p id="rfc.section.2.2.3.p.1">In practice, two types of mappings are common: (1) injective encodings, which can be used to construct a PRF as F(k, m) = k*H(m), and (2) random oracles, which used by PAKE protocols <a href="#BMP00" class="xref">[BMP00]</a>, short BLS signatures <a href="#BLS01" class="xref">[BLS01]</a>, and IBE schemes <a href="#BF01" class="xref">[BF01]</a>. When the required mapping is not clear, applications SHOULD use a random oracle.</p>
-<p id="rfc.section.2.2.3.p.2">Cryptographic protocols which are proven secure in the random oracle model (ROM) often require a hash function that maps bitstrings to elements of a group and that behaves as a random oracle, i.e., its response must be uniformly distributed on the set of outputs (uniformity property).  Instantiating one of these protocols with an elliptic curve group motivates the term &#8220;hashing to the curve&#8221;, i.e., mapping bitstrings to points on an elliptic curve.</p>
+<p id="rfc.section.2.2.3.p.1">In practice, two types of encodings are common: (1) injective encodings, which can be used to construct a PRF as F(k, msg) = k * H(msg), and (2) random oracles, which used by PAKE protocols <a href="#BMP00" class="xref">[BMP00]</a>, short BLS signatures <a href="#BLS01" class="xref">[BLS01]</a>, and IBE schemes <a href="#BF01" class="xref">[BF01]</a>. When the required encoding is not clear, applications SHOULD use a random oracle.</p>
+<p id="rfc.section.2.2.3.p.2">Cryptographic protocols which are proven secure in the random oracle model (ROM) often require a hash function that maps bitstrings to elements of a group and that behaves as a random oracle, i.e., its response must be uniformly distributed on the set of outputs (uniformity property).  Instantiating one of these protocols with an elliptic curve group motivates the term &#8220;hashing to the curve&#8221;, i.e., encoding bitstrings to points on an elliptic curve.</p>
 <p id="rfc.section.2.2.3.p.3">The hash2curve(alpha) function can be easily constructed by using the output of a cryptographically secure hash function H as the input of an encoding function.  On the one hand, hash2curve is difficult to invert since it is computationally intractable to produce an input alpha that maps to hash2curve(alpha) due to H is pre-image resistant.  On the other hand, the uniformity property is not met as the output of an encoding is distinguishable from a random distribution. Hence, using hash2curve(alpha) is not sufficient to get uniformity, however it can be used as a building block for obtaining a random oracle as is described in <a href="#rom" class="xref">Section 6</a>.</p>
 <h1 id="rfc.section.3">
 <a href="#rfc.section.3">3.</a> <a href="#utility" id="utility">Utility Functions</a>
 </h1>
 <p id="rfc.section.3.p.1">Algorithms in this document make use of utility functions described below.</p>
+<p></p>
+
+<ul><li>is_square(x, q): This function returns True whenever the value x is a square in GF(q). Due to Euler&#8217;s criterion, this function can be calculated in constant time as</li></ul>
 <pre>
-  is_square(x, q) := { True,  if x^((q-1)/2) is 0 or 1;
-                     { False, otherwise.
+is_square(x, q) := { True,  if x^((q - 1) / 2) is 0 or 1;
+                   { False, otherwise.
 </pre>
 <p></p>
 
 <ul>
-<li>is_square(x, q): It returns True whenever the value x is a quadratic residue in a field of order q. Due to Euler&#8217;s criterion, this function can be calculated in constant time as  <br><br> <br><br> For clarity, it is generally preferred to use this formula directly, and annotate its usage with this definition.</li>
-<li>sqrt(x, q): The sqrt operation is a multi-valued function, i.e. there exist two roots of x whenever x is a quadratic residue. To maintain compatibility across implementations, a single-valued sqrt function is necessary. One way to get such a function is by distinguishing a principal square root through a predicate that only one of the roots holds.  Alternatively, an implementation of sqrt can use fixed formulas for its calculation. For instance, in prime fields, the square root of a quadratic residue x can be obtained as follows <ul>
-<li>If q=3 (mod 4), sqrt(x, q) := x^((q+1)/4).</li>
-<li>If q=5 (mod 8), set z := x^((q+3)/8) and verify that z^2 = -x, if so, update z = z*sqrt(-1). Finally, sqrt(x, q) := z.</li>
+<li>sqrt(x, q): The sqrt operation is a multi-valued function, i.e. there exist two roots of x whenever x is square. To maintain compatibility across implementations, a single-valued sqrt function is necessary.  The preferred way of selecting a single-valued sqrt is to fix a deterministic algorithm particular to q. As specific examples:  <ul>
+<li>If q=3 (mod 4), sqrt(x, q) := x^((q + 1) / 4).</li>
+<li>If q=5 (mod 8): <ol>
+<li>Set z := x^((q + 3) / 8).</li>
+<li>Check whether z^2 == -x; if so, update z := z * sqrt(-1).</li>
+<li>Finally, sqrt(x, q) := z.</li>
+</ol>
+</li>
+<li>If q=9 (mod 16), which includes q=p^2 when p=3 (mod 4): <ol>
+<li>Set z := x^((q+7) / 16).</li>
+<li>Check whether (z * sqrt(-1))^2 == x; if so, update z := z * sqrt(-1).</li>
+<li>Check whether (z * sqrt(sqrt(-1))^2) == x; if so, update z := z * sqrt(sqrt(-1)).</li>
+<li>Check whether (z * sqrt(-sqrt(-1))^2) == x; if so, update z := z * sqrt(-sqrt(-1)).</li>
+<li>Finally, sqrt(x, q) := z.</li>
+</ol>
+</li>
 </ul>
-<p> For extension fields, there exist methods that can be used in replacement, see </p>
-<a href="#Adj13" class="xref">[Adj13]</a>, <a href="#SC85" class="xref">[SC85]</a>. Regardless the method chosen, the sqrt function MUST be performed in constant time.</li>
+<p> (In the second and third cases above, the values sqrt(-1), sqrt(sqrt(-1)), and sqrt(-sqrt(-1)) are precomputed constants.) An alternative to selecting a single-valued sqrt is to choose a predicate that only one of the roots holds (e.g., select the positive sqrt; see the sgn0 function below).  </p>
+<a href="#AR13" class="xref">[AR13]</a> and <a href="#S85" class="xref">[S85]</a> describe methods that work in other field extensions.  Regardless of the method chosen, the sqrt function MUST be performed in constant time.</li>
 <li>CMOV(a, b, c): If c=0, CMOV returns a, otherwise returns b. To prevent against timing attacks, this operation must run in constant time without revealing the value of c. Commonly some implementations assume the selector be c=1 or c=0; thus, given a bitstring C, the desired selector c can be computed by OR-ing all bits of C together. The resulting selector will be either 0 if all bits of C are zero, or 1 if at least one bit of C is 1.</li>
+<li>sgn0(x): This function returns either +1 or -1, indicating the sign of x.  This function considers 0 to be positive.  The following procedure implements sgn0(x) in constant time.  See <a href="#bg-curves" class="xref">Section 2.1</a> for a discussion of representing x as a vector.</li>
+</ul>
+<pre>
+sgn0(x)
+
+Parameters:
+  1. F, a finite field of characteristic p and order q = p^m, m &gt;= 1.
+Input: x, an element of F
+Output: -1 or 1.
+
+Notation: x_i is the i^th element of the vector representation of x.
+
+Steps:
+1. sign = 0
+2. for i in (1, ..., m):
+3.   sign_i = CMOV(1, -1, x_i &gt; (p - 1) / 2)
+4.   sign_i = CMOV(sign_i, 0, x_i == 0)
+5.   sign = CMOV(sign, sign_i, sign == 0)
+6. return CMOV(sign, 1, sign == 0)         # regard x = 0 as positive
+</pre>
+<p></p>
+
+<ul>
+<li>inv0(x, q): This function returns the multiplicative inverse of x mod q, extended to all of F by fixing inv0(0) == 0.  To implement inv0 in constant time, compute alpha = x^(q - 2) mod q.  Notice on input 0, the output is 0 as required.</li>
 <li>I2OSP and OS2IP: These functions are used to convert an octet string to and from a non-negative integer <a href="#RFC8017" class="xref">[RFC8017]</a>.</li>
 <li>a || b: denotes the concatenation of bitstrings a and b.</li>
 </ul>
 <h1 id="rfc.section.4">
 <a href="#rfc.section.4">4.</a> <a href="#hashtobase" id="hashtobase">Hashing to a Finite Field</a>
 </h1>
-<p id="rfc.section.4.p.1">The hash2base(x) function maps an arbitrary-large bitstring x into an element of a field F. Hence, it is parametrized by F and H, where H is a cryptographic hash function which outputs at least floor(log2(p)) + 1 bits.</p>
-<p id="rfc.section.4.p.2">When q=p, the function first hashes x, converts the result to an integer, and reduces modulo p to produce a prime field element.  When m&gt;1, q=p^m and an element of a finite field can be constructed using m prime field elements assuming that elements are in a polynomial representation.</p>
-<p id="rfc.section.4.p.3">Uniformity: most algorithms assume that hash2base maps its input to the finite field uniformly. In practice, there will be inherent biases. For example, let H=SHA256 and F be a field of characteristic p = 2^255 - 19, then by reducing from a 256-bit output, the values from 2^256 - 38 to 2^256 - 1 have more probability to be chosen. In this example, the resulting bias is negligible, but for others this bias could be significant. This is a standard problem in generating uniformly distributed integers from a bitstring. In order to smooth out this bias, the hash2base algorithm should use a hash function that produces as many bits as possible before reducing modulo p. This approach is preferable to an iterated procedure, such as rejection sampling, since this can be hard to reliably implement in constant time.</p>
-<p id="rfc.section.4.p.4">Performance: hash2base requires hashing the entire input x. In some algorithms or ciphersuite combinations, hash2base is called multiple times. For large inputs, implementers can therefore consider hashing x before calling hash2base, i.e., setting x=H(x).</p>
+<p id="rfc.section.4.p.1">The hash2base(msg) function maps a string msg of any length into an element of a field F. This function is parametrized by the field F (<a href="#bg-curves" class="xref">Section 2.1</a>) and by H, a cryptographic hash function that outputs b bits.</p>
 <h1 id="rfc.section.4.1">
-<a href="#rfc.section.4.1">4.1.</a> <a href="#implementation" id="implementation">Implementation</a>
+<a href="#rfc.section.4.1">4.1.</a> <a href="#security-and-performance-considerations" id="security-and-performance-considerations">Security and performance considerations</a>
 </h1>
-<p id="rfc.section.4.1.p.1">The following procedure implements hash2base.</p>
+<p id="rfc.section.4.1.p.1">hash2base should map its input to a uniformly random element of F.  In practice, however, the output may be biased, meaning that some field elements are more likely to occur than others. This is true even when H outputs a uniformly random string (as is generally assumed). For example, if H=SHA256 and F is a field of characteristic p = 2^255 - 19, then the result of reducing H(msg) (a 256-bit integer) modulo p is slightly more likely to be a value in [0, 38] than a value in [39, 2^255 - 19). In this example the bias is negligible, but in general the bias can be significant.</p>
+<p id="rfc.section.4.1.p.2">To control bias, the input msg should be hashed to an integer comprising more than log2(p) bits.  In particular, reducing an integer of ceil(log2(p)) + k bits modulo p gives bias at most 2^-k, which is a safe choice for a cryptosystem with k-bit security.  Thus, if H outputs b bits, then H should be evaluated W = ceil((ceil(log2(p)) + k) / b) times and the results concatenated to produce a (W * b)-bit integer, which is then reduced modulo p.  <a href="#hash2base-impl" class="xref">Section 4.2</a> details this procedure.</p>
+<p id="rfc.section.4.1.p.3">Note that implementors SHOULD NOT use an iterated procedure, i.e., rejection sampling. The reason is that these procedures are difficult to implement in constant time, and later well-meaning &#8220;optimizations&#8221; may silently render an implementation non-constant-time.</p>
+<p id="rfc.section.4.1.p.4">The performance of hash2base may be limited by the length of the input m.  To prevent this, hash2base first computes m&#8217; = H(msg) and then derives the required bits from m&#8217;. This entails one extra invocation of H, a negligible overhead.</p>
+<h1 id="rfc.section.4.2">
+<a href="#rfc.section.4.2">4.2.</a> <a href="#hash2base-impl" id="hash2base-impl">Implementation</a>
+</h1>
+<p id="rfc.section.4.2.p.1">The following procedure implements hash2base.</p>
 <pre>
-hash2base(x)
+hash2base(msg)
 
 Parameters:
-  1. H, a cryptographic hash function producing k bits.
-  2. F, a finite field F of characteristic p and order q=p^m.
-Preconditions:  k &gt;= floor(log2(p)) + 1.
-Input: x, an octet string to be hashed.
-Output: y, an element in F.
+  1. H, a cryptographic hash function producing b bits.
+  2. F, a finite field of characteristic p and order q=p^m.
+  3. W = ceil((ceil(log2(p)) + k) / b), where k is the security
+     parameter of the cryptosystem (e.g., k = 128).
+Input: msg, an octet string to be hashed.
+Output: u, an element in F.
 
 Steps:
-  Case q=p
-    1. t1 = H(x)
-    2. t2 = OS2IP(t1)
-    3. y = t2 mod p
-    4. Output y
-
-  Case q=p^m and m&gt;1
-    1. t = H(x)
-    2. for i=0 to m-1
-    3.    t1 = H( t || I2OSP(i,2) )
-    4.    t2 = OS2IP(t1)
-    5.    e_i = t2 mod p
-    6. Output y = ( e_0, ..., e_{m-1} )
+1. m' = H(msg)
+2. for i in (1, ..., m):
+3.   t = ""     // initialize t to the empty string
+4.   for j in (1, ..., W):
+5.     t = t || H( m' || I2OSP(i, 1) || I2OSP(j, 1) )
+6.   e_i = OS2IP(t) mod p
+7. Output u = ( e_1, ..., e_m )
 </pre>
 <h1 id="rfc.section.5">
 <a href="#rfc.section.5">5.</a> <a href="#encodings" id="encodings">Deterministic Encodings</a>
@@ -686,344 +732,345 @@ Steps:
 <p></p>
 
 <ul>
-<li>All arithmetic operations are performed over the finite field, unless otherwise be explicitly stated, e.g., integer arithmetic.</li>
+<li>All arithmetic operations are performed over a field F, unless explicitly stated otherwise.</li>
 <li>(x, y): are the affine coordinates of a point obtained by the encoding method.  Indexed values are used when the algorithm calculates some candidate values.</li>
 <li>u: denotes an element of F produced by the hash2base function and is used as initial value of the encoding.</li>
 <li>t1, t2, &#8230;: are reusable temporary variables. For notable variables, distinct names are used easing the debugging process when correlating with test vectors.</li>
 <li>c1, c2, &#8230;: are constant values, which can be computed in advance.</li>
 </ul>
 <h1 id="rfc.section.5.3">
-<a href="#rfc.section.5.3">5.3.</a> <a href="#clearing-cofactor" id="clearing-cofactor">Clearing Cofactor</a>
+<a href="#rfc.section.5.3">5.3.</a> <a href="#cofactor-clearing" id="cofactor-clearing">Clearing the cofactor</a>
 </h1>
-<p id="rfc.section.5.3.p.1">Encodings guarantee that the resulting point satisfies the elliptic curve equation. However, to obtain a point in a subgroup of order r, the cofactor clearing process must be performed. In the description of each encoding, the last step returns h*(x,y) which represents the cofactor clearing operation.</p>
-<p id="rfc.section.5.3.p.2">For prime order groups, h=1 and then no operation is required. On the other hand, when h&gt;1, cofactor clearing is performed, in most of cases, as a scalar multiplication by h. However, on pairing-friendly curves, h is a large number when the subgroup G2 is over an extension field. In this case, cofactor clearing can be performed faster using better algorithms than scalar multiplication by h, such as the ones described in <a href="#SC09" class="xref">[SC09]</a>, <a href="#FU11" class="xref">[FU11]</a>, and <a href="#BU18" class="xref">[BU18]</a>.</p>
+<p id="rfc.section.5.3.p.1">The encodings of this section always output a point on the elliptic curve, i.e., a point in a group of order h * r (<a href="#bg-curves" class="xref">Section 2.1</a>).  Obtaining a point in the subgroup of prime order r may require a final operation, called &#8220;clearing the cofactor.&#8221; In the description of each encoding in this section, this operation is represented abstractly as clear_h(x, y), which takes as input a point on the curve and returns a point in the subgroup of prime order.</p>
+<p id="rfc.section.5.3.p.2">The operation clear_h(x, y) can always be implemented as a scalar multiplication by h.  For elliptic curves where h = 1, i.e., curves with a prime number of points (for example, the NIST curves P-256, P-384, and P-521 <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>), no operation is required.</p>
+<p id="rfc.section.5.3.p.3">In some cases, it is possible to clear the cofactor via a faster method than scalar multiplication.  For pairing-friendly curves having subgroup G2 over an extension field, Scott et al. <a href="#SBCDBK09" class="xref">[SBCDBK09]</a> describe a method for faster cofactor clearing that exploits an efficiently-computable endomorphism. Fuentes-Castaneda et al. <a href="#FKR11" class="xref">[FKR11]</a> propose an alternative method that is sometimes more efficient.  Budroni and Pintore <a href="#BP18" class="xref">[BP18]</a> give concrete instantiations of these methods for Barreto-Lynn-Scott pairing-friendly curves <a href="#BLS02" class="xref">[BLS02]</a>.</p>
+<p id="rfc.section.5.3.p.4">Wahby and Boneh (<a href="#WB19" class="xref">[WB19]</a>, Section 5) describe a trick due to Scott for faster cofactor clearing on any elliptic curve for which the prime factorization of h and the number of points on the curve meet certain conditions.</p>
 <h1 id="rfc.section.5.4">
-<a href="#rfc.section.5.4">5.4.</a> <a href="#encodings-for-weierstrass-curves" id="encodings-for-weierstrass-curves">Encodings for Weierstrass curves</a>
+<a href="#rfc.section.5.4">5.4.</a> <a href="#point-sign" id="point-sign">Sign of the resulting point</a>
 </h1>
-<p id="rfc.section.5.4.p.1">The following encodings apply to elliptic curves defined by the equation E: y^2 = x^3 + A*x + B, where 4*A^3 + 27*B^2 != 0.</p>
-<h1 id="rfc.section.5.4.1">
-<a href="#rfc.section.5.4.1">5.4.1.</a> <a href="#icart" id="icart">Icart Method</a>
+<p id="rfc.section.5.4.p.1">In general, elliptic curves have equations of the form y^2 = g(x).  Most of the encodings in this section first identify an x such that g(x) is square, then take a square root to find y. Since there are two square roots when g(x) != 0, this results in an ambiguity regarding the sign of y.</p>
+<p id="rfc.section.5.4.p.2">To resolve this ambiguity, the encodings in this section specify the sign of the y-coordinate in terms of the input to the encoding function.  We take this approach for two reasons: first, this covers elliptic curves over any field in a uniform way, and second, it gives implementors leeway to optimize their square-root implementations.</p>
+<h1 id="rfc.section.5.5">
+<a href="#rfc.section.5.5">5.5.</a> <a href="#map-exceptions" id="map-exceptions">Exceptional cases</a>
 </h1>
-<p id="rfc.section.5.4.1.p.1">The map2curve_icart(alpha) implements the Icart encoding method from <a href="#Icart09" class="xref">[Icart09]</a>.</p>
-<p id="rfc.section.5.4.1.p.2">Preconditions: An elliptic curve over F, such that p&gt;3 and q=p^m=2 (mod 3), or p=2 (mod 3) and odd m.</p>
-<p id="rfc.section.5.4.1.p.3">Input: alpha, an octet string to be hashed.</p>
-<p id="rfc.section.5.4.1.p.4">Constants: A and B, the parameters of the Weierstrass curve.</p>
-<p id="rfc.section.5.4.1.p.5">Output: (x, y), a point on E.</p>
-<p id="rfc.section.5.4.1.p.6">Operations:</p>
+<p id="rfc.section.5.5.p.1">Encodings may have have exceptional cases, i.e., values u = hash2base(alpha) on which the encoding is undefined. These cases must be handled carefully, especially for constant-time implementations.</p>
+<p id="rfc.section.5.5.p.2">For each encoding in this section, we discuss the exceptional cases and show how to handle them in constant time. Note that all implementations SHOULD use inv0 (<a href="#utility" class="xref">Section 3</a>) to compute multiplicative inverses, to avoid exceptional cases that result from attempting to compute the inverse of 0.</p>
+<h1 id="rfc.section.5.6">
+<a href="#rfc.section.5.6">5.6.</a> <a href="#encodings-for-weierstrass-curves" id="encodings-for-weierstrass-curves">Encodings for Weierstrass curves</a>
+</h1>
+<p id="rfc.section.5.6.p.1">The following encodings apply to elliptic curves defined by the equation E: y^2 = g(x) = x^3 + A * x + B, where 4 * A^3 + 27 * B^2 != 0.</p>
+<h1 id="rfc.section.5.6.1">
+<a href="#rfc.section.5.6.1">5.6.1.</a> <a href="#icart" id="icart">Icart Method</a>
+</h1>
+<p id="rfc.section.5.6.1.p.1">The function map2curve_icart(alpha) implements the Icart encoding method from <a href="#Icart09" class="xref">[Icart09]</a>.</p>
+<p id="rfc.section.5.6.1.p.2">Preconditions: An elliptic curve over F, such that p&gt;3 and q=p^m=2 (mod 3), or p=2 (mod 3) and odd m.</p>
+<p id="rfc.section.5.6.1.p.3">Input: alpha, an octet string to be hashed.</p>
+<p id="rfc.section.5.6.1.p.4">Constants: A and B, the parameters of the Weierstrass curve.</p>
+<p id="rfc.section.5.6.1.p.5">Output: (x, y), a point on E.</p>
+<p id="rfc.section.5.6.1.p.6">Sign of y: this encoding does not compute a square root, so there is no ambiguity regarding the sign of y.</p>
+<p id="rfc.section.5.6.1.p.7">Exceptions: The only exceptional case is hash2base(alpha) == 0.  Implementations must detect this case by testing whether u = 0 and setting u = 1 if so.</p>
+<p id="rfc.section.5.6.1.p.8">Operations:</p>
 <pre>
 1. u = hash2base(alpha)
-2. v = ((3*A - u^4) / 6*u)
-3. x = (v^2 - B - (u^6 / 27))^((2*q - 1)/3) + (u^2 / 3)
-4. y = u * x + v
-5. Output h*(x, y)
+2. If u == 0, set u = 1
+3. v = (3 * A - u^4) / (6 * u)
+4. x = (v^2 - B - (u^6 / 27))^((2 * p - 1) / 3) + (u^2 / 3)
+5. y = u * x + v
+6. Output clear_h(x, y)
 </pre>
-<h1 id="rfc.section.5.4.1.1">
-<a href="#rfc.section.5.4.1.1">5.4.1.1.</a> <a href="#implementation-1" id="implementation-1">Implementation</a>
+<h1 id="rfc.section.5.6.1.1">
+<a href="#rfc.section.5.6.1.1">5.6.1.1.</a> <a href="#implementation" id="implementation">Implementation</a>
 </h1>
-<p id="rfc.section.5.4.1.1.p.1">The following procedure implements Icart&#8217;s algorithm in a straight-line fashion.</p>
+<p id="rfc.section.5.6.1.1.p.1">The following procedure implements Icart&#8217;s algorithm in a straight-line fashion.</p>
 <pre>
 map2curve_icart(alpha)
 Input: alpha, an octet string to be hashed.
 Output: (x, y), a point on E.
 
 Constants:
-1. c1 = (2*p - 1) / 3   // Integer arithmetic
-2  c2 = 1/3
+1. c1 = (2 * p - 1) / 3   // Integer arithmetic
+2. c2 = 1 / 3
 3. c3 = c2^3
 4. c4 = 3 * A
 
 Steps:
 1.   u = hash2base(alpha)
-2.  u2 = u^2            // u^2
-3.  u4 = u2^2           // u^4
-4.   v = c4 - u4        // 3 * A - u^4
-5.  t1 = 6 * u          // 6 * u
-6.  t1 = 1 / t1         // 1 / (6 * u)
-7.   v = v * t1         // v = (3 * A - u^4)/(6 * u)
-8.  x1 = v^2            // v^2
-9.  x1 = x1 - B         // v^2 - B
-10. u6 = u4 * c3        // u^4 / 27
-11. u6 = u6 * u2        // u^6 / 27
-12. x1 = x1 - u6        // v^2 - B - u^6/27
-13. x1 = x^c1           // (v^2 - B - u^6/27)^(1/3)
-14. t1 = u2 * c2        // u^2 / 3
-15.  x = x + t1         // x = (v^2 - B - u^6/27)^(1/3) + (u^2 / 3)
-16.  y = u * x          // u*x
-17.  y = y + v          // y = u*x + v
-18. Output h*(x, y)
+2.   e = u == 0
+3.   u = CMOV(u, 1, e)  // handle exceptional case u == 0
+4.  u2 = u^2            // u^2
+5.  u4 = u2^2           // u^4
+6.   v = c4 - u4        // 3 * A - u^4
+7.  t1 = 6 * u          // 6 * u
+8.  t1 = inv0(t1)       // 1 / (6 * u)
+9.   v = v * t1         // v = (3 * A - u^4) / (6 * u)
+10. x1 = v^2            // v^2
+11. x1 = x1 - B         // v^2 - B
+12. u6 = u4 * c3        // u^4 / 27
+13. u6 = u6 * u2        // u^6 / 27
+14. x1 = x1 - u6        // v^2 - B - u^6 / 27
+15. x1 = x^c1           // (v^2 - B - u^6 / 27)^(1 / 3)
+16. t1 = u2 * c2        // u^2 / 3
+17.  x = x + t1         // x = (v^2 - B - u^6 / 27)^(1 / 3) + (u^2 / 3)
+18.  y = u * x          // u * x
+19.  y = y + v          // y = u * x + v
+20. Output clear_h(x, y)
 </pre>
-<h1 id="rfc.section.5.4.2">
-<a href="#rfc.section.5.4.2">5.4.2.</a> <a href="#swu" id="swu">Shallue-Woestijne-Ulas Method</a>
+<h1 id="rfc.section.5.6.2">
+<a href="#rfc.section.5.6.2">5.6.2.</a> <a href="#simple-swu" id="simple-swu">Simplified Shallue-van de Woestijne-Ulas Method</a>
 </h1>
-<p id="rfc.section.5.4.2.p.1">The map2curve_swu(alpha) implements the Shallue-Woestijne-Ulas (SWU) method by Ulas <a href="#SWU07" class="xref">[SWU07]</a>, which is based on Shallue and Woestijne <a href="#SW06" class="xref">[SW06]</a> method. The algorithm relies on the following equality</p>
-<pre>
-  (u^3 * g(x1)^2 * g(x2))^2 = g(x1) * g(x2) * g(x3)
-</pre>
-<p id="rfc.section.5.4.2.p.2">where g(x) := x^3+A*x+B. Thus, it computes three candidate points constructed in such a way that at least one of them lies on the curve.</p>
-<p id="rfc.section.5.4.2.p.3">Preconditions: A Weierstrass curve over F such that A!=0 and B!=0.</p>
-<p id="rfc.section.5.4.2.p.4">Input: alpha, an octet string to be hashed.</p>
-<p id="rfc.section.5.4.2.p.5">Constants: A and B, the parameters of the Weierstrass curve.</p>
-<p id="rfc.section.5.4.2.p.6">Output: (x, y), a point on E.</p>
-<p id="rfc.section.5.4.2.p.7">Operations:</p>
-<pre>
-1.    u = hash2base(alpha || I2OSP(0,1))
-2.   x1 = hash2base(alpha || I2OSP(1,1))
-3.  gx1 = x1^3 + A*x1 + B
-4.   x2 = (-B / A) * (1 + 1 / (u^4 * gx1^2 + u^2 * gx1))
-5.  gx2 = x2^3 + A*x2 + B
-6.   x3 = u^2 * gx1 * x2
-7.  gx3 = x3^3 + A*x3 + B
-8.  If gx1 is square, set x = x1 and y = sqrt(gx1)
-9.  If gx2 is square, set x = x2 and y = sqrt(gx2)
-10. If gx3 is square, set x = x3 and y = sqrt(gx3)
-11. Output h*(x, y)
-</pre>
-<h1 id="rfc.section.5.4.2.1">
-<a href="#rfc.section.5.4.2.1">5.4.2.1.</a> <a href="#implementation-2" id="implementation-2">Implementation</a>
-</h1>
-<p id="rfc.section.5.4.2.1.p.1">The following procedure implements SWU&#8217;s algorithm in a straight-line fashion.</p>
-<pre>
-map2curve_swu(alpha)
+<p id="rfc.section.5.6.2.p.1">The function map2curve_simple_swu(alpha) implements a simplification of the Shallue-van de Woestijne-Ulas encoding <a href="#U07" class="xref">[U07]</a> described by Brier et al. <a href="#BCIMRT10" class="xref">[BCIMRT10]</a>, which they call the &#8220;simplified SWU&#8221; map. Wahby and Boneh <a href="#WB19" class="xref">[WB19]</a> generalize this encoding to curves over fields of odd characteristic p &gt; 3.</p>
+<p id="rfc.section.5.6.2.p.2">Preconditions: A Weierstrass curve over F such that A!=0 and B!=0.</p>
+<p id="rfc.section.5.6.2.p.3">Input: alpha, an octet string to be hashed.</p>
+<p id="rfc.section.5.6.2.p.4">Constants:</p>
+<p></p>
 
-Input: alpha, an octet string to be hashed.
-Output: (x, y), a point on E.
-
-Constants:
-1. c1 = - B / A
-
-Steps:
-1.    u = hash2base(alpha || I2OSP(0,1))
-2.   x1 = hash2base(alpha || I2OSP(1,1))
-3.  gx1 = x1^2
-4.  gx1 = gx1 + A
-5.  gx1 = gx1 * x1
-6.  gx1 = gx1 + B       // gx1 = x1^3 + A*x1 + B
-7.   t1 = u^2
-8.   t1 = t1 * gx1      // t1 = u^2 * gx1
-9.   t2 = t1^2
-10.  t2 = t2 + t1      
-11.  t2 = 1 / t2        // t2 = 1 / (t1^2 + t1)
-12.  x2 = t2 + 1
-13.  x2 = x2 * c1       // x2 = (-B/A) * (1 + 1/(u^4*gx1^2 + u^2*gx1))
-14. gx2 = x2^2
-15. gx2 = gx2 + A
-16. gx2 = gx2 * x2
-17. gx2 = gx2 + B       // gx2 = x2^3 + A*x2 + B
-18.  x3 = t1 * x2       // x3 = u^2 * gx1 * x2
-19. gx3 = x3^2
-20. gx3 = gx3 + A
-21. gx3 = gx3 * x3
-22. gx3 = gx3 + B       // gx3 = x3^3 + A*x3 + B
-23.  e1 = is_square(gx1, q)
-24.  e2 = is_square(gx2, q)
-25.   x = CMOV(x3, x2, e2)    // If e2=True, x = x2, else x = x3
-26.   x = CMOV(x, x1, e1)     // If e1=True, x = x1, else x = x
-27.  gx = CMOV(gx3, gx2, e2)  // If e2=True, gx = gx2, else gx = gx3
-28.  gx = CMOV(gx, gx1, e1)   // If e1=True, gx = gx1, else gx = gx
-29.   y = sqrt(gx, q)
-30. Output h*(x, y)
-</pre>
-<h1 id="rfc.section.5.4.3">
-<a href="#rfc.section.5.4.3">5.4.3.</a> <a href="#simple-swu" id="simple-swu">Simplified SWU Method</a>
-</h1>
-<p id="rfc.section.5.4.3.p.1">The map2curve_simple_swu(alpha) implements a simplified version of Shallue-Woestijne-Ulas algorithm given by Brier et al. <a href="#BR01" class="xref">[BR01]</a>.</p>
-<p id="rfc.section.5.4.3.p.2">Preconditions: A Weierstrass curve over F such that A!=0, B!=0, and p=3 (mod 4).</p>
-<p id="rfc.section.5.4.3.p.3">Input: alpha, an octet string to be hashed.</p>
-<p id="rfc.section.5.4.3.p.4">Constants: A and B, the parameters of the Weierstrass curve.</p>
-<p id="rfc.section.5.4.3.p.5">Output: (x,y), a point on E.</p>
-<p id="rfc.section.5.4.3.p.6">Operations:</p>
+<ul>
+<li>A and B, the parameters of the Weierstrass curve.</li>
+<li>Z, the smallest (in absolute value) non-square in F such that g(B / (Z * A)) is square in F, breaking ties by choosing the positive value.</li>
+</ul>
+<p id="rfc.section.5.6.2.p.6">Output: (x, y), a point on E.</p>
+<p id="rfc.section.5.6.2.p.7">Sign of y: for u = hash2base(alpha), this encoding ignores the sign of u.  Thus, we set sgn0(y) == sgn0(u).</p>
+<p id="rfc.section.5.6.2.p.8">Exceptions: The exceptional cases are values of u such that Z^2 * u^4 + Z * u^2 == 0. This includes u == 0, and may include other values depending on Z. Implementations must detect this case and set x1 = B / (Z * A), which guarantees that g(x1) is square by the condition on Z given above.</p>
+<p id="rfc.section.5.6.2.p.9">Operations:</p>
 <pre>
 1.   u = hash2base(alpha)
-2.  x1 = (-B / A) * (1 + (1 / (u^4 - u^2)))
-3. gx1 = x1^3 + A*x1 + B
-4.  x2 = -u^2 * x1
-5. gx2 = x2^3 + A*x2 + B
-6. If gx1 is square, set x = x1 and y = sqrt(gx1)
-7. If gx2 is square, set x = x2 and y = sqrt(gx2)
-8. Output h*(x, y)
+2. den = inv0(Z^2 * u^4 + Z * u^2)
+3.  x1 = (-B / A) * (1 + den)
+4.  If den == 0, set x1 = B / (Z * A)
+5. gx1 = x1^3 + A * x1 + B
+6.  x2 = Z * u^2 * x1
+7. gx2 = x2^3 + A * x2 + B
+8.  If gx1 is square, set x = x1 and y = sqrt(gx1)
+9.  If gx2 is square, set x = x2 and y = sqrt(gx2)
+10. If sgn0(u) != sgn0(y), set y = -y
+11. Output clear_h(x, y)
 </pre>
-<h1 id="rfc.section.5.4.3.1">
-<a href="#rfc.section.5.4.3.1">5.4.3.1.</a> <a href="#implementation-3" id="implementation-3">Implementation</a>
+<h1 id="rfc.section.5.6.2.1">
+<a href="#rfc.section.5.6.2.1">5.6.2.1.</a> <a href="#implementation-1" id="implementation-1">Implementation</a>
 </h1>
-<p id="rfc.section.5.4.3.1.p.1">The following procedure implements the Simple SWU&#8217;s algorithm in a straight-line fashion.</p>
+<p id="rfc.section.5.6.2.1.p.1">The following procedure implements the simplified SWU algorithm in a straight-line fashion. This implementation is optimized for the case that q = 3 (mod 4), which applies to P-256.  For discussion of how to generalize to q = 1 (mod 4), see <a href="#WB19" class="xref">[WB19]</a> (Section 4) or the example code found at <a href="#github-repo" class="xref">[github-repo]</a>.</p>
 <pre>
 map2curve_simple_swu(alpha)
 Input: alpha, an octet string to be hashed.
 Output: (x, y), a point on E.
 
+Precondition: q = 3 (mod 4)
+
 Constants:
-1.  c1 = - B / A
+1.  c1 = -B / A
+2.  c2 = -1 / Z
+3.  c3 = sqrt(-Z^3)
 
 Steps:
 1.    u = hash2base(alpha)
-2.   t1 = -u^2            
-3.   t2 = t1^2            
-4.   x1 = t2 + t1
-5.   x1 = 1 / x1
-6.   x1 = x1 + 1         
-7.   x1 = x1 * c1            // x1 = (-B / A) * (1 + (1 / (u^4 - u^2)))
+2.   t1 = Z * u^2
+3.   t2 = t1^2
+4.   x1 = t1 + t2
+5.   x1 = inv0(x1)
+6.   e1 = x1 == 0
+7.   x1 = x1 + 1
+8.   x1 = CMOV(x1, c2, e1)   // if (t1 + t2) == 0, set x1 = -1 / Z
+7.   x1 = x1 * c1      // x1 = (-B / A) * (1 + (1 / (Z^2 * u^4 + Z * u^2)))
 8.  gx1 = x1^2
 9.  gx1 = gx1 + A
 10. gx1 = gx1 * x1
-11. gx1 = gx1 + B            // gx1 = x1^3 + A*x1 + B
-12.  x2 = t1 * x1            // x2 = -u^2 * x1
-13. gx2 = x2^2
-14. gx2 = gx2 + A
-15. gx2 = gx2 * x2
-16. gx2 = gx2 + B            // gx2 = x2^3 + A*x2 + B
-17.   e = is_square(gx1, q)
-18.   x = CMOV(x2, x1, e)    // If e=True, x = x1, else x = x2
-19.  gx = CMOV(gx2, gx1, e)  // If e=True, gx = gx1, else gx = gx2
-20.   y = sqrt(gx, q)
-21. Output h*(x, y)
+11. gx1 = gx1 + B            // gx1 = g(x1) = x1^3 + A * x1 + B
+12.  x2 = t1 * x1            // x2 = Z * u^2 * x1
+13.  t3 = gx1^((p + 1) / 4)  // if gx1 is square, this is sqrt(g(x1))
+14.  t4 = t3 * c3
+15.  t4 = t4 * u^3           // if gx1 is not square, this is sqrt(g(x2))
+16.  e3 = t3^2 == gx1
+17.   x = CMOV(x2, x1, e3)   // if e2 == True, x = x1, else x = x2
+18.   y = CMOV(t4, t3, e3)   // if e2 == True, y = t3, else y = t4
+19.  e4 = sgn0(u) == sgn0(y)
+20.   y = CMOV(-y, y, e4)
+21. Output clear_h(x, y)
 </pre>
-<h1 id="rfc.section.5.5">
-<a href="#rfc.section.5.5">5.5.</a> <a href="#encodings-for-montgomery-curves" id="encodings-for-montgomery-curves">Encodings for Montgomery curves</a>
+<h1 id="rfc.section.5.7">
+<a href="#rfc.section.5.7">5.7.</a> <a href="#encodings-for-montgomery-curves" id="encodings-for-montgomery-curves">Encodings for Montgomery curves</a>
 </h1>
-<h1 id="rfc.section.5.5.1">
-<a href="#rfc.section.5.5.1">5.5.1.</a> <a href="#elligator2" id="elligator2">Elligator2 Method</a>
+<h1 id="rfc.section.5.7.1">
+<a href="#rfc.section.5.7.1">5.7.1.</a> <a href="#elligator2" id="elligator2">Elligator 2 Method</a>
 </h1>
-<p id="rfc.section.5.5.1.p.1">The map2curve_elligator2(alpha) implements the Elligator2 <a href="#Elligator2" class="xref">[Elligator2]</a> for curves defined by y^2 = x^3 + A*x^2 + B*x such that A*B*(A^2 - 4*B) != 0.  In particular, this method applies to the Montgomery curves y^2 = x^3 + A*x^2 + x setting B=1.</p>
-<p id="rfc.section.5.5.1.p.2">Preconditions: A Montgomery curve such that A!=0.</p>
-<p id="rfc.section.5.5.1.p.3">Input: alpha, an octet string to be hashed.</p>
-<p id="rfc.section.5.5.1.p.4">Constants: A and B, the parameters of the curve; N, a non-square in F.</p>
-<p id="rfc.section.5.5.1.p.5">Output: (x, y), a point on E.</p>
-<p id="rfc.section.5.5.1.p.6">Operations:</p>
+<p id="rfc.section.5.7.1.p.1">The function map2curve_elligator2(alpha) implements Elligator 2 <a href="#BHKL13" class="xref">[BHKL13]</a> for curves defined by y^2 = x^3 + A * x^2 + B * x such that A * B * (A^2 - 4 * B) != 0 and A^2 - 4 * B is non-square in F.</p>
+<p id="rfc.section.5.7.1.p.2">Preconditions: A Montgomery curve where A != 0, B != 0, and A^2 - 4 is non-square in F.</p>
+<p id="rfc.section.5.7.1.p.3">Input: alpha, an octet string to be hashed.</p>
+<p id="rfc.section.5.7.1.p.4">Constants:</p>
+<p></p>
+
+<ul>
+<li>A and B, the parameters of the curve</li>
+<li>Z, the smallest (in absolute value) non-square in F, breaking ties by choosing the positive value.</li>
+</ul>
+<p id="rfc.section.5.7.1.p.6">Output: (x, y), a point on E.</p>
+<p id="rfc.section.5.7.1.p.7">Sign of y: for u = hash2base(alpha), this encoding ignores the sign of u.  Thus, we set sgn0(y) == sgn0(u).</p>
+<p id="rfc.section.5.7.1.p.8">Exceptions: The exceptional case is Z * u^2 == -1, i.e., 1 + Z * u^2 == 0.  Implementations must detect this case and set x1 = -A.  Note that this can only happen when q = 3 (mod 4).</p>
+<p id="rfc.section.5.7.1.p.9">Operations:</p>
 <pre>
 1.   u = hash2base(alpha)
-2.  x1 = -A / (1 + N * u^2)
-3. gx1 = x1^3 + A * x1^2 + B * x1
-4.  x2 = -x1 - A
-5. gx2 = x2^3 + A * x2^2 + B * x2
-6.   e = gx1^((q - 1) / 2)
-7. If is_square(gx1), set x = x1 and y = -e * sqrt(gx1)
-8. If is_square(gx2), set x = x2 and y = -e * sqrt(gx2)
-9. Output h*(x, y)
+2.  x1 = -A * inv0(1 + Z * u^2)
+3.  If x1 == 0, set x1 = -A.
+4. gx1 = x1^3 + A * x1^2 + B * x1
+5.  x2 = -x1 - A
+6. gx2 = x2^3 + A * x2^2 + B * x2
+8.  If is_square(gx1), set x = x1 and y = sqrt(gx1)
+9.  If is_square(gx2), set x = x2 and y = sqrt(gx2)
+10. If sgn0(u) != sgn0(y), set y = -y
+11. Output clear_h(x, y)
 </pre>
-<h1 id="rfc.section.5.5.1.1">
-<a href="#rfc.section.5.5.1.1">5.5.1.1.</a> <a href="#implementation-4" id="implementation-4">Implementation</a>
+<h1 id="rfc.section.5.7.1.1">
+<a href="#rfc.section.5.7.1.1">5.7.1.1.</a> <a href="#implementation-q3-mod-4" id="implementation-q3-mod-4">Implementation, q=3 (mod 4)</a>
 </h1>
-<p id="rfc.section.5.5.1.1.p.1">The following procedure implements elligator2 algorithm in a straight-line fashion.</p>
+<p id="rfc.section.5.7.1.1.p.1">The following procedure implements Elligator 2 in a straight-line fashion for curves where q=3 (mod 4), including Curve448.</p>
 <pre>
-map2curve_elligator2(alpha)
+map2curve_elligator2_3mod4(alpha)
 Input: alpha, an octet string to be hashed.
 Output: (x, y), a point on E.
 
-Constants:  
-1. c1 is an non-square in F.
-2. c2 = (q - 1) / 2      // Integer arithmetic
+Constants:
+1. c1 is Z^((q + 1) / 4) in F.
 
 Steps:
 1.    u = hash2base(alpha)
 2.   x1 = u^2
-3.   x1 = c1 * x1        
+3.   x1 = Z * x1
 4.   x1 = x1 + 1
-5.   x1 = 1 / x1
-6.   x1 = A * x1
-7.   x1 = -x1            // x1 = -A / (1 + N * u^2)
-8.  gx1 = x1 + A
-9.  gx1 = gx1 * x1
-10. gx1 = gx1 + B
-11. gx1 = gx1 * x1       // gx1 = x1^3 + A * x1^2 + B * x1
-12.  x2 = -x1 - A        // x2 = -x1 - A
-13. gx2 = x2 + A
-14. gx2 = gx2 * x2
-15. gx2 = gx2 + B
-16. gx2 = gx2 * x2       // gx2 = x2^3 + A * x2^2 + B * x2
-17.   e = is_square(gx1, q)
-18.   x = CMOV(x2, x1, e)    // If e=True, x=x1, else x=x2
-19.  gx = CMOV(gx2, gx1, e)  // If e=True, x=gx1, else x=gx2
-20.  y2 = sqrt(gx, q)
-22.  y1 = -y2
-22.   y = CMOV(y2, y1, e)    // If e=True, y=y1, else y=y2
-23. Output h*(x, y)
+5.   x1 = inv0(x1)
+6.   e1 = x1 == 0
+7.   x1 = CMOV(x1, 1, e1)     // if x1 == 0, set x1 == 1
+8.   x1 = -A * x1             // x1 = -A / (1 + Z * u^2)
+9.  gx1 = x1 + A
+10. gx1 = gx1 * x1
+11. gx1 = gx1 + B
+12. gx1 = gx1 * x1            // gx1 = x1^3 + A * x1^2 + B * x1
+13.  y1 = gx1^((q + 1) / 4)
+14.  x2 = -x1 - A
+15.  y2 = y1 * u
+16.  y2 = y2 * c1
+17.  e2 = y1^2 == gx1
+18.   x = CMOV(x2, x1, e2)    // If e == True, x=x1, else x=x2
+19.   y = CMOV(y2, y1, e2)    // If e == True, y=y1, else y=y2
+20.  e3 = sgn0(u) == sgn0(y)  // fix sign of y
+21.   y = CMOV(-y, y, e3)
+22. Output clear_h(x, y)
 </pre>
-<h1 id="rfc.section.5.6">
-<a href="#rfc.section.5.6">5.6.</a> <a href="#encodings-for-twisted-edwards-curves" id="encodings-for-twisted-edwards-curves">Encodings for twisted Edwards curves</a>
+<h1 id="rfc.section.5.7.1.2">
+<a href="#rfc.section.5.7.1.2">5.7.1.2.</a> <a href="#implementation-q5-mod-8" id="implementation-q5-mod-8">Implementation, q=5 (mod 8)</a>
 </h1>
-<h1 id="rfc.section.5.6.1">
-<a href="#rfc.section.5.6.1">5.6.1.</a> <a href="#ell2edwards" id="ell2edwards">Elligator2 Method</a>
-</h1>
-<p id="rfc.section.5.6.1.p.1">The map2curve_ell2edwards(alpha) implements an adaptation of Elligator2 <a href="#Elligator2" class="xref">[Elligator2]</a> for twisted Edwards curves defined by A*x^2 + y^2 = 1 + D*x^2y^2 over a field F.</p>
-<p id="rfc.section.5.6.1.p.2">Preconditions: A Twisted Edwards curve.</p>
-<p id="rfc.section.5.6.1.p.3">Input: alpha, an octet string to be hashed.</p>
-<p id="rfc.section.5.6.1.p.4">Constants: A and D, the parameters of the curve; N, a non-square in F.</p>
-<p id="rfc.section.5.6.1.p.5">Output: (x,y), a point on E.</p>
-<p id="rfc.section.5.6.1.p.6">Operations:</p>
+<p id="rfc.section.5.7.1.2.p.1">The following is a straight-line implementation of Elligator 2 for curves where q=5 (mod 8), including Curve25519.</p>
 <pre>
-1.  u = hash2base(alpha)
-2. c1 = 2 * (A + D) / (A - D)
-3. t1 = -c1 / (1 + N * u^2)
-4. t2 = -t1 - c1
-5. g1 = t1^3 + c1 * t1^2 + t1
-6. If is_square(g1), set t = t1, else t = t2
-7. y = (t - 1) / (t + 1)
-8. x = sqrt((y^2 - 1) / (D * y^2 - A), q)
-9. Output h*(x, y)
-</pre>
-<h1 id="rfc.section.5.6.1.1">
-<a href="#rfc.section.5.6.1.1">5.6.1.1.</a> <a href="#implementation-5" id="implementation-5">Implementation</a>
-</h1>
-<p id="rfc.section.5.6.1.1.p.1">The following procedure implements elligator2 method in a straight-line fashion.</p>
-<pre>
-map2curve_ell2edwards(alpha)
+map2curve_elligator2_5mod8(alpha)
 Input: alpha, an octet string to be hashed.
 Output: (x, y), a point on E.
 
-Constants:  
-1. c0 is an non-square in F.
-2. c1 = 2 * (A + D) / (A - D).
+Constants:
+1. c1 is Z^((q + 3) / 8) in F.
+2. c2 is sqrt(-1) in F.
 
 Steps:
-1.   u = hash2base(alpha)
-2.  t1 = u^2
-3.  t1 = c0 * t1
-4.  t1 = t1 + 1
-5.  t1 = 1 / t1
-6.  t1 = t1 * c1
-7.  t1 = -t1                // t1 = -c1 / (1 + c0 * u^2)
-8.  t2 = -t1 - c1           // t2 = -x1 - c1
-9.  g1 = t1 + c1
-10. g1 = g1 * t1
-11. g1 = g1 + 1
-12. g1 = g1 * t1            // g1 = t1^3 + c1 * t1^2 + t1
-13.  e = is_square(g1, q)
-14. t3 = CMOV(t2, t1, e)    // If e=True, t=t1, else t=t2
-15. t4 = t3 + 1
-16. t4 = 1 / t4
-17.  y = t3 - 1
-18.  y = y * t4
-19. t5 = y^2
-20. gx = t5 * D
-21. gx = gx - A
-22. gx = 1 / gx
-23. t5 = t5 - 1
-24. gx = gx * t5
-25.  x = sqrt(gx, q)
-26. Output h*(x, y)
+1.    u = hash2base(alpha)
+2.   t1 = u^2
+3.   t1 = Z * t1
+4.   x1 = t1 + 1
+5.   x1 = inv0(x1)            // cannot be 0 because q=5 mod 8
+6.   x1 = -A * x1             // x1 = -A / (1 + Z * u^2)
+7.  gx1 = x1 + A
+8.  gx1 = gx1 * x1
+9.  gx1 = gx1 + B
+10. gx1 = gx1 * x1            // gx1 = x1^3 + A * x1^2 + B * x1
+11. y11 = gx1^((q + 3) / 8)
+12. y12 = c2 * y11
+13.  e1 = y12^2 == gx1
+14.  y1 = CMOV(y11, y12, e1)  // if gx1 is square, this is its sqrt
+15.  x2 = -x1 - A
+16. y21 = y11 * u
+17. y21 = y21 * c1
+18. y22 = c2 * y21
+19. gx2 = t1 * gx1
+20.  e2 = y22^2 == gx2
+21.  y2 = CMOV(y21, y22, e2)  // if gx2 is square, this is its sqrt
+22.  e3 = y1^2 == gx1
+23.   x = CMOV(x2, x1, e3)    // if e == True, x=x1, else x=x2
+24.   y = CMOV(y2, y1, e3)    // if e == True, y=y1, else y=y2
+25.  e4 = sgn0(u) == sgn0(y)  // fix sign of y
+26.   y = CMOV(-y, y, e4)
+27. Output clear_h(x, y)
 </pre>
-<h1 id="rfc.section.5.7">
-<a href="#rfc.section.5.7">5.7.</a> <a href="#encodings-for-supersingular-curves" id="encodings-for-supersingular-curves">Encodings for Supersingular curves</a>
+<h1 id="rfc.section.5.8">
+<a href="#rfc.section.5.8">5.8.</a> <a href="#encodings-for-twisted-edwards-curves" id="encodings-for-twisted-edwards-curves">Encodings for twisted Edwards curves</a>
 </h1>
-<h1 id="rfc.section.5.7.1">
-<a href="#rfc.section.5.7.1">5.7.1.</a> <a href="#supersingular" id="supersingular">Boneh-Franklin Method</a>
+<h1 id="rfc.section.5.8.1">
+<a href="#rfc.section.5.8.1">5.8.1.</a> <a href="#ell2edwards" id="ell2edwards">Elligator 2 Method</a>
 </h1>
-<p id="rfc.section.5.7.1.p.1">The map2curve_bf(alpha) implements the Boneh-Franklin method <a href="#BF01" class="xref">[BF01]</a> which covers the supersingular curves defined by y^2 = x^3 + B over a field F such that q=2 (mod 3).</p>
-<p id="rfc.section.5.7.1.p.2">Preconditions: A supersingular curve over F such that q=2 (mod 3).</p>
-<p id="rfc.section.5.7.1.p.3">Input: alpha, an octet string to be hashed.</p>
-<p id="rfc.section.5.7.1.p.4">Constants: B, the parameter of the supersingular curve.</p>
-<p id="rfc.section.5.7.1.p.5">Output: (x, y), a point on E.</p>
-<p id="rfc.section.5.7.1.p.6">Operations:</p>
+<p id="rfc.section.5.8.1.p.1">Twisted Edwards curves and Montgomery curves are closely related: every twisted Edwards curve is birationally equivalent to a Montgomery curve (<a href="#BBJLP08" class="xref">[BBJLP08]</a>, Theorem 3.2). To hash to a twisted Edwards curve, hash to the equivalent Montgomery curve and evaluate the rational map to obtain a point on the twisted Edwards curve.</p>
+<p id="rfc.section.5.8.1.p.2">For a twisted Edwards curve given by a * x^2 + y^2 = 1 + d * x^2 * y^2, first compute A and B, the parameters of the equivalent Montgomery curve, as follows:</p>
+<p></p>
+
+<ul>
+<li>A = (a + 2) / 2</li>
+<li>B = (a - d)^2 / 16</li>
+</ul>
+<p id="rfc.section.5.8.1.p.4">Next, use A and B as the curve parameters in the Elligator 2 method of <a href="#elligator2" class="xref">Section 5.7.1</a> to obtain a point (x&#8217;, y&#8217;) on the Montgomery curve.  Finally, convert (x&#8217;, y&#8217;) to a point (x, y) on the target curve.  Letting B&#8217; = 4 / (a - d), compute</p>
+<p></p>
+
+<ul>
+<li>x = x&#8217; / y&#8217;</li>
+<li>y = (B&#8217; * x&#8217; - 1) / (B&#8217; * x&#8217; + 1)</li>
+</ul>
+<p id="rfc.section.5.8.1.p.6">This can be done in one inversion using Montgomery&#8217;s trick <a href="#M87" class="xref">[M87]</a>: invert the product y&#8217; * (B&#8217; * x&#8217; + 1), then multiply by y&#8217; to obtain 1 / (B&#8217; * x&#8217; + 1), and likewise for 1 / y&#8217;.</p>
+<p id="rfc.section.5.8.1.p.7">Preconditions: A twisted Edwards curve.</p>
+<p id="rfc.section.5.8.1.p.8">Input: alpha, an octet string to be hashed.</p>
+<p id="rfc.section.5.8.1.p.9">Constants:</p>
+<p></p>
+
+<ul>
+<li>A and B, the parameters of the equivalent Montgomery curve, and B&#8217; = 1 / sqrt(B).</li>
+<li>Z, the smallest (in absolute value) non-square in F, breaking ties by choosing the positive value.</li>
+</ul>
+<p id="rfc.section.5.8.1.p.11">Output: (x, y), a point on E.</p>
+<p id="rfc.section.5.8.1.p.12">Sign of y: for this map, the sign is determined by map2curve_elligator2.  No further sign adjustments are required.</p>
+<p id="rfc.section.5.8.1.p.13">Exceptions: The exceptions for the Elligator 2 encoding are as given in <a href="#elligator2" class="xref">Section 5.7.1</a>. When converting to a point on the twisted Edwards curve, the remaining exceptions are y&#8217; == 0 or B&#8217; * x&#8217; == -1. Implementors must detect these cases and return (x, y) = (0, 1).</p>
+<p id="rfc.section.5.8.1.p.14">The following straight-line implementation handles the exceptional cases:</p>
+<pre>
+1. (x', y') = map2curve_elligator2(alpha)  // a Montgomery point
+2.       x' = x' * B'
+3.       y' = y' * B'
+4.       t1 = x' + 1
+5.       t2 = y' * t1
+6.       t2 = inv0(t2)
+7.        x = t1 * t2
+8.        x = x * x'
+9.        y = x' - 1
+10.       y = y * t2
+11.       y = y * y'
+12.       e = y == 0
+13.       y = CMOV(y, 1, e)
+14. Output clear_h(x, y)
+</pre>
+<h1 id="rfc.section.5.9">
+<a href="#rfc.section.5.9">5.9.</a> <a href="#encodings-for-supersingular-curves" id="encodings-for-supersingular-curves">Encodings for Supersingular curves</a>
+</h1>
+<h1 id="rfc.section.5.9.1">
+<a href="#rfc.section.5.9.1">5.9.1.</a> <a href="#supersingular" id="supersingular">Boneh-Franklin Method</a>
+</h1>
+<p id="rfc.section.5.9.1.p.1">The function map2curve_bf(alpha) implements the Boneh-Franklin method <a href="#BF01" class="xref">[BF01]</a> which covers the supersingular curves defined by y^2 = x^3 + B over a field F such that q=2 (mod 3).</p>
+<p id="rfc.section.5.9.1.p.2">Preconditions: A supersingular curve over F such that q=2 (mod 3).</p>
+<p id="rfc.section.5.9.1.p.3">Input: alpha, an octet string to be hashed.</p>
+<p id="rfc.section.5.9.1.p.4">Constants: B, the parameter of the supersingular curve.</p>
+<p id="rfc.section.5.9.1.p.5">Output: (x, y), a point on E.</p>
+<p id="rfc.section.5.9.1.p.6">Sign of y: determined by sign of u. No adjustments are necessary.</p>
+<p id="rfc.section.5.9.1.p.7">Exceptions: none.</p>
+<p id="rfc.section.5.9.1.p.8">Operations:</p>
 <pre>
 1. u = hash2base(alpha)
 2. x = (u^2 - B)^((2 * q - 1) / 3)
 3. y = u
-4. Output h*(x, y)
+4. Output clear_h(x, y)
 </pre>
-<h1 id="rfc.section.5.7.1.1">
-<a href="#rfc.section.5.7.1.1">5.7.1.1.</a> <a href="#implementation-6" id="implementation-6">Implementation</a>
+<h1 id="rfc.section.5.9.1.1">
+<a href="#rfc.section.5.9.1.1">5.9.1.1.</a> <a href="#implementation-2" id="implementation-2">Implementation</a>
 </h1>
-<p id="rfc.section.5.7.1.1.p.1">The following procedure implements the Boneh-Franklin&#8217;s algorithm in a straight-line fashion.</p>
+<p id="rfc.section.5.9.1.1.p.1">The following procedure implements the Boneh-Franklin&#8217;s algorithm in a straight-line fashion.</p>
 <pre>
 map2curve_bf(alpha)
 Input: alpha, an octet string to be hashed.
@@ -1038,31 +1085,34 @@ Steps:
 3. t1 = t1 - B
 4.  x = t1^c1             // x = (u^2 - B)^((2 * q - 1) / 3)
 5.  y = u
-6. Output h*(x, y)
+6. Output clear_h(x, y)
 </pre>
-<h1 id="rfc.section.5.7.2">
-<a href="#rfc.section.5.7.2">5.7.2.</a> <a href="#elligator2a0-method" id="elligator2a0-method">Elligator2A0 Method</a>
+<h1 id="rfc.section.5.9.2">
+<a href="#rfc.section.5.9.2">5.9.2.</a> <a href="#elligator-2-a0-method" id="elligator-2-a0-method">Elligator 2, A=0 Method</a>
 </h1>
-<p id="rfc.section.5.7.2.p.1">The map2curve_ell2A0(alpha) implements an adaptation of Elligator2 <a href="#Elligator2A0" class="xref">[Elligator2A0]</a> targeting the supersingular curves defined by y^2 = x^3 + B*x over a field F such that q=3 (mod 4).</p>
-<p id="rfc.section.5.7.2.p.2">Preconditions: A supersingular curve over F such that q=3 (mod 4).</p>
-<p id="rfc.section.5.7.2.p.3">Input: alpha, an octet string to be hashed.</p>
-<p id="rfc.section.5.7.2.p.4">Constants: B, the parameter of the supersingular curve.</p>
-<p id="rfc.section.5.7.2.p.5">Output: (x, y), a point on E.</p>
-<p id="rfc.section.5.7.2.p.6">Operations:</p>
+<p id="rfc.section.5.9.2.p.1">The function map2curve_ell2A0(alpha) implements an adaptation of Elligator 2 <a href="#BLMP19" class="xref">[BLMP19]</a> targeting curves given by y^2 = x^3 + B * x over F such that q=3 (mod 4).</p>
+<p id="rfc.section.5.9.2.p.2">Preconditions: A supersingular curve over F such that q=3 (mod 4).</p>
+<p id="rfc.section.5.9.2.p.3">Input: alpha, an octet string to be hashed.</p>
+<p id="rfc.section.5.9.2.p.4">Constants: B, the parameter of the supersingular curve.</p>
+<p id="rfc.section.5.9.2.p.5">Output: (x, y), a point on E.</p>
+<p id="rfc.section.5.9.2.p.6">Sign of y: for u = hash2base(alpha), u and -u give the same x-coordinate.  Thus, we set sgn0(y) == sgn0(u).</p>
+<p id="rfc.section.5.9.2.p.7">Exceptions: none.</p>
+<p id="rfc.section.5.9.2.p.8">Operations:</p>
 <pre>
 1.   u = hash2base(alpha)
 2.  x1 = u
 3. gx1 = x1^3 + B * x1
-2.  x2 = -x1
-3. gx2 = x2^3 + B * x2
-8. If gx1 is square, x = x1 and y = sqrt(gx1)
-9. If gx2 is square, x = x2 and y = sqrt(gx2)
-10. Output h*(x, y)
+4.  x2 = -x1
+5. gx2 = x2^3 + B * x2
+6. If gx1 is square, x = x1 and y = sqrt(gx1)
+7. If gx2 is square, x = x2 and y = sqrt(gx2)
+8. If sgn0(u) != sgn0(y), set y = -y.
+9. Output clear_h(x, y)
 </pre>
-<h1 id="rfc.section.5.7.2.1">
-<a href="#rfc.section.5.7.2.1">5.7.2.1.</a> <a href="#implementation-7" id="implementation-7">Implementation</a>
+<h1 id="rfc.section.5.9.2.1">
+<a href="#rfc.section.5.9.2.1">5.9.2.1.</a> <a href="#implementation-3" id="implementation-3">Implementation</a>
 </h1>
-<p id="rfc.section.5.7.2.1.p.1">The following procedure implements the Elligator2&#8217;s algorithm for supersingular curves in a straight-line fashion.</p>
+<p id="rfc.section.5.9.2.1.p.1">The following procedure implements the Elligator 2 algorithm for supersingular curves in a straight-line fashion.</p>
 <pre>
 map2curve_ell2A0(alpha)
 Input: alpha, an octet string to be hashed.
@@ -1071,102 +1121,155 @@ Output: (x, y), a point on E.
 Steps:
 1.   u = hash2base(alpha)
 2.  x1 = u
-3. gx1 = x1^2
-4. gx1 = gx1 + B
-5. gx1 = gx1 * x1     // gx1 = x1^3 + B * x1
-6.  x2 = -x1
-7. gx2 = -gx1         // gx2 = x2^3 + B * x2
-8.   e = is_square(gx1, q)
-9.   x = CMOV(x2, x1, e)    // If e=True, x = x1, else x = x2
-10. gx = CMOV(gx2, gx1, e)  // If e=True, gx = gx1, else gx = gx2
-11.  y = sqrt(gx, q)
-12. Output h*(x, y)
+3.  x2 = -x1
+4. gx1 = x1^2
+5. gx1 = gx1 + B
+6. gx1 = gx1 * x1           // gx1 = x1^3 + B * x1
+7.   y = gx1^((p + 1) / 4)  // this is either sqrt(gx1) or sqrt(gx2)
+8.  e1 = y^2 == gx1
+9.   x = CMOV(x2, x1, e1)
+10. e2 = sgn0(u) == sgn0(y)
+11.  y = CMOV(-y, y, e2)
+12. Output clear_h(x, y)
 </pre>
-<h1 id="rfc.section.5.8">
-<a href="#rfc.section.5.8">5.8.</a> <a href="#encodings-for-pairing-friendly-curves" id="encodings-for-pairing-friendly-curves">Encodings for Pairing-Friendly curves</a>
+<h1 id="rfc.section.5.10">
+<a href="#rfc.section.5.10">5.10.</a> <a href="#encodings-for-pairing-friendly-curves" id="encodings-for-pairing-friendly-curves">Encodings for Pairing-Friendly curves</a>
 </h1>
-<h1 id="rfc.section.5.8.1">
-<a href="#rfc.section.5.8.1">5.8.1.</a> <a href="#ftpairing" id="ftpairing">Fouque-Tibouchi Method</a>
+<h1 id="rfc.section.5.10.1">
+<a href="#rfc.section.5.10.1">5.10.1.</a> <a href="#swpairing" id="swpairing">Shallue-van de Woestijne Method</a>
 </h1>
-<p id="rfc.section.5.8.1.p.1">The map2curve_ft(alpha) implements the Fouque-Tibouchi&#8217;s method <a href="#FT12" class="xref">[FT12]</a> for elliptic curves defined by y^2 = x^3 + B. Notice that this encoding covers the case q=1 (mod 3) which is not handled by Boneh-Franklin&#8217;s method, e.g., the SECP256K1 curve <a href="#SEC2" class="xref">[SEC2]</a>. In addition, this encoding covers pairing-friendly curves, such as BN <a href="#BN05" class="xref">[BN05]</a>, KSS <a href="#KSS08" class="xref">[KSS08]</a>, and BLS <a href="#BLS02" class="xref">[BLS02]</a> curves.</p>
-<p id="rfc.section.5.8.1.p.2">Preconditions: A Weierstrass curve over F such that q=7 (mod 12).</p>
-<p id="rfc.section.5.8.1.p.3">Input: alpha, an octet string to be hashed.</p>
-<p id="rfc.section.5.8.1.p.4">Constants: B, the constant of the Weierstrass curve; and S=sqrt(-3) in F.</p>
-<p id="rfc.section.5.8.1.p.5">Output: (x, y), a point on E.</p>
-<p id="rfc.section.5.8.1.p.6">Operations:</p>
+<p id="rfc.section.5.10.1.p.1">Shallue and van de Woestijne <a href="#SW06" class="xref">[SW06]</a> describe an encoding that applies to essentially any elliptic curve. Fouque and Tibouchi <a href="#FT12" class="xref">[FT12]</a> give a concrete set of parameters for this encoding geared toward Barreto-Naehrig pairing-friendly curves <a href="#BN05" class="xref">[BN05]</a>, i.e., curves y^2 = x^3 + B over fields of characteristic q=1 (mod 3).  Wahby and Boneh <a href="#WB19" class="xref">[WB19]</a> suggest a small generalization of the Fouque-Tibouchi parameters that results in a uniform method for handling exceptional cases.</p>
+<p id="rfc.section.5.10.1.p.2">This encoding method covers curves not handled by other methods, e.g., SECP256K1 <a href="#SEC2" class="xref">[SEC2]</a>. It also covers pairing-friendly curves in the BN <a href="#BN05" class="xref">[BN05]</a>, KSS <a href="#KSS08" class="xref">[KSS08]</a>, and BLS <a href="#BLS02" class="xref">[BLS02]</a> families. (Note that the encoding described in <a href="#simple-swu-pairing-friendly" class="xref">Section 5.10.2</a> is faster, when it applies.)</p>
+<p id="rfc.section.5.10.1.p.3">Preconditions: An elliptic curve y^2 = g(x) = x^3 + B over F such that q=1 (mod 3) and B != 0.</p>
+<p id="rfc.section.5.10.1.p.4">Input: alpha, an octet string to be hashed.</p>
+<p id="rfc.section.5.10.1.p.5">Constants:</p>
+<p></p>
+
+<ul>
+<li>B, the parameter of the Weierstrass curve</li>
+<li>Z, the smallest (in absolute value) element of F such that g((sqrt(-3 * Z^2) - Z) / 2) is square, breaking ties by choosing the positive value.</li>
+</ul>
+<p id="rfc.section.5.10.1.p.7">Output: (x, y), a point on E.</p>
+<p id="rfc.section.5.10.1.p.8">Sign of y: for u = hash2base(alpha), this encoding ignores the sign of u.  Thus, we set sgn0(y) == sgn0(u).</p>
+<p id="rfc.section.5.10.1.p.9">Exceptions: The exceptional cases for u = hash2base(alpha) occur when u^2 * (u^2 + g(Z)) == 0. The restriction on Z given above ensures that implementations that use inv0 to invert this product are exception free.</p>
+<p id="rfc.section.5.10.1.p.10">Operations:</p>
 <pre>
 1.  u = hash2base(alpha)
-2. t1 = (S * u) / (1 + B + u^2)
-3. x1 = ((-1 + S) / 2) - u * t1
-4. x2 = -1 - x1
-5. x3 = 1 + (1 / t1^2)
-6.  e = u^((p-1) / 2)
-7. If x1^3 + B is square, set x = x1 and y = e * sqrt(x1^3 + B)
-8. If x2^3 + B is square, set x = x2 and y = e * sqrt(x2^3 + B)
-8. If x3^3 + B is square, set x = x3 and y = e * sqrt(x3^3 + B)
-9. Output h*(x, y)
+2. t1 = u^2 + g(Z)
+3. t2 = inv0(u^2 * t1)
+4. t3 = u^4 * t2 * sqrt(-3 * Z^2)
+5. x1 = ((sqrt(-3 * Z^2) - Z) / 2) - t3
+6. x2 = t3 - ((sqrt(-3 * Z^2) + Z) / 2)
+7. x3 = Z - (t1^3 * t2 / (3 * Z^2))
+8.  If g(x1) is square, set x = x1 and y = sqrt(g(x1))
+9.  If g(x2) is square, set x = x2 and y = sqrt(g(x2))
+10. If g(x3) is square, set x = x3 and y = sqrt(g(x3))
+11. If sgn0(u) != sgn0(y), set y = -y
+12. Output clear_h(x, y)
 </pre>
-<h1 id="rfc.section.5.8.1.1">
-<a href="#rfc.section.5.8.1.1">5.8.1.1.</a> <a href="#implementation-8" id="implementation-8">Implementation</a>
+<h1 id="rfc.section.5.10.1.1">
+<a href="#rfc.section.5.10.1.1">5.10.1.1.</a> <a href="#implementation-4" id="implementation-4">Implementation</a>
 </h1>
-<p id="rfc.section.5.8.1.1.p.1">The following procedure implements the Fouque-Tibouchi&#8217;s algorithm in a straight-line fashion.</p>
+<p id="rfc.section.5.10.1.1.p.1">The following procedure implements the Shallue and van de Woestijne method in a straight-line fashion.</p>
 <pre>
 map2curve_ft(alpha)
 Input: alpha, an octet string to be hashed.
 Output: (x, y), a point on E.
 
 Constants:
-1. c1 = sqrt(-3)          
-2. c2 = (-1 + c1) / 2     
-3. c3 = ((q-1) / 2)    // Integer Arithmetic
+1. c1 = g(Z)
+2. c2 = sqrt(-3 * Z^2)
+3. c3 = (sqrt(-3 * Z^2) - Z) / 2
+4. c4 = (sqrt(-3 * Z^2) + Z) / 2
+5. c5 = 1 / (3 * Z^2)
 
 Steps:
 1.    u = hash2base(alpha)
 2.   t1 = u^2
-3.   t1 = t1 + B + 1
-4.   t1 = 1 / t1
-5.   t1 = t1 * u
-6.   t1 = t1 * c1      // t1 = sqrt(-3) * u / (u^2 + B + 1)
-7.   x1 = u * t1
-8.   x1 = c2 - x1      // x1 = (-1 + sqrt(-3)) / 2 - sqrt(-3) * u / (u^2 + B + 1)
-9.   x2 = -1 - x1      // x2 = -1 - x1
-10.  x3 = t1^2
-11.  x3 = 1 / x3
-12.  x3 = x3 + 1       // x3 = 1 + (1 / t1^2)
-13. gx1 = x1^3 + B
-14. gx2 = x2^3 + B
-15. gx3 = x3^3 + B
-16.  e1 = is_square(gx1, q)
-17.  e2 = is_square(gx2, q)
-18.   x = CMOV(x3, x2, e2)    // If e2=True, x = x2, else x = x3
-19.   x = CMOV(x, x1, e1)     // If e1=True, x = x1, else x = x
-20.  gx = CMOV(gx3, gx2, e2)  // If e2=True, gx = gx2, else gx = gx3
-21.  gx = CMOV(gx, gx1, e1)   // If e1=True, gx = gx1, else gx = gx
-22.   e = u^c3
-23.   y = e * sqrt(gx, q)
-24. Output h*(x, y)
+3.   t2 = t1 + c1           // t2 = u^2 + g(Z)
+4.   t3 = t1 * t2
+5.   t4 = inv0(t3)          // t4 = 1 / (u^2 * (u^2 + g(Z)))
+6.   t3 = t1^2
+7.   t3 = t3 * t4
+8.   t3 = t3 * c2           // t3 = u^2 * sqrt(-3 * Z^2) / (u^2 + g(Z))
+9.   x1 = c3 - t3
+10. gx1 = x1^2
+11. gx1 = gx1 * x1
+12. gx1 = gx1 + B           // gx1 = x1^3 + B
+13.  e1 = is_square(gx1)
+14.  x2 = t3 - c4
+15. gx2 = x2^2
+16. gx2 = gx2 * x2
+17. gx2 = gx2 + B           // gx2 = x2^3 + B
+18.  e2 = is_square(gx2)
+19.  e3 = e1 OR e2          // logical OR
+20.  x3 = t2^2
+21.  x3 = x3 * t2
+22.  x3 = x3 * t4
+23.  x3 = x3 * c5
+24.  x3 = Z - x3            // Z - (u^2 + g(Z))^2 / (3 Z^2 u^2)
+25. gx3 = x3^2
+26. gx3 = gx3 * x3
+27. gx3 = gx3 + B           // gx3 = x3^3 + B
+28.   x = CMOV(x2, x1, e1)  // select x1 if gx1 is square
+29.  gx = CMOV(gx2, gx1, e1)
+30.   x = CMOV(x3, x, e3)   // select x3 if gx1 and gx2 are not square
+31.  gx = CMOV(gx3, gx, e3)
+32.   y = sqrt(gx, q)
+33.  e4 = sgn0(u) == sgn0(y)
+34.   y = CMOV(-y, y, e4)   // select correct sign of y
+35. Output clear_h(x, y)
 </pre>
+<h1 id="rfc.section.5.10.2">
+<a href="#rfc.section.5.10.2">5.10.2.</a> <a href="#simple-swu-pairing-friendly" id="simple-swu-pairing-friendly">Simplified SWU for Pairing-Friendly Curves</a>
+</h1>
+<p id="rfc.section.5.10.2.p.1">Wahby and Boneh <a href="#WB19" class="xref">[WB19]</a> show how to adapt the simplified SWU encoding to certain Weierstrass curves having either A = 0 or B = 0, one of which is almost always true for pairing-friendly curves. Note that neither case is supported by the encoding of <a href="#simple-swu" class="xref">Section 5.6.2</a>.</p>
+<p id="rfc.section.5.10.2.p.2">This method requires finding another elliptic curve</p>
+<pre>
+E': y^2 = g'(x) = x^3 + A' * x + B'
+</pre>
+<p id="rfc.section.5.10.2.p.3">that is isogenous to E and has A&#8217; != 0 and B&#8217; != 0.  (One might do this, for example, using <a href="#SAGE" class="xref">[SAGE]</a>; details are beyond the scope of this document.) This isogeny defines a map iso_map(x&#8217;, y&#8217;) that takes as input a point on E&#8217; and produces as output a point on E.</p>
+<p id="rfc.section.5.10.2.p.4">Once E&#8217; and iso_map are identified, this encoding is straightforward: on input alpha, first apply the simplified SWU encoding to get a point on E&#8217;, then apply the isogeny map to that point to get a point on E.</p>
+<p id="rfc.section.5.10.2.p.5">Preconditions: An elliptic curve E&#8217; with A&#8217; != 0 and B&#8217; != 0 that is isogenous to the target curve E with isogeny map iso_map(x, y) from E&#8217; to E.</p>
+<p id="rfc.section.5.10.2.p.6">Input: alpha, an octet string to be hashed.</p>
+<p id="rfc.section.5.10.2.p.7">Helper functions:</p>
+<p></p>
+
+<ul>
+<li>map2curve_simple_swu is the encoding of <a href="#simple-swu" class="xref">Section 5.6.2</a> to E&#8217;</li>
+<li>iso_map is the isogeny map from E&#8217; to E</li>
+</ul>
+<p id="rfc.section.5.10.2.p.9">Sign of y: for this map, the sign is determined by map2curve_elligator2.  No further sign adjustments are necessary. (Note, however, that the specification of iso_map must include its sign.)</p>
+<p id="rfc.section.5.10.2.p.10">Exceptions: map2curve_simple_swu handles its exceptional cases.  In the exceptional cases for iso_map, it should return the identity point on E.</p>
+<p id="rfc.section.5.10.2.p.11">Output: (x, y), a point on E.</p>
+<p id="rfc.section.5.10.2.p.12">Operations:</p>
+<pre>
+1. (x', y') = map2curve_simple_swu(alpha)  // (x', y') is a point on E'
+8. (x, y)   = iso_map(x', y')              // (x, y) is a point on E
+8. Output clear_h(x, y)
+</pre>
+<p id="rfc.section.5.10.2.p.13">We do not repeat the sample implementation of <a href="#simple-swu" class="xref">Section 5.6.2</a> here.  See <a href="#github-repo" class="xref">[github-repo]</a> or <a href="#WB19" class="xref">[WB19]</a> for details on implementing the isogeny map.</p>
 <h1 id="rfc.section.6">
 <a href="#rfc.section.6">6.</a> <a href="#rom" id="rom">Random Oracles</a>
 </h1>
-<p id="rfc.section.6.p.1">A random oracle onto an elliptic curve can be instantiated using some general constructions. For example, Brier et al. <a href="#BR01" class="xref">[BR01]</a> proved a construction that requires a scalar point multiplication, however this approach turns hashing into an expensive operation.  A more efficient method to get a random oracle was given by Farashahi et al. <a href="#FFSTV13" class="xref">[FFSTV13]</a> and is defined as follows</p>
+<p id="rfc.section.6.p.1">Brier et al. <a href="#BCIMRT10" class="xref">[BCIMRT10]</a> describe two generic constructions that give a hash function approximating a random oracle. Farashahi et al. <a href="#FFSTV13" class="xref">[FFSTV13]</a> and Tibouchi and Kim <a href="#TK17" class="xref">[TK17]</a> refine this analysis. In particular, Farashahi et al. show that summing two independent evaluations of any of the deterministic endings of <a href="#encodings" class="xref">Section 5</a> suffices to approximate a random oracle to an elliptic curve. In other words:</p>
 <pre>
-   hash2curveRO(alpha) = f(H0(alpha)) + f(H1(alpha))
+   hash2curve(alpha) = f(H0(alpha)) + f(H1(alpha))
 </pre>
-<p id="rfc.section.6.p.2">where f: F -&gt; E is a deterministic encoding function; and H0 and H1 are hash functions modeled as random oracles mapping bitstrings to elements in a field F.</p>
+<p id="rfc.section.6.p.2">where f: F -&gt; E is a deterministic encoding, and H0 and H1 are hash functions (modeled as random oracles) mapping strings to elements of F.</p>
 <h1 id="rfc.section.6.1">
-<a href="#rfc.section.6.1">6.1.</a> <a href="#interface-1" id="interface-1">Interface</a>
+<a href="#rfc.section.6.1">6.1.</a> <a href="#implementation-5" id="implementation-5">Implementation</a>
 </h1>
-<p id="rfc.section.6.1.p.1">Using the deterministic encodings from <a href="#encodings" class="xref">Section 5</a>, the random oracle recommended is instantiated as</p>
+<p id="rfc.section.6.1.p.1">To instantiate a random oracle from the encodings of <a href="#encodings" class="xref">Section 5</a>, compute the following:</p>
 <pre>
- hash2curveRO(alpha) = map2curve( alpha || I2OSP(0x02, 1) )
-                     + map2curve( alpha || I2OSP(0x03, 1) )
+ hash2curve(alpha) = map2curve( alpha || I2OSP(0, 1) )
+                   + map2curve( alpha || I2OSP(1, 1) )
 </pre>
-<p id="rfc.section.6.1.p.2">where the addition operation is performed as a point addition on the curve.</p>
+<p id="rfc.section.6.1.p.2">where the addition operations corresponds to point addition on the target elliptic curve.</p>
 <h1 id="rfc.section.7">
 <a href="#rfc.section.7">7.</a> <a href="#suites" id="suites">Suites for Hashing</a>
 </h1>
-<p id="rfc.section.7.p.1">The following table lists recommended algorithms for different curves and mappings. To select a suitable algorithm, choose the mapping associated with the target curve. For example, Elligator2 is the recommended encoding for Curve25519, whereas Simple SWU is the recommended encoding for P-256.  When the required hashing requires to be used in a protocol proven in the random oracle model, applications SHOULD use the Random Oracle construction given in <a href="#rom" class="xref">Section 6</a>.</p>
+<p id="rfc.section.7.p.1">The following table lists recommended algorithms for different curves and encodings. To select a suitable algorithm, choose the encoding associated with the target curve. For example, Elligator 2 is the recommended encoding for Curve25519, whereas simplified SWU is the recommended encoding for P-256.  When the hash function is to be used in a protocol whose security is proven in the random oracle model, applications SHOULD use the Random Oracle construction given in <a href="#rom" class="xref">Section 6</a>.</p>
 <p id="rfc.section.7.p.2">A suite is a bundle of algorithms that provides concrete recommendations for hashing bitstrings into points of specific elliptic curve groups. Each suite is a tuple (E, H, f, ROM) such that</p>
 <p></p>
 
@@ -1190,7 +1293,7 @@ Steps:
 <td class="left">H2C-0001</td>
 <td class="left">P256</td>
 <td class="left">SHA256</td>
-<td class="left">Simple SWU</td>
+<td class="left">Simplified SWU</td>
 <td class="left">True</td>
 </tr>
 <tr>
@@ -1204,42 +1307,42 @@ Steps:
 <td class="left">H2C-0003</td>
 <td class="left">curve25519</td>
 <td class="left">SHA512</td>
-<td class="left">Elligator2</td>
+<td class="left">Elligator 2</td>
 <td class="left">True</td>
 </tr>
 <tr>
 <td class="left">H2C-0004</td>
 <td class="left">curve448</td>
 <td class="left">SHA512</td>
-<td class="left">Elligator2</td>
+<td class="left">Elligator 2</td>
 <td class="left">True</td>
 </tr>
 <tr>
 <td class="left">H2C-0005</td>
 <td class="left">edwards25519</td>
 <td class="left">SHA512</td>
-<td class="left">Elligator2</td>
+<td class="left">Elligator 2</td>
 <td class="left">True</td>
 </tr>
 <tr>
 <td class="left">H2C-0006</td>
 <td class="left">edwards448</td>
 <td class="left">SHA512</td>
-<td class="left">Elligator2</td>
+<td class="left">Elligator 2</td>
 <td class="left">True</td>
 </tr>
 <tr>
 <td class="left">H2C-0007</td>
 <td class="left">SECP256K1</td>
 <td class="left">SHA512</td>
-<td class="left">FT</td>
+<td class="left">Shallue-van de Woestijne</td>
 <td class="left">True</td>
 </tr>
 <tr>
 <td class="left">H2C-0008</td>
 <td class="left">BLS12381</td>
 <td class="left">SHA512</td>
-<td class="left">FT</td>
+<td class="left">Simplified SWU</td>
 <td class="left">True</td>
 </tr>
 </tbody>
@@ -1251,11 +1354,12 @@ Steps:
 <h1 id="rfc.section.9">
 <a href="#rfc.section.9">9.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a>
 </h1>
-<p id="rfc.section.9.p.1">Each encoding function variant accepts arbitrary input and maps it to a pseudorandom point on the curve. Points are close to indistinguishable from randomly chosen elements on the curve. Not all encoding functions are full-domain hashes. Elligator2, for example, only maps strings to &#8220;about half of all curve points,&#8221; whereas Icart&#8217;s method only covers about 5/8 of the points.</p>
+<p id="rfc.section.9.p.1">Each encoding function variant accepts arbitrary input and maps it to a pseudorandom point on the curve.  Directly evaluating the encodings of <a href="#encodings" class="xref">Section 5</a> produces an output that is distinguishable from random.  <a href="#rom" class="xref">Section 6</a> shows how to use these encodings to construct a function approximating a random oracle.</p>
+<p><a href="#hashtobase" class="xref">Section 4</a> describes considerations for uniformly hashing to field elements.</p>
 <h1 id="rfc.section.10">
 <a href="#rfc.section.10">10.</a> <a href="#acknowledgements" id="acknowledgements">Acknowledgements</a>
 </h1>
-<p id="rfc.section.10.p.1">The authors would like to thank Adam Langley for this detailed writeup up Elligator2 with Curve25519 <a href="#ElligatorAGL" class="xref">[ElligatorAGL]</a>. We also thank Sean Devlin and Thomas Icart for feedback on earlier versions of this document.</p>
+<p id="rfc.section.10.p.1">The authors would like to thank Adam Langley for this detailed writeup up Elligator 2 with Curve25519 <a href="#L13" class="xref">[L13]</a>. We also thank Sean Devlin and Thomas Icart for feedback on earlier versions of this document.</p>
 <h1 id="rfc.section.11">
 <a href="#rfc.section.11">11.</a> <a href="#contributors" id="contributors">Contributors</a>
 </h1>
@@ -1269,14 +1373,34 @@ Steps:
 <a href="#rfc.references">12.</a> Normative References</h1>
 <table><tbody>
 <tr>
-<td class="reference"><b id="Adj13">[Adj13]</b></td>
+<td class="reference"><b id="AR13">[AR13]</b></td>
 <td class="top">
 <a title="ISFA, Universite Claude Bernard Lyon 1, Villeurbanne, France">Adj, G.</a> and <a title="CINVESTAV-IPN, San Pedro Zacatenco, Mexico City, Mexico.">F. Rodriguez-Henriquez</a>, "<a href="https://doi.org/10.1109/TC.2013.145">Square Root Computation over Even Extension Fields</a>", In IEEE Transactions on Computers. vol 63 issue 11, pages 2829-2841, DOI 10.1109/TC.2013.145, November 2014.</td>
+</tr>
+<tr>
+<td class="reference"><b id="BBJLP08">[BBJLP08]</b></td>
+<td class="top">
+<a title="Department of Computer Science, University of Illinois at Chicago, USA">Bernstein, D.</a>, <a title="Department of Mathematics and Computer Science, Technische Universiteit Eindhoven, The Netherlands">Birkner, P.</a>, <a title="Thomson R&amp;D France">Joye, M.</a>, <a title="Department of Mathematics and Computer Science, Technische Universiteit Eindhoven, The Netherlands">Lange, T.</a> and <a title="Department of Mathematics and Computer Science, Technische Universiteit Eindhoven, The Netherlands">C. Peters</a>, "<a href="https://doi.org/10.1007/978-3-540-68164-9_26">Twisted Edwards curves</a>", In AFRICACRYPT 2008, pages 389-405, DOI 10.1007/978-3-540-68164-9_26, 2008.</td>
+</tr>
+<tr>
+<td class="reference"><b id="BCIMRT10">[BCIMRT10]</b></td>
+<td class="top">
+<a title="Ingenico">Brier, E.</a>, <a title="Universite du Luxembourg">Coron, J.</a>, <a title="Universite du Luxembourg">Icart, T.</a>, <a title="TELECOM-ParisTech">Madore, D.</a>, <a title="TELECOM-ParisTech">Randriam, H.</a> and <a title="Universite du Luxembourg, Ecole normale superieure">M. Tibouchi</a>, "<a href="https://doi.org/10.1007/978-3-642-14623-7_13">Efficient Indifferentiable Hashing into Ordinary Elliptic Curves</a>", In Advances in Cryptology - CRYPTO 2010, pages 237-254, DOI 10.1007/978-3-642-14623-7_13, 2010.</td>
 </tr>
 <tr>
 <td class="reference"><b id="BF01">[BF01]</b></td>
 <td class="top">
 <a title="Stanford University">Boneh, D.</a> and <a title="UC Davis">M. Franklin</a>, "<a href="https://doi.org/10.1007/3-540-44647-8_13">Identity-based encryption from the Weil pairing</a>", In Advances in Cryptology - CRYPTO 2001, pages 213-229, DOI 10.1007/3-540-44647-8_13, August 2001.</td>
+</tr>
+<tr>
+<td class="reference"><b id="BHKL13">[BHKL13]</b></td>
+<td class="top">
+<a title="Department of Computer Science, University of Illinois at Chicago, USA">Bernstein, D.</a>, <a title="Cryptography Research, a division of Rambus, USA">Hamburg, M.</a>, <a title="Privacy &amp; Identity lab, Institute for Computing and Information Sciences, Radboud University Nijmegen, The Netherlands">Krasnova, A.</a> and <a title="Department of Mathematics and Computer Science, Technische Universiteit Eindhoven, The Netherlands">T. Lange</a>, "<a href="https://doi.org/10.1145/2508859.2516734">Elligator - elliptic-curve points indistinguishable from uniform random strings</a>", In Proceedings of the 2013 ACM SIGSAC conference on computer and communications security., pages 967-980, DOI 10.1145/2508859.2516734, November 2013.</td>
+</tr>
+<tr>
+<td class="reference"><b id="BLMP19">[BLMP19]</b></td>
+<td class="top">
+<a title="Department of Computer Science, University of Illinois at Chicago, USA">Bernstein, D.</a>, <a title="Department of Mathematics and Computer Science, Technische Universiteit Eindhoven, The Netherlands">Lange, T.</a>, <a title="Department of Mathematics and Computer Science, Technische Universiteit Eindhoven, The Netherlands">Martindale, C.</a> and <a title="Department of Mathematics and Computer Science, Technische Universiteit Eindhoven, The Netherlands">L. Panny</a>, "<a href="https://doi.org/10.1007/978-3-030-17656-3">Quantum circuits for the CSIDH: optimizing quantum evaluation of isogenies</a>", In Advances in Cryptology - EUROCRYPT 2019, DOI 10.1007/978-3-030-17656-3, 2019.</td>
 </tr>
 <tr>
 <td class="reference"><b id="BLS01">[BLS01]</b></td>
@@ -1299,29 +1423,19 @@ Steps:
 <a title="Escola Politecnica, Universidade de Sao Paulo, Sao Paulo, Brazil">Barreto, P.</a> and <a title="Lehrstuhl fur Theoretische Informationstechnik, Rheinisch-Westfalische Technische Hochschule Aachen, Aachen, Germany">M. Naehrig</a>, "<a href="https://doi.org/10.1007/11693383_22">Pairing-Friendly Elliptic Curves of Prime Order</a>", In Selected Areas in Cryptography 2005, pages 319-331, DOI 10.1007/11693383_22, 2006.</td>
 </tr>
 <tr>
-<td class="reference"><b id="BR01">[BR01]</b></td>
-<td class="top">
-<a title="Ingenico">Brier, E.</a>, <a title="Universite du Luxembourg">Coron, J.</a>, <a title="Universite du Luxembourg">Icart, T.</a>, <a title="TELECOM-ParisTech">Madore, D.</a>, <a title="TELECOM-ParisTech">Randriam, H.</a> and <a title="Universite du Luxembourg, Ecole normale superieure">M. Tibouchi</a>, "<a href="https://doi.org/10.1007/978-3-642-14623-7_13">Efficient Indifferentiable Hashing into Ordinary Elliptic Curves</a>", In Advances in Cryptology - CRYPTO 2010, pages 237-254, DOI 10.1007/978-3-642-14623-7_13, 2010.</td>
-</tr>
-<tr>
-<td class="reference"><b id="BU18">[BU18]</b></td>
+<td class="reference"><b id="BP18">[BP18]</b></td>
 <td class="top">
 <a title="University of Bergen, Norway and MIRACL Labs, London, England">Budroni, A.</a> and <a title="University of Trento, Italy">F. Pintore</a>, "<a href="https://doi.org/10.1145/3313880.3313884">Hashing to G2 on BLS pairing-friendly curves</a>", In ACM Communications in Computer Algebra, pages 63-66, DOI 10.1145/3313880.3313884, September 2018.</td>
 </tr>
 <tr>
-<td class="reference"><b id="Elligator2">[Elligator2]</b></td>
+<td class="reference"><b id="CK11">[CK11]</b></td>
 <td class="top">
-<a title="Department of Computer Science, University of Illinois at Chicago, USA">Bernstein, D.</a>, <a title="Cryptography Research, a division of Rambus, USA">Hamburg, M.</a>, <a title="Privacy &amp; Identity lab, Institute for Computing and Information Sciences, Radboud University Nijmegen, The Netherlands">Krasnova, A.</a> and <a title="Department of Mathematics and Computer Science, Technische Universiteit Eindhoven, The Netherlands">T. Lange</a>, "<a href="https://doi.org/10.1145/2508859.2516734">Elligator - elliptic-curve points indistinguishable from uniform random strings</a>", In Proceedings of the 2013 ACM SIGSAC conference on computer and communications security., pages 967-980, DOI 10.1145/2508859.2516734, November 2013.</td>
+<a title="Universit&#233; Bordeaux">Couveignes, J.</a> and <a title="Universit&#233; de Rennes">J. Kammerer</a>, "<a href="https://doi.org/10.1016/j.jsc.2011.11.003">The geometry of flex tangents to a cubic curve and its parameterizations</a>", In Journal of Symbolic Computation, vol 47 issue 3, pages 266-281, DOI 10.1016/j.jsc.2011.11.003, 2012.</td>
 </tr>
 <tr>
-<td class="reference"><b id="Elligator2A0">[Elligator2A0]</b></td>
+<td class="reference"><b id="F11">[F11]</b></td>
 <td class="top">
-<a title="Department of Computer Science, University of Illinois at Chicago, USA">Bernstein, D.</a>, <a title="Department of Mathematics and Computer Science, Technische Universiteit Eindhoven, The Netherlands">Lange, T.</a>, <a title="Department of Mathematics and Computer Science, Technische Universiteit Eindhoven, The Netherlands">Martindale, C.</a> and <a title="Department of Mathematics and Computer Science, Technische Universiteit Eindhoven, The Netherlands">L. Panny</a>, "<a href="https://doi.org/10.1007/978-3-030-17656-3">Quantum circuits for the CSIDH optimizing quantum evaluation of isogenies</a>", In Advances in Cryptology - EUROCRYPT 2019, DOI 10.1007/978-3-030-17656-3, 2019.</td>
-</tr>
-<tr>
-<td class="reference"><b id="ElligatorAGL">[ElligatorAGL]</b></td>
-<td class="top">
-<a>Langley, A.</a>, "<a href="https://www.imperialviolet.org/2013/12/25/elligator.html">Implementing Elligator for Curve25519</a>", 2013.</td>
+<a title="Macquarie Universit">Farashahi, R.</a>, "<a href="https://doi.org/10.1007/978-3-642-21969-6_17">Hashing into Hessian curves</a>", In AFRICACRYPT 2011, pages 278-289, DOI 10.1007/978-3-642-21969-6_17, 2011.</td>
 </tr>
 <tr>
 <td class="reference"><b id="FFSTV13">[FFSTV13]</b></td>
@@ -1329,14 +1443,34 @@ Steps:
 <a title="Macquarie Universit">Farashahi, R.</a>, <a title="Ecole normale superieure">Fouque, P.</a>, <a title="Macquarie Universit">Shparlinski, I.</a>, <a title="Ecole normale superieure">Tibouch, M.</a> and <a title="University of Texas">J. Voloch</a>, "<a href="https://doi.org/10.1090/S0025-5718-2012-02606-8">Indifferentiable deterministic hashing to elliptic and hyperelliptic curves</a>", In Math. Comp. vol 82, pages 491-512, DOI 10.1090/S0025-5718-2012-02606-8, 2013.</td>
 </tr>
 <tr>
+<td class="reference"><b id="FIPS186-4">[FIPS186-4]</b></td>
+<td class="top">
+<a>National Institute of Standards and Technology (NIST)</a>, "<a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf">FIPS Publication 186-4: Digital Signature Standard</a>", July 2013.</td>
+</tr>
+<tr>
+<td class="reference"><b id="FJT13">[FJT13]</b></td>
+<td class="top">
+<a title="Ecole Normale Superieure and INRIA Rennes">Fouque, P.</a>, <a title="Sorbonne Universite">Joux, A.</a> and <a title="NTT Secure Platform Laboratories">M. Tibouchi</a>, "<a href="https://doi.org/10.1007/978-3-642-39059-3_14">Injective encodings to elliptic curves</a>", In ACISP 2013, pages 203-218, DOI 10.1007/978-3-642-39059-3_14, 2013.</td>
+</tr>
+<tr>
+<td class="reference"><b id="FKR11">[FKR11]</b></td>
+<td class="top">
+<a title="Computer Science Department, CINVESTAV-IPN. Mexico">Fuentes-Castaneda, L.</a>, <a title="Dept. Combinatorics &amp; Optimization, University of Waterloo, Canada">Knapp, E.</a> and <a title="Computer Science Department, CINVESTAV-IPN. Mexico">F. Rodriguez-Henriquez</a>, "<a href="https://doi.org/10.1007/978-3-642-28496-0_25">Fast Hashing to G2 on Pairing-Friendly Curves</a>", In Selected Areas in Cryptography, pages 412-430, DOI 10.1007/978-3-642-28496-0_25, 2011.</td>
+</tr>
+<tr>
+<td class="reference"><b id="FSV09">[FSV09]</b></td>
+<td class="top">
+<a title="Macquarie Universit">Farashahi, R.</a>, <a title="Macquarie Universit">Shparlinski, I.</a> and <a title="University of Texas">J. Voloch</a>, "<a href="https://doi.org/10.1515/JMC.2009.022">On hashing into elliptic curves</a>", In Journal of Mathematical Cryptology, vol 3 no 4, pages 353-360, DOI 10.1515/JMC.2009.022, 2009.</td>
+</tr>
+<tr>
+<td class="reference"><b id="FT10">[FT10]</b></td>
+<td class="top">
+<a title="Ecole Normale Superieure and INRIA Rennes">Fouque, P.</a> and <a title="NTT Secure Platform Laboratories">M. Tibouchi</a>, "<a href="https://doi.org/10.1007/978-3-642-14712-8_5">Estimating the size of the image of deterministic hash functions to elliptic curves.</a>", In Progress in Cryptology - LATINCRYPT 2010, pages 81-91, DOI 10.1007/978-3-642-14712-8_5, 2010.</td>
+</tr>
+<tr>
 <td class="reference"><b id="FT12">[FT12]</b></td>
 <td class="top">
 <a title="Ecole Normale Superieure and INRIA Rennes">Fouque, P.</a> and <a title="NTT Secure Platform Laboratories">M. Tibouchi</a>, "<a href="https://doi.org/10.1007/978-3-642-33481-8_1">Indifferentiable Hashing to Barreto-Naehrig Curves</a>", In Progress in Cryptology - LATINCRYPT 2012, pages 1-7, DOI 10.1007/978-3-642-33481-8_1, 2012.</td>
-</tr>
-<tr>
-<td class="reference"><b id="FU11">[FU11]</b></td>
-<td class="top">
-<a title="Computer Science Department, CINVESTAV-IPN. Mexico">Fuentes-Castaneda, L.</a>, <a title="Dept. Combinatorics &amp; Optimization, University of Waterloo, Canada">Knapp, E.</a> and <a title="Computer Science Department, CINVESTAV-IPN. Mexico">F. Rodriguez-Henriquez</a>, "<a href="https://doi.org/10.1007/978-3-642-28496-0_25">Fast Hashing to G2 on Pairing-Friendly Curves</a>", In Selected Areas in Cryptography, pages 412-430, DOI 10.1007/978-3-642-28496-0_25, 2011.</td>
 </tr>
 <tr>
 <td class="reference"><b id="github-repo">[github-repo]</b></td>
@@ -1352,14 +1486,29 @@ Steps:
 <a title="Sagem Securite and Universite du Luxembourg">Icart, T.</a>, "<a href="https://doi.org/10.1007/978-3-642-03356-8_18">How to Hash into Elliptic Curves</a>", In Advances in Cryptology - CRYPTO 2009, pages 303-316, DOI 10.1007/978-3-642-03356-8_18, 2009.</td>
 </tr>
 <tr>
-<td class="reference"><b id="Jablon96">[Jablon96]</b></td>
+<td class="reference"><b id="J96">[J96]</b></td>
 <td class="top">
 <a title="Integrity Sciences, Inc. Westboro, MA.">Jablon, D.</a>, "<a href="https://doi.org/10.1145/242896.242897">Strong password-only authenticated key exchange</a>", In SIGCOMM Computer Communication Review, vol 26 issue 5, pages 5-26, DOI 10.1145/242896.242897, 1996.</td>
+</tr>
+<tr>
+<td class="reference"><b id="KLR10">[KLR10]</b></td>
+<td class="top">
+<a title="Universite de Rennes">Kammerer, J.</a>, <a title="Universite de Rennes">Lercier, R.</a> and <a title="Universite Pierre et Marie Curie">G. Renault</a>, "<a href="https://doi.org/10.1007/978-3-642-17455-1_18">Encoding points on hyperelliptic curves over finite fields in deterministic polynomial time</a>", In PAIRING 2010, pages 278-297, DOI 10.1007/978-3-642-17455-1_18, 2010.</td>
 </tr>
 <tr>
 <td class="reference"><b id="KSS08">[KSS08]</b></td>
 <td class="top">
 <a title="School of Computing, Dublin City University, Ireland">Kachisa, E.</a>, <a title="Department of Mathematics and Computer Science of Santa Clara University, USA">Schaefer, E.</a> and <a title="School of Computing, Dublin City University, Ireland">M. Scott</a>, "<a href="https://doi.org/10.1007/978-3-540-85538-5_9">Constructing Brezing-Weng Pairing-Friendly Elliptic Curves Using Elements in the Cyclotomic Field</a>", In Pairing-Based Cryptography - Pairing 2008, pages 126-135, DOI 10.1007/978-3-540-85538-5_9, 2008.</td>
+</tr>
+<tr>
+<td class="reference"><b id="L13">[L13]</b></td>
+<td class="top">
+<a>Langley, A.</a>, "<a href="https://www.imperialviolet.org/2013/12/25/elligator.html">Implementing Elligator for Curve25519</a>", 2013.</td>
+</tr>
+<tr>
+<td class="reference"><b id="M87">[M87]</b></td>
+<td class="top">
+<a title="System Development Corporation, Santa Monica, CA">Montgomery, P.</a>, "<a href="https://doi.org/10.1090/S0025-5718-1987-0866113-7">Speeding the Pollard and clliptic curve methods of factorization</a>", In Mathematics of Computation, vol 48, pages 243-264, DOI 10.1090/S0025-5718-1987-0866113-7, 1987.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RFC2119">[RFC2119]</b></td>
@@ -1377,19 +1526,24 @@ Steps:
 <a>Moriarty, K.</a>, <a>Kaliski, B.</a>, <a>Jonsson, J.</a> and <a>A. Rusch</a>, "<a href="https://tools.ietf.org/html/rfc8017">PKCS #1: RSA Cryptography Specifications Version 2.2</a>", RFC 8017, DOI 10.17487/RFC8017, November 2016.</td>
 </tr>
 <tr>
+<td class="reference"><b id="S05">[S05]</b></td>
+<td class="top">
+<a title="Department of Mathematics, University of Warsaw">Ska&#322;ba, M.</a>, "<a href="https://doi.org/10.4064/aa117-3-7">Points on elliptic curves over finite fields</a>", In Acta Arithmetica, vol 117 no 3, pages 293-301, DOI 10.4064/aa117-3-7, 2005.</td>
+</tr>
+<tr>
+<td class="reference"><b id="S85">[S85]</b></td>
+<td class="top">
+<a>Schoof, R.</a>, "<a href="https://doi.org/10.1090/S0025-5718-1985-0777280-6">Elliptic Curves Over Finite Fields and the Computation of Square Roots mod p</a>", In Mathematics of Computation vol 44 issue 170, pages 483-494, DOI 10.1090/S0025-5718-1985-0777280-6, April 1985.</td>
+</tr>
+<tr>
 <td class="reference"><b id="SAGE">[SAGE]</b></td>
 <td class="top">
 <a>The Sage Developers</a>, "<a href="https://www.sagemath.org">SageMath, the Sage Mathematics Software System</a>", 2019.</td>
 </tr>
 <tr>
-<td class="reference"><b id="SC09">[SC09]</b></td>
+<td class="reference"><b id="SBCDBK09">[SBCDBK09]</b></td>
 <td class="top">
 <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">Scott, M.</a>, <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">Benger, N.</a>, <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">Charlemagne, M.</a>, <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">Dominguez Perez, L.</a>, <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">Benger, N.</a> and <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">E. Kachisa</a>, "<a href="https://doi.org/10.1007/978-3-642-03298-1_8">Fast Hashing to G2 on Pairing-Friendly Curves</a>", In Pairing-Based Cryptography - Pairing 2009, pages 102-113, DOI 10.1007/978-3-642-03298-1_8, 2009.</td>
-</tr>
-<tr>
-<td class="reference"><b id="SC85">[SC85]</b></td>
-<td class="top">
-<a>Schoof, R.</a>, "<a href="https://doi.org/10.1090/S0025-5718-1985-0777280-6">Elliptic Curves Over Finite Fields and the Computation of Square Roots mod p</a>", In Mathematics of Computation vol 44 issue 170, pages 483-494, DOI 10.1090/S0025-5718-1985-0777280-6, April 1985.</td>
 </tr>
 <tr>
 <td class="reference"><b id="SEC2">[SEC2]</b></td>
@@ -1404,12 +1558,22 @@ Steps:
 <tr>
 <td class="reference"><b id="SW06">[SW06]</b></td>
 <td class="top">
-<a title="Mathematics Department, University of Wisconsin-Madison. Madison, USA.">Shallue, A.</a> and <a title="Mathematisch Instituut, Universiteit Leiden. Leiden, The Netherlands.">C. Woestijne</a>, "<a href="https://doi.org/10.1007/11792086_36">Construction of rational points on elliptic curves over finite fields</a>", In Algorithmic Number Theory. ANTS 2006., pages 510-524, DOI 10.1007/11792086_36, 2006.</td>
+<a title="Mathematics Department, University of Wisconsin-Madison. Madison, USA.">Shallue, A.</a> and <a title="Mathematisch Instituut, Universiteit Leiden. Leiden, The Netherlands.">C. van de Woestijne</a>, "<a href="https://doi.org/10.1007/11792086_36">Construction of rational points on elliptic curves over finite fields</a>", In Algorithmic Number Theory. ANTS 2006., pages 510-524, DOI 10.1007/11792086_36, 2006.</td>
 </tr>
 <tr>
-<td class="reference"><b id="SWU07">[SWU07]</b></td>
+<td class="reference"><b id="TK17">[TK17]</b></td>
+<td class="top">
+<a title="NTT Secure Platform Laboratories">Tibouchi, M.</a> and <a title="NTT Secure Platform Laboratories">T. Kim</a>, "<a href="https://doi.org/10.1007/s10623-016-0288-2">Improved elliptic curve hashing and point representation</a>", In Designs, Codes, and Cryptography, vol 82, pages 161-177, DOI 10.1007/s10623-016-0288-2, 2017.</td>
+</tr>
+<tr>
+<td class="reference"><b id="U07">[U07]</b></td>
 <td class="top">
 <a title="Institute of Mathematics, Jagiellonian University. Poland">Ulas, M.</a>, "<a href="https://doi.org/10.4064/ba55-2-1">Rational points on certain hyperelliptic curves over finite fields</a>", In Bulletin Polish Acad. Sci. Math. vol 55, pages 97-104, DOI 10.4064/ba55-2-1, 2007.</td>
+</tr>
+<tr>
+<td class="reference"><b id="WB19">[WB19]</b></td>
+<td class="top">
+<a title="Stanford University">Wahby, R.</a> and <a title="Stanford University">D. Boneh</a>, "<a href="https://eprint.iacr.org/2019/403">Fast and simple constant-time hashing to the BLS12-381 elliptic curve</a>", Technical report ePrint 2019/403, 2019.</td>
 </tr>
 </tbody></table>
 <h1 id="rfc.appendix.A">
@@ -1420,39 +1584,42 @@ Steps:
 <a href="#rfc.appendix.A.1">A.1.</a> <a href="#probabilistic-encoding" id="probabilistic-encoding">Probabilistic Encoding</a>
 </h1>
 <p id="rfc.section.A.1.p.1">As mentioned in <a href="#background" class="xref">Section 2</a>, as a rule of thumb, for every x in GF(p), there is approximately a 1/2 chance that there exist a corresponding y value such that (x, y) is on the curve E.</p>
-<p id="rfc.section.A.1.p.2">This motivates the construction of the MapToGroup method described by Boneh et al. <a href="#BLS01" class="xref">[BLS01]</a>. For an input message m, a counter i, and a standard hash function H : {0, 1}^* -&gt; GF(p) x {0, 1}, one computes (x, b) = H(i || m), where i || m denotes concatenation of the two values. Next, test to see whether there exists a corresponding y value such that (x, y) is on the curve, returning (x, y) if successful, where b determines whether to take +/- y.  If there does not exist such a y, then increment i and repeat. A maximum counter value is set to I, and since each iteration succeeds with probability approximately 1/2, this process fails with probability 2^-I. (See <a href="#try" class="xref">Appendix B</a> for a more detailed description of this algorithm.)</p>
+<p id="rfc.section.A.1.p.2">This motivates the construction of the MapToGroup method described by Boneh et al. <a href="#BLS01" class="xref">[BLS01]</a>. For an input message msg, a counter i, and a standard hash function H : {0, 1}^* -&gt; GF(p) x {0, 1}, one computes (x, b) = H(i || msg), where i || msg denotes concatenation of the two values. Next, test to see whether there exists a corresponding y value such that (x, y) is on the curve, returning (x, y) if successful, where b determines whether to take +/- y.  If there does not exist such a y, then increment i and repeat. A maximum counter value is set to I, and since each iteration succeeds with probability approximately 1/2, this process fails with probability 2^-I. (See <a href="#try" class="xref">Appendix B</a> for a more detailed description of this algorithm.)</p>
 <p id="rfc.section.A.1.p.3">Although MapToGroup describes a method to hash to the curve, it can also be adapted to a simple encoding mechanism. For a bitstring of length strictly less than log2(p), one can make use of the spare bits in order to encode the counter value. Allocating more space for the counter increases the expansion, but reduces the failure probability.</p>
-<p id="rfc.section.A.1.p.4">Since the running time of the MapToGroup algorithm depends on m, this algorithm is NOT safe for cases sensitive to timing side channel attacks.  Deterministic algorithms are needed in such cases where failures are undesirable.</p>
+<p id="rfc.section.A.1.p.4">Since the running time of the MapToGroup algorithm depends on msg, this algorithm is NOT safe for cases sensitive to timing side channel attacks.  Deterministic algorithms are needed in such cases where failures are undesirable.</p>
 <h1 id="rfc.appendix.A.2">
 <a href="#rfc.appendix.A.2">A.2.</a> <a href="#naive-encoding" id="naive-encoding">Naive Encoding</a>
 </h1>
-<p id="rfc.section.A.2.p.1">A naive solution includes computing H(m)*G as map2curve(m), where H is a standard hash function H : {0, 1}^* -&gt; GF(p), and G is a generator of the curve. Although efficient, this solution is unsuitable for constructing a random oracle onto E, since the discrete logarithm with respect to G is known. For example, given y1 = map2curve(m1) and y2 = map2curve(m2) for any m1 and m2, it must be true that y2 = H(m2) / H(m1) * map2curve(m1). This relationship would not hold (with overwhelming probability) for truly random values y1 and y2.  This causes catastrophic failure in many cases. However, one exception is found in SPEKE <a href="#Jablon96" class="xref">[Jablon96]</a>, which constructs a base for a Diffie-Hellman key exchange by hashing the password to a curve point. Notably the use of a hash function is purely for encoding an arbitrary length string to a curve point, and does not need to be a random oracle.</p>
+<p id="rfc.section.A.2.p.1">A naive solution includes computing map2curve(msg) = H(msg) * G, where H is a hash function H : {0, 1}^* -&gt; GF(p), and G is a generator of the curve. Although efficient, this solution is unsuitable for constructing a random oracle onto E, since the discrete logarithm with respect to G is known. For example, given y1 = map2curve(m1) and y2 = map2curve(m2) for any m1 and m2, it must be true that y2 = H(m2) / H(m1) * map2curve(m1). This relationship would not hold (with overwhelming probability) for truly random values y1 and y2.  This causes catastrophic failure in many cases. However, one exception is found in SPEKE <a href="#J96" class="xref">[J96]</a>, which constructs a base for a Diffie-Hellman key exchange by hashing the password to a curve point. Notably the use of a hash function is purely for encoding an arbitrary length string to a curve point, and does not need to be a random oracle.</p>
 <h1 id="rfc.appendix.A.3">
 <a href="#rfc.appendix.A.3">A.3.</a> <a href="#deterministic-encoding" id="deterministic-encoding">Deterministic Encoding</a>
 </h1>
-<p id="rfc.section.A.3.p.1">Shallue, Woestijne, and Ulas <a href="#SW06" class="xref">[SW06]</a> first introduced a deterministic algorithm that maps elements in F_{q} to a curve in time O(log^4 q), where q = p^n for some prime p, and time O(log^3 q) when q = 3 mod 4. Icart introduced yet another deterministic algorithm which maps F_{q} to any EC where q = 2 mod 3 in time O(log^3 q) <a href="#Icart09" class="xref">[Icart09]</a>.  Elligator (2) <a href="#Elligator2" class="xref">[Elligator2]</a> is yet another deterministic algorithm for any odd-characteristic EC that has a point of order 2. Elligator2 can be applied to Curve25519 and Curve448, which are both CFRG-recommended curves <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
-<p id="rfc.section.A.3.p.2">However, an important caveat to all of the above deterministic encoding functions, is that none of them map injectively to the entire curve, but rather some fraction of the points. This makes them unable to use to directly construct a random oracle on the curve.</p>
-<p id="rfc.section.A.3.p.3">Brier et al. <a href="#BR01" class="xref">[BR01]</a> proposed a couple of solutions to this problem, The first applies solely to Icart&#8217;s method described above, by computing F(H0(m)) + F(H1(m)) for two distinct hash functions H0, H1. The second uses a generator G, and computes F(H0(m)) + H1(m)*G. Later, Farashahi et al. <a href="#FFSTV13" class="xref">[FFSTV13]</a> showed the generality of the F(H0(m)) + F(H1(m)) method, as well as the applicability to hyperelliptic curves (not covered here).</p>
+<p id="rfc.section.A.3.p.1">Shallue and van de Woestijne <a href="#SW06" class="xref">[SW06]</a> introduced a deterministic algorithm based on the work of Ska&#322;ba <a href="#S05" class="xref">[S05]</a> that maps elements in F_{q} to a curve in time O(log^4 q), where q = p^n for some prime p, and time O(log^3 q) when q = 3 mod 4. Ulas <a href="#U07" class="xref">[U07]</a> described a simpler version of this map, and Brier et al. <a href="#BCIMRT10" class="xref">[BCIMRT10]</a> gave a further simplification, which the authors call the &#8220;simplified SWU&#8221; map.</p>
+<p id="rfc.section.A.3.p.2">Icart introduced another deterministic algorithm which maps F_{q} to any curve over a field of characteristic q = 2 mod 3 in time O(log^3 q) <a href="#Icart09" class="xref">[Icart09]</a>.  This work resulted in several extensions and generalizations, including <a href="#FSV09" class="xref">[FSV09]</a>, <a href="#FT10" class="xref">[FT10]</a>, <a href="#KLR10" class="xref">[KLR10]</a>, <a href="#F11" class="xref">[F11]</a>, and <a href="#CK11" class="xref">[CK11]</a>.</p>
+<p id="rfc.section.A.3.p.3">Following the work of Farashahi <a href="#F11" class="xref">[F11]</a>, Fouque et al. <a href="#FJT13" class="xref">[FJT13]</a> describe an encoding to curves of characteristic q = 3 (mod 4) having a number of points divisible by 4.  Bernstein et al. <a href="#BHKL13" class="xref">[BHKL13]</a> optimize this encoding, and describe a related encoding that they call &#8220;Elligator 2,&#8221; which applies to any curve over a field of odd characteristic having a point of order 2.  This includes Curve25519 and Curve448, both of which are CFRG-recommended curves <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
+<p id="rfc.section.A.3.p.4">An important caveat regarding all of the above deterministic encoding functions is that none of them map to the entire curve, but rather to some fraction of the points. This means that they cannot be used directly to construct a random oracle that outputs points on the curve.</p>
+<p id="rfc.section.A.3.p.5">Brier et al. <a href="#BCIMRT10" class="xref">[BCIMRT10]</a> proposed two solutions to this problem.  The first applies solely to Icart&#8217;s method described above, by computing F(H0(msg)) + F(H1(msg)) for two distinct hash functions H0, H1. The second uses a generator G, and computes F(H0(msg)) + H1(msg) * G. Later, Farashahi et al. <a href="#FFSTV13" class="xref">[FFSTV13]</a> improved the analysis of the F(H0(msg)) + F(H1(msg)) method, showing that this method applies to essentially all deterministic encodings to both elliptic and hyperelliptic curves (which are not covered in this document).  Tibouchi and Kim <a href="#TK17" class="xref">[TK17]</a> further refine the analysis and describe additional opportunities for optimization.</p>
 <h1 id="rfc.appendix.B">
 <a href="#rfc.appendix.B">Appendix B.</a> <a href="#try" id="try">Try-and-Increment Method</a>
 </h1>
-<p id="rfc.section.B.p.1">In cases where constant time execution is not required, the so-called try-and-increment method may be appropriate. As discussion in <a href="#introduction" class="xref">Section 1</a>, this variant works by hashing input m using a standard hash function (&#8220;Hash&#8221;), e.g., SHA256, and then checking to see if the resulting point (m, f(m)), for curve function f, belongs on E.  This is detailed below.</p>
+<p id="rfc.section.B.p.1">In cases where constant time execution is not required, the &#8220;try-and-increment&#8221; method may be appropriate. As discussion in <a href="#introduction" class="xref">Section 1</a>, this variant works by computing x = hash2base(msg) (<a href="#hashtobase" class="xref">Section 4</a>) and then checking to see if x is the x-coordinate of a point on the curve E.</p>
+<p id="rfc.section.B.p.2">In more detail:</p>
 <pre>
 1. ctr = 0
 2. h = "INVALID"
 3. While h is "INVALID" or h is EC point at infinity:
 4.1   CTR = I2OSP(ctr, 4)
 4.2   ctr = ctr + 1
-4.3   attempted_hash = Hash(m || CTR)
+4.3   attempted_hash = Hash(msg || CTR)
 4.4   h = RS2ECP(attempted_hash)
 4.5   If h is not "INVALID" and cofactor &gt; 1, set h = h * cofactor
 5. Output h
 </pre>
-<p id="rfc.section.B.p.2">I2OSP is a function that converts a nonnegative integer to octet string as defined in Section 4.1 of <a href="#RFC8017" class="xref">[RFC8017]</a>, and RS2ECP(h) = OS2ECP(0x02 || h), where OS2ECP is specified in Section 2.3.4 of <a href="#SECG1" class="xref">[SECG1]</a>, which converts an input string into an EC point.</p>
+<p id="rfc.section.B.p.3">I2OSP is a function that converts a nonnegative integer to octet string as defined in Section 4.1 of <a href="#RFC8017" class="xref">[RFC8017]</a>, and RS2ECP(h) = OS2ECP(0x02 || h), where OS2ECP is specified in Section 2.3.4 of <a href="#SECG1" class="xref">[SECG1]</a>, which converts an input string into an EC point.</p>
 <h1 id="rfc.appendix.C">
 <a href="#rfc.appendix.C">Appendix C.</a> <a href="#samplecode" id="samplecode">Sample Code</a>
 </h1>
-<p id="rfc.section.C.p.1">This section contains reference implementations for each map2curve variant built using <a href="#hacspec" class="xref">[hacspec]</a>.  The code presented here corresponds to the example Sage <a href="#SAGE" class="xref">[SAGE]</a> code found at <a href="#github-repo" class="xref">[github-repo]</a>. Which is additionally used to generate intermediate test vectors.</p>
+<p id="rfc.section.C.p.1">This section contains reference implementations for each map2curve variant built using <a href="#hacspec" class="xref">[hacspec]</a>.  The code presented here corresponds to the example Sage <a href="#SAGE" class="xref">[SAGE]</a> code found at <a href="#github-repo" class="xref">[github-repo]</a>, which is also used to generate intermediate test vectors.</p>
 <h1 id="rfc.appendix.C.1">
 <a href="#rfc.appendix.C.1">C.1.</a> <a href="#icart-method" id="icart-method">Icart Method</a>
 </h1>
@@ -1460,7 +1627,7 @@ Steps:
 <pre>
 from hacspec.speclib import *
 
-prime = 2**384 - 2**128 - 2**96 + 2**32 - 1
+prime = 2 ** 384 - 2 ** 128 - 2 ** 96 + 2 ** 32 - 1
 
 felem_t = refine(nat, lambda x: x &lt; prime)
 affine_t = tuple2(felem_t, felem_t)
@@ -1497,7 +1664,7 @@ def fexp(x: felem_t, n: nat_t) -&gt; felem_t:
 
 @typechecked
 def finv(x: felem_t) -&gt; felem_t:
-    return to_felem(pow(x, prime-2, prime))
+    return to_felem(pow(x, prime - 2, prime))
 
 a384 = to_felem(prime - 3)
 b384 = to_felem(27580193559959705877849011840389048093056905856361568521428707301988689241309860865136260764883745107765439761230575)
@@ -1514,60 +1681,9 @@ def map2p384(u:felem_t) -&gt; affine_t:
     return (x, y)
 </pre>
 <h1 id="rfc.appendix.C.2">
-<a href="#rfc.appendix.C.2">C.2.</a> <a href="#shallue-woestijne-ulas-method" id="shallue-woestijne-ulas-method">Shallue-Woestijne-Ulas Method</a>
+<a href="#rfc.appendix.C.2">C.2.</a> <a href="#sswu" id="sswu">Simplified SWU Method</a>
 </h1>
-<p id="rfc.section.C.2.p.1">The following hacspec program implements map2curve_swu(alpha) for P-256.</p>
-<pre>
-from p256 import *
-from hacspec.speclib import *
-
-a256 = to_felem(prime - 3)
-b256 = to_felem(41058363725152142129326129780047268409114441015993725554835256314039467401291)
-
-@typechecked
-def f_p256(x:felem_t) -&gt; felem_t:
-    return fadd(fexp(x, 3), fadd(fmul(to_felem(a256), x), to_felem(b256)))
-
-@typechecked
-def x1(t:felem_t, u:felem_t) -&gt; felem_t:
-    return u
-
-@typechecked
-def x2(t:felem_t, u:felem_t) -&gt; felem_t:
-    coefficient = fmul(to_felem(-b256), finv(to_felem(a256)))
-    t2 = fsqr(t)
-    t4 = fsqr(t2)
-    gu = f_p256(u)
-    gu2 = fsqr(gu)
-    denom = fadd(fmul(t4, gu2), fmul(t2, gu))
-    return fmul(coefficient, fadd(to_felem(1), finv(denom)))
-
-@typechecked
-def x3(t:felem_t, u:felem_t) -&gt; felem_t:
-    return fmul(fsqr(t), fmul(f_p256(u), x2(t, u)))
-
-@typechecked
-def map2p256(t:felem_t) -&gt; felem_t:
-    u = fadd(t, to_felem(1))
-    x1v = x1(t, u)
-    x2v = x2(t, u)
-    x3v = x3(t, u)
-
-    exp = to_felem((prime - 1) // 2)
-    e1 = fexp(f_p256(x1v), exp)
-    e2 = fexp(f_p256(x2v), exp)
-
-    if e1 == 1:
-        return x1v
-    elif e2 == 1:
-        return x2v
-    else:
-        return x3v
-</pre>
-<h1 id="rfc.appendix.C.3">
-<a href="#rfc.appendix.C.3">C.3.</a> <a href="#sswu" id="sswu">Simplified SWU Method</a>
-</h1>
-<p id="rfc.section.C.3.p.1">The following hacspec program implements map2curve_simple_swu(alpha) for P-256.</p>
+<p id="rfc.section.C.2.p.1">The following hacspec program implements map2curve_simple_swu(alpha) for P-256.</p>
 <pre>
 from p256 import *
 from hacspec.speclib import *
@@ -1597,14 +1713,14 @@ def map2p256(t:felem_t) -&gt; affine_t:
     else:
       return (x3, fexp(f_p256(x3), exp))
 </pre>
-<h1 id="rfc.appendix.C.4">
-<a href="#rfc.appendix.C.4">C.4.</a> <a href="#boneh-franklin-method" id="boneh-franklin-method">Boneh-Franklin Method</a>
+<h1 id="rfc.appendix.C.3">
+<a href="#rfc.appendix.C.3">C.3.</a> <a href="#boneh-franklin-method" id="boneh-franklin-method">Boneh-Franklin Method</a>
 </h1>
-<p id="rfc.section.C.4.p.1">The following hacspec program implements map2curve_bf(alpha) for a supersingular curve <samp>y^2=x^3+1</samp> over <samp>GF(p)</samp> and <samp>p = (2^250)(3^159)-1</samp>.</p>
+<p id="rfc.section.C.3.p.1">The following hacspec program implements map2curve_bf(alpha) for a supersingular curve <samp>y^2=x^3 + 1</samp> over <samp>GF(p)</samp> and <samp>p = 2^250 * 3^159 - 1</samp>.</p>
 <pre>
 from hacspec.speclib import *
 
-prime = 2**250*3**159-1
+prime = 2 ** 250 * 3 ** 159 - 1
 
 a503 = to_felem(0)
 b503 = to_felem(1)
@@ -1616,15 +1732,15 @@ def map2p503(u:felem_t) -&gt; affine_t:
     x = fexp(t1, (2 * prime - 1) // 3)
     return (x, u)
 </pre>
-<h1 id="rfc.appendix.C.5">
-<a href="#rfc.appendix.C.5">C.5.</a> <a href="#fouque-tibouchi-method" id="fouque-tibouchi-method">Fouque-Tibouchi Method</a>
+<h1 id="rfc.appendix.C.4">
+<a href="#rfc.appendix.C.4">C.4.</a> <a href="#fouque-tibouchi-method" id="fouque-tibouchi-method">Fouque-Tibouchi Method</a>
 </h1>
-<p id="rfc.section.C.5.p.1">The following hacspec program implements map2curve_ft(alpha) for a BN curve <samp>BN256 : y^2=x^3+1</samp> over <samp>GF(p(t))</samp>, where <samp>p(x) = 36x^4 + 36x^3 + 24x^2 + 6x + 1</samp>, and <samp>t = -(2^62 + 2^55 + 1)</samp>.</p>
+<p id="rfc.section.C.4.p.1">The following hacspec program implements map2curve_ft(alpha) for a BN curve <samp>BN256 : y^2=x^3 + 1</samp> over <samp>GF(p(t))</samp>, where <samp>p(x) = 36x^4 + 36x^3 + 24x^2 + 6x + 1</samp>, and <samp>t = -(2^62 + 2^55 + 1)</samp>.</p>
 <pre>
 from hacspec.speclib import *
 
-t = -(2**62 + 2**55 + 1)
-p = lambda x: 36*x**4 + 36*x**3 + 24*x**2 + 6*x + 1
+t = -(2 ** 62 + 2 ** 55 + 1)
+p = lambda x: 36 * x ** 4 + 36 * x ** 3 + 24 * x ** 2 + 6 * x + 1
 prime = p(t)
 
 aBN256 = to_felem(0)
@@ -1663,10 +1779,10 @@ def map2BN256(u:felem_t) -&gt; affine_t:
     y3 = fmul(fsqrt(fx3),e)
     return (x3,y3)
 </pre>
-<h1 id="rfc.appendix.C.6">
-<a href="#rfc.appendix.C.6">C.6.</a> <a href="#elligator2-method" id="elligator2-method">Elligator2 Method</a>
+<h1 id="rfc.appendix.C.5">
+<a href="#rfc.appendix.C.5">C.5.</a> <a href="#elligator-2-method" id="elligator-2-method">Elligator 2 Method</a>
 </h1>
-<p id="rfc.section.C.6.p.1">The following hacspec program implements map2curve_elligator2(alpha) for Curve25519.</p>
+<p id="rfc.section.C.5.p.1">The following hacspec program implements map2curve_elligator2(alpha) for Curve25519.</p>
 <pre>
 from curve25519 import *
 from hacspec.speclib import *
@@ -1697,7 +1813,7 @@ def map2curve25519(r:felem_t) -&gt; felem_t:
 </h1>
 <p id="rfc.section.D.p.1">This section contains test vectors, generated from reference Sage code, for each map2curve variant and the hash2base function described in <a href="#hashtobase" class="xref">Section 4</a>.</p>
 <h1 id="rfc.appendix.D.1">
-<a href="#rfc.appendix.D.1">D.1.</a> <a href="#elligator2-to-curve25519" id="elligator2-to-curve25519">Elligator2 to Curve25519</a>
+<a href="#rfc.appendix.D.1">D.1.</a> <a href="#elligator-2-to-curve25519" id="elligator-2-to-curve25519">Elligator 2 to Curve25519</a>
 </h1>
 <pre>
 Input:
@@ -2049,7 +2165,7 @@ Output:
           ab12655340
 </pre>
 <h1 id="rfc.appendix.D.4">
-<a href="#rfc.appendix.D.4">D.4.</a> <a href="#simple-swu-to-p-256" id="simple-swu-to-p-256">Simple SWU to P-256</a>
+<a href="#rfc.appendix.D.4">D.4.</a> <a href="#simplified-swu-to-p-256" id="simplified-swu-to-p-256">Simplified SWU to P-256</a>
 </h1>
 <pre>
 Input:
@@ -2171,7 +2287,7 @@ Output:
 <h1 id="rfc.appendix.D.5">
 <a href="#rfc.appendix.D.5">D.5.</a> <a href="#boneh-franklin-to-p-503" id="boneh-franklin-to-p-503">Boneh-Franklin to P-503</a>
 </h1>
-<p id="rfc.section.D.5.p.1">The P-503 curve is a supersingular curve defined as <samp>y^2=x^3+1</samp> over <samp>GF(p)</samp>, where <samp>p = 2^250*3^159-1</samp>.</p>
+<p id="rfc.section.D.5.p.1">The P-503 curve is a supersingular curve defined as <samp>y^2 = x^3 + 1</samp> over <samp>GF(p)</samp>, where <samp>p = 2^250 * 3^159 - 1</samp>.</p>
 <pre>
 Input:
 
@@ -2292,7 +2408,7 @@ Output:
 <h1 id="rfc.appendix.D.6">
 <a href="#rfc.appendix.D.6">D.6.</a> <a href="#fouque-tibouchi-to-bn256" id="fouque-tibouchi-to-bn256">Fouque-Tibouchi to BN256</a>
 </h1>
-<p id="rfc.section.D.6.p.1">An instance of a BN curve is defined as <samp>BN256: y^2=x^3+1</samp> over <samp>GF(p(t))</samp> such that</p>
+<p id="rfc.section.D.6.p.1">An instance of a BN curve is defined as <samp>BN256: y^2=x^3 + 1</samp> over <samp>GF(p(t))</samp> such that</p>
 <pre>
 t = -(2^62 + 2^55 + 1).
 p = 0x2523648240000001ba344d80000000086121000000000013a700000000000013
