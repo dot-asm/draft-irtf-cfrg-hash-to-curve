@@ -1,6 +1,588 @@
 [
 
   {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/113",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/113/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/113/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/113/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/113",
+    "id": 446797851,
+    "node_id": "MDU6SXNzdWU0NDY3OTc4NTE=",
+    "number": 113,
+    "title": "related work: points as bitstrings",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-05-21T19:57:52Z",
+    "updated_at": "2019-05-21T19:57:52Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "Moved from #104 \r\n\r\n- [ ] Consider mentioning related work on points-as-bitstrings (Elligator, Elligator Squared, Binary Elligator Squared)"
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/112",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/112/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/112/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/112/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/112",
+    "id": 446796863,
+    "node_id": "MDU6SXNzdWU0NDY3OTY4NjM=",
+    "number": 112,
+    "title": "meta-issue: implementation cleanup",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-05-21T19:55:18Z",
+    "updated_at": "2019-05-21T19:55:18Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "Moving these from #104.\r\n\r\n- [ ] consider removing unused implementations (e.g., ell2edwards, fouquetibouchi)\r\n\r\n- [ ] update test vectors\r\n\r\n- [ ] update hacspec implementations to cover new encodings"
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/111",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/111/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/111/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/111/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/111",
+    "id": 446778126,
+    "node_id": "MDU6SXNzdWU0NDY3NzgxMjY=",
+    "number": 111,
+    "title": "optimized straight-line implementations: generic or specific?",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 3,
+    "created_at": "2019-05-21T19:08:06Z",
+    "updated_at": "2019-05-21T21:06:24Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "Right now the document gives straight-line procedures for evaluating each map, which seem to be aimed at being general purpose.\r\n\r\nWe've discussed in #104 an alternative approach in which these straight-line implementations are geared toward *specific* curves (e.g., standardized and widely-used curves). This would likely be more useful for implementors, both because they would be able to port these directly (rather than having to understand and adapt the generic procedures) and because it would allow us to roll in more optimizations.\r\n\r\nThe `poc/` directory gives us a good start on the list of curves that should be supported in this way. I'm happy to propose a list of curves and write down optimized straight-line implementations for each."
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/110",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/110/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/110/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/110/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/110",
+    "id": 446757508,
+    "node_id": "MDU6SXNzdWU0NDY3NTc1MDg=",
+    "number": 110,
+    "title": "style nits: variable naming",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-05-21T18:16:42Z",
+    "updated_at": "2019-05-21T18:41:39Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "@armfazh prefers short variable names (per comments in #104).\r\n\r\n@chris-wood observed that there are some inconsistencies in naming, e.g., `msg` vs `alpha`.\r\n\r\nMy changes in #104 were aimed at avoiding overloaded symbols.\r\n\r\nI think it's possible to resolve all of these simultaneously, with some thought. Let's discuss what the names should be (short? descriptive? `msg`? `alpha`? `x`?), write down a \"style guide,\" and update the document to follow it."
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/109",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/109/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/109/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/109/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/109",
+    "id": 445782931,
+    "node_id": "MDU6SXNzdWU0NDU3ODI5MzE=",
+    "number": 109,
+    "title": "possible enhancement: mapping to projective coordinates everywhere",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-05-19T05:41:29Z",
+    "updated_at": "2019-05-19T05:41:29Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "Most of the maps can be made faster by dealing in projective rather than affine coordinates, since this should suffice to eliminate inversions (maybe with one more trick here and there).\r\n\r\nIf the goal is to suggest nicely optimized implementations everywhere, one possibility is to allow all map definitions to give projective outputs and then separately handle conversion back to affine coordinates.\r\n\r\nMapping to a projective point and then clearing the denominator is just as fast as mapping directly to an affine coordinate. In most cases, it's faster end-to-end: if the higher-level application does further operations on the output of the map, it's safe to assume those operations will be over projective coordinates, in which case converting to affine coordinates first is unnecessary and strictly slower.\r\n\r\nThis probably requires a small discussion (appx? elsewhere?) about projective coordinates, conversions, etc. Happy to take a crack at this."
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/108",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/108/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/108/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/108/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/108",
+    "id": 445781929,
+    "node_id": "MDU6SXNzdWU0NDU3ODE5Mjk=",
+    "number": 108,
+    "title": "sgn0: make impl in poc/ match description in document",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-05-19T05:26:30Z",
+    "updated_at": "2019-05-19T05:26:30Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "The version of sgn0 in common.sage does the same thing as the description in the document, but is probably more confusing than necessary.\r\n\r\nTODO: rewrite to match impl from the document"
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/107",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/107/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/107/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/107/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/107",
+    "id": 445780871,
+    "node_id": "MDU6SXNzdWU0NDU3ODA4NzE=",
+    "number": 107,
+    "title": "discuss point conversions (perhaps in appendix)",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-05-19T05:07:35Z",
+    "updated_at": "2019-05-19T05:12:36Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "@chris-wood suggested:\r\n\r\n> Should we generalize the Montgomery->Edwards point conversion function? (I would have benefited from such a function being written in cleartext *somewhere* earlier this year.) We might then also include conversion from, say, Weierstrass to Montgomery, among others.\r\n\r\n_Originally posted by @chris-wood in https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/104_"
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/106",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/106/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/106/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/106/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/106",
+    "id": 445780688,
+    "node_id": "MDU6SXNzdWU0NDU3ODA2ODg=",
+    "number": 106,
+    "title": "sqrt: split by field characteristic",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-05-19T05:03:39Z",
+    "updated_at": "2019-05-19T05:04:18Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "@chris-wood suggested splitting the sqrt description into three separate cases:\r\n\r\n> Perhaps we should re-write this section as a series of algorithms for the different conditions? That might help ease implementation should people choose to use one of them.\r\n\r\n_Originally posted by @chris-wood in https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/104_"
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/105",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/105/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/105/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/105/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/105",
+    "id": 445780454,
+    "node_id": "MDU6SXNzdWU0NDU3ODA0NTQ=",
+    "number": 105,
+    "title": "style nits: spacing around math operators",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-05-19T04:58:33Z",
+    "updated_at": "2019-05-21T18:18:33Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "In a previous commit I tried to improve consistency for spacing around math operators, but I didn't quite catch them all.\r\n\r\nI think the biggest remaining one is whether `=` should have surrounding spaces or not.\r\n\r\nTODO: implement consistent style"
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/104",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/104/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/104/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/104/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/104",
+    "id": 438143235,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjc0MjM5Mjc1",
+    "number": 104,
+    "title": "omnibus: new hash2curve ; undefined cases ; sign issues ; etc.",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 14,
+    "created_at": "2019-04-29T04:09:26Z",
+    "updated_at": "2019-05-21T21:38:03Z",
+    "closed_at": "2019-05-21T21:38:02Z",
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/104",
+      "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/104",
+      "diff_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/104.diff",
+      "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/104.patch"
+    },
+    "body": "Hello folks,\r\n\r\nUPDATE (20190430): at this point most of the work is done, barring decisions on how to proceed. Please see specific notes on the checkbox items below.\r\n\r\nThanks again for all of your hard work on this standardization effort!\r\n\r\nThis is a WIP pull request that rolls up a bunch of edits addressing a few open issues. I'm sharing now to start getting feedback and to start discussing how to handle some of the remaining open questions.\r\n\r\nI look forward to your feedback! And, of course, I'm happy to split this up into multiple PRs, squash commits, etc. as you prefer.\r\n\r\nThe issues that this PR touches are:\r\n\r\n- [x] #52 - explicitly defined a primitive `inv0` in S3 that returns 0 on input 0. Could require impl via exponentiation as suggested in that issue. ~~**TODO** decide whether to require impl via exponentiation.~~ leave this unresolved in #52\r\n\r\n- [x] #54 - ~~this is WIP. Need to decide what to do for some of these.~~ I changed the way Simplified SWU and SvdW work to match with our suggestions in the paper, and I'm happy to suggest specific changes to the others. ~~**TODO** decide whether to hash to an extra bit for Elligator (supersingular)~~\r\nUPDATE (20190429): updated sign for SvdW\r\nUPDATE (20190430): suggested how to choose sign for all of them\r\n  - [x] sign for Simplified SWU\r\n  - [x] sign for Icart (need to check the paper on this)\r\n  - [x] sign for Elligator\r\n  - [x] sign for Elligator (Edwards)\r\n  - [x] sign for Elligator (supersingular)\r\n  - [x] sign for Boneh-Franklin\r\n  - [x] sign for SWU\r\n\r\n\r\n- [x] #79, #95 - I added a subsection in 5 that talks about multiplying by the cofactor. I'm happy to go through and make sure all impls do this. Probably it is worthwhile to make specific recommendations, especially for curves with big cofactors (e.g., both of the groups of BLS12-381).\r\n~~**TODO** need to decide whether the appx will have curve-specific impls, in which case this should go there for BLS12-381 G1 and G2.~~\r\n#111 should take care of this.\r\n  - [x] general discussion of cofactor clearing\r\n  - [x] cofactor clearing discussion for BLS12-381 G1\r\n  - [x] cofactor clearing discussion for BLS12-381 G2\r\n\r\n\r\n- [x] #82 - I defined a primitive `sgn0` that returns -1 if a point is \"negative,\" in a way that is defined for fields and extensions. This can be used everywhere for fixing a specific branch of sqrt.\r\nUPDATE (20190430): probably all of the decisions to be made are now in the sign of output point discussion\r\n\r\n- [x] #96 - added support in common.sage using tags \"BLS12_381_1\" and \"BLS12_381_2\" as Hoeteck suggested.\r\n\r\n\r\n- [x] #99 - added words suggesting how many extra bits to use. ~~Can strengthen this from a recommendation to a requirement.~~ ~~**TODO**: require rather than recommend number of extra bits?~~\r\n~~UPDATE (20190430): strengthened recommendations and made explicit how to use a \"small\" hash function~~\r\nLeave this unresolved in #99.\r\n\r\n- [x] #100 - ~~WIP, because I think probably what's currently in the Fouque-Tibouchi section needs to change a bit to make handling exceptional cases easier. I suggest following our recommendations in WB19; I'm planning to push an edit to this effect in the next couple days.~~\r\nUPDATE (20190429): renamed FT to \"Shallue-van de Woestijne,\" updated recommendations for constants and recovering from exceptional cases, added implementation for Secp256k1.\r\n\r\n\r\n- [x] #101 - rolls in a description of the algorithm and relevant implementations for both G1 and G2\r\n\r\n\r\n- [x] #102 - done. There aren't any curves for which you'd pick non-simplified over simplified SWU given the generalization in WB19.\r\n\r\n\r\n- [x] #103 - ~~WIP. I made explicit the way to handle exceptions for Icart, Elligator 2, and Simplified SWU. I still need to do so for the other variants of Elligator (Edwards and A0), the Boneh and Franklin method, and the Fouque-Tibouchi (I mentioned the latter above).~~\r\nUPDATE (20190429): handled for FT\r\nUPDATE (20190430): finished\r\n  - [x] Icart\r\n  - [x] Simplified SWU\r\n  - [x] Elligator\r\n  - [x] Elligator (Edwards)\r\n  - [x] Elligator (supersingular)\r\n  - [x] Boneh-Franklin\r\n  - [x] FT / SvdW\r\n\r\n- [x] ~~update test vectors in document~~ moved to #112 \r\n\r\n- [x] ~~add discussion of points-as-bitstrings relwork (Elligator, Elligator squared, binary Elligator squared)~~ moved to #113\r\n\r\n- [x] ~~consider moving detailed impls for each of the recommended curves to the appendix.~~ Moved to #111\r\n\r\n- [x] ~~consider removing some of the unused impls (e.g., ell2edwards, fouquetibouchi)~~ moved to #112 \r\n\r\n- [x] ~~hacspec impls for new encodings?~~ moved to #112"
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/103",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/103/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/103/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/103/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/103",
+    "id": 437834716,
+    "node_id": "MDU6SXNzdWU0Mzc4MzQ3MTY=",
+    "number": 103,
+    "title": "handling undefined cases for maps",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-04-26T20:31:19Z",
+    "updated_at": "2019-04-26T20:31:19Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "(moved here from #100)\r\n\r\nA brief search of the document doesn't turn up any instances discussing what to do if/when the map is undefined. This is probably important, since in practice many of these maps will have some undefined inputs, and it would be unfortunate if different implementations diverged in their behavior.\r\n\r\nSince the document appears to be encouraging constant-time implementations, it's not clear that there's a good blanket recommendation that would apply to every map. So it might be useful to think about how to handle undefined behavior on a map-by-map basis, in a way that is amenable to constant-time implementations. I'm happy to help out with this."
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/102",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/102/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/102/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/102/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/102",
+    "id": 437831557,
+    "node_id": "MDU6SXNzdWU0Mzc4MzE1NTc=",
+    "number": 102,
+    "title": "suggestion: remove (non-\"simplified\") Shallue--van de Woestijne--Ulas algorithm",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 3,
+    "created_at": "2019-04-26T20:21:49Z",
+    "updated_at": "2019-05-21T21:38:04Z",
+    "closed_at": "2019-05-21T21:38:04Z",
+    "author_association": "CONTRIBUTOR",
+    "body": "Hi folks,\r\n\r\nI think there is no reason to suggest in the standard that implementors use non-\"simplified\" SWU (i.e., the one from Ulas 2007). The non-simplified version is less efficient than simplified one and is no more general (i.e., it doesn't apply to any curves that simplified doesn't).\r\n\r\nNote: the second half of the above claim is maybe not totally obvious, but in [our recent work](https://eprint.iacr.org/2019/403) we show a very simple way to extend simplified SWU to curves over fields of any characteristic (not just Fp, p = 3 mod 4)."
+  },
+  {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/101",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/101/labels{/name}",
@@ -58,7 +640,7 @@
     "id": 435347500,
     "node_id": "MDU6SXNzdWU0MzUzNDc1MDA=",
     "number": 100,
-    "title": "Fouque and Tibouchi method (and a question about undefined behavior)",
+    "title": "Fouque and Tibouchi method: relwork / attribution issue",
     "user": {
       "login": "kwantam",
       "id": 716593,
@@ -82,19 +664,19 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-04-20T02:35:19Z",
-    "updated_at": "2019-04-20T02:36:33Z",
-    "closed_at": null,
-    "author_association": "NONE",
-    "body": "Hi folks,\r\n\r\nThanks for the hard and excellent work on this!\r\n\r\nThere are a couple small issues with the discussion of hashing to pairing-friendly curves.\r\n\r\n1. I notice in the current draft that the section discussing the work of Fouque and Tibouchi at Latincrypt 2012 does not correctly attribute the work. The FT12 paper is clear that the map the authors describe is an instantiation of the Shallue--van de Woestijne method, with constants selected in a way that is convenient for Barreto-Naehrig curves. So a cite of S--vdW (ANTS 2006) would probably be appropriate here.\r\n\r\n2. It's probably important to point out in this section that the map is undefined when u = 0 and when u = sqrt(-1-B). The first case can happen for any curve. The second case can only happen when (-1-B) is square. For BN curves this will never be true, but for BLS curves is can and likely will be. (As a specific example, -1-B is square for BLS12-381, so the map as described is undefined at +/-sqrt(-5).)\r\n\r\nIn fact, the second comment might be true more generally. A brief search of the document doesn't turn up any instances discussing what to do if/when the map is undefined. This is probably important, since in practice many of these maps will have some undefined inputs, and it would be unfortunate if different implementations diverged in their behavior.\r\n\r\nSince the document appears to be encouraging constant-time implementations, it's not clear that there's a good blanket recommendation that would apply to every map. So it might be useful to think about how to handle undefined behavior on a map-by-map basis, in a way that is amenable to constant-time implementations. I'm happy to help out with this."
+    "updated_at": "2019-05-21T21:38:04Z",
+    "closed_at": "2019-05-21T21:38:04Z",
+    "author_association": "CONTRIBUTOR",
+    "body": "Hi folks,\r\n\r\nThanks for the hard and excellent work on this!\r\n\r\nThere are a couple small issues with the discussion of hashing to pairing-friendly curves.\r\n\r\n1. I notice in the current draft that the section discussing the work of Fouque and Tibouchi at Latincrypt 2012 does not correctly attribute the work. The FT12 paper is clear that the map the authors describe is an instantiation of the Shallue--van de Woestijne method, with constants selected in a way that is convenient for Barreto-Naehrig curves. So a cite of S--vdW (ANTS 2006) would probably be appropriate here.\r\n\r\n2. ~~It's probably important to point out in this section that the map is undefined when u = 0 and when u = sqrt(-1-B). The first case can happen for any curve. The second case can only happen when (-1-B) is square. For BN curves this will never be true, but for BLS curves is can and likely will be. (As a specific example, -1-B is square for BLS12-381, so the map as described is undefined at +/-sqrt(-5).)~~\r\n\r\n~~In fact, the second comment might be true more generally. A brief search of the document doesn't turn up any instances discussing what to do if/when the map is undefined. This is probably important, since in practice many of these maps will have some undefined inputs, and it would be unfortunate if different implementations diverged in their behavior.~~\r\n\r\n~~Since the document appears to be encouraging constant-time implementations, it's not clear that there's a good blanket recommendation that would apply to every map. So it might be useful to think about how to handle undefined behavior on a map-by-map basis, in a way that is amenable to constant-time implementations. I'm happy to help out with this.~~"
   },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/99",
@@ -137,11 +719,11 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 5,
     "created_at": "2019-04-16T01:10:29Z",
-    "updated_at": "2019-04-16T01:42:22Z",
+    "updated_at": "2019-05-21T21:11:20Z",
     "closed_at": null,
-    "author_association": "CONTRIBUTOR",
+    "author_association": "COLLABORATOR",
     "body": "Tracking: The main text is imprecise about the amount of bits required to reduce mod p from {0,1}^k to Fp.\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
   },
   {
@@ -237,7 +819,7 @@
     "created_at": "2019-04-03T01:31:48Z",
     "updated_at": "2019-04-20T01:17:18Z",
     "closed_at": "2019-04-20T01:17:18Z",
-    "author_association": "CONTRIBUTOR",
+    "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/97",
       "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/97",
@@ -339,7 +921,7 @@
     "created_at": "2019-03-19T16:48:03Z",
     "updated_at": "2019-04-20T02:54:24Z",
     "closed_at": null,
-    "author_association": "CONTRIBUTOR",
+    "author_association": "COLLABORATOR",
     "body": "This is about this comment: https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/79#issuecomment-473659903\r\n\r\n@mmaker\r\n@AnitaDurr\r\n\r\n"
   },
   {
@@ -383,11 +965,11 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-03-15T21:11:33Z",
-    "updated_at": "2019-03-21T13:50:08Z",
+    "updated_at": "2019-05-02T18:37:31Z",
     "closed_at": null,
-    "author_association": "CONTRIBUTOR",
+    "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/94",
       "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/94",
@@ -558,7 +1140,7 @@
     "created_at": "2019-03-11T17:40:42Z",
     "updated_at": "2019-03-11T18:47:48Z",
     "closed_at": "2019-03-11T18:47:48Z",
-    "author_association": "CONTRIBUTOR",
+    "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/91",
       "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/91",
@@ -612,7 +1194,7 @@
     "created_at": "2019-03-11T17:29:06Z",
     "updated_at": "2019-03-11T18:48:00Z",
     "closed_at": "2019-03-11T18:48:00Z",
-    "author_association": "CONTRIBUTOR",
+    "author_association": "COLLABORATOR",
     "body": "\r\nin section 5.3.5. Fouque-Tibouchi Method\r\nThe reference to BLS curve points to the work of BLS signatures.\r\nBLS signatures ->  [BLS01]\r\nBLS curve -> [BLS02]\r\n\r\n[BLS02] Paulo S. L. M. Barreto, Ben Lynn, and Michael Scott. Constructing elliptic curves with prescribed embedding degrees. SCN. 2002"
   },
   {
@@ -810,7 +1392,7 @@
     "created_at": "2019-02-14T01:30:09Z",
     "updated_at": "2019-03-01T16:12:19Z",
     "closed_at": "2019-03-01T16:12:18Z",
-    "author_association": "CONTRIBUTOR",
+    "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/86",
       "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/86",
@@ -912,7 +1494,7 @@
     "created_at": "2019-02-13T00:38:47Z",
     "updated_at": "2019-03-01T16:16:25Z",
     "closed_at": "2019-03-01T16:16:25Z",
-    "author_association": "CONTRIBUTOR",
+    "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/84",
       "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/84",
@@ -920,7 +1502,10 @@
       "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/84.patch"
     },
     "body": "This PR adds few things about formatting of algorithms. \r\nMakes a visible separation between Weierstrass and Montgomery curves.\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/83",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -966,7 +1551,7 @@
     "created_at": "2019-02-13T00:34:51Z",
     "updated_at": "2019-02-13T18:34:04Z",
     "closed_at": "2019-02-13T18:33:54Z",
-    "author_association": "CONTRIBUTOR",
+    "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/83",
       "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/83",
@@ -1020,7 +1605,7 @@
     "created_at": "2019-02-11T22:31:35Z",
     "updated_at": "2019-04-16T19:21:22Z",
     "closed_at": null,
-    "author_association": "CONTRIBUTOR",
+    "author_association": "COLLABORATOR",
     "body": "### background\r\nThe `sqrt(x)` function mathematically provides two correct answers, say r0, r1 \\in Fp such that `r0^2=r1^2=x` and r0+r1 = p\r\n### issue\r\nMost of the encoding papers prove how to obtain points on a elliptic curve internally using the `sqrt` function and this is enough for mathematical purposes. \r\nHowever, for implementation purposes this could bring a source of errors/incompatibilities if the `sqrt` function is not defined accordingly. \r\nI see two options to fix this issue:\r\n\r\n1. Declare explicitly how to compute the `sqrt` function for each case. Although that for `p=3 mod 4` is easy, the remainder cases are not easy to state.\r\n\r\n2. Declare explicitly which root to choose. Relying on math, the document can state, for example, that the valid root to use is the one that is odd (or even). It is known that either `r0` or `r1` will be odd. This allows the implementer to use the best-known algorithm for computing `sqrt` as soon as the root returned by it be the one that is odd (or even).\r\n\r\nI believe that Option 2 is suitable and more flexible. \r\nHappy to hear your comments about it.\r\n\r\n"
   },
   {
@@ -1068,7 +1653,7 @@
     "created_at": "2019-02-11T22:26:44Z",
     "updated_at": "2019-03-01T16:25:26Z",
     "closed_at": "2019-03-01T16:25:26Z",
-    "author_association": "CONTRIBUTOR",
+    "author_association": "COLLABORATOR",
     "body": "The purpose of the document is to avoid this bad practice (hash&increment), maybe it must be deprecated or recommended at last resort.\r\n@grittygrease "
   },
   {
@@ -1116,7 +1701,7 @@
     "created_at": "2019-02-11T21:55:12Z",
     "updated_at": "2019-03-01T16:28:11Z",
     "closed_at": "2019-03-01T16:28:11Z",
-    "author_association": "CONTRIBUTOR",
+    "author_association": "COLLABORATOR",
     "body": "I am aware that the index allows to separate calls to `hash2base` function inside of SWU and on the construction of Random Oracles. \r\nHowever, I think that the index can be handled externally as follows:\r\n```\r\nRandomOracle(alpha) = hash2Base( alpha || 0 ) + hash2Base( alpha || 1 )\r\n```\r\nand SWU can be handled in the same fashion.  \r\n```\r\ndef SWU(alpha):\r\n    u = hash2Base(label || alpha || 0 ) \r\n    v = hash2Base(label || alpha || 1 )\r\n```\r\nThis modification eases the internal implementation of `hash2base` function and does not require to indicate default values for index in the cases where it is not present.\r\n"
   },
   {
@@ -1538,10 +2123,7 @@
       "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/72.patch"
     },
     "body": "Just dropping this here for now discussion in the meeting. An attempt to make the algorithms more consistent, and instrument the code for producing test vectors."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/71",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -1731,7 +2313,7 @@
     "created_at": "2018-10-22T20:57:16Z",
     "updated_at": "2019-01-25T19:08:53Z",
     "closed_at": "2019-01-25T19:08:53Z",
-    "author_association": "CONTRIBUTOR",
+    "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/68",
       "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/68",
@@ -2254,7 +2836,7 @@
     "created_at": "2018-10-17T18:54:48Z",
     "updated_at": "2018-10-18T23:36:03Z",
     "closed_at": "2018-10-18T23:36:03Z",
-    "author_association": "CONTRIBUTOR",
+    "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/58",
       "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/58",
@@ -2460,13 +3042,16 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2018-10-05T16:28:01Z",
-    "updated_at": "2018-10-20T16:02:43Z",
+    "updated_at": "2019-04-26T23:00:43Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "As in #53, many algorithms require taking a square root and choosing one. In some cases we have an additional bit left over from HashToBase (e.g. with Curve25519 and SHA256, there is a free bit).\r\nWe can consider using this bit as a sign (as at the end of 2.6 of https://signal.org/docs/specifications/xeddsa/#hashing-to-a-point-with-elligator-2)."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/53",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -3086,10 +3671,7 @@
     "closed_at": "2018-10-22T20:12:10Z",
     "author_association": "OWNER",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/41",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -4053,7 +4635,10 @@
       "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/24.patch"
     },
     "body": "This is a first cut at #23. It doesn't go into details regarding what is a suitable encoding for the construction, although all those considered (except Elligator2) were shown to work. (@samscott89, we should do the math and figure out if Elligator2 works.)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/23",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -4729,10 +5314,7 @@
     "closed_at": "2019-02-09T16:34:45Z",
     "author_association": "OWNER",
     "body": "An example is given that this can be any cryptographic hash function, such as SHA-256.  However, I think it would be better if this is defined as a method supporting variable length outputs.  For example, HKDF (Hmac Key Derivation Function).  The justification being that some elliptic curves operate on fields that are too large, even for SHA-512 (e.g. NIST P-521), and naive attempts at extending the length of a hash may otherwise be designed insecurely.\r\n\r\nIf the function is specified as HKDF (which operates on bytes rather than bits) there should be clarification as to which bits of the output are to be used (e.g. the left-most bits output by HKDF)."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/11",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
