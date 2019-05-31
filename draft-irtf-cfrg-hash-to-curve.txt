@@ -5,12 +5,12 @@
 Network Working Group                                   A. Faz-Hernandez
 Internet-Draft                                                Cloudflare
 Intended status: Informational                                  S. Scott
-Expires: November 22, 2019                                  Cornell Tech
+Expires: December 2, 2019                                   Cornell Tech
                                                              N. Sullivan
                                                               Cloudflare
                                                                  C. Wood
                                                               Apple Inc.
-                                                            May 21, 2019
+                                                            May 31, 2019
 
 
                        Hashing to Elliptic Curves
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 22, 2019.
+   This Internet-Draft will expire on December 2, 2019.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019               [Page 1]
+Faz-Hernandez, et al.   Expires December 2, 2019                [Page 1]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -72,64 +72,64 @@ Table of Contents
        2.2.2.  Serialization . . . . . . . . . . . . . . . . . . . .   6
        2.2.3.  Random Oracle . . . . . . . . . . . . . . . . . . . .   6
    3.  Utility Functions . . . . . . . . . . . . . . . . . . . . . .   6
-   4.  Hashing to a Finite Field . . . . . . . . . . . . . . . . . .   8
+   4.  Hashing to a Finite Field . . . . . . . . . . . . . . . . . .   9
      4.1.  Security and performance considerations . . . . . . . . .   9
-     4.2.  Implementation  . . . . . . . . . . . . . . . . . . . . .   9
+     4.2.  Implementation  . . . . . . . . . . . . . . . . . . . . .  10
    5.  Deterministic Encodings . . . . . . . . . . . . . . . . . . .  10
-     5.1.  Interface . . . . . . . . . . . . . . . . . . . . . . . .  10
-     5.2.  Notation  . . . . . . . . . . . . . . . . . . . . . . . .  10
+     5.1.  Interface . . . . . . . . . . . . . . . . . . . . . . . .  11
+     5.2.  Notation  . . . . . . . . . . . . . . . . . . . . . . . .  11
      5.3.  Clearing the cofactor . . . . . . . . . . . . . . . . . .  11
-     5.4.  Sign of the resulting point . . . . . . . . . . . . . . .  11
+     5.4.  Sign of the resulting point . . . . . . . . . . . . . . .  12
      5.5.  Exceptional cases . . . . . . . . . . . . . . . . . . . .  12
      5.6.  Encodings for Weierstrass curves  . . . . . . . . . . . .  12
-       5.6.1.  Icart Method  . . . . . . . . . . . . . . . . . . . .  12
+       5.6.1.  Icart Method  . . . . . . . . . . . . . . . . . . . .  13
        5.6.2.  Simplified Shallue-van de Woestijne-Ulas Method . . .  14
      5.7.  Encodings for Montgomery curves . . . . . . . . . . . . .  16
        5.7.1.  Elligator 2 Method  . . . . . . . . . . . . . . . . .  16
-     5.8.  Encodings for twisted Edwards curves  . . . . . . . . . .  18
-       5.8.1.  Elligator 2 Method  . . . . . . . . . . . . . . . . .  18
-     5.9.  Encodings for Supersingular curves  . . . . . . . . . . .  20
-       5.9.1.  Boneh-Franklin Method . . . . . . . . . . . . . . . .  20
-       5.9.2.  Elligator 2, A=0 Method . . . . . . . . . . . . . . .  21
-     5.10. Encodings for Pairing-Friendly curves . . . . . . . . . .  22
-       5.10.1.  Shallue-van de Woestijne Method  . . . . . . . . . .  22
-       5.10.2.  Simplified SWU for Pairing-Friendly Curves . . . . .  25
-   6.  Random Oracles  . . . . . . . . . . . . . . . . . . . . . . .  26
-     6.1.  Implementation  . . . . . . . . . . . . . . . . . . . . .  26
-   7.  Suites for Hashing  . . . . . . . . . . . . . . . . . . . . .  26
-   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  27
-   9.  Security Considerations . . . . . . . . . . . . . . . . . . .  27
-   10. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  28
-   11. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  28
-   12. Normative References  . . . . . . . . . . . . . . . . . . . .  28
-   Appendix A.  Related Work . . . . . . . . . . . . . . . . . . . .  33
-     A.1.  Probabilistic Encoding  . . . . . . . . . . . . . . . . .  33
-     A.2.  Naive Encoding  . . . . . . . . . . . . . . . . . . . . .  34
-     A.3.  Deterministic Encoding  . . . . . . . . . . . . . . . . .  34
+     5.8.  Encodings for twisted Edwards curves  . . . . . . . . . .  19
+       5.8.1.  Elligator 2 Method  . . . . . . . . . . . . . . . . .  19
+     5.9.  Encodings for Supersingular curves  . . . . . . . . . . .  21
+       5.9.1.  Boneh-Franklin Method . . . . . . . . . . . . . . . .  21
+       5.9.2.  Elligator 2, A=0 Method . . . . . . . . . . . . . . .  22
+     5.10. Encodings for Pairing-Friendly curves . . . . . . . . . .  23
+       5.10.1.  Shallue-van de Woestijne Method  . . . . . . . . . .  23
+       5.10.2.  Simplified SWU for Pairing-Friendly Curves . . . . .  26
+   6.  Random Oracles  . . . . . . . . . . . . . . . . . . . . . . .  27
+     6.1.  Implementation  . . . . . . . . . . . . . . . . . . . . .  27
+   7.  Suites for Hashing  . . . . . . . . . . . . . . . . . . . . .  27
+   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  28
+   9.  Security Considerations . . . . . . . . . . . . . . . . . . .  28
+   10. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  29
+   11. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  29
+   12. Normative References  . . . . . . . . . . . . . . . . . . . .  29
+   Appendix A.  Related Work . . . . . . . . . . . . . . . . . . . .  34
+     A.1.  Probabilistic Encoding  . . . . . . . . . . . . . . . . .  34
+     A.2.  Naive Encoding  . . . . . . . . . . . . . . . . . . . . .  35
+     A.3.  Deterministic Encoding  . . . . . . . . . . . . . . . . .  35
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019               [Page 2]
+Faz-Hernandez, et al.   Expires December 2, 2019                [Page 2]
 
 Internet-Draft                hash-to-curve                     May 2019
 
 
-   Appendix B.  Try-and-Increment Method . . . . . . . . . . . . . .  35
-   Appendix C.  Sample Code  . . . . . . . . . . . . . . . . . . . .  35
-     C.1.  Icart Method  . . . . . . . . . . . . . . . . . . . . . .  36
-     C.2.  Simplified SWU Method . . . . . . . . . . . . . . . . . .  37
-     C.3.  Boneh-Franklin Method . . . . . . . . . . . . . . . . . .  38
-     C.4.  Fouque-Tibouchi Method  . . . . . . . . . . . . . . . . .  38
-     C.5.  Elligator 2 Method  . . . . . . . . . . . . . . . . . . .  39
-   Appendix D.  Test Vectors . . . . . . . . . . . . . . . . . . . .  40
-     D.1.  Elligator 2 to Curve25519 . . . . . . . . . . . . . . . .  40
-     D.2.  Icart to P-384  . . . . . . . . . . . . . . . . . . . . .  42
-     D.3.  SWU to P-256  . . . . . . . . . . . . . . . . . . . . . .  46
-     D.4.  Simplified SWU to P-256 . . . . . . . . . . . . . . . . .  50
-     D.5.  Boneh-Franklin to P-503 . . . . . . . . . . . . . . . . .  54
-     D.6.  Fouque-Tibouchi to BN256  . . . . . . . . . . . . . . . .  58
-     D.7.  Sample hash2base  . . . . . . . . . . . . . . . . . . . .  62
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  63
+   Appendix B.  Try-and-Increment Method . . . . . . . . . . . . . .  36
+   Appendix C.  Sample Code  . . . . . . . . . . . . . . . . . . . .  36
+     C.1.  Icart Method  . . . . . . . . . . . . . . . . . . . . . .  37
+     C.2.  Simplified SWU Method . . . . . . . . . . . . . . . . . .  38
+     C.3.  Boneh-Franklin Method . . . . . . . . . . . . . . . . . .  39
+     C.4.  Fouque-Tibouchi Method  . . . . . . . . . . . . . . . . .  39
+     C.5.  Elligator 2 Method  . . . . . . . . . . . . . . . . . . .  40
+   Appendix D.  Test Vectors . . . . . . . . . . . . . . . . . . . .  41
+     D.1.  Elligator 2 to Curve25519 . . . . . . . . . . . . . . . .  41
+     D.2.  Icart to P-384  . . . . . . . . . . . . . . . . . . . . .  43
+     D.3.  SWU to P-256  . . . . . . . . . . . . . . . . . . . . . .  47
+     D.4.  Simplified SWU to P-256 . . . . . . . . . . . . . . . . .  51
+     D.5.  Boneh-Franklin to P-503 . . . . . . . . . . . . . . . . .  55
+     D.6.  Fouque-Tibouchi to BN256  . . . . . . . . . . . . . . . .  59
+     D.7.  Sample hash2base  . . . . . . . . . . . . . . . . . . . .  63
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  64
 
 1.  Introduction
 
@@ -165,7 +165,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019               [Page 3]
+Faz-Hernandez, et al.   Expires December 2, 2019                [Page 3]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -221,7 +221,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019               [Page 4]
+Faz-Hernandez, et al.   Expires December 2, 2019                [Page 4]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -277,7 +277,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019               [Page 5]
+Faz-Hernandez, et al.   Expires December 2, 2019                [Page 5]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -333,10 +333,19 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019               [Page 6]
+Faz-Hernandez, et al.   Expires December 2, 2019                [Page 6]
 
 Internet-Draft                hash-to-curve                     May 2019
 
+
+   o  CMOV(a, b, c): If c=0, CMOV returns a, otherwise returns b.  To
+      prevent against timing attacks, this operation must run in
+      constant time without revealing the value of c.  Commonly,
+      implementations assume that the selector is c=1 or c=0.  In this
+      case, given a bitstring C, the desired selector c can be computed
+      by OR-ing all bits of C together.  The resulting selector will be
+      either 0 if all bits of C are zero, or 1 if at least one bit of C
+      is 1.
 
    o  is_square(x, q): This function returns True whenever the value x
       is a square in GF(q).  Due to Euler's criterion, this function can
@@ -347,63 +356,100 @@ Internet-Draft                hash-to-curve                     May 2019
 
    o  sqrt(x, q): The sqrt operation is a multi-valued function, i.e.
       there exist two roots of x whenever x is square.  To maintain
-      compatibility across implementations, a single-valued sqrt
-      function is necessary.  The preferred way of selecting a single-
-      valued sqrt is to fix a deterministic algorithm particular to q.
-      As specific examples:
+      compatibility across implementations while allowing implementors
+      leeway for optimizations, this document does not require sqrt() to
+      return a particular value.  Instead, as explained in Section 5.4,
+      any higher-level function that computes square roots also
+      specifies how to determine the sign of the result.
 
-      *  If q=3 (mod 4), sqrt(x, q) := x^((q + 1) / 4).
+      The preferred way of computing square roots is to fix a
+      deterministic algorithm particular to q.  We give algorithms for
+      the three most common cases immediately below; other cases are
+      analogous.
 
-      *  If q=5 (mod 8):
-
-         1.  Set z := x^((q + 3) / 8).
-
-         2.  Check whether z^2 == -x; if so, update z := z * sqrt(-1).
-
-         3.  Finally, sqrt(x, q) := z.
-
-      *  If q=9 (mod 16), which includes q=p^2 when p=3 (mod 4):
-
-         1.  Set z := x^((q+7) / 16).
-
-         2.  Check whether (z * sqrt(-1))^2 == x; if so, update z := z *
-             sqrt(-1).
-
-         3.  Check whether (z * sqrt(sqrt(-1))^2) == x; if so, update z
-             := z * sqrt(sqrt(-1)).
-
-         4.  Check whether (z * sqrt(-sqrt(-1))^2) == x; if so, update z
-             := z * sqrt(-sqrt(-1)).
-
-         5.  Finally, sqrt(x, q) := z.
-
-      (In the second and third cases above, the values sqrt(-1),
-      sqrt(sqrt(-1)), and sqrt(-sqrt(-1)) are precomputed constants.)
-      An alternative to selecting a single-valued sqrt is to choose a
-      predicate that only one of the roots holds (e.g., select the
-      positive sqrt; see the sgn0 function below).  [AR13] and [S85]
-      describe methods that work in other field extensions.  Regardless
-      of the method chosen, the sqrt function MUST be performed in
-      constant time.
+      Note that Case 3 below applies to GF(p^2) when p = 3 mod 8.
+      [AR13] and [S85] describe methods that work for other field
+      extensions.  Regardless of the method chosen, the sqrt function
+      MUST be performed in constant time.
 
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019               [Page 7]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Faz-Hernandez, et al.   Expires December 2, 2019                [Page 7]
 
 Internet-Draft                hash-to-curve                     May 2019
 
 
-   o  CMOV(a, b, c): If c=0, CMOV returns a, otherwise returns b.  To
-      prevent against timing attacks, this operation must run in
-      constant time without revealing the value of c.  Commonly some
-      implementations assume the selector be c=1 or c=0; thus, given a
-      bitstring C, the desired selector c can be computed by OR-ing all
-      bits of C together.  The resulting selector will be either 0 if
-      all bits of C are zero, or 1 if at least one bit of C is 1.
+   sqrt(x, q)
+
+   Input: x, an element of GF(q).
+   Output: a such that a * a == x.
+
+   ======
+
+   Case 1: q = 3 (mod 4)
+
+   Procedure:
+   1. return x^((q + 1) / 4)
+
+   ======
+
+   Case 2: q = 5 (mod 8)
+
+   Constants:
+   - c1 = sqrt(-1) in GF(q), i.e., c1 * c1 = -1 mod q.
+
+   Procedure:
+   1. t1 = x^((q + 3) / 8)
+   2. e = t1 * t1 == x
+   3. return CMOV(t1 * c1, t1, e)
+
+   ======
+
+   Case 3: q = 9 (mod 16)
+
+   Constants:
+   - c1 = sqrt(-1) in GF(q), i.e., c1 * c1 = -1 mod q.
+   - c2 = sqrt(sqrt(-1)) in GF(q), i.e., c2 * c2 = c1 mod q.
+   - c3 = sqrt(-sqrt(-1)) in GF(q), i.e., c3 * c3 = -c1 mod q.
+
+   Procedure:
+   1.  t1 = x^((q + 7) / 16)
+   2.  t2 = c1 * t1
+   3.  t3 = c2 * t1
+   4.  t4 = c3 * t1
+   5.  e1 = t2 * t2 == x
+   6.  e2 = t3 * t3 == x
+   7.  t1 = CMOV(t1, t2, e1)  // select t2 if t2 * t2 == x
+   8.  t2 = CMOV(t4, t3, e2)  // select t3 if t3 * t3 == x
+   9.  e3 = t2 * t2 == x
+   10. t1 = CMOV(t1, t2, e3)  // select the sqrt from t1 and t2
+   11. return t1
 
    o  sgn0(x): This function returns either +1 or -1, indicating the
       sign of x.  This function considers 0 to be positive.  The
+
+
+
+Faz-Hernandez, et al.   Expires December 2, 2019                [Page 8]
+
+Internet-Draft                hash-to-curve                     May 2019
+
+
       following procedure implements sgn0(x) in constant time.  See
       Section 2.1 for a discussion of representing x as a vector.
 
@@ -441,15 +487,6 @@ Internet-Draft                hash-to-curve                     May 2019
    (Section 2.1) and by H, a cryptographic hash function that outputs b
    bits.
 
-
-
-
-
-Faz-Hernandez, et al.   Expires November 22, 2019               [Page 8]
-
-Internet-Draft                hash-to-curve                     May 2019
-
-
 4.1.  Security and performance considerations
 
    hash2base should map its input to a uniformly random element of F.
@@ -461,6 +498,13 @@ Internet-Draft                hash-to-curve                     May 2019
    256-bit integer) modulo p is slightly more likely to be a value in
    [0, 38] than a value in [39, 2^255 - 19).  In this example the bias
    is negligible, but in general the bias can be significant.
+
+
+
+Faz-Hernandez, et al.   Expires December 2, 2019                [Page 9]
+
+Internet-Draft                hash-to-curve                     May 2019
+
 
    To control bias, the input msg should be hashed to an integer
    comprising more than log2(p) bits.  In particular, reducing an
@@ -486,26 +530,6 @@ Internet-Draft                hash-to-curve                     May 2019
 
    The following procedure implements hash2base.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Faz-Hernandez, et al.   Expires November 22, 2019               [Page 9]
-
-Internet-Draft                hash-to-curve                     May 2019
-
-
    hash2base(msg)
 
    Parameters:
@@ -526,6 +550,17 @@ Internet-Draft                hash-to-curve                     May 2019
    7. Output u = ( e_1, ..., e_m )
 
 5.  Deterministic Encodings
+
+
+
+
+
+
+
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 10]
+
+Internet-Draft                hash-to-curve                     May 2019
+
 
 5.1.  Interface
 
@@ -553,15 +588,6 @@ Internet-Draft                hash-to-curve                     May 2019
    o  u: denotes an element of F produced by the hash2base function and
       is used as initial value of the encoding.
 
-
-
-
-
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 10]
-
-Internet-Draft                hash-to-curve                     May 2019
-
-
    o  t1, t2, ...: are reusable temporary variables.  For notable
       variables, distinct names are used easing the debugging process
       when correlating with test vectors.
@@ -583,6 +609,14 @@ Internet-Draft                hash-to-curve                     May 2019
    multiplication by h.  For elliptic curves where h = 1, i.e., curves
    with a prime number of points (for example, the NIST curves P-256,
    P-384, and P-521 [FIPS186-4]), no operation is required.
+
+
+
+
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 11]
+
+Internet-Draft                hash-to-curve                     May 2019
+
 
    In some cases, it is possible to clear the cofactor via a faster
    method than scalar multiplication.  For pairing-friendly curves
@@ -610,14 +644,6 @@ Internet-Draft                hash-to-curve                     May 2019
    To resolve this ambiguity, the encodings in this section specify the
    sign of the y-coordinate in terms of the input to the encoding
    function.  We take this approach for two reasons: first, this covers
-
-
-
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 11]
-
-Internet-Draft                hash-to-curve                     May 2019
-
-
    elliptic curves over any field in a uniform way, and second, it gives
    implementors leeway to optimize their square-root implementations.
 
@@ -639,6 +665,14 @@ Internet-Draft                hash-to-curve                     May 2019
    The following encodings apply to elliptic curves defined by the
    equation E: y^2 = g(x) = x^3 + A * x + B, where 4 * A^3 + 27 * B^2 !=
    0.
+
+
+
+
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 12]
+
+Internet-Draft                hash-to-curve                     May 2019
+
 
 5.6.1.  Icart Method
 
@@ -663,17 +697,6 @@ Internet-Draft                hash-to-curve                     May 2019
 
    Operations:
 
-
-
-
-
-
-
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 12]
-
-Internet-Draft                hash-to-curve                     May 2019
-
-
    1. u = hash2base(alpha)
    2. If u == 0, set u = 1
    3. v = (3 * A - u^4) / (6 * u)
@@ -685,6 +708,27 @@ Internet-Draft                hash-to-curve                     May 2019
 
    The following procedure implements Icart's algorithm in a straight-
    line fashion.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 13]
+
+Internet-Draft                hash-to-curve                     May 2019
+
 
  map2curve_icart(alpha)
  Input: alpha, an octet string to be hashed.
@@ -718,18 +762,6 @@ Internet-Draft                hash-to-curve                     May 2019
  19.  y = y + v          // y = u * x + v
  20. Output clear_h(x, y)
 
-
-
-
-
-
-
-
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 13]
-
-Internet-Draft                hash-to-curve                     May 2019
-
-
 5.6.2.  Simplified Shallue-van de Woestijne-Ulas Method
 
    The function map2curve_simple_swu(alpha) implements a simplification
@@ -745,6 +777,14 @@ Internet-Draft                hash-to-curve                     May 2019
    Constants:
 
    o  A and B, the parameters of the Weierstrass curve.
+
+
+
+
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 14]
+
+Internet-Draft                hash-to-curve                     May 2019
+
 
    o  Z, the smallest (in absolute value) non-square in F such that g(B
       / (Z * A)) is square in F, breaking ties by choosing the positive
@@ -775,17 +815,6 @@ Internet-Draft                hash-to-curve                     May 2019
    10. If sgn0(u) != sgn0(y), set y = -y
    11. Output clear_h(x, y)
 
-
-
-
-
-
-
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 14]
-
-Internet-Draft                hash-to-curve                     May 2019
-
-
 5.6.2.1.  Implementation
 
    The following procedure implements the simplified SWU algorithm in a
@@ -793,6 +822,25 @@ Internet-Draft                hash-to-curve                     May 2019
    that q = 3 (mod 4), which applies to P-256.  For discussion of how to
    generalize to q = 1 (mod 4), see [WB19] (Section 4) or the example
    code found at [github-repo].
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 15]
+
+Internet-Draft                hash-to-curve                     May 2019
+
 
 map2curve_simple_swu(alpha)
 Input: alpha, an octet string to be hashed.
@@ -830,18 +878,6 @@ Steps:
 20.   y = CMOV(-y, y, e4)
 21. Output clear_h(x, y)
 
-
-
-
-
-
-
-
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 15]
-
-Internet-Draft                hash-to-curve                     May 2019
-
-
 5.7.  Encodings for Montgomery curves
 
 5.7.1.  Elligator 2 Method
@@ -854,6 +890,13 @@ Internet-Draft                hash-to-curve                     May 2019
    is non-square in F.
 
    Input: alpha, an octet string to be hashed.
+
+
+
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 16]
+
+Internet-Draft                hash-to-curve                     May 2019
+
 
    Constants:
 
@@ -893,7 +936,20 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 16]
+
+
+
+
+
+
+
+
+
+
+
+
+
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 17]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -949,7 +1005,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 17]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 18]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -1005,7 +1061,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 18]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 19]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -1061,7 +1117,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 19]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 20]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -1117,7 +1173,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 20]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 21]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -1173,7 +1229,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 21]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 22]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -1229,7 +1285,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 22]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 23]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -1285,7 +1341,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 23]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 24]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -1341,7 +1397,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 24]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 25]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -1397,7 +1453,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 25]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 26]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -1453,7 +1509,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 26]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 27]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -1509,7 +1565,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 27]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 28]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -1565,7 +1621,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 28]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 29]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -1621,7 +1677,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 29]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 30]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -1677,7 +1733,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 30]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 31]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -1733,7 +1789,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 31]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 32]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -1789,7 +1845,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 32]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 33]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -1845,7 +1901,7 @@ A.1.  Probabilistic Encoding
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 33]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 34]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -1901,7 +1957,7 @@ A.3.  Deterministic Encoding
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 34]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 35]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -1957,7 +2013,7 @@ Appendix C.  Sample Code
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 35]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 36]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -2013,7 +2069,7 @@ b384 = to_felem(2758019355995970587784901184038904809305690585636156852142870730
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 36]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 37]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -2069,7 +2125,7 @@ def map2p256(t:felem_t) -> affine_t:
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 37]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 38]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -2125,7 +2181,7 @@ C.4.  Fouque-Tibouchi Method
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 38]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 39]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -2181,7 +2237,7 @@ C.5.  Elligator 2 Method
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 39]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 40]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -2237,7 +2293,7 @@ D.1.  Elligator 2 to Curve25519
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 40]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 41]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -2293,7 +2349,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 41]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 42]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -2349,7 +2405,7 @@ D.2.  Icart to P-384
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 42]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 43]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -2405,7 +2461,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 43]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 44]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -2461,7 +2517,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 44]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 45]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -2517,7 +2573,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 45]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 46]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -2573,7 +2629,7 @@ D.3.  SWU to P-256
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 46]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 47]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -2629,7 +2685,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 47]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 48]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -2685,7 +2741,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 48]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 49]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -2741,7 +2797,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 49]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 50]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -2797,7 +2853,7 @@ D.4.  Simplified SWU to P-256
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 50]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 51]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -2853,7 +2909,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 51]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 52]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -2909,7 +2965,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 52]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 53]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -2965,7 +3021,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 53]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 54]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -3021,7 +3077,7 @@ D.5.  Boneh-Franklin to P-503
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 54]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 55]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -3077,7 +3133,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 55]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 56]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -3133,7 +3189,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 56]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 57]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -3189,7 +3245,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 57]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 58]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -3245,7 +3301,7 @@ D.6.  Fouque-Tibouchi to BN256
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 58]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 59]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -3301,7 +3357,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 59]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 60]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -3357,7 +3413,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 60]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 61]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -3413,7 +3469,7 @@ Internet-Draft                hash-to-curve                     May 2019
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 61]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 62]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -3469,7 +3525,7 @@ D.7.  Sample hash2base
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 62]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 63]
 
 Internet-Draft                hash-to-curve                     May 2019
 
@@ -3525,4 +3581,4 @@ Authors' Addresses
 
 
 
-Faz-Hernandez, et al.   Expires November 22, 2019              [Page 63]
+Faz-Hernandez, et al.   Expires December 2, 2019               [Page 64]
