@@ -1,6 +1,114 @@
 [
 
   {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/119",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/119/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/119/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/119/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/119",
+    "id": 451137376,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjg0MzA2MTAx",
+    "number": 119,
+    "title": "Adds a roadmap section",
+    "user": {
+      "login": "armfazh",
+      "id": 10335519,
+      "node_id": "MDQ6VXNlcjEwMzM1NTE5",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10335519?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/armfazh",
+      "html_url": "https://github.com/armfazh",
+      "followers_url": "https://api.github.com/users/armfazh/followers",
+      "following_url": "https://api.github.com/users/armfazh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/armfazh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/armfazh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/armfazh/subscriptions",
+      "organizations_url": "https://api.github.com/users/armfazh/orgs",
+      "repos_url": "https://api.github.com/users/armfazh/repos",
+      "events_url": "https://api.github.com/users/armfazh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/armfazh/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-06-02T00:11:52Z",
+    "updated_at": "2019-06-02T20:52:14Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/119",
+      "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/119",
+      "diff_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/119.diff",
+      "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/119.patch"
+    },
+    "body": "Changes:\r\n - Gives a brief description about hash curve looks like.\r\n - Promotes clear cofactor as a section.\r\n - Introduces the notion of G, a group/subgroup of interest.\r\n - Updates ROM to be consistent with hash2curve.\r\n - Sketches the suite section (here more work is needed)."
+  },
+  {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/118",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/118/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/118/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/118/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/118",
+    "id": 450978482,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjg0MTkwOTcy",
+    "number": 118,
+    "title": "Including one diagram",
+    "user": {
+      "login": "armfazh",
+      "id": 10335519,
+      "node_id": "MDQ6VXNlcjEwMzM1NTE5",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10335519?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/armfazh",
+      "html_url": "https://github.com/armfazh",
+      "followers_url": "https://api.github.com/users/armfazh/followers",
+      "following_url": "https://api.github.com/users/armfazh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/armfazh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/armfazh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/armfazh/subscriptions",
+      "organizations_url": "https://api.github.com/users/armfazh/orgs",
+      "repos_url": "https://api.github.com/users/armfazh/repos",
+      "events_url": "https://api.github.com/users/armfazh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/armfazh/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 3,
+    "created_at": "2019-05-31T20:57:22Z",
+    "updated_at": "2019-06-02T20:41:38Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/118",
+      "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/118",
+      "diff_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/118.diff",
+      "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/118.patch"
+    },
+    "body": "FWIW, this diagram would help to overview the suites recommended in this draft.\r\n\r\nSome considerations:\r\n - Rely always on hash evaluations over short-length strings.\r\n - Large input strings can be pre-hashed, but this is external to the suite.\r\n - Curves not addressed by means of a named-suite must follow the recommendations given in the draft.\r\n\r\nSources of the diagram are included (xml file) in case something needs to be fixed.\r\n"
+  },
+  {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/117",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/117/labels{/name}",
@@ -41,9 +149,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-05-26T13:28:36Z",
-    "updated_at": "2019-05-26T13:28:36Z",
+    "updated_at": "2019-06-02T21:12:38Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "In some parts, examples use branching statements instead of cmov-like instructions. Examples of this are in the hacspec code: https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/blob/master/draft-irtf-cfrg-hash-to-curve.md#simplified-swu-method-sswu\r\n\r\nIt is better to use cmov-like instructions everywhere, to avoid developers from using conditional branches in their code (which possibly will lead to side-channel attacks)."
@@ -82,17 +190,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 30,
     "created_at": "2019-05-21T22:06:47Z",
-    "updated_at": "2019-05-31T14:45:51Z",
-    "closed_at": null,
+    "updated_at": "2019-06-03T12:52:32Z",
+    "closed_at": "2019-06-03T12:52:32Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/116",
@@ -145,7 +253,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-05-21T21:42:10Z",
-    "updated_at": "2019-05-31T17:12:51Z",
+    "updated_at": "2019-05-31T18:01:34Z",
     "closed_at": "2019-05-31T17:12:51Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -199,7 +307,7 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-05-21T21:39:21Z",
-    "updated_at": "2019-05-29T20:16:25Z",
+    "updated_at": "2019-05-31T18:01:55Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -635,9 +743,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2019-05-19T04:58:33Z",
-    "updated_at": "2019-05-21T18:18:33Z",
+    "updated_at": "2019-06-02T18:09:16Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "In a previous commit I tried to improve consistency for spacing around math operators, but I didn't quite catch them all.\r\n\r\nI think the biggest remaining one is whether `=` should have surrounding spaces or not.\r\n\r\nTODO: implement consistent style"
@@ -730,17 +838,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-04-26T20:31:19Z",
-    "updated_at": "2019-04-26T20:31:19Z",
-    "closed_at": null,
+    "updated_at": "2019-06-02T21:08:41Z",
+    "closed_at": "2019-06-02T21:08:41Z",
     "author_association": "CONTRIBUTOR",
     "body": "(moved here from #100)\r\n\r\nA brief search of the document doesn't turn up any instances discussing what to do if/when the map is undefined. This is probably important, since in practice many of these maps will have some undefined inputs, and it would be unfortunate if different implementations diverged in their behavior.\r\n\r\nSince the document appears to be encouraging constant-time implementations, it's not clear that there's a good blanket recommendation that would apply to every map. So it might be useful to think about how to handle undefined behavior on a map-by-map basis, in a way that is amenable to constant-time implementations. I'm happy to help out with this."
   },
@@ -826,17 +934,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-04-22T22:15:54Z",
-    "updated_at": "2019-04-22T22:15:54Z",
-    "closed_at": null,
+    "updated_at": "2019-06-02T21:26:13Z",
+    "closed_at": "2019-06-02T21:26:13Z",
     "author_association": "OWNER",
     "body": "See https://eprint.iacr.org/2019/403"
   },
@@ -1406,7 +1514,10 @@
     "closed_at": "2019-03-11T18:48:00Z",
     "author_association": "COLLABORATOR",
     "body": "\r\nin section 5.3.5. Fouque-Tibouchi Method\r\nThe reference to BLS curve points to the work of BLS signatures.\r\nBLS signatures ->  [BLS01]\r\nBLS curve -> [BLS02]\r\n\r\n[BLS02] Paulo S. L. M. Barreto, Ben Lynn, and Michael Scott. Constructing elliptic curves with prescribed embedding degrees. SCN. 2002"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/89",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -1508,10 +1619,7 @@
     "closed_at": "2019-03-01T21:13:31Z",
     "author_association": "OWNER",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/87",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -2939,7 +3047,10 @@
       "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/60.patch"
     },
     "body": "For #50."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/59",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -3054,10 +3165,7 @@
       "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/58.patch"
     },
     "body": "This PR corrects some parts of the texts that are imprecise.\r\nElligator2 must consider mapping the 0 \\in Fp  to the point (0,0); thus a clear cofactor phase must be added later."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/57",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -4545,7 +4653,10 @@
     "closed_at": "2018-07-13T20:23:42Z",
     "author_association": "OWNER",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/29",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -4641,10 +4752,7 @@
     "closed_at": "2018-07-13T20:23:42Z",
     "author_association": "OWNER",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/27",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
