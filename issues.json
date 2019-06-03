@@ -1,6 +1,54 @@
 [
 
   {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/120",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/120/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/120/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/120/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/120",
+    "id": 451680193,
+    "node_id": "MDU6SXNzdWU0NTE2ODAxOTM=",
+    "number": 120,
+    "title": "ROM order of operations: clear cofactor after point addition",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-06-03T20:42:26Z",
+    "updated_at": "2019-06-03T20:42:26Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "The current descriptions of the maps include cofactor clearing. In the ROM case this is not good: ofactor clearing is potentially an expensive operation, and it commutes with point addition.\r\n\r\nTODO: the standard should be written in a way that makes clear that the cofactor clearing operation happens *after* point addition in the ROM case.\r\n\r\n#118 and #119 should probably handle this issue."
+  },
+  {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/119",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/119/labels{/name}",
@@ -199,7 +247,7 @@
     "milestone": null,
     "comments": 30,
     "created_at": "2019-05-21T22:06:47Z",
-    "updated_at": "2019-06-03T12:52:32Z",
+    "updated_at": "2019-06-03T18:55:44Z",
     "closed_at": "2019-06-03T12:52:32Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -298,17 +346,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2019-05-21T21:39:21Z",
-    "updated_at": "2019-05-31T18:01:55Z",
-    "closed_at": null,
+    "updated_at": "2019-06-03T20:53:30Z",
+    "closed_at": "2019-06-03T20:53:30Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/114",
@@ -592,7 +640,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -601,8 +649,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-05-19T05:26:30Z",
-    "updated_at": "2019-05-19T05:26:30Z",
-    "closed_at": null,
+    "updated_at": "2019-06-03T20:53:30Z",
+    "closed_at": "2019-06-03T20:53:30Z",
     "author_association": "CONTRIBUTOR",
     "body": "The version of sgn0 in common.sage does the same thing as the description in the document, but is probably more confusing than necessary.\r\n\r\nTODO: rewrite to match impl from the document"
   },
@@ -1466,7 +1514,10 @@
       "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/91.patch"
     },
     "body": "Solving #90 "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/90",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -1514,10 +1565,7 @@
     "closed_at": "2019-03-11T18:48:00Z",
     "author_association": "COLLABORATOR",
     "body": "\r\nin section 5.3.5. Fouque-Tibouchi Method\r\nThe reference to BLS curve points to the work of BLS signatures.\r\nBLS signatures ->  [BLS01]\r\nBLS curve -> [BLS02]\r\n\r\n[BLS02] Paulo S. L. M. Barreto, Ben Lynn, and Michael Scott. Constructing elliptic curves with prescribed embedding degrees. SCN. 2002"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/89",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -2993,7 +3041,10 @@
     "closed_at": "2018-10-22T20:42:34Z",
     "author_association": "COLLABORATOR",
     "body": "Some issues from Greg Rubin:\r\n> Please check steps 15-17 in map2curve_icart on page 7. It doesn't make sense.\r\nAccording to the comment (and code) at the end of step 16, `t1 = (2p - 1)/3`, however in step 17 you raise _x_ (with a current value of `v^2 - b - u^6/27` from step 14) to the power of _t1_ and claim the result is `(v^2 - b - u^6/27) ^ (1/3)`.  Unless I'm missing something in the math, you actually get `(v^2 - b - u^6/27) ^ ((2p - 1)/3)`.\r\n\r\n> Thinking about it, step 15 doesn't really make sense anyway. As the whole thing is `mod p`, isn't that step just equivalent to `t1 = -1 mod p`? I'm clearly missing something.\r\n\r\nStep 15 is in the group of exponents, i.e. `mod (p-1)`. Which is what gives the equivalence required (2p-1)/3 = 1/3 `mod (p-1)`.\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/60",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -3047,10 +3098,7 @@
       "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/60.patch"
     },
     "body": "For #50."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/59",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -4605,7 +4653,10 @@
       "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/31.patch"
     },
     "body": "Elligator2 and SWU are incomplete since there is no square root function defined for each respective curve. I'll work with the hacspec folks to get that fixed."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/30",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -4653,10 +4704,7 @@
     "closed_at": "2018-07-13T20:23:42Z",
     "author_association": "OWNER",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/29",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
