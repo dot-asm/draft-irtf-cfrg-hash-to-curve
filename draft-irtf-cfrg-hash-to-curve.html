@@ -345,7 +345,7 @@ ul.toc li {
 
   <meta name="dct.creator" content="Faz-Hernandez, A., Scott, S., Sullivan, N., and C. Wood" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-irtf-cfrg-hash-to-curve-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-06-04" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-06-05" />
   <meta name="dct.abstract" content="This document specifies a number of algorithms that may be used to encode or hash an arbitrary string to a point on an Elliptic Curve." />
   <meta name="description" content="This document specifies a number of algorithms that may be used to encode or hash an arbitrary string to a point on an Elliptic Curve." />
 
@@ -369,7 +369,7 @@ ul.toc li {
 <td class="right">S. Scott</td>
 </tr>
 <tr>
-<td class="left">Expires: December 6, 2019</td>
+<td class="left">Expires: December 7, 2019</td>
 <td class="right">Cornell Tech</td>
 </tr>
 <tr>
@@ -390,7 +390,7 @@ ul.toc li {
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">June 04, 2019</td>
+<td class="right">June 05, 2019</td>
 </tr>
 
     	
@@ -406,7 +406,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on December 6, 2019.</p>
+<p>This Internet-Draft will expire on December 7, 2019.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -708,12 +708,18 @@ Steps:
 <h1 id="rfc.section.4.1">
 <a href="#rfc.section.4.1">4.1.</a> <a href="#hash2base-sec" id="hash2base-sec">Security considerations</a>
 </h1>
-<p id="rfc.section.4.1.p.1">For security, hash2base should be collision resistant, and should map its input to a uniformly random element of F.</p>
-<p id="rfc.section.4.1.p.2">To ensure sufficient collision resistance, the number of bits output by the hash function H should be b &gt;= 2 * k, where k is the target security level in bits. For example, for 128-bit security, b &gt;= 256 bits; in this case, SHA256 would be an appropriate choice for H.</p>
-<p id="rfc.section.4.1.p.3">Ensuring that the hash2base output is a uniform random element of F requires care, even when H outputs a uniformly random string, as is generally assumed (in other words, even when modeling H as a random oracle). For example, if H=SHA256 and F is a field of characteristic p = 2^255 - 19, then the result of reducing H(msg) (a 256-bit integer) modulo p is slightly more likely to be in [0, 38] than if the value were selected uniformly at random.  In this example the bias is negligible, but in general it can be significant.</p>
-<p id="rfc.section.4.1.p.4">To control bias, the input msg should be hashed to an integer comprising at least ceil(log2(p)) + k bits; reducing this integer modulo p gives bias at most 2^-k, which is a safe choice for a cryptosystem with k-bit security.  To obtain such an integer, hash H with b-bit output should be evaluated W = ceil((ceil(log2(p)) + k) / b) times and the results concatenated to produce a (W * b)-bit integer. For example, for H=SHA256, k=128-bit security, and p a 256-bit prime, W = ceil((256 + 128) / 256) = 2.</p>
+<p id="rfc.section.4.1.p.1">For security, hash2base should be collision resistant, and should map its input to a uniformly random element of F. To this end, hash2base requires a cryptographic hash function H which satisfies the following properties:</p>
+<p></p>
+
+<ol>
+<li>The number of bits output by H should be b &gt;= 2 * k for sufficient collision resistance, where k is the target security level in bits. (This is needed for a birthday bound of approximately 2^(-k).)</li>
+<li>H is modeled as a random oracle, so its output must be indistinguishable from a uniformly random bit string.</li>
+</ol>
+<p id="rfc.section.4.1.p.3">For example, for 128-bit security, b &gt;= 256 bits; in this case, SHA256 would be an appropriate choice for H.</p>
+<p id="rfc.section.4.1.p.4">Ensuring that the hash2base output is a uniform random element of F requires care, even when H outputs a uniformly random string. For example, if H=SHA256 and F is a field of characteristic p = 2^255 - 19, then the result of reducing H(msg) (a 256-bit integer) modulo p is slightly more likely to be in [0, 38] than if the value were selected uniformly at random.  In this example the bias is negligible, but in general it can be significant.</p>
+<p id="rfc.section.4.1.p.5">To control bias, the input msg should be hashed to an integer comprising at least ceil(log2(p)) + k bits; reducing this integer modulo p gives bias at most 2^-k, which is a safe choice for a cryptosystem with k-bit security.  To obtain such an integer, hash H with b-bit output should be evaluated W = ceil((ceil(log2(p)) + k) / b) times and the results concatenated to produce a (W * b)-bit integer. For example, for H=SHA256, k=128-bit security, and p a 256-bit prime, W = ceil((256 + 128) / 256) = 2.</p>
 <p><a href="#hash2base-impl" class="xref">Section 4.3</a> details the hash2base procedure.</p>
-<p id="rfc.section.4.1.p.6">Note that implementors SHOULD NOT use rejection sampling to generate a uniformly random element of F.  The reason is that these procedures are difficult to implement in constant time, and later well-meaning &#8220;optimizations&#8221; may silently render an implementation non-constant-time.</p>
+<p id="rfc.section.4.1.p.7">Note that implementors SHOULD NOT use rejection sampling to generate a uniformly random element of F.  The reason is that these procedures are difficult to implement in constant time, and later well-meaning &#8220;optimizations&#8221; may silently render an implementation non-constant-time.</p>
 <h1 id="rfc.section.4.2">
 <a href="#rfc.section.4.2">4.2.</a> <a href="#hash2base-perf" id="hash2base-perf">Performance considerations</a>
 </h1>
