@@ -1,6 +1,60 @@
 [
 
   {
+    "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/123",
+    "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/123/labels{/name}",
+    "comments_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/123/comments",
+    "events_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/123/events",
+    "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/123",
+    "id": 452553421,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjg1NDE3Mjc4",
+    "number": 123,
+    "title": "Clarify hash2base requirements for H.",
+    "user": {
+      "login": "chris-wood",
+      "id": 2172048,
+      "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chris-wood",
+      "html_url": "https://github.com/chris-wood",
+      "followers_url": "https://api.github.com/users/chris-wood/followers",
+      "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+      "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+      "repos_url": "https://api.github.com/users/chris-wood/repos",
+      "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-06-05T15:02:53Z",
+    "updated_at": "2019-06-05T15:02:53Z",
+    "closed_at": null,
+    "author_association": "OWNER",
+    "pull_request": {
+      "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/pulls/123",
+      "html_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/123",
+      "diff_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/123.diff",
+      "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/123.patch"
+    },
+    "body": ""
+  },
+  {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/122",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/122/labels{/name}",
@@ -97,7 +151,7 @@
     "milestone": null,
     "comments": 2,
     "created_at": "2019-06-03T23:35:15Z",
-    "updated_at": "2019-06-04T01:16:02Z",
+    "updated_at": "2019-06-05T14:36:33Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -565,10 +619,10 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-05-21T19:55:18Z",
-    "updated_at": "2019-05-21T19:55:18Z",
+    "updated_at": "2019-06-05T14:52:44Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
-    "body": "Moving these from #104.\r\n\r\n- [ ] consider removing unused implementations (e.g., ell2edwards, fouquetibouchi)\r\n\r\n- [ ] update test vectors\r\n\r\n- [ ] update hacspec implementations to cover new encodings"
+    "body": "Moving these from #104.\r\n\r\n- [ ] consider removing unused implementations (e.g., ell2edwards, fouquetibouchi)\r\n\r\n- [ ] update test vectors\r\n\r\n- [ ] update hacspec implementations to cover new encodings\r\n\r\n- [ ] clear cofactors to match the document"
   },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/111",
@@ -1186,17 +1240,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 7,
+    "comments": 8,
     "created_at": "2019-04-16T01:10:29Z",
-    "updated_at": "2019-06-03T22:36:08Z",
-    "closed_at": null,
+    "updated_at": "2019-06-05T14:56:46Z",
+    "closed_at": "2019-06-05T14:56:46Z",
     "author_association": "COLLABORATOR",
     "body": "Tracking: The main text is imprecise about the amount of bits required to reduce mod p from {0,1}^k to Fp.\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
   },
@@ -1451,7 +1505,10 @@
       "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/94.patch"
     },
     "body": "The reference code for hash2base is compliant with the specification in the main file.\r\nThis function must be correct as it has effect on all encodings.\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/93",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -1514,10 +1571,7 @@
     "closed_at": "2019-03-19T02:09:57Z",
     "author_association": "COLLABORATOR",
     "body": "Edit: See below, the core issue is showing whether all encodings are \"well-distributed\" which is necessary to use the FFSTV `F(H1(m)) + F(H2(m))` generic RO mechanism.\r\n\r\n----\r\n\r\nWe are missing proofs for using the FFSTV encoding -> RO mechanism for most of the ciphersuites. The original paper (IIRC) proved it for Icart.\r\n\r\nRelated issues: #23 #26 "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/92",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -2212,17 +2266,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 3,
+    "comments": 4,
     "created_at": "2019-02-11T21:50:36Z",
-    "updated_at": "2019-06-03T22:40:36Z",
-    "closed_at": null,
+    "updated_at": "2019-06-05T14:53:11Z",
+    "closed_at": "2019-06-05T14:53:11Z",
     "author_association": "COLLABORATOR",
     "body": "Bug: points calculated by Elligator2 suite must be multiplied by the cofactor at the end (Sage script does not do that). Also I consider this task is not optional as the document says.\r\n\r\n_Originally posted by @armfazh in https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/77#issuecomment-462507667_"
   },
@@ -3005,7 +3059,10 @@
       "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/64.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/63",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -3053,10 +3110,7 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/62",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -4567,7 +4621,10 @@
     "closed_at": "2019-02-09T21:24:56Z",
     "author_association": "OWNER",
     "body": "https://eprint.iacr.org/2014/043.pdf"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/33",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -4621,10 +4678,7 @@
       "patch_url": "https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/33.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/32",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -6255,7 +6309,10 @@
     "closed_at": null,
     "author_association": "OWNER",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/3",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
@@ -6348,10 +6405,7 @@
     "closed_at": "2018-11-05T00:05:42Z",
     "author_association": "OWNER",
     "body": "It's often useful to transform a Montgomery curve to a Weierstrass curve, and vice versa. We should provide details on how to do this."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve/issues/2",
     "repository_url": "https://api.github.com/repos/chris-wood/draft-irtf-cfrg-hash-to-curve",
