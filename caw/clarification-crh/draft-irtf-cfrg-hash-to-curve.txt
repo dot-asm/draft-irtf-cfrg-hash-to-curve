@@ -1602,11 +1602,11 @@ Internet-Draft                hash-to-curve                    June 2019
 
 9.  Security Considerations
 
-   Each encoding function variant accepts arbitrary input anyd maps it
-   to a pseudorandom point on the curve.  Directly evaluating the
-   encodings of Section 5 produces an output that is distinguishable
-   from random.  Section 6 shows how to use these encodings to construct
-   a function approximating a random oracle.
+   Each encoding function variant accepts arbitrary input and maps it to
+   a pseudorandom point on the curve.  Directly evaluating the encodings
+   of Section 5 produces an output that is distinguishable from random.
+   Section 6 shows how to use these encodings to construct a function
+   approximating a random oracle.
 
    Section 4 describes considerations for uniformly hashing to field
    elements.
