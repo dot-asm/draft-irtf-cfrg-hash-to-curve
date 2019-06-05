@@ -712,13 +712,14 @@ Steps:
 <p></p>
 
 <ol>
-<li>The number of bits output by H should be b &gt;= 2 * k for sufficient collision resistance, where k is the target security level in bits. (This is needed for a birthday bound of approximately 2^(-k).) For example, for 128-bit security, b &gt;= 256 bits; in this case, SHA256 would be an appropriate choice for H.</li>
-<li>H must output a uniformly random bit string. That is, it must be a random oracle.</li>
+<li>The number of bits output by H should be b &gt;= 2 * k for sufficient collision resistance, where k is the target security level in bits. (This is needed for a birthday bound of approximately 2^(-k).)</li>
+<li>H is modeled as a random oracle, so its output must be indistinguishable from a uniformly random bit string.</li>
 </ol>
-<p id="rfc.section.4.1.p.3">Ensuring that the hash2base output is a uniform random element of F requires care, even when H outputs a uniformly random string, as is generally assumed (in other words, even when modeling H as a random oracle). For example, if H=SHA256 and F is a field of characteristic p = 2^255 - 19, then the result of reducing H(msg) (a 256-bit integer) modulo p is slightly more likely to be in [0, 38] than if the value were selected uniformly at random.  In this example the bias is negligible, but in general it can be significant.</p>
-<p id="rfc.section.4.1.p.4">To control bias, the input msg should be hashed to an integer comprising at least ceil(log2(p)) + k bits; reducing this integer modulo p gives bias at most 2^-k, which is a safe choice for a cryptosystem with k-bit security.  To obtain such an integer, hash H with b-bit output should be evaluated W = ceil((ceil(log2(p)) + k) / b) times and the results concatenated to produce a (W * b)-bit integer. For example, for H=SHA256, k=128-bit security, and p a 256-bit prime, W = ceil((256 + 128) / 256) = 2.</p>
+<p id="rfc.section.4.1.p.3">For example, for 128-bit security, b &gt;= 256 bits; in this case, SHA256 would be an appropriate choice for H.</p>
+<p id="rfc.section.4.1.p.4">Ensuring that the hash2base output is a uniform random element of F requires care, even when H outputs a uniformly random string. For example, if H=SHA256 and F is a field of characteristic p = 2^255 - 19, then the result of reducing H(msg) (a 256-bit integer) modulo p is slightly more likely to be in [0, 38] than if the value were selected uniformly at random.  In this example the bias is negligible, but in general it can be significant.</p>
+<p id="rfc.section.4.1.p.5">To control bias, the input msg should be hashed to an integer comprising at least ceil(log2(p)) + k bits; reducing this integer modulo p gives bias at most 2^-k, which is a safe choice for a cryptosystem with k-bit security.  To obtain such an integer, hash H with b-bit output should be evaluated W = ceil((ceil(log2(p)) + k) / b) times and the results concatenated to produce a (W * b)-bit integer. For example, for H=SHA256, k=128-bit security, and p a 256-bit prime, W = ceil((256 + 128) / 256) = 2.</p>
 <p><a href="#hash2base-impl" class="xref">Section 4.3</a> details the hash2base procedure.</p>
-<p id="rfc.section.4.1.p.6">Note that implementors SHOULD NOT use rejection sampling to generate a uniformly random element of F.  The reason is that these procedures are difficult to implement in constant time, and later well-meaning &#8220;optimizations&#8221; may silently render an implementation non-constant-time.</p>
+<p id="rfc.section.4.1.p.7">Note that implementors SHOULD NOT use rejection sampling to generate a uniformly random element of F.  The reason is that these procedures are difficult to implement in constant time, and later well-meaning &#8220;optimizations&#8221; may silently render an implementation non-constant-time.</p>
 <h1 id="rfc.section.4.2">
 <a href="#rfc.section.4.2">4.2.</a> <a href="#hash2base-perf" id="hash2base-perf">Performance considerations</a>
 </h1>
@@ -1370,7 +1371,7 @@ u1 = hash2base(alpha, 1)
 <h1 id="rfc.section.9">
 <a href="#rfc.section.9">9.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a>
 </h1>
-<p id="rfc.section.9.p.1">Each encoding function variant accepts arbitrary input and maps it to a pseudorandom point on the curve.  Directly evaluating the encodings of <a href="#encodings" class="xref">Section 5</a> produces an output that is distinguishable from random.  <a href="#rom" class="xref">Section 6</a> shows how to use these encodings to construct a function approximating a random oracle.</p>
+<p id="rfc.section.9.p.1">Each encoding function variant accepts arbitrary input anyd maps it to a pseudorandom point on the curve.  Directly evaluating the encodings of <a href="#encodings" class="xref">Section 5</a> produces an output that is distinguishable from random.  <a href="#rom" class="xref">Section 6</a> shows how to use these encodings to construct a function approximating a random oracle.</p>
 <p><a href="#hashtobase" class="xref">Section 4</a> describes considerations for uniformly hashing to field elements.</p>
 <h1 id="rfc.section.10">
 <a href="#rfc.section.10">10.</a> <a href="#acknowledgements" id="acknowledgements">Acknowledgements</a>
