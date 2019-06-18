@@ -1,6 +1,54 @@
 [
 
   {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/126",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/126/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/126/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/126/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/126",
+    "id": 455646007,
+    "node_id": "MDU6SXNzdWU0NTU2NDYwMDc=",
+    "number": 126,
+    "title": "Scoping the definition of suites",
+    "user": {
+      "login": "armfazh",
+      "id": 10335519,
+      "node_id": "MDQ6VXNlcjEwMzM1NTE5",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10335519?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/armfazh",
+      "html_url": "https://github.com/armfazh",
+      "followers_url": "https://api.github.com/users/armfazh/followers",
+      "following_url": "https://api.github.com/users/armfazh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/armfazh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/armfazh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/armfazh/subscriptions",
+      "organizations_url": "https://api.github.com/users/armfazh/orgs",
+      "repos_url": "https://api.github.com/users/armfazh/repos",
+      "events_url": "https://api.github.com/users/armfazh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/armfazh/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 4,
+    "created_at": "2019-06-13T09:55:38Z",
+    "updated_at": "2019-06-17T22:36:44Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "Let's explicitly enumerate the groups of interest for instantiating suites.\r\nPlease also consider the following points:\r\n   1) Which are the groups of interest?\r\n   2) Should we cover curves standardized by agencies different than NIST and IETF? \r\n   3) What is the criteria for not to include a specific curve?\r\n   4) Should we provide a way to generate extensible suites for addressing curves not considered in the doc?\r\n\r\nAnswering these questions will help us to have a clearer path for finishing the last part of the document."
+  },
+  {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/125",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/125/labels{/name}",
@@ -95,9 +143,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 8,
     "created_at": "2019-06-06T06:23:51Z",
-    "updated_at": "2019-06-06T16:27:59Z",
+    "updated_at": "2019-06-14T12:46:05Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Chris and I discussed the issue of ciphersuites and domain separation in hash-to-curve. Put concisely, the question is, should hash-to-curve provide domain separation among the suites, or should domain separation be left to the upper-level protocol? We decided that the best way to proceed is to get feedback from the CFRG list by coming up with and sending two specific proposals along with a discussion of pros and cons.\r\n\r\nFrom chatting with the BLS and VRF folks, my impression is that they prefer to keep ciphersuites out of hash-to-curve. Their argument is (paraphrasing), the upper-level protocol needs to ensure domain separation, so what's the point of doing it redundantly in hash-to-curve? There was also serious concern about variable-length ciphersuite strings (currently used in the poc impls but not specified in the document), because that is a potential source of confusion and bugs. [Right now](https://github.com/pairingwg/bls_standard/blob/master/minutes/spec-v1.md), the BLS sigs standard is proceeding with no ciphersuite in hash-to-curve, only in the BLS signature itself.\r\n\r\nBut there may be room to meet in the middle. For example, it would be essentially free to add a short, fixed-length ciphersuite (say, <20 bytes) in hash2base. It might be worth running this by the BLS and VRF folks before we go to the list, to hear out the likely objectors first and see if we can get buy-in.\r\n\r\nConcretely, I propose that we consider the following two options.\r\n\r\n#### option 1: no ciphersuite\r\n\r\nThis preserves the current version of hash2base as specified in the document. The important line is the one in which msg gets hashed. In the current version, that's\r\n\r\n```\r\nm' = H(msg) || I2OSP(ctr, 1)\r\n```\r\n\r\n#### option 2: fixed string + 4-byte ciphersuite in hash2base\r\n\r\n```\r\nm' = H(\"HASH-TO-CURVE\" || ciphersuite || msg) || I2OSP(ctr, 1)\r\n```\r\n\r\nNote that the string \"HASH-TO-CURVE\" ensures domain separation even from other protocols that use a 4-byte ciphersuite tag. It might be nice for protocols to adopt this approach more genreally.\r\n\r\n(Actually, I kind of like the idea of using the RFC number (e.g., \"RFC1234\" for RFC 1234's domain separation string), but that has the downside that the protocol's test vectors can't be finalized until the RFC number is assigned.)\r\n\r\nThoughts on the above two proposals? Any other issues we should consider?"
@@ -244,17 +292,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 11,
     "created_at": "2019-06-03T23:35:15Z",
-    "updated_at": "2019-06-05T14:36:33Z",
-    "closed_at": null,
+    "updated_at": "2019-06-18T19:58:05Z",
+    "closed_at": "2019-06-18T19:58:05Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/121",
@@ -305,9 +353,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2019-06-03T20:42:26Z",
-    "updated_at": "2019-06-05T15:07:58Z",
+    "updated_at": "2019-06-13T09:33:59Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "The current descriptions of the maps include cofactor clearing. In the ROM case this is not good: ofactor clearing is potentially an expensive operation, and it commutes with point addition.\r\n\r\nTODO: the standard should be written in a way that makes clear that the cofactor clearing operation happens *after* point addition in the ROM case.\r\n\r\n#118 and #119 should probably handle this issue."
@@ -407,9 +455,9 @@
 
     ],
     "milestone": null,
-    "comments": 3,
+    "comments": 4,
     "created_at": "2019-05-31T20:57:22Z",
-    "updated_at": "2019-06-03T22:29:58Z",
+    "updated_at": "2019-06-13T09:28:35Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -767,9 +815,9 @@
 
     ],
     "milestone": null,
-    "comments": 4,
+    "comments": 5,
     "created_at": "2019-05-21T19:08:06Z",
-    "updated_at": "2019-06-05T16:52:20Z",
+    "updated_at": "2019-06-13T10:26:47Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Right now the document gives straight-line procedures for evaluating each map, which seem to be aimed at being general purpose.\r\n\r\nWe've discussed in #104 an alternative approach in which these straight-line implementations are geared toward *specific* curves (e.g., standardized and widely-used curves). This would likely be more useful for implementors, both because they would be able to port these directly (rather than having to understand and adapt the generic procedures) and because it would allow us to roll in more optimizations.\r\n\r\nThe `poc/` directory gives us a good start on the list of curves that should be supported in this way. I'm happy to propose a list of curves and write down optimized straight-line implementations for each."
@@ -1457,7 +1505,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/97.patch"
     },
     "body": "I did a lot of changes in the text but I tried to keep the same structure of the document. You will notice that I remove some lines and comments. Hopefully, I did not erase something relevant; otherwise we can included again.\r\n\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/96",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -1505,10 +1556,7 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "1. For pairing-friendly curves, it might be helpful to have separate cipher\r\nsuites for G1 and G2.\r\n\r\n2. Indeed BLS12-381 is currently missing. For G1, the Fouque-Tibouchi\r\nmethod as written should already work. But for G2, you would need to extend\r\n5.3.5 to handle field extensions. Here’s a pointer to the Chia\r\nimplementation which addresses both:\r\n\r\nhttps://github.com/Chia-Network/bls-signatures/blob/master/SPEC.md"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/95",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -1591,17 +1639,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2019-03-15T21:11:33Z",
-    "updated_at": "2019-05-02T18:37:31Z",
-    "closed_at": null,
+    "updated_at": "2019-06-13T09:31:36Z",
+    "closed_at": "2019-06-13T09:31:36Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/94",
@@ -3005,7 +3053,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/67.patch"
     },
     "body": "Fixes #61."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/66",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3053,10 +3104,7 @@
     "closed_at": "2019-02-10T03:10:40Z",
     "author_association": "COLLABORATOR",
     "body": "For SWU, we write\r\n>  This algorithm works for any curve over F_{p^n}. \r\n\r\nWhich is true, but as far as I understand, to make it work with p = 1 (mod 4), (ignoring n>1 case for now), you need to use a modified Tonelli-Shanks algorithm to keep it constant time. We should probably specify this."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/65",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4541,7 +4589,10 @@
     "closed_at": "2019-03-01T16:28:29Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/36",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4589,10 +4640,7 @@
     "closed_at": "2019-02-09T21:05:46Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/35",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6184,7 +6232,10 @@
     "closed_at": "2018-06-01T00:31:18Z",
     "author_association": "COLLABORATOR",
     "body": "t &= \\mathsf{H}(\\alpha) \\\\\r\nx &= -t^2 \\\\ \r\nx_2 &= (-b / a) \\cdot (1 + (1 / (t^2 + t))) \\\\\r\nx_3 &= t \\cdot x_2 \\\\\r\nh_2 &= f(x_2) \\\\\r\nh_3 &= f(x_3) \\\\\r\n\\mathsf{Output} & (x_2, h_2^{(q + 1)/4}) \\text{ if } h_2 \\text{ is square, else} (x_3, h_3^{(q + 1)/4}) \r\n\r\nt & = \\mathsf{H}(\\alpha) \\\\\r\nv &= ((3A - t^4) / 6t) \\\\\r\nx & = (v^2 - b - (t^6 / 27))^{1/3} + (t^2 / 3) \\\\\r\ny & = tx + v \\\\\r\n\\mathsf{Output} & (x, y)\r\n\r\nr &= \\mathsf{H}(\\alpha) \\\\\r\nd &= -A / (1 + ur^2) \\\\\r\ne &= f(d)^{(p-1)/2} \\\\ \r\nu &= ed - (1 - e)A/u \\\\\r\n\\mathsf{Output} & (u, f(u))"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/6",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6232,10 +6283,7 @@
     "closed_at": "2018-10-18T20:58:08Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/5",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
