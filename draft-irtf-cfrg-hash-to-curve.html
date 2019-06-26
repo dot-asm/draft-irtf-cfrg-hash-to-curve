@@ -330,16 +330,16 @@ ul.toc li {
 <link href="#rfc.appendix.C.4" rel="Chapter" title="C.4 Simplified SWU to P-256">
 <link href="#rfc.appendix.C.5" rel="Chapter" title="C.5 Boneh-Franklin to P-503">
 <link href="#rfc.appendix.C.6" rel="Chapter" title="C.6 Fouque-Tibouchi to BN256">
-<link href="#rfc.appendix.C.7" rel="Chapter" title="C.7 Sample hash2base">
+<link href="#rfc.appendix.C.7" rel="Chapter" title="C.7 Sample hash_to_base">
 <link href="#rfc.authors" rel="Chapter">
 
 
   <meta name="generator" content="xml2rfc version 2.22.2 - https://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
-  <meta name="dct.creator" content="Faz-Hernandez, A., Scott, S., Sullivan, N., and C. Wood" />
+  <meta name="dct.creator" content="Faz-Hernandez, A., Scott, S., Sullivan, N., Wahby, R., and C. Wood" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-irtf-cfrg-hash-to-curve-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-06-18" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-06-26" />
   <meta name="dct.abstract" content="This document specifies a number of algorithms that may be used to encode or hash an arbitrary string to a point on an Elliptic Curve." />
   <meta name="description" content="This document specifies a number of algorithms that may be used to encode or hash an arbitrary string to a point on an Elliptic Curve." />
 
@@ -363,7 +363,7 @@ ul.toc li {
 <td class="right">S. Scott</td>
 </tr>
 <tr>
-<td class="left">Expires: December 20, 2019</td>
+<td class="left">Expires: December 28, 2019</td>
 <td class="right">Cornell Tech</td>
 </tr>
 <tr>
@@ -376,6 +376,14 @@ ul.toc li {
 </tr>
 <tr>
 <td class="left"></td>
+<td class="right">R. Wahby</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">Stanford University</td>
+</tr>
+<tr>
+<td class="left"></td>
 <td class="right">C. Wood</td>
 </tr>
 <tr>
@@ -384,7 +392,7 @@ ul.toc li {
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">June 18, 2019</td>
+<td class="right">June 26, 2019</td>
 </tr>
 
     	
@@ -400,7 +408,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on December 20, 2019.</p>
+<p>This Internet-Draft will expire on December 28, 2019.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -506,7 +514,7 @@ ul.toc li {
 </li>
 <li>C.6.   <a href="#rfc.appendix.C.6">Fouque-Tibouchi to BN256</a>
 </li>
-<li>C.7.   <a href="#rfc.appendix.C.7">Sample hash2base</a>
+<li>C.7.   <a href="#rfc.appendix.C.7">Sample hash_to_base</a>
 </li>
 </ul><li><a href="#rfc.authors">Authors' Addresses</a>
 </li>
@@ -605,34 +613,34 @@ ul.toc li {
 <p></p>
 
 <ul>
-<li>The function hash2base, {0, 1}^* -&gt; F, maps arbitrary-length bit strings to elements of a finite field; its implementation is defined in <a href="#hashtobase" class="xref">Section 5</a>.</li>
-<li>The function map2curve, F -&gt; E, calculates a point on the elliptic curve E from an element of a finite field. <a href="#encodings" class="xref">Section 6</a> describes mappings for a range of curve families.</li>
+<li>The function hash_to_base, {0, 1}^* -&gt; F, maps arbitrary-length bit strings to elements of a finite field; its implementation is defined in <a href="#hashtobase" class="xref">Section 5</a>.</li>
+<li>The function map_to_curve, F -&gt; E, calculates a point on the elliptic curve E from an element of a finite field. <a href="#encodings" class="xref">Section 6</a> describes mappings for a range of curve families.</li>
 <li>The function clear_cofactor, E -&gt; G, maps any point on the curve E to a subgroup G of the curve. <a href="#cofactor-clearing" class="xref">Section 7</a> describes methods to perform this operation.</li>
 </ul>
 <p id="rfc.section.3.p.3">Two top-level functions taking as input a bit string and returning points on the curve are introduced. Although these functions have the same interface, the distribution of the points they produce are different. The first function is called an injective encoding and its probability distribution of the points can be easily distinguished from a uniform distribution of points on the curve. The second function behaves as a random oracle, since its output is indistinguishable from a uniform distribution of the points on the curve.</p>
 <pre>
-encode2curve(alpha)
+encode_to_curve(alpha)
 
 Input: alpha, an arbitrary-length bit string.
 Output: P, a point in G.
 
 Steps:
-1. u = hash2base(alpha, 0)
-2. Q = map2curve(u)
+1. u = hash_to_base(alpha, 0)
+2. Q = map_to_curve(u)
 3. P = clear_cofactor(Q)
 4. return P
 </pre>
 <pre>
-hash2curve(alpha)
+hash_to_curve(alpha)
 
 Input: alpha, an arbitrary-length bit string.
 Output: P, a point in G.
 
 Steps:
-1. u0 = hash2base(alpha, 0)
-2. u1 = hash2base(alpha, 1)
-3. Q0 = map2curve(u0)
-4. Q1 = map2curve(u1)
+1. u0 = hash_to_base(alpha, 0)
+2. u1 = hash_to_base(alpha, 1)
+3. Q0 = map_to_curve(u0)
+4. Q1 = map_to_curve(u1)
 5. R = Q0 + Q1
 6. P = clear_cofactor(R)
 7. return P
@@ -640,8 +648,8 @@ Steps:
 <p></p>
 
 <ul>
-<li>Injective encoding. This function maps bit strings to points in G. Note that the distribution of the output is not uniform.  <br><br> </li>
-<li>Random Oracle. This function maps bit strings to points in G that are indistinguishable from uniformly random.  <br><br> </li>
+<li>Injective encoding (encode_to_curve). This function maps bit strings to points in G. Note that the distribution of the output is not uniform.  <br><br> </li>
+<li>Random Oracle (hash_to_curve). This function maps bit strings to points in G that are indistinguishable from uniformly random.  <br><br> </li>
 </ul>
 <p id="rfc.section.3.p.5">Instances of these functions are given in <a href="#suites" class="xref">Section 8</a>, which defines a list of suites that specify a full set of parameters matching elliptic curves and algorithms.</p>
 <h1 id="rfc.section.4">
@@ -732,11 +740,11 @@ Steps:
 <h1 id="rfc.section.5">
 <a href="#rfc.section.5">5.</a> <a href="#hashtobase" id="hashtobase">Hashing to a Finite Field</a>
 </h1>
-<p id="rfc.section.5.p.1">The hash2base(msg) function maps a string msg of any length into an element of a field F. This function is parametrized by the field F (<a href="#bg-curves" class="xref">Section 2.1</a>) and by H, a cryptographic hash function that outputs b bits.</p>
+<p id="rfc.section.5.p.1">The hash_to_base(msg) function maps a string msg of any length into an element of a field F. This function is parametrized by the field F (<a href="#bg-curves" class="xref">Section 2.1</a>) and by H, a cryptographic hash function that outputs b bits.</p>
 <h1 id="rfc.section.5.1">
-<a href="#rfc.section.5.1">5.1.</a> <a href="#hash2base-sec" id="hash2base-sec">Security considerations</a>
+<a href="#rfc.section.5.1">5.1.</a> <a href="#hashtobase-sec" id="hashtobase-sec">Security considerations</a>
 </h1>
-<p id="rfc.section.5.1.p.1">For security, hash2base should be collision resistant, and should map its input to a uniformly random element of F. To this end, hash2base requires a cryptographic hash function H which satisfies the following properties:</p>
+<p id="rfc.section.5.1.p.1">For security, hash_to_base should be collision resistant, and should map its input to a uniformly random element of F. To this end, hash_to_base requires a cryptographic hash function H which satisfies the following properties:</p>
 <p></p>
 
 <ol>
@@ -744,22 +752,22 @@ Steps:
 <li>H is modeled as a random oracle, so its output must be indistinguishable from a uniformly random bit string.</li>
 </ol>
 <p id="rfc.section.5.1.p.3">For example, for 128-bit security, b &gt;= 256 bits; in this case, SHA256 would be an appropriate choice for H.</p>
-<p id="rfc.section.5.1.p.4">Ensuring that the hash2base output is a uniform random element of F requires care, even when H outputs a uniformly random string. For example, if H=SHA256 and F is a field of characteristic p = 2^255 - 19, then the result of reducing H(msg) (a 256-bit integer) modulo p is slightly more likely to be in [0, 38] than if the value were selected uniformly at random.  In this example the bias is negligible, but in general it can be significant.</p>
+<p id="rfc.section.5.1.p.4">Ensuring that the hash_to_base output is a uniform random element of F requires care, even when H outputs a uniformly random string. For example, if H=SHA256 and F is a field of characteristic p = 2^255 - 19, then the result of reducing H(msg) (a 256-bit integer) modulo p is slightly more likely to be in [0, 38] than if the value were selected uniformly at random.  In this example the bias is negligible, but in general it can be significant.</p>
 <p id="rfc.section.5.1.p.5">To control bias, the input msg should be hashed to an integer comprising at least ceil(log2(p)) + k bits; reducing this integer modulo p gives bias at most 2^-k, which is a safe choice for a cryptosystem with k-bit security.  To obtain such an integer, hash H with b-bit output should be evaluated W = ceil((ceil(log2(p)) + k) / b) times and the results concatenated to produce a (W * b)-bit integer. For example, for H=SHA256, k=128-bit security, and p a 256-bit prime, W = ceil((256 + 128) / 256) = 2.</p>
-<p><a href="#hash2base-impl" class="xref">Section 5.3</a> details the hash2base procedure.</p>
+<p><a href="#hashtobase-impl" class="xref">Section 5.3</a> details the hash_to_base procedure.</p>
 <p id="rfc.section.5.1.p.7">Note that implementors SHOULD NOT use rejection sampling to generate a uniformly random element of F.  The reason is that these procedures are difficult to implement in constant time, and later well-meaning &#8220;optimizations&#8221; may silently render an implementation non-constant-time.</p>
 <h1 id="rfc.section.5.2">
-<a href="#rfc.section.5.2">5.2.</a> <a href="#hash2base-perf" id="hash2base-perf">Performance considerations</a>
+<a href="#rfc.section.5.2">5.2.</a> <a href="#hashtobase-perf" id="hashtobase-perf">Performance considerations</a>
 </h1>
-<p id="rfc.section.5.2.p.1">Since hash2base may invoke H multiple times (<a href="#hash2base-sec" class="xref">Section 5.1</a>), its performance may be limited by the length of the input msg.  To address this, hash2base first computes H(msg) and then derives the required bits from this value via further invocations of H.  For short messages this entails one extra invocation of H, which is a negligible overhead in the context of hashing to elliptic curves.</p>
+<p id="rfc.section.5.2.p.1">Since hash_to_base may invoke H multiple times (<a href="#hashtobase-sec" class="xref">Section 5.1</a>), its performance may be limited by the length of the input msg.  To address this, hash_to_base first computes H(msg) and then derives the required bits from this value via further invocations of H.  For short messages this entails one extra invocation of H, which is a negligible overhead in the context of hashing to elliptic curves.</p>
 <p id="rfc.section.5.2.p.2">A related issue is that the random oracle construction of <a href="#term-rom" class="xref">Section 2.2.3</a> requires evaluating two independent hash functions H0 and H1 on msg.  A standard way to instantiate independent hashes is to append a counter to the value being hashed, e.g., H(msg || 0) and H(msg || 1).  If msg is long, however, this is either inefficient (because it entails hashing msg twice) or requires non-black-box use of H (e.g., partial evaluation).</p>
-<p id="rfc.section.5.2.p.3">To sidestep both of these issues, hash2base takes a second argument, ctr, which it appends to H(msg) rather than to msg.  This means that two invocations of hash2base on the same msg with different ctr values both start by computing the value H(msg).  This is an improvement because it allows sharing one evaluation of H(msg) among multiple invocations of hash2base, by factoring out the common computation.</p>
+<p id="rfc.section.5.2.p.3">To sidestep both of these issues, hash_to_base takes a second argument, ctr, which it appends to H(msg) rather than to msg.  This means that two invocations of hash_to_base on the same msg with different ctr values both start by computing the value H(msg).  This is an improvement because it allows sharing one evaluation of H(msg) among multiple invocations of hash_to_base, by factoring out the common computation.</p>
 <h1 id="rfc.section.5.3">
-<a href="#rfc.section.5.3">5.3.</a> <a href="#hash2base-impl" id="hash2base-impl">Implementation</a>
+<a href="#rfc.section.5.3">5.3.</a> <a href="#hashtobase-impl" id="hashtobase-impl">Implementation</a>
 </h1>
-<p id="rfc.section.5.3.p.1">The following procedure implements hash2base.</p>
+<p id="rfc.section.5.3.p.1">The following procedure implements hash_to_base.</p>
 <pre>
-hash2base(msg, ctr)
+hash_to_base(msg, ctr)
 
 Parameters:
 - H, a cryptographic hash function producing b bits.
@@ -771,7 +779,7 @@ Inputs:
 - msg is the message to hash.
 - ctr is either 0 or 1.
   This is used to efficiently create independent
-  instances of hash2base (see discussion above).
+  instances of hash_to_base (see discussion above).
 
 Output: u, an element in F.
 
@@ -792,7 +800,7 @@ Steps:
 </h1>
 <p id="rfc.section.6.1.p.1">The generic interface shared by all encodings in this section is as follows:</p>
 <pre>
-(x, y) = map2curve(u)
+(x, y) = map_to_curve(u)
 </pre>
 <p id="rfc.section.6.1.p.2">The output (x, y) specifies a point on an elliptic curve defined over base field F; x and y are elements of F.  Note that the output (x, y) is not a uniformly random point. If uniformity is required for security, the random oracle construction of <a href="#roadmap" class="xref">Section 3</a> MUST be used instead.</p>
 <h1 id="rfc.section.6.2">
@@ -803,7 +811,7 @@ Steps:
 
 <ul>
 <li>All arithmetic operations are performed over a field F, unless explicitly stated otherwise.</li>
-<li>u: the input to the encoding function.  This is an element of F produced by the hash2base function.</li>
+<li>u: the input to the encoding function.  This is an element of F produced by the hash_to_base function.</li>
 <li>(x, y): are the affine coordinates of a point obtained by the encoding method.  Indexed values are used when the algorithm calculates some candidate values.</li>
 <li>t1, t2, &#8230;: are reusable temporary variables. For notable variables, distinct names are used easing the debugging process when correlating with test vectors.</li>
 <li>c1, c2, &#8230;: are constant values, which can be computed in advance.</li>
@@ -825,7 +833,7 @@ Steps:
 <h1 id="rfc.section.6.5.1">
 <a href="#rfc.section.6.5.1">6.5.1.</a> <a href="#icart" id="icart">Icart Method</a>
 </h1>
-<p id="rfc.section.6.5.1.p.1">The function map2curve_icart(alpha) implements the Icart encoding method from <a href="#Icart09" class="xref">[Icart09]</a>.</p>
+<p id="rfc.section.6.5.1.p.1">The function map_to_curve_icart(alpha) implements the Icart encoding method from <a href="#Icart09" class="xref">[Icart09]</a>.</p>
 <p id="rfc.section.6.5.1.p.2">Preconditions: An elliptic curve over F, such that p&gt;3 and q=p^m=2 (mod 3), or p=2 (mod 3) and odd m.</p>
 <p id="rfc.section.6.5.1.p.3">Constants: A and B, the parameters of the Weierstrass curve.</p>
 <p id="rfc.section.6.5.1.p.4">Sign of y: this encoding does not compute a square root, so there is no ambiguity regarding the sign of y.</p>
@@ -843,7 +851,7 @@ Steps:
 </h1>
 <p id="rfc.section.6.5.1.1.p.1">The following procedure implements Icart&#8217;s algorithm in a straight-line fashion.</p>
 <pre>
-map2curve_icart(u)
+map_to_curve_icart(u)
 Input: u, an element of F.
 Output: (x, y), a point on E.
 
@@ -877,7 +885,7 @@ Steps:
 <h1 id="rfc.section.6.5.2">
 <a href="#rfc.section.6.5.2">6.5.2.</a> <a href="#simple-swu" id="simple-swu">Simplified Shallue-van de Woestijne-Ulas Method</a>
 </h1>
-<p id="rfc.section.6.5.2.p.1">The function map2curve_simple_swu(alpha) implements a simplification of the Shallue-van de Woestijne-Ulas encoding <a href="#U07" class="xref">[U07]</a> described by Brier et al. <a href="#BCIMRT10" class="xref">[BCIMRT10]</a>, which they call the &#8220;simplified SWU&#8221; map. Wahby and Boneh <a href="#WB19" class="xref">[WB19]</a> generalize this encoding to curves over fields of odd characteristic p &gt; 3.</p>
+<p id="rfc.section.6.5.2.p.1">The function map_to_curve_simple_swu(alpha) implements a simplification of the Shallue-van de Woestijne-Ulas encoding <a href="#U07" class="xref">[U07]</a> described by Brier et al. <a href="#BCIMRT10" class="xref">[BCIMRT10]</a>, which they call the &#8220;simplified SWU&#8221; map. Wahby and Boneh <a href="#WB19" class="xref">[WB19]</a> generalize this encoding to curves over fields of odd characteristic p &gt; 3.</p>
 <p id="rfc.section.6.5.2.p.2">Preconditions: A Weierstrass curve over F such that A!=0 and B!=0.</p>
 <p id="rfc.section.6.5.2.p.3">Constants:</p>
 <p></p>
@@ -906,7 +914,7 @@ Steps:
 </h1>
 <p id="rfc.section.6.5.2.1.p.1">The following procedure implements the simplified SWU algorithm in a straight-line fashion. This implementation is optimized for the case that q = 3 (mod 4), which applies to P-256.  For discussion of how to generalize to q = 1 (mod 4), see <a href="#WB19" class="xref">[WB19]</a> (Section 4) or the example code found at <a href="#github-repo" class="xref">[github-repo]</a>.</p>
 <pre>
-map2curve_simple_swu(u)
+map_to_curve_simple_swu(u)
 Input: u, an element of F.
 Output: (x, y), a point on E.
 
@@ -947,7 +955,7 @@ Steps:
 <h1 id="rfc.section.6.6.1">
 <a href="#rfc.section.6.6.1">6.6.1.</a> <a href="#elligator2" id="elligator2">Elligator 2 Method</a>
 </h1>
-<p id="rfc.section.6.6.1.p.1">The function map2curve_elligator2(alpha) implements Elligator 2 <a href="#BHKL13" class="xref">[BHKL13]</a> for curves defined by y^2 = x^3 + A * x^2 + B * x such that A * B * (A^2 - 4 * B) != 0 and A^2 - 4 * B is non-square in F.</p>
+<p id="rfc.section.6.6.1.p.1">The function map_to_curve_elligator2(alpha) implements Elligator 2 <a href="#BHKL13" class="xref">[BHKL13]</a> for curves defined by y^2 = x^3 + A * x^2 + B * x such that A * B * (A^2 - 4 * B) != 0 and A^2 - 4 * B is non-square in F.</p>
 <p id="rfc.section.6.6.1.p.2">Preconditions: A Montgomery curve where A != 0, B != 0, and A^2 - 4 is non-square in F.</p>
 <p id="rfc.section.6.6.1.p.3">Constants:</p>
 <p></p>
@@ -975,7 +983,7 @@ Steps:
 </h1>
 <p id="rfc.section.6.6.1.1.p.1">The following procedure implements Elligator 2 in a straight-line fashion for curves where q=3 (mod 4), including Curve448.</p>
 <pre>
-map2curve_elligator2_3mod4(u)
+map_to_curve_elligator2_3mod4(u)
 Input: u, an element of F.
 Output: (x, y), a point on E.
 
@@ -1010,7 +1018,7 @@ Steps:
 </h1>
 <p id="rfc.section.6.6.1.2.p.1">The following is a straight-line implementation of Elligator 2 for curves where q=5 (mod 8), including Curve25519.</p>
 <pre>
-map2curve_elligator2_5mod8(u)
+map_to_curve_elligator2_5mod8(u)
 Input: u, an element of F.
 Output: (x, y), a point on E.
 
@@ -1076,11 +1084,11 @@ Steps:
 <li>A and B, the parameters of the equivalent Montgomery curve, and B&#8217; = 1 / sqrt(B).</li>
 <li>Z, the smallest (in absolute value) non-square in F, breaking ties by choosing the positive value.</li>
 </ul>
-<p id="rfc.section.6.7.1.p.10">Sign of y: for this map, the sign is determined by map2curve_elligator2.  No further sign adjustments are required.</p>
+<p id="rfc.section.6.7.1.p.10">Sign of y: for this map, the sign is determined by map_to_curve_elligator2.  No further sign adjustments are required.</p>
 <p id="rfc.section.6.7.1.p.11">Exceptions: The exceptions for the Elligator 2 encoding are as given in <a href="#elligator2" class="xref">Section 6.6.1</a>. When converting to a point on the twisted Edwards curve, the remaining exceptions are y&#8217; == 0 or B&#8217; * x&#8217; == -1. Implementors must detect these cases and return (x, y) = (0, 1).</p>
 <p id="rfc.section.6.7.1.p.12">The following straight-line implementation handles the exceptional cases:</p>
 <pre>
-1. (x', y') = map2curve_elligator2(u)   // a Montgomery point
+1. (x', y') = map_to_curve_elligator2(u)   // a Montgomery point
 2.       x' = x' * B'
 3.       y' = y' * B'
 4.       t1 = x' + 1
@@ -1101,7 +1109,7 @@ Steps:
 <h1 id="rfc.section.6.8.1">
 <a href="#rfc.section.6.8.1">6.8.1.</a> <a href="#supersingular" id="supersingular">Boneh-Franklin Method</a>
 </h1>
-<p id="rfc.section.6.8.1.p.1">The function map2curve_bf(alpha) implements the Boneh-Franklin method <a href="#BF01" class="xref">[BF01]</a> which covers the supersingular curves defined by y^2 = x^3 + B over a field F such that q=2 (mod 3).</p>
+<p id="rfc.section.6.8.1.p.1">The function map_to_curve_bf(alpha) implements the Boneh-Franklin method <a href="#BF01" class="xref">[BF01]</a> which covers the supersingular curves defined by y^2 = x^3 + B over a field F such that q=2 (mod 3).</p>
 <p id="rfc.section.6.8.1.p.2">Preconditions: A supersingular curve over F such that q=2 (mod 3).</p>
 <p id="rfc.section.6.8.1.p.3">Constants: B, the parameter of the supersingular curve.</p>
 <p id="rfc.section.6.8.1.p.4">Sign of y: determined by sign of u. No adjustments are necessary.</p>
@@ -1117,7 +1125,7 @@ Steps:
 </h1>
 <p id="rfc.section.6.8.1.1.p.1">The following procedure implements the Boneh-Franklin&#8217;s algorithm in a straight-line fashion.</p>
 <pre>
-map2curve_bf(u)
+map_to_curve_bf(u)
 Input: u, an element of F.
 Output: (x, y), a point on E.
 
@@ -1134,7 +1142,7 @@ Steps:
 <h1 id="rfc.section.6.8.2">
 <a href="#rfc.section.6.8.2">6.8.2.</a> <a href="#elligator-2-a0-method" id="elligator-2-a0-method">Elligator 2, A=0 Method</a>
 </h1>
-<p id="rfc.section.6.8.2.p.1">The function map2curve_ell2A0(alpha) implements an adaptation of Elligator 2 <a href="#BLMP19" class="xref">[BLMP19]</a> targeting curves given by y^2 = x^3 + B * x over F such that q=3 (mod 4).</p>
+<p id="rfc.section.6.8.2.p.1">The function map_to_curve_ell2A0(alpha) implements an adaptation of Elligator 2 <a href="#BLMP19" class="xref">[BLMP19]</a> targeting curves given by y^2 = x^3 + B * x over F such that q=3 (mod 4).</p>
 <p id="rfc.section.6.8.2.p.2">Preconditions: A supersingular curve over F such that q=3 (mod 4).</p>
 <p id="rfc.section.6.8.2.p.3">Constants: B, the parameter of the supersingular curve.</p>
 <p id="rfc.section.6.8.2.p.4">Sign of y: Inputs u and -u give the same x-coordinate.  Thus, we set sgn0(y) == sgn0(u).</p>
@@ -1155,7 +1163,7 @@ Steps:
 </h1>
 <p id="rfc.section.6.8.2.1.p.1">The following procedure implements the Elligator 2 algorithm for supersingular curves in a straight-line fashion.</p>
 <pre>
-map2curve_ell2A0(u)
+map_to_curve_ell2A0(u)
 Input: u, an element of F.
 Output: (x, y), a point on E.
 
@@ -1209,7 +1217,7 @@ Steps:
 </h1>
 <p id="rfc.section.6.9.1.1.p.1">The following procedure implements the Shallue and van de Woestijne method in a straight-line fashion.</p>
 <pre>
-map2curve_svdw(u)
+map_to_curve_svdw(u)
 Input: u, an element of F.
 Output: (x, y), a point on E.
 
@@ -1271,14 +1279,14 @@ E': y^2 = g'(x) = x^3 + A' * x + B'
 <p></p>
 
 <ul>
-<li>map2curve_simple_swu is the encoding of <a href="#simple-swu" class="xref">Section 6.5.2</a> to E&#8217;</li>
+<li>map_to_curve_simple_swu is the encoding of <a href="#simple-swu" class="xref">Section 6.5.2</a> to E&#8217;</li>
 <li>iso_map is the isogeny map from E&#8217; to E</li>
 </ul>
-<p id="rfc.section.6.9.2.p.8">Sign of y: for this map, the sign is determined by map2curve_elligator2.  No further sign adjustments are necessary.</p>
-<p id="rfc.section.6.9.2.p.9">Exceptions: map2curve_simple_swu handles its exceptional cases.  Exceptional cases of iso_map should return the identity point on E.</p>
+<p id="rfc.section.6.9.2.p.8">Sign of y: for this map, the sign is determined by map_to_curve_elligator2.  No further sign adjustments are necessary.</p>
+<p id="rfc.section.6.9.2.p.9">Exceptions: map_to_curve_simple_swu handles its exceptional cases.  Exceptional cases of iso_map should return the identity point on E.</p>
 <p id="rfc.section.6.9.2.p.10">Operations:</p>
 <pre>
-1. (x', y') = map2curve_simple_swu(u)    // (x', y') is on E'
+1. (x', y') = map_to_curve_simple_swu(u)    // (x', y') is on E'
 8. (x, y)   = iso_map(x', y')            // (x, y) is on E
 8. return (x, y)
 </pre>
@@ -1299,7 +1307,7 @@ E': y^2 = g'(x) = x^3 + A' * x + B'
 
 <ul>
 <li>E, is the elliptic curve group.</li>
-<li>H, is the cryptographic hash function used by hash2base.</li>
+<li>H, is the cryptographic hash function used by hash_to_base.</li>
 <li>f, is an encoding function compatible with E.</li>
 <li>ROM, is a boolean flag indicating whether or not to use the random oracle construction.</li>
 </ul>
@@ -1383,7 +1391,7 @@ E': y^2 = g'(x) = x^3 + A' * x + B'
 <h1 id="rfc.section.11">
 <a href="#rfc.section.11">11.</a> <a href="#acknowledgements" id="acknowledgements">Acknowledgements</a>
 </h1>
-<p id="rfc.section.11.p.1">The authors would like to thank Adam Langley for this detailed writeup up Elligator 2 with Curve25519 <a href="#L13" class="xref">[L13]</a>. We also thank Sean Devlin and Thomas Icart for feedback on earlier versions of this document.</p>
+<p id="rfc.section.11.p.1">The authors would like to thank Adam Langley for his detailed writeup up Elligator 2 with Curve25519 <a href="#L13" class="xref">[L13]</a>. We also thank Sean Devlin and Thomas Icart for feedback on earlier versions of this document.</p>
 <h1 id="rfc.section.12">
 <a href="#rfc.section.12">12.</a> <a href="#contributors" id="contributors">Contributors</a>
 </h1>
@@ -1634,7 +1642,7 @@ E': y^2 = g'(x) = x^3 + A' * x + B'
 <h1 id="rfc.appendix.C">
 <a href="#rfc.appendix.C">Appendix C.</a> <a href="#test-vectors" id="test-vectors">Test Vectors</a>
 </h1>
-<p id="rfc.section.C.p.1">This section contains test vectors, generated from reference Sage code, for each map2curve variant and the hash2base function described in <a href="#hashtobase" class="xref">Section 5</a>.</p>
+<p id="rfc.section.C.p.1">This section contains test vectors, generated from reference Sage code, for each map_to_curve variant and the hash_to_base function described in <a href="#hashtobase" class="xref">Section 5</a>.</p>
 <h1 id="rfc.appendix.C.1">
 <a href="#rfc.appendix.C.1">C.1.</a> <a href="#elligator-2-to-curve25519" id="elligator-2-to-curve25519">Elligator 2 to Curve25519</a>
 </h1>
@@ -2366,16 +2374,16 @@ Output:
           71ab33035e
 </pre>
 <h1 id="rfc.appendix.C.7">
-<a href="#rfc.appendix.C.7">C.7.</a> <a href="#sample-hash2base" id="sample-hash2base">Sample hash2base</a>
+<a href="#rfc.appendix.C.7">C.7.</a> <a href="#sample-hashtobase" id="sample-hashtobase">Sample hash_to_base</a>
 </h1>
 <pre>
-hash2base("H2C-Curve25519-SHA256-Elligator-Clear", 1234)
+hash_to_base("H2C-Curve25519-SHA256-Elligator-Clear", 1234)
   = 1e10b542835e7b227c727bd0a7b2790f39ca1e09fc8538b3c70ef736cb1c298f
 
-hash2base("H2C-P256-SHA512-SWU-", 1234)
+hash_to_base("H2C-P256-SHA512-SWU-", 1234)
   = 4fabef095423c97566bd28b70ee70fb4dd95acfeec076862f4e40981a6c9dd85
 
-hash2base("H2C-P256-SHA512-SSWU-", 1234)
+hash_to_base("H2C-P256-SHA512-SSWU-", 1234)
   = d6f685079d692e24ae13ab154684ae46c5311b78a704c6e11b2f44f4db4c6e47
 </pre>
 <h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
@@ -2443,6 +2451,27 @@ hash2base("H2C-P256-SHA512-SSWU-", 1234)
 	  <span class="country-name vcardline">United States of America</span>
 	</span>
 	<span class="vcardline">EMail: <a href="mailto:nick@cloudflare.com">nick@cloudflare.com</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Riad S. Wahby</span> 
+	  <span class="n hidden">
+		<span class="family-name">Wahby</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Stanford University</span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:rsw@cs.stanford.edu">rsw@cs.stanford.edu</a></span>
 
   </address>
 </div><div class="avoidbreak">
