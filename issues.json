@@ -1,6 +1,60 @@
 [
 
   {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/130",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/130/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/130/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/130/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/130",
+    "id": 460685385,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjkxNzYzMzQ4",
+    "number": 130,
+    "title": "Replace foo2bar with foo_to_bar, and add Riad as an author.",
+    "user": {
+      "login": "chris-wood",
+      "id": 2172048,
+      "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chris-wood",
+      "html_url": "https://github.com/chris-wood",
+      "followers_url": "https://api.github.com/users/chris-wood/followers",
+      "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+      "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+      "repos_url": "https://api.github.com/users/chris-wood/repos",
+      "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-06-25T23:08:25Z",
+    "updated_at": "2019-06-26T12:55:18Z",
+    "closed_at": "2019-06-26T12:55:18Z",
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/130",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/130",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/130.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/130.patch"
+    },
+    "body": ""
+  },
+  {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/129",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/129/labels{/name}",
@@ -139,7 +193,7 @@
     "milestone": null,
     "comments": 7,
     "created_at": "2019-06-19T19:23:18Z",
-    "updated_at": "2019-06-25T22:44:16Z",
+    "updated_at": "2019-06-26T07:10:51Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -965,9 +1019,9 @@
 
     ],
     "milestone": null,
-    "comments": 5,
+    "comments": 6,
     "created_at": "2019-05-21T19:08:06Z",
-    "updated_at": "2019-06-13T10:26:47Z",
+    "updated_at": "2019-06-26T06:44:02Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Right now the document gives straight-line procedures for evaluating each map, which seem to be aimed at being general purpose.\r\n\r\nWe've discussed in #104 an alternative approach in which these straight-line implementations are geared toward *specific* curves (e.g., standardized and widely-used curves). This would likely be more useful for implementors, both because they would be able to port these directly (rather than having to understand and adapt the generic procedures) and because it would allow us to roll in more optimizations.\r\n\r\nThe `poc/` directory gives us a good start on the list of curves that should be supported in this way. I'm happy to propose a list of curves and write down optimized straight-line implementations for each."
@@ -1457,7 +1511,10 @@
     "closed_at": "2019-06-02T21:26:13Z",
     "author_association": "COLLABORATOR",
     "body": "See https://eprint.iacr.org/2019/403"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/100",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -1505,10 +1562,7 @@
     "closed_at": "2019-05-21T21:38:04Z",
     "author_association": "COLLABORATOR",
     "body": "Hi folks,\r\n\r\nThanks for the hard and excellent work on this!\r\n\r\nThere are a couple small issues with the discussion of hashing to pairing-friendly curves.\r\n\r\n1. I notice in the current draft that the section discussing the work of Fouque and Tibouchi at Latincrypt 2012 does not correctly attribute the work. The FT12 paper is clear that the map the authors describe is an instantiation of the Shallue--van de Woestijne method, with constants selected in a way that is convenient for Barreto-Naehrig curves. So a cite of S--vdW (ANTS 2006) would probably be appropriate here.\r\n\r\n2. ~~It's probably important to point out in this section that the map is undefined when u = 0 and when u = sqrt(-1-B). The first case can happen for any curve. The second case can only happen when (-1-B) is square. For BN curves this will never be true, but for BLS curves is can and likely will be. (As a specific example, -1-B is square for BLS12-381, so the map as described is undefined at +/-sqrt(-5).)~~\r\n\r\n~~In fact, the second comment might be true more generally. A brief search of the document doesn't turn up any instances discussing what to do if/when the map is undefined. This is probably important, since in practice many of these maps will have some undefined inputs, and it would be unfortunate if different implementations diverged in their behavior.~~\r\n\r\n~~Since the document appears to be encouraging constant-time implementations, it's not clear that there's a good blanket recommendation that would apply to every map. So it might be useful to think about how to handle undefined behavior on a map-by-map basis, in a way that is amenable to constant-time implementations. I'm happy to help out with this.~~"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/99",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -2999,7 +3053,10 @@
     "closed_at": "2019-06-05T16:52:10Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/70",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3047,10 +3104,7 @@
     "closed_at": "2019-02-09T22:06:45Z",
     "author_association": "NONE",
     "body": "The motivation of this question is that current draft doesn't state what's the intended behaviour of HashToBase if the input `x` and parameter `label` are empty bytestrings. If they are simply ignored (e.g., `\"abc\" || empty_bytestring == \"abc\"`), then there are potential collisions in HashToBase.\r\n\r\nLet's focus on the input of the hash function during the first step of HashToBase:\r\n`H(\"h2c\" || label || I2OSP(i, 4) || x)`\r\n\r\nAssume that `I2OSP(i, 4)` has some specific value (e.g., '00000000', which is the default). The hash `H(\"h2c\" || 00000000 || 00000000)` corresponds to two different configurations:\r\n\r\n- `label = 00000000` and `x` is empty\r\n- `label` is empty and `x = 00000000`\r\n\r\nA possible solution is to prepend the length of `label` and `x` to both values."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/69",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4547,7 +4601,10 @@
     "closed_at": "2019-02-09T16:00:55Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/40",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4595,10 +4652,7 @@
     "closed_at": "2019-02-09T21:06:52Z",
     "author_association": "COLLABORATOR",
     "body": "Per Richard Barnes' email:\r\n\r\n1. Interpret H(x) as a big-endian integer h\r\n2. Reduce h mod 2^(log2(p) + 1)\r\n3. Reduce h mod p"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/39",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6190,7 +6244,10 @@
     "closed_at": "2018-10-22T20:33:48Z",
     "author_association": "COLLABORATOR",
     "body": "Step \"21\" indicates an equality comparison.  Unless implemented specially, these could lead to side-channel attacks as an equality check of equal values takes longer than one where the values are unequal. It might be more secure to separately compute both comparisons, i.e. also compute \"e_2 = (y2 ^ 2 == h3)\" as a mitigation strategy or alternative to implementing constant time equality checks, which might not be readily available in different BigInteger libraries/languages.\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/10",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6238,10 +6295,7 @@
     "closed_at": "2018-06-01T00:30:18Z",
     "author_association": "COLLABORATOR",
     "body": "\"5. Output (-g * alpha) * (g * beta)\"\r\n\r\n- g was not defined here, except above as a function of x, but here it is being used in a multiplication.\r\n- g might be confused with the generator point for the curve\r\n- The output should be in the form of a point with coordinates x and y, should it not?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/9",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
