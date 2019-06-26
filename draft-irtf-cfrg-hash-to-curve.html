@@ -302,17 +302,17 @@ ul.toc li {
 <link href="#rfc.section.6.2" rel="Chapter" title="6.2 Notation">
 <link href="#rfc.section.6.3" rel="Chapter" title="6.3 Sign of the resulting point">
 <link href="#rfc.section.6.4" rel="Chapter" title="6.4 Exceptional cases">
-<link href="#rfc.section.6.5" rel="Chapter" title="6.5 Encodings for Weierstrass curves">
+<link href="#rfc.section.6.5" rel="Chapter" title="6.5 Mappings for Weierstrass curves">
 <link href="#rfc.section.6.5.1" rel="Chapter" title="6.5.1 Icart Method">
 <link href="#rfc.section.6.5.2" rel="Chapter" title="6.5.2 Simplified Shallue-van de Woestijne-Ulas Method">
-<link href="#rfc.section.6.6" rel="Chapter" title="6.6 Encodings for Montgomery curves">
+<link href="#rfc.section.6.6" rel="Chapter" title="6.6 Mappings for Montgomery curves">
 <link href="#rfc.section.6.6.1" rel="Chapter" title="6.6.1 Elligator 2 Method">
-<link href="#rfc.section.6.7" rel="Chapter" title="6.7 Encodings for twisted Edwards curves">
+<link href="#rfc.section.6.7" rel="Chapter" title="6.7 Mappings for twisted Edwards curves">
 <link href="#rfc.section.6.7.1" rel="Chapter" title="6.7.1 Elligator 2 Method">
-<link href="#rfc.section.6.8" rel="Chapter" title="6.8 Encodings for Supersingular curves">
+<link href="#rfc.section.6.8" rel="Chapter" title="6.8 Mappings for Supersingular curves">
 <link href="#rfc.section.6.8.1" rel="Chapter" title="6.8.1 Boneh-Franklin Method">
 <link href="#rfc.section.6.8.2" rel="Chapter" title="6.8.2 Elligator 2, A=0 Method">
-<link href="#rfc.section.6.9" rel="Chapter" title="6.9 Encodings for Pairing-Friendly curves">
+<link href="#rfc.section.6.9" rel="Chapter" title="6.9 Mappings for Pairing-Friendly curves">
 <link href="#rfc.section.6.9.1" rel="Chapter" title="6.9.1 Shallue-van de Woestijne Method">
 <link href="#rfc.section.6.9.2" rel="Chapter" title="6.9.2 Simplified SWU for Pairing-Friendly Curves">
 <link href="#rfc.section.7" rel="Chapter" title="7 Clearing the cofactor">
@@ -461,27 +461,27 @@ ul.toc li {
 </li>
 <li>6.4.   <a href="#rfc.section.6.4">Exceptional cases</a>
 </li>
-<li>6.5.   <a href="#rfc.section.6.5">Encodings for Weierstrass curves</a>
+<li>6.5.   <a href="#rfc.section.6.5">Mappings for Weierstrass curves</a>
 </li>
 <ul><li>6.5.1.   <a href="#rfc.section.6.5.1">Icart Method</a>
 </li>
 <li>6.5.2.   <a href="#rfc.section.6.5.2">Simplified Shallue-van de Woestijne-Ulas Method</a>
 </li>
-</ul><li>6.6.   <a href="#rfc.section.6.6">Encodings for Montgomery curves</a>
+</ul><li>6.6.   <a href="#rfc.section.6.6">Mappings for Montgomery curves</a>
 </li>
 <ul><li>6.6.1.   <a href="#rfc.section.6.6.1">Elligator 2 Method</a>
 </li>
-</ul><li>6.7.   <a href="#rfc.section.6.7">Encodings for twisted Edwards curves</a>
+</ul><li>6.7.   <a href="#rfc.section.6.7">Mappings for twisted Edwards curves</a>
 </li>
 <ul><li>6.7.1.   <a href="#rfc.section.6.7.1">Elligator 2 Method</a>
 </li>
-</ul><li>6.8.   <a href="#rfc.section.6.8">Encodings for Supersingular curves</a>
+</ul><li>6.8.   <a href="#rfc.section.6.8">Mappings for Supersingular curves</a>
 </li>
 <ul><li>6.8.1.   <a href="#rfc.section.6.8.1">Boneh-Franklin Method</a>
 </li>
 <li>6.8.2.   <a href="#rfc.section.6.8.2">Elligator 2, A=0 Method</a>
 </li>
-</ul><li>6.9.   <a href="#rfc.section.6.9">Encodings for Pairing-Friendly curves</a>
+</ul><li>6.9.   <a href="#rfc.section.6.9">Mappings for Pairing-Friendly curves</a>
 </li>
 <ul><li>6.9.1.   <a href="#rfc.section.6.9.1">Shallue-van de Woestijne Method</a>
 </li>
@@ -847,10 +847,10 @@ Steps:
 <h1 id="rfc.section.6.4">
 <a href="#rfc.section.6.4">6.4.</a> <a href="#map-exceptions" id="map-exceptions">Exceptional cases</a>
 </h1>
-<p id="rfc.section.6.4.p.1">Encodings may have have exceptional cases, i.e., inputs u on which the mapping is undefined. These cases must be handled carefully, especially for constant-time implementations.</p>
+<p id="rfc.section.6.4.p.1">Mappings may have have exceptional cases, i.e., inputs u on which the mapping is undefined. These cases must be handled carefully, especially for constant-time implementations.</p>
 <p id="rfc.section.6.4.p.2">For each mapping in this section, we discuss the exceptional cases and show how to handle them in constant time. Note that all implementations SHOULD use inv0 (<a href="#utility" class="xref">Section 4</a>) to compute multiplicative inverses, to avoid exceptional cases that result from attempting to compute the inverse of 0.</p>
 <h1 id="rfc.section.6.5">
-<a href="#rfc.section.6.5">6.5.</a> <a href="#encodings-for-weierstrass-curves" id="encodings-for-weierstrass-curves">Encodings for Weierstrass curves</a>
+<a href="#rfc.section.6.5">6.5.</a> <a href="#mappings-for-weierstrass-curves" id="mappings-for-weierstrass-curves">Mappings for Weierstrass curves</a>
 </h1>
 <p id="rfc.section.6.5.p.1">The following mappings apply to elliptic curves defined by the equation E: y^2 = g(x) = x^3 + A * x + B, where 4 * A^3 + 27 * B^2 != 0.</p>
 <h1 id="rfc.section.6.5.1">
@@ -973,7 +973,7 @@ Steps:
 22. return (x, y)
 </pre>
 <h1 id="rfc.section.6.6">
-<a href="#rfc.section.6.6">6.6.</a> <a href="#encodings-for-montgomery-curves" id="encodings-for-montgomery-curves">Encodings for Montgomery curves</a>
+<a href="#rfc.section.6.6">6.6.</a> <a href="#mappings-for-montgomery-curves" id="mappings-for-montgomery-curves">Mappings for Montgomery curves</a>
 </h1>
 <h1 id="rfc.section.6.6.1">
 <a href="#rfc.section.6.6.1">6.6.1.</a> <a href="#elligator2" id="elligator2">Elligator 2 Method</a>
@@ -1078,7 +1078,7 @@ Steps:
 26. return (x, y)
 </pre>
 <h1 id="rfc.section.6.7">
-<a href="#rfc.section.6.7">6.7.</a> <a href="#encodings-for-twisted-edwards-curves" id="encodings-for-twisted-edwards-curves">Encodings for twisted Edwards curves</a>
+<a href="#rfc.section.6.7">6.7.</a> <a href="#mappings-for-twisted-edwards-curves" id="mappings-for-twisted-edwards-curves">Mappings for twisted Edwards curves</a>
 </h1>
 <h1 id="rfc.section.6.7.1">
 <a href="#rfc.section.6.7.1">6.7.1.</a> <a href="#ell2edwards" id="ell2edwards">Elligator 2 Method</a>
@@ -1127,7 +1127,7 @@ Steps:
 14. return (x, y)
 </pre>
 <h1 id="rfc.section.6.8">
-<a href="#rfc.section.6.8">6.8.</a> <a href="#encodings-for-supersingular-curves" id="encodings-for-supersingular-curves">Encodings for Supersingular curves</a>
+<a href="#rfc.section.6.8">6.8.</a> <a href="#mappings-for-supersingular-curves" id="mappings-for-supersingular-curves">Mappings for Supersingular curves</a>
 </h1>
 <h1 id="rfc.section.6.8.1">
 <a href="#rfc.section.6.8.1">6.8.1.</a> <a href="#supersingular" id="supersingular">Boneh-Franklin Method</a>
@@ -1204,7 +1204,7 @@ Steps:
 11. return (x, y)
 </pre>
 <h1 id="rfc.section.6.9">
-<a href="#rfc.section.6.9">6.9.</a> <a href="#encodings-for-pairing-friendly-curves" id="encodings-for-pairing-friendly-curves">Encodings for Pairing-Friendly curves</a>
+<a href="#rfc.section.6.9">6.9.</a> <a href="#mappings-for-pairing-friendly-curves" id="mappings-for-pairing-friendly-curves">Mappings for Pairing-Friendly curves</a>
 </h1>
 <h1 id="rfc.section.6.9.1">
 <a href="#rfc.section.6.9.1">6.9.1.</a> <a href="#swpairing" id="swpairing">Shallue-van de Woestijne Method</a>
