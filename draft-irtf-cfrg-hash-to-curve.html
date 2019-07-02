@@ -312,7 +312,7 @@ ul.toc li {
 <link href="#rfc.section.6.7.2" rel="Chapter" title="6.7.2 Elligator 2 Method">
 <link href="#rfc.section.6.8" rel="Chapter" title="6.8 Mappings for Supersingular curves">
 <link href="#rfc.section.6.8.1" rel="Chapter" title="6.8.1 Boneh-Franklin Method">
-<link href="#rfc.section.6.8.2" rel="Chapter" title="6.8.2 Elligator 2, A=0 Method">
+<link href="#rfc.section.6.8.2" rel="Chapter" title="6.8.2 Elligator 2, A == 0 Method">
 <link href="#rfc.section.6.9" rel="Chapter" title="6.9 Mappings for Pairing-Friendly curves">
 <link href="#rfc.section.6.9.1" rel="Chapter" title="6.9.1 Shallue-van de Woestijne Method">
 <link href="#rfc.section.6.9.2" rel="Chapter" title="6.9.2 Simplified SWU for Pairing-Friendly Curves">
@@ -483,7 +483,7 @@ ul.toc li {
 </li>
 <ul><li>6.8.1.   <a href="#rfc.section.6.8.1">Boneh-Franklin Method</a>
 </li>
-<li>6.8.2.   <a href="#rfc.section.6.8.2">Elligator 2, A=0 Method</a>
+<li>6.8.2.   <a href="#rfc.section.6.8.2">Elligator 2, A == 0 Method</a>
 </li>
 </ul><li>6.9.   <a href="#rfc.section.6.9">Mappings for Pairing-Friendly curves</a>
 </li>
@@ -554,7 +554,7 @@ ul.toc li {
 <a href="#rfc.section.2.1">2.1.</a> <a href="#bg-curves" id="bg-curves">Elliptic curves</a>
 </h1>
 <p id="rfc.section.2.1.p.1">The following is a brief definition of elliptic curves, with an emphasis on important parameters and their relation to hashing to curves.  For further reference on elliptic curves, consult <a href="#CFADLNV05" class="xref">[CFADLNV05]</a> or <a href="#W08" class="xref">[W08]</a>.</p>
-<p id="rfc.section.2.1.p.2">Let F be the finite field GF(q) of prime characteristic p. In most cases F is a prime field, so q=p. Otherwise, F is a field extension, so q=p^m for an integer m &gt; 1. This document assumes that elements of field extensions are written in a primitive element or polynomial basis, i.e., as of m elements of GF(p) written in ascending order by degree. For example, if q=p^2 and the primitive element basis is {1, i}, then the vector (a, b) corresponds to the element a + b * i.</p>
+<p id="rfc.section.2.1.p.2">Let F be the finite field GF(q) of prime characteristic p. In most cases F is a prime field, so q = p. Otherwise, F is a field extension, so q = p^m for an integer m &gt; 1. This document assumes that elements of field extensions are written in a primitive element or polynomial basis, i.e., as of m elements of GF(p) written in ascending order by degree. For example, if q = p^2 and the primitive element basis is {1, i}, then the vector (a, b) corresponds to the element a + b * i.</p>
 <p id="rfc.section.2.1.p.3">An elliptic curve E is specified by an equation in two variables and a finite field F. An elliptic curve equation takes one of several standard forms, including (but not limited to) Weierstrass, Montgomery, and Edwards.</p>
 <p id="rfc.section.2.1.p.4">The curve E induces an algebraic group whose elements are those points with coordinates (x, y) satisfying the curve equation, and where x and y are elements of F.  This group has order n, meaning that there are n distinct points.  This document uses additive notation for the elliptic curve group operation.</p>
 <p id="rfc.section.2.1.p.5">For security reasons, groups of prime order MUST be used. Elliptic curves induce subgroups of prime order. Let G be a subgroup of the curve of prime order r, where n = h * r.  In this equation, h is an integer called the cofactor.  An algorithm that takes as input an arbitrary point on the curve E and produces as output a point in the subgroup G of E is said to &#8220;clear the cofactor.&#8221; Such algorithms are discussed in <a href="#cofactor-clearing" class="xref">Section 7</a>.</p>
@@ -569,8 +569,8 @@ ul.toc li {
 <tbody>
 <tr>
 <td class="center">F,q,p</td>
-<td class="left">Finite field F of characteristic p and #F=q=p^m.</td>
-<td class="left">For prime fields, q=p; otherwise, q=p^m and m&gt;1.</td>
+<td class="left">Finite field F of characteristic p and #F = q = p^m.</td>
+<td class="left">For prime fields, q = p; otherwise, q = p^m and m&gt;1.</td>
 </tr>
 <tr>
 <td class="center">E</td>
@@ -679,7 +679,7 @@ Steps:
 <p></p>
 
 <ul>
-<li>CMOV(a, b, c): If c=0, CMOV returns a, otherwise returns b. To prevent against timing attacks, this operation must run in constant time without revealing the value of c. Commonly, implementations assume that the selector is c=1 or c=0. In this case, given a bit string C, the desired selector c can be computed by OR-ing all bits of C together. The resulting selector will be either 0 if all bits of C are zero, or 1 if at least one bit of C is 1.</li>
+<li>CMOV(a, b, c): If c == 0, CMOV returns a, otherwise returns b. To prevent against timing attacks, this operation must run in constant time without revealing the value of c. Commonly, implementations assume that the selector is c == 1 or c == 0. In this case, given a bit string C, the desired selector c can be computed by OR-ing all bits of C together. The resulting selector will be either 0 if all bits of C are zero, or 1 if at least one bit of C is 1.</li>
 <li>is_square(x, q): This function returns True whenever the value x is a square in GF(q). Due to Euler&#8217;s criterion, this function can be calculated in constant time as</li>
 </ul>
 <pre>
@@ -780,8 +780,8 @@ Steps:
 <li>H is modeled as a random oracle, so its output must be indistinguishable from a uniformly random bit string.</li>
 </ol>
 <p id="rfc.section.5.1.p.3">For example, for 128-bit security, b &gt;= 256 bits; in this case, SHA256 would be an appropriate choice for H.</p>
-<p id="rfc.section.5.1.p.4">Ensuring that the hash_to_base output is a uniform random element of F requires care, even when H outputs a uniformly random string. For example, if H=SHA256 and F is a field of characteristic p = 2^255 - 19, then the result of reducing H(msg) (a 256-bit integer) modulo p is slightly more likely to be in [0, 38] than if the value were selected uniformly at random.  In this example the bias is negligible, but in general it can be significant.</p>
-<p id="rfc.section.5.1.p.5">To control bias, the input msg should be hashed to an integer comprising at least ceil(log2(p)) + k bits; reducing this integer modulo p gives bias at most 2^-k, which is a safe choice for a cryptosystem with k-bit security.  To obtain such an integer, hash H with b-bit output should be evaluated W = ceil((ceil(log2(p)) + k) / b) times and the results concatenated to produce a (W * b)-bit integer. For example, for H=SHA256, k=128-bit security, and p a 256-bit prime, W = ceil((256 + 128) / 256) = 2.</p>
+<p id="rfc.section.5.1.p.4">Ensuring that the hash_to_base output is a uniform random element of F requires care, even when H outputs a uniformly random string. For example, if H is SHA256 and F is a field of characteristic p = 2^255 - 19, then the result of reducing H(msg) (a 256-bit integer) modulo p is slightly more likely to be in [0, 38] than if the value were selected uniformly at random.  In this example the bias is negligible, but in general it can be significant.</p>
+<p id="rfc.section.5.1.p.5">To control bias, the input msg should be hashed to an integer comprising at least ceil(log2(p)) + k bits; reducing this integer modulo p gives bias at most 2^-k, which is a safe choice for a cryptosystem with k-bit security.  To obtain such an integer, hash H with b-bit output should be evaluated W = ceil((ceil(log2(p)) + k) / b) times and the results concatenated to produce a (W * b)-bit integer. For example, for H = SHA256, k = 128-bit security, and p a 256-bit prime, W = ceil((256 + 128) / 256) = 2.</p>
 <p><a href="#hashtobase-impl" class="xref">Section 5.3</a> details the hash_to_base procedure.</p>
 <p id="rfc.section.5.1.p.7">Note that implementors SHOULD NOT use rejection sampling to generate a uniformly random element of F.  The reason is that these procedures are difficult to implement in constant time, and later well-meaning &#8220;optimizations&#8221; may silently render an implementation non-constant-time.</p>
 <h1 id="rfc.section.5.2">
@@ -799,7 +799,7 @@ hash_to_base(msg, ctr)
 
 Parameters:
 - H, a cryptographic hash function producing b bits.
-- F, a finite field of characteristic p and order q=p^m.
+- F, a finite field of characteristic p and order q = p^m.
 - W = ceil((ceil(log2(p)) + k) / b), where k is the security
   parameter of the cryptosystem (e.g., k = 128).
 
@@ -863,7 +863,7 @@ Steps:
 <a href="#rfc.section.6.5.1">6.5.1.</a> <a href="#icart" id="icart">Icart Method</a>
 </h1>
 <p id="rfc.section.6.5.1.p.1">The function map_to_curve_icart(u) implements the Icart method from <a href="#Icart09" class="xref">[Icart09]</a>.</p>
-<p id="rfc.section.6.5.1.p.2">Preconditions: An elliptic curve over F, such that p&gt;3 and q=p^m=2 (mod 3), or p=2 (mod 3) and odd m.</p>
+<p id="rfc.section.6.5.1.p.2">Preconditions: An elliptic curve over F, such that p&gt;3 and q = p^m = 2 (mod 3), or p = 2 (mod 3) and odd m.</p>
 <p id="rfc.section.6.5.1.p.3">Constants: A and B, the parameters of the Weierstrass curve.</p>
 <p id="rfc.section.6.5.1.p.4">Sign of y: this mapping does not compute a square root, so there is no ambiguity regarding the sign of y.</p>
 <p id="rfc.section.6.5.1.p.5">Exceptions: The only exceptional case is u == 0.  Implementations must detect this case by testing whether u == 0 and setting u = 1 if so.</p>
@@ -915,7 +915,7 @@ Steps:
 <a href="#rfc.section.6.5.2">6.5.2.</a> <a href="#simple-swu" id="simple-swu">Simplified Shallue-van de Woestijne-Ulas Method</a>
 </h1>
 <p id="rfc.section.6.5.2.p.1">The function map_to_curve_simple_swu(u) implements a simplification of the Shallue-van de Woestijne-Ulas mapping <a href="#U07" class="xref">[U07]</a> described by Brier et al. <a href="#BCIMRT10" class="xref">[BCIMRT10]</a>, which they call the &#8220;simplified SWU&#8221; map. Wahby and Boneh <a href="#WB19" class="xref">[WB19]</a> generalize this mapping to curves over fields of odd characteristic p &gt; 3.</p>
-<p id="rfc.section.6.5.2.p.2">Preconditions: A Weierstrass curve over F such that A!=0 and B!=0.</p>
+<p id="rfc.section.6.5.2.p.2">Preconditions: A Weierstrass curve over F such that A != 0 and B != 0.</p>
 <p id="rfc.section.6.5.2.p.3">Constants:</p>
 <p></p>
 
@@ -1025,9 +1025,9 @@ Steps:
 9.  return (x, y)
 </pre>
 <h1 id="rfc.section.6.6.1.1">
-<a href="#rfc.section.6.6.1.1">6.6.1.1.</a> <a href="#implementation-q3-mod-4" id="implementation-q3-mod-4">Implementation, q=3 (mod 4)</a>
+<a href="#rfc.section.6.6.1.1">6.6.1.1.</a> <a href="#implementation-q-3-mod-4" id="implementation-q-3-mod-4">Implementation, q = 3 (mod 4)</a>
 </h1>
-<p id="rfc.section.6.6.1.1.p.1">The following procedure implements Elligator 2 in a straight-line fashion for curves where q=3 (mod 4), including Curve448.</p>
+<p id="rfc.section.6.6.1.1.p.1">The following procedure implements Elligator 2 in a straight-line fashion for curves where q = 3 (mod 4), including Curve448.</p>
 <pre>
 map_to_curve_elligator2_3mod4(u)
 Input: u, an element of F.
@@ -1053,16 +1053,16 @@ Steps:
 14.  y2 = y1 * u
 15.  y2 = y2 * c1
 16.  e2 = y1^2 == gx1
-17.   x = CMOV(x2, x1, e2)    // If e == True, x=x1, else x=x2
-18.   y = CMOV(y2, y1, e2)    // If e == True, y=y1, else y=y2
+17.   x = CMOV(x2, x1, e2)    // If e == True, x = x1, else x = x2
+18.   y = CMOV(y2, y1, e2)    // If e == True, y = y1, else y = y2
 19.  e3 = sgn0(u) == sgn0(y)  // fix sign of y
 20.   y = CMOV(-y, y, e3)
 21. return (x, y)
 </pre>
 <h1 id="rfc.section.6.6.1.2">
-<a href="#rfc.section.6.6.1.2">6.6.1.2.</a> <a href="#implementation-q5-mod-8" id="implementation-q5-mod-8">Implementation, q=5 (mod 8)</a>
+<a href="#rfc.section.6.6.1.2">6.6.1.2.</a> <a href="#implementation-q-5-mod-8" id="implementation-q-5-mod-8">Implementation, q = 5 (mod 8)</a>
 </h1>
-<p id="rfc.section.6.6.1.2.p.1">The following is a straight-line implementation of Elligator 2 for curves where q=5 (mod 8), including Curve25519.</p>
+<p id="rfc.section.6.6.1.2.p.1">The following is a straight-line implementation of Elligator 2 for curves where q = 5 (mod 8), including Curve25519.</p>
 <pre>
 map_to_curve_elligator2_5mod8(u)
 Input: u, an element of F.
@@ -1076,7 +1076,7 @@ Steps:
 1.   t1 = u^2
 2.   t1 = Z * t1
 3.   x1 = t1 + 1
-4.   x1 = inv0(x1)            // cannot be 0 because q=5 mod 8
+4.   x1 = inv0(x1)            // cannot be 0 because q = 5 mod 8
 5.   x1 = -A * x1             // x1 = -A / (1 + Z * u^2)
 6.  gx1 = x1 + A
 7.  gx1 = gx1 * x1
@@ -1094,8 +1094,8 @@ Steps:
 19.  e2 = y22^2 == gx2
 20.  y2 = CMOV(y21, y22, e2)  // if gx2 is square, this is its sqrt
 21.  e3 = y1^2 == gx1
-22.   x = CMOV(x2, x1, e3)    // if e == True, x=x1, else x=x2
-23.   y = CMOV(y2, y1, e3)    // if e == True, y=y1, else y=y2
+22.   x = CMOV(x2, x1, e3)    // if e == True, x = x1, else x = x2
+23.   y = CMOV(y2, y1, e3)    // if e == True, y = y1, else y = y2
 24.  e4 = sgn0(u) == sgn0(y)  // fix sign of y
 25.   y = CMOV(-y, y, e4)
 26. return (x, y)
@@ -1176,8 +1176,8 @@ Output: (x, y), a point on E.
 <h1 id="rfc.section.6.8.1">
 <a href="#rfc.section.6.8.1">6.8.1.</a> <a href="#supersingular" id="supersingular">Boneh-Franklin Method</a>
 </h1>
-<p id="rfc.section.6.8.1.p.1">The function map_to_curve_bf(u) implements the Boneh-Franklin method <a href="#BF01" class="xref">[BF01]</a> which covers the supersingular curves defined by y^2 = x^3 + B over a field F such that q=2 (mod 3).</p>
-<p id="rfc.section.6.8.1.p.2">Preconditions: A supersingular curve over F such that q=2 (mod 3).</p>
+<p id="rfc.section.6.8.1.p.1">The function map_to_curve_bf(u) implements the Boneh-Franklin method <a href="#BF01" class="xref">[BF01]</a> which covers the supersingular curves defined by y^2 = x^3 + B over a field F such that q = 2 (mod 3).</p>
+<p id="rfc.section.6.8.1.p.2">Preconditions: A supersingular curve over F such that q = 2 (mod 3).</p>
 <p id="rfc.section.6.8.1.p.3">Constants: B, the parameter of the supersingular curve.</p>
 <p id="rfc.section.6.8.1.p.4">Sign of y: determined by sign of u. No adjustments are necessary.</p>
 <p id="rfc.section.6.8.1.p.5">Exceptions: none.</p>
@@ -1207,10 +1207,10 @@ Steps:
 5. return (x, y)
 </pre>
 <h1 id="rfc.section.6.8.2">
-<a href="#rfc.section.6.8.2">6.8.2.</a> <a href="#elligator-2-a0-method" id="elligator-2-a0-method">Elligator 2, A=0 Method</a>
+<a href="#rfc.section.6.8.2">6.8.2.</a> <a href="#elligator-2-a-0-method" id="elligator-2-a-0-method">Elligator 2, A == 0 Method</a>
 </h1>
-<p id="rfc.section.6.8.2.p.1">The function map_to_curve_ell2A0(u) implements an adaptation of Elligator 2 <a href="#BLMP19" class="xref">[BLMP19]</a> targeting curves given by y^2 = x^3 + B * x over F such that q=3 (mod 4).</p>
-<p id="rfc.section.6.8.2.p.2">Preconditions: A supersingular curve over F such that q=3 (mod 4).</p>
+<p id="rfc.section.6.8.2.p.1">The function map_to_curve_ell2A0(u) implements an adaptation of Elligator 2 <a href="#BLMP19" class="xref">[BLMP19]</a> targeting curves given by y^2 = x^3 + B * x over F such that q = 3 (mod 4).</p>
+<p id="rfc.section.6.8.2.p.2">Preconditions: A supersingular curve over F such that q = 3 (mod 4).</p>
 <p id="rfc.section.6.8.2.p.3">Constants: B, the parameter of the supersingular curve.</p>
 <p id="rfc.section.6.8.2.p.4">Sign of y: Inputs u and -u give the same x-coordinate.  Thus, we set sgn0(y) == sgn0(u).</p>
 <p id="rfc.section.6.8.2.p.5">Exceptions: none.</p>
@@ -1253,9 +1253,9 @@ Steps:
 <h1 id="rfc.section.6.9.1">
 <a href="#rfc.section.6.9.1">6.9.1.</a> <a href="#swpairing" id="swpairing">Shallue-van de Woestijne Method</a>
 </h1>
-<p id="rfc.section.6.9.1.p.1">Shallue and van de Woestijne <a href="#SW06" class="xref">[SW06]</a> describe a mapping that applies to essentially any elliptic curve. Fouque and Tibouchi <a href="#FT12" class="xref">[FT12]</a> give a concrete set of parameters for this mapping geared toward Barreto-Naehrig pairing-friendly curves <a href="#BN05" class="xref">[BN05]</a>, i.e., curves y^2 = x^3 + B over fields of characteristic q=1 (mod 3).  Wahby and Boneh <a href="#WB19" class="xref">[WB19]</a> suggest a small generalization of the Fouque-Tibouchi parameters that results in a uniform method for handling exceptional cases.</p>
+<p id="rfc.section.6.9.1.p.1">Shallue and van de Woestijne <a href="#SW06" class="xref">[SW06]</a> describe a mapping that applies to essentially any elliptic curve. Fouque and Tibouchi <a href="#FT12" class="xref">[FT12]</a> give a concrete set of parameters for this mapping geared toward Barreto-Naehrig pairing-friendly curves <a href="#BN05" class="xref">[BN05]</a>, i.e., curves y^2 = x^3 + B over fields of characteristic q = 1 (mod 3).  Wahby and Boneh <a href="#WB19" class="xref">[WB19]</a> suggest a small generalization of the Fouque-Tibouchi parameters that results in a uniform method for handling exceptional cases.</p>
 <p id="rfc.section.6.9.1.p.2">The Shallue-van de Woestijne mapping method covers curves not handled by other methods, e.g., SECP256K1 <a href="#SEC2" class="xref">[SEC2]</a>. It also covers pairing-friendly curves in the BN <a href="#BN05" class="xref">[BN05]</a>, KSS <a href="#KSS08" class="xref">[KSS08]</a>, and BLS <a href="#BLS03" class="xref">[BLS03]</a> families. (Note, however, that the mapping described in <a href="#simple-swu-pairing-friendly" class="xref">Section 6.9.2</a> is faster, when it applies.)</p>
-<p id="rfc.section.6.9.1.p.3">Preconditions: An elliptic curve y^2 = g(x) = x^3 + B over F such that q=1 (mod 3) and B != 0.</p>
+<p id="rfc.section.6.9.1.p.3">Preconditions: An elliptic curve y^2 = g(x) = x^3 + B over F such that q = 1 (mod 3) and B != 0.</p>
 <p id="rfc.section.6.9.1.p.4">Constants:</p>
 <p></p>
 
@@ -2341,7 +2341,7 @@ Output:
 <h1 id="rfc.appendix.D.6">
 <a href="#rfc.appendix.D.6">D.6.</a> <a href="#fouque-tibouchi-to-bn256" id="fouque-tibouchi-to-bn256">Fouque-Tibouchi to BN256</a>
 </h1>
-<p id="rfc.section.D.6.p.1">An instance of a BN curve is defined as <samp>BN256: y^2=x^3 + 1</samp> over <samp>GF(p(t))</samp> such that</p>
+<p id="rfc.section.D.6.p.1">An instance of a BN curve is defined as <samp>BN256: y^2 = x^3 + 1</samp> over <samp>GF(p(t))</samp> such that</p>
 <pre>
 t = -(2^62 + 2^55 + 1).
 p = 0x2523648240000001ba344d80000000086121000000000013a700000000000013
