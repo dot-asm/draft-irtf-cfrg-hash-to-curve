@@ -1,6 +1,264 @@
 [
 
   {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/140",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/140/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/140/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/140/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/140",
+    "id": 463729951,
+    "node_id": "MDU6SXNzdWU0NjM3Mjk5NTE=",
+    "number": 140,
+    "title": "Future-proofing ciphersuite labels",
+    "user": {
+      "login": "samscott89",
+      "id": 13355482,
+      "node_id": "MDQ6VXNlcjEzMzU1NDgy",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/13355482?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/samscott89",
+      "html_url": "https://github.com/samscott89",
+      "followers_url": "https://api.github.com/users/samscott89/followers",
+      "following_url": "https://api.github.com/users/samscott89/following{/other_user}",
+      "gists_url": "https://api.github.com/users/samscott89/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/samscott89/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/samscott89/subscriptions",
+      "organizations_url": "https://api.github.com/users/samscott89/orgs",
+      "repos_url": "https://api.github.com/users/samscott89/repos",
+      "events_url": "https://api.github.com/users/samscott89/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/samscott89/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-07-03T12:40:53Z",
+    "updated_at": "2019-07-03T12:41:49Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "This seems like a low-priority issue, but wanted to get the thoughts down\r\nfor future discussion:\r\n\r\nLooking ahead to where we will realistically fall on ciphersuite definitions,\r\nit is unlikely that aspects such as specific constants (e.g. quadratic non-residues),\r\nand even the scalar used for cofactor clearing (in the case of optimised\r\nimplementations) will be explicit in the ciphersuite **label**, despite\r\nbeing explicit in the definition itself.\r\n\r\nIn the future, there is a chance that different choices will be desired, \r\nfor example, due to new algorithmic improvements. Changing these requires\r\na new ciphersuite tag, else implementations may become incompatible.\r\n\r\nThis leaves open the question of versioning the ciphersuites themselves,\r\nsince we may want a \"v2\" of a ciphersuite.\r\n\r\nHowever, this possibility seems low enough probability that forcing a \"v1\"\r\nsuffix onto all existing ciphersuites seems unnecessary.\r\nOne solution seems to be considering future extensions to the draft to\r\nallow changing \"curvexxx-hashyyy-mapzzz-ro\" to simply \"curvexxx-hashyyy-mapzzz-ro-v2\"\r\nin such an scenario.\r\n"
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/139",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/139/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/139/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/139/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/139",
+    "id": 463568807,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjk0MDIxMTUw",
+    "number": 139,
+    "title": "domain separation",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-03T06:30:39Z",
+    "updated_at": "2019-07-03T18:30:19Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/139",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/139",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/139.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/139.patch"
+    },
+    "body": "This essentially captures what's in #124:\r\n\r\n- add \"HASH-TO-CURVE\" literal in hash_to_base for H() separation\r\n\r\n- change ctr argument in encode_to_curve for free separation from hash_to_curve\r\n\r\n- add a new section in roadmap with requirements for domain separation\r\n\r\n- add a new definition for domain separation\r\n\r\nNote that this does *not* comprehend #137. I think we can treat that as a separate question for now."
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/138",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/138/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/138/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/138/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/138",
+    "id": 463489243,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjkzOTU5OTI4",
+    "number": 138,
+    "title": "ciphersuite table update",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 3,
+    "created_at": "2019-07-03T00:22:47Z",
+    "updated_at": "2019-07-03T18:41:28Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/138",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/138",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/138.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/138.patch"
+    },
+    "body": "This commit is intended to address #95, #96, and #126.\r\n\r\n~~I'm pushing an early cut as @armfazh suggested in #129. I'll get the rest of the info into the document in the next couple hours, then we can talk about the formatting.~~"
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/137",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/137/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/137/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/137/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/137",
+    "id": 463461040,
+    "node_id": "MDU6SXNzdWU0NjM0NjEwNDA=",
+    "number": 137,
+    "title": "HKDF in place of ad-hoc PRG currently used by hash_to_base?",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-07-02T22:20:40Z",
+    "updated_at": "2019-07-02T22:44:07Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "Dan Boneh points out that there's little reason to roll our own PRG inside hash_to_base. Instead, he suggests using [HKDF](https://tools.ietf.org/html/rfc5869).\r\n\r\n(I have to admit, I'm slightly annoyed at myself for having failed to consider this option. Sorry, folks.)\r\n\r\nWhile this makes hash_to_base slightly more expensive, the difference in cost is negligible compared to the end-to-end cost of hashing to a curve.\r\n\r\nThe main issues I see with taking this approach are:\r\n\r\n- is there a way to get \"prehash for free\" as in the current approach?\r\n- is there a compatibility story for the BLS signatures standard?\r\n\r\n@hoeteck, thoughts on how this might play out with BLS? I can imagine there isn't a huge appetite for this change. On the other hand, I wonder if we can really justify using a hash_to_base function that lacks rigorous analysis when the (arguably) \"right thing\" is kind of well known?"
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/136",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/136/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/136/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/136/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/136",
+    "id": 463415217,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjkzODk5MjIy",
+    "number": 136,
+    "title": "spacing around = and ==",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-02T20:14:14Z",
+    "updated_at": "2019-07-02T21:08:53Z",
+    "closed_at": "2019-07-02T20:20:44Z",
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/136",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/136",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/136.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/136.patch"
+    },
+    "body": "This is minor. Just fixes some spacing issues in response to #105."
+  },
+  {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/135",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/135/labels{/name}",
@@ -187,7 +445,7 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-06-26T23:16:06Z",
-    "updated_at": "2019-07-02T16:01:35Z",
+    "updated_at": "2019-07-02T20:13:15Z",
     "closed_at": "2019-07-02T16:01:35Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -347,12 +605,12 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 9,
     "created_at": "2019-06-25T15:38:36Z",
-    "updated_at": "2019-06-28T23:05:27Z",
+    "updated_at": "2019-07-03T03:29:43Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
-    "body": "The deadline for getting drafts updated before IETF 105 is [July 8th](https://datatracker.ietf.org/meeting/105/important-dates/). This is an attempt at triaging the open issues and known TODOs to hit that date.\r\n\r\nPlease let me know if anything seems to be miscategorized!\r\n\r\n## Really should have\r\n\r\n- [x] Definitions: maps, encodings, etc. (#127, #128) - making sure that the definitions and high-level framing are clear is important for getting useful feedback on the next draft. Plus, these should be very close to converging!\r\n\r\n- [ ] Fix point conversions for Edwards -> Montgomery to agree with existing RFCs (#107) - see second comment in linked issue. VRF won't reference us until this is fixed. #132 handles this.\r\n\r\n- [ ] Submit PR to VRF folks to refer to this draft rather than describing its own version of hash-to-curve - not sure if we can coordinate this in time, but we should try!\r\n\r\n## Nice to have\r\n\r\n- [ ] Update list of suites / decide on suite scope (#96, #126) - my hope is that we can take an initial cut at this and then solicit feedback.\r\n\r\n- [ ] Projective coordinates / optimized implementations (#4, #43, #109, #111, #117) - once we have an updated list of suites, we should put optimized impls in the appx.\r\n\r\n- [ ] Cofactor clearing (#95) - @chris-wood and I discussed including \"cofactor clearing value\" in the suites table. For curves that have optimized cofactor clearing (generally, pairing-friendly curves), this is sufficient to make sure that people who don't implement the optimization can still output the correct point via scalar multiplication. Adding a column in the suites table addresses this.\r\n\r\n- [ ] Domain separation (#124) - the discussion in the issue seems at this point to have identified the main pros and cons, so it seems like we should open this up for discussion on-list or at the meeting. We might not get this feedback in time, but we should try.\r\n\r\n## Not a blocker\r\n\r\n- [ ] Flow chart (#63, #118) - these will be very useful, but (as far as I know) we can't include non-ASCII diagrams in the draft, so it probably doesn't make sense to spend too much time on these before the deadline.\r\n\r\n- [ ] Code quality (#98, #112) - reference code isn't gated by the draft process, so we can de-prioritize.\r\n\r\n- [ ] style nits (#105, #110) - would be great to cover these, but not a killer if we don't."
+    "body": "The deadline for getting drafts updated before IETF 105 is [July 8th](https://datatracker.ietf.org/meeting/105/important-dates/). This is an attempt at triaging the open issues and known TODOs to hit that date.\r\n\r\nPlease let me know if anything seems to be miscategorized!\r\n\r\n## Really should have\r\n\r\n- [x] Definitions: maps, encodings, etc. (#127, #128) - making sure that the definitions and high-level framing are clear is important for getting useful feedback on the next draft. Plus, these should be very close to converging!\r\n\r\n- [x] Fix point conversions for Edwards -> Montgomery to agree with existing RFCs (#107) - see second comment in linked issue. VRF won't reference us until this is fixed. #132 handles this.\r\n\r\n- [ ] Update list of suites / decide on suite scope (#96, #126) - my hope is that we can take an initial cut at this and then solicit feedback.\r\n\r\n- [ ] Cofactor clearing (#95) - @chris-wood and I discussed including \"cofactor clearing value\" in the suites table. For curves that have optimized cofactor clearing (generally, pairing-friendly curves), this is sufficient to make sure that people who don't implement the optimization can still output the correct point via scalar multiplication. Adding a column in the suites table addresses this.\r\n\r\n## Nice to have\r\n\r\n- [ ] Submit PR to VRF folks to refer to this draft rather than describing its own version of hash-to-curve - not sure if we can coordinate this in time, but we should try!\r\n\r\n- [ ] Projective coordinates / optimized implementations (#4, #43, #109, #111, #117) - once we have an updated list of suites, we should put optimized impls in the appx.\r\n\r\n- [ ] Domain separation (#124) - the discussion in the issue seems at this point to have identified the main pros and cons, so it seems like we should open this up for discussion on-list or at the meeting. We might not get this feedback in time, but we should try.\r\n\r\n## Not a blocker\r\n\r\n- [ ] Flow chart (#63, #118) - these will be very useful, but (as far as I know) we can't include non-ASCII diagrams in the draft, so it probably doesn't make sense to spend too much time on these before the deadline.\r\n\r\n- [ ] Code quality (#98, #112) - reference code isn't gated by the draft process, so we can de-prioritize.\r\n\r\n- [ ] style nits (#105, #110) - would be great to cover these, but not a killer if we don't."
   },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/128",
@@ -599,12 +857,12 @@
 
     ],
     "milestone": null,
-    "comments": 25,
+    "comments": 34,
     "created_at": "2019-06-06T06:23:51Z",
-    "updated_at": "2019-07-02T12:26:35Z",
+    "updated_at": "2019-07-03T06:31:44Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
-    "body": "Chris and I discussed the issue of ciphersuites and domain separation in hash-to-curve. Put concisely, the question is, should hash-to-curve provide domain separation among the suites, or should domain separation be left to the upper-level protocol? We decided that the best way to proceed is to get feedback from the CFRG list by coming up with and sending two specific proposals along with a discussion of pros and cons.\r\n\r\nFrom chatting with the BLS and VRF folks, my impression is that they prefer to keep ciphersuites out of hash-to-curve. Their argument is (paraphrasing), the upper-level protocol needs to ensure domain separation, so what's the point of doing it redundantly in hash-to-curve? There was also serious concern about variable-length ciphersuite strings (currently used in the poc impls but not specified in the document), because that is a potential source of confusion and bugs. [Right now](https://github.com/pairingwg/bls_standard/blob/master/minutes/spec-v1.md), the BLS sigs standard is proceeding with no ciphersuite in hash-to-curve, only in the BLS signature itself.\r\n\r\nBut there may be room to meet in the middle. For example, it would be essentially free to add a short, fixed-length ciphersuite (say, <20 bytes) in hash2base. It might be worth running this by the BLS and VRF folks before we go to the list, to hear out the likely objectors first and see if we can get buy-in.\r\n\r\nConcretely, I propose that we consider the following two options.\r\n\r\n#### option 1: no ciphersuite\r\n\r\nThis preserves the current version of hash2base as specified in the document. The important line is the one in which msg gets hashed. In the current version, that's\r\n\r\n```\r\nm' = H(msg) || I2OSP(ctr, 1)\r\n```\r\n\r\n#### option 2: fixed string + 4-byte ciphersuite in hash2base\r\n\r\n```\r\nm' = H(\"HASH-TO-CURVE\" || ciphersuite || msg) || I2OSP(ctr, 1)\r\n```\r\n\r\nEDIT: or, maybe slightly preferable so that \"prehash-for-free\" still works:\r\n\r\n```\r\nm' = \"HASH-TO-CURVE\" || ciphersuite || H(msg) || I2OSP(ctr, 1)\r\n```\r\n\r\nNote that the string \"HASH-TO-CURVE\" ensures domain separation even from other protocols that use a 4-byte ciphersuite tag. It might be nice for protocols to adopt this approach more genreally.\r\n\r\n(Actually, I kind of like the idea of using the RFC number (e.g., \"RFC1234\" for RFC 1234's domain separation string), but that has the downside that the protocol's test vectors can't be finalized until the RFC number is assigned.)\r\n\r\nThoughts on the above two proposals? Any other issues we should consider?"
+    "body": "Chris and I discussed the issue of ciphersuites and domain separation in hash-to-curve. Put concisely, the question is, should hash-to-curve provide domain separation among the suites, or should domain separation be left to the upper-level protocol? We decided that the best way to proceed is to get feedback from the CFRG list by coming up with and sending two specific proposals along with a discussion of pros and cons.\r\n\r\nFrom chatting with the BLS and VRF folks, my impression is that they prefer to keep ciphersuites out of hash-to-curve. Their argument is (paraphrasing), the upper-level protocol needs to ensure domain separation, so what's the point of doing it redundantly in hash-to-curve? There was also serious concern about variable-length ciphersuite strings (currently used in the poc impls but not specified in the document), because that is a potential source of confusion and bugs. [Right now](https://github.com/pairingwg/bls_standard/blob/master/minutes/spec-v1.md), the BLS sigs standard is proceeding with no ciphersuite in hash-to-curve, only in the BLS signature itself.\r\n\r\nBut there may be room to meet in the middle. For example, it would be essentially free to add a short, fixed-length ciphersuite (say, <20 bytes) in hash2base. It might be worth running this by the BLS and VRF folks before we go to the list, to hear out the likely objectors first and see if we can get buy-in.\r\n\r\nConcretely, I propose that we consider the following two options.\r\n\r\n#### option 1: no ciphersuite\r\n\r\nThis preserves the current version of hash2base as specified in the document. The important line is the one in which msg gets hashed. In the current version, that's\r\n\r\n```\r\nm' = H(msg) || I2OSP(ctr, 1)\r\n```\r\n\r\n#### option 2: fixed string + 4-byte ciphersuite in hash2base\r\n\r\n```\r\nm' = H(\"HASH-TO-CURVE\" || ciphersuite || msg) || I2OSP(ctr, 1)\r\n```\r\n\r\nEDIT: or, maybe slightly preferable so that \"prehash-for-free\" still works:\r\n\r\n```\r\nm' = \"HASH-TO-CURVE\" || ciphersuite || H(msg) || I2OSP(ctr, 1)\r\n```\r\n\r\nEDIT 2: I think it's safe to assume that \"ciphersuite\" here would be generated following something like the procedure in [this comment, below](https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/124#issuecomment-507069455). This avoids issues with ciphersuites for curves not discussed in the spec document.\r\n\r\nNote that the string \"HASH-TO-CURVE\" ensures domain separation even from other protocols that use a 4-byte ciphersuite tag. It might be nice for protocols to adopt this approach more genreally.\r\n\r\n(Actually, I kind of like the idea of using the RFC number (e.g., \"RFC1234\" for RFC 1234's domain separation string), but that has the downside that the protocol's test vectors can't be finalized until the RFC number is assigned.)\r\n\r\nThoughts on the above two proposals? Any other issues we should consider?"
   },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/123",
@@ -1277,7 +1535,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Right now the document gives straight-line procedures for evaluating each map, which seem to be aimed at being general purpose.\r\n\r\nWe've discussed in #104 an alternative approach in which these straight-line implementations are geared toward *specific* curves (e.g., standardized and widely-used curves). This would likely be more useful for implementors, both because they would be able to port these directly (rather than having to understand and adapt the generic procedures) and because it would allow us to roll in more optimizations.\r\n\r\nThe `poc/` directory gives us a good start on the list of curves that should be supported in this way. I'm happy to propose a list of curves and write down optimized straight-line implementations for each."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/110",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -1517,10 +1778,7 @@
     "closed_at": "2019-05-31T17:12:51Z",
     "author_association": "COLLABORATOR",
     "body": "@chris-wood suggested splitting the sqrt description into three separate cases:\r\n\r\n> Perhaps we should re-write this section as a series of algorithms for the different conditions? That might help ease implementation should people choose to use one of them.\r\n\r\n_Originally posted by @chris-wood in https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/104_"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/105",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -1564,10 +1822,10 @@
     "milestone": null,
     "comments": 3,
     "created_at": "2019-05-19T04:58:33Z",
-    "updated_at": "2019-06-05T15:05:48Z",
+    "updated_at": "2019-07-03T03:30:23Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
-    "body": "In a previous commit I tried to improve consistency for spacing around math operators, but I didn't quite catch them all.\r\n\r\nI think the biggest remaining one is whether `=` should have surrounding spaces or not.\r\n\r\nTODO: implement consistent style"
+    "body": "In a previous commit I tried to improve consistency for spacing around math operators, but I didn't quite catch them all.\r\n\r\n~~I think the biggest remaining one is whether `=` should have surrounding spaces or not.~~ done (#136)\r\n\r\nTODO: implement consistent style"
   },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/104",
@@ -2789,7 +3047,10 @@
     "closed_at": "2019-03-01T16:25:26Z",
     "author_association": "COLLABORATOR",
     "body": "The purpose of the document is to avoid this bad practice (hash&increment), maybe it must be deprecated or recommended at last resort.\r\n@grittygrease "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/80",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3047,10 +3308,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/76.patch"
     },
     "body": "Fixes #66 ."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/75",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4329,7 +4587,10 @@
     "closed_at": "2018-10-09T05:19:51Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/50",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4569,10 +4830,7 @@
     "closed_at": "2019-02-07T15:41:15Z",
     "author_association": "NONE",
     "body": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/blob/fdb70a5f0c836a4ab8090c5a84952c688e5ccc35/draft-irtf-cfrg-hash-to-curve.txt#L350\r\n\r\nThe CMOV called for in the draft is quite general: it allows the condition to be not only 1 or 0, but any value. The uses of CMOV later in the draft rely on this. However, it is more complicated to implement a time-invariant CMOV for such a case. In fact, OpenSSL's CMOV assumes 0 or 1 (see https://github.com/openssl/openssl/blob/7d38ca3f8bca58bf7b69e78c1f1ab69e5f429dff/crypto/ec/curve25519.c#L1475), and thus the more general CMOV may be unavailable to a developer. Moreover, a developer may not realize that the CMOV available in code is not the same as the more powerful CMOV called for in the draft, because the name is the same."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/45",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -5960,7 +6218,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/21.patch"
     },
     "body": "WIP on new recommendations table.\r\n\r\nCan use this to start filling out with any applications we want to cover?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/20",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6256,10 +6517,7 @@
     "closed_at": "2019-03-01T16:25:43Z",
     "author_association": "COLLABORATOR",
     "body": "https://link.springer.com/chapter/10.1007/978-3-642-33481-8_1\r\nhttp://ieeexplore.ieee.org/abstract/document/6827966/\r\n\r\nThe technique builds on SWU and Icart's variant, with a new encoding function suitable for BN curves."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/15",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
