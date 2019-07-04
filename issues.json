@@ -1,6 +1,60 @@
 [
 
   {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/141",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/141/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/141/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/141/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/141",
+    "id": 464328690,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjk0NjMyMTIw",
+    "number": 141,
+    "title": "Replace hash_to_base PRG with HKDF-Expand.",
+    "user": {
+      "login": "chris-wood",
+      "id": 2172048,
+      "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chris-wood",
+      "html_url": "https://github.com/chris-wood",
+      "followers_url": "https://api.github.com/users/chris-wood/followers",
+      "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+      "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+      "repos_url": "https://api.github.com/users/chris-wood/repos",
+      "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-04T15:49:15Z",
+    "updated_at": "2019-07-04T15:49:22Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/141",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/141",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/141.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/141.patch"
+    },
+    "body": "Addresses #137."
+  },
+  {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/140",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/140/labels{/name}",
@@ -91,7 +145,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-07-03T06:30:39Z",
-    "updated_at": "2019-07-03T18:30:19Z",
+    "updated_at": "2019-07-03T21:53:22Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -143,9 +197,9 @@
 
     ],
     "milestone": null,
-    "comments": 3,
+    "comments": 4,
     "created_at": "2019-07-03T00:22:47Z",
-    "updated_at": "2019-07-03T18:41:28Z",
+    "updated_at": "2019-07-04T02:47:21Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -197,9 +251,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2019-07-02T22:20:40Z",
-    "updated_at": "2019-07-02T22:44:07Z",
+    "updated_at": "2019-07-03T20:55:43Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Dan Boneh points out that there's little reason to roll our own PRG inside hash_to_base. Instead, he suggests using [HKDF](https://tools.ietf.org/html/rfc5869).\r\n\r\n(I have to admit, I'm slightly annoyed at myself for having failed to consider this option. Sorry, folks.)\r\n\r\nWhile this makes hash_to_base slightly more expensive, the difference in cost is negligible compared to the end-to-end cost of hashing to a curve.\r\n\r\nThe main issues I see with taking this approach are:\r\n\r\n- is there a way to get \"prehash for free\" as in the current approach?\r\n- is there a compatibility story for the BLS signatures standard?\r\n\r\n@hoeteck, thoughts on how this might play out with BLS? I can imagine there isn't a huge appetite for this change. On the other hand, I wonder if we can really justify using a hash_to_base function that lacks rigorous analysis when the (arguably) \"right thing\" is kind of well known?"
@@ -1487,7 +1541,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Moving these from #104.\r\n\r\n- [ ] consider removing unused implementations (e.g., ell2edwards, fouquetibouchi)\r\n\r\n- [ ] update test vectors\r\n\r\n- [ ] update hacspec implementations to cover new encodings\r\n\r\n- [ ] clear cofactors to match the document\r\n\r\n- [ ] edwards448: use 4-isogeny from RFC7748 rather than current rational map"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/111",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -1535,10 +1592,7 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Right now the document gives straight-line procedures for evaluating each map, which seem to be aimed at being general purpose.\r\n\r\nWe've discussed in #104 an alternative approach in which these straight-line implementations are geared toward *specific* curves (e.g., standardized and widely-used curves). This would likely be more useful for implementors, both because they would be able to port these directly (rather than having to understand and adapt the generic procedures) and because it would allow us to roll in more optimizations.\r\n\r\nThe `poc/` directory gives us a good start on the list of curves that should be supported in this way. I'm happy to propose a list of curves and write down optimized straight-line implementations for each."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/110",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -2999,7 +3053,10 @@
     "closed_at": "2019-06-04T15:38:24Z",
     "author_association": "COLLABORATOR",
     "body": "### background\r\nThe `sqrt(x)` function mathematically provides two correct answers, say r0, r1 \\in Fp such that `r0^2=r1^2=x` and r0+r1 = p\r\n### issue\r\nMost of the encoding papers prove how to obtain points on a elliptic curve internally using the `sqrt` function and this is enough for mathematical purposes. \r\nHowever, for implementation purposes this could bring a source of errors/incompatibilities if the `sqrt` function is not defined accordingly. \r\nI see two options to fix this issue:\r\n\r\n1. Declare explicitly how to compute the `sqrt` function for each case. Although that for `p=3 mod 4` is easy, the remainder cases are not easy to state.\r\n\r\n2. Declare explicitly which root to choose. Relying on math, the document can state, for example, that the valid root to use is the one that is odd (or even). It is known that either `r0` or `r1` will be odd. This allows the implementer to use the best-known algorithm for computing `sqrt` as soon as the root returned by it be the one that is odd (or even).\r\n\r\nI believe that Option 2 is suitable and more flexible. \r\nHappy to hear your comments about it.\r\n\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/81",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3047,10 +3104,7 @@
     "closed_at": "2019-03-01T16:25:26Z",
     "author_association": "COLLABORATOR",
     "body": "The purpose of the document is to avoid this bad practice (hash&increment), maybe it must be deprecated or recommended at last resort.\r\n@grittygrease "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/80",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4539,7 +4593,10 @@
     "closed_at": "2019-06-03T22:48:04Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/51",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4587,10 +4644,7 @@
     "closed_at": "2018-10-09T05:19:51Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/50",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6164,7 +6218,10 @@
     "closed_at": "2019-02-10T00:06:38Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/21",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6218,10 +6275,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/21.patch"
     },
     "body": "WIP on new recommendations table.\r\n\r\nCan use this to start filling out with any applications we want to cover?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/20",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
