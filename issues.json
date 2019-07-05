@@ -1,6 +1,60 @@
 [
 
   {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/142",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/142/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/142/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/142/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/142",
+    "id": 464416406,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjk0NzAwNDM1",
+    "number": 142,
+    "title": "remove out-of-date test vectors",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-05T00:01:50Z",
+    "updated_at": "2019-07-05T00:01:50Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/142",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/142",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/142.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/142.patch"
+    },
+    "body": "...but promise to return them in the future :)\r\n\r\nIf we get the poc code updated in time, we can put these back before submitting the draft."
+  },
+  {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/141",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/141/labels{/name}",
@@ -41,9 +95,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 4,
     "created_at": "2019-07-04T15:49:15Z",
-    "updated_at": "2019-07-04T15:49:22Z",
+    "updated_at": "2019-07-05T03:46:28Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -95,9 +149,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2019-07-03T12:40:53Z",
-    "updated_at": "2019-07-03T12:41:49Z",
+    "updated_at": "2019-07-05T00:04:22Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "This seems like a low-priority issue, but wanted to get the thoughts down\r\nfor future discussion:\r\n\r\nLooking ahead to where we will realistically fall on ciphersuite definitions,\r\nit is unlikely that aspects such as specific constants (e.g. quadratic non-residues),\r\nand even the scalar used for cofactor clearing (in the case of optimised\r\nimplementations) will be explicit in the ciphersuite **label**, despite\r\nbeing explicit in the definition itself.\r\n\r\nIn the future, there is a chance that different choices will be desired, \r\nfor example, due to new algorithmic improvements. Changing these requires\r\na new ciphersuite tag, else implementations may become incompatible.\r\n\r\nThis leaves open the question of versioning the ciphersuites themselves,\r\nsince we may want a \"v2\" of a ciphersuite.\r\n\r\nHowever, this possibility seems low enough probability that forcing a \"v1\"\r\nsuffix onto all existing ciphersuites seems unnecessary.\r\nOne solution seems to be considering future extensions to the draft to\r\nallow changing \"curvexxx-hashyyy-mapzzz-ro\" to simply \"curvexxx-hashyyy-mapzzz-ro-v2\"\r\nin such an scenario.\r\n"
@@ -136,7 +190,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -145,8 +199,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-07-03T06:30:39Z",
-    "updated_at": "2019-07-03T21:53:22Z",
-    "closed_at": null,
+    "updated_at": "2019-07-04T23:58:22Z",
+    "closed_at": "2019-07-04T21:18:53Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/139",
@@ -199,7 +253,7 @@
     "milestone": null,
     "comments": 4,
     "created_at": "2019-07-03T00:22:47Z",
-    "updated_at": "2019-07-04T02:47:21Z",
+    "updated_at": "2019-07-04T23:53:40Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -661,10 +715,10 @@
     "milestone": null,
     "comments": 9,
     "created_at": "2019-06-25T15:38:36Z",
-    "updated_at": "2019-07-03T03:29:43Z",
+    "updated_at": "2019-07-05T00:06:52Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
-    "body": "The deadline for getting drafts updated before IETF 105 is [July 8th](https://datatracker.ietf.org/meeting/105/important-dates/). This is an attempt at triaging the open issues and known TODOs to hit that date.\r\n\r\nPlease let me know if anything seems to be miscategorized!\r\n\r\n## Really should have\r\n\r\n- [x] Definitions: maps, encodings, etc. (#127, #128) - making sure that the definitions and high-level framing are clear is important for getting useful feedback on the next draft. Plus, these should be very close to converging!\r\n\r\n- [x] Fix point conversions for Edwards -> Montgomery to agree with existing RFCs (#107) - see second comment in linked issue. VRF won't reference us until this is fixed. #132 handles this.\r\n\r\n- [ ] Update list of suites / decide on suite scope (#96, #126) - my hope is that we can take an initial cut at this and then solicit feedback.\r\n\r\n- [ ] Cofactor clearing (#95) - @chris-wood and I discussed including \"cofactor clearing value\" in the suites table. For curves that have optimized cofactor clearing (generally, pairing-friendly curves), this is sufficient to make sure that people who don't implement the optimization can still output the correct point via scalar multiplication. Adding a column in the suites table addresses this.\r\n\r\n## Nice to have\r\n\r\n- [ ] Submit PR to VRF folks to refer to this draft rather than describing its own version of hash-to-curve - not sure if we can coordinate this in time, but we should try!\r\n\r\n- [ ] Projective coordinates / optimized implementations (#4, #43, #109, #111, #117) - once we have an updated list of suites, we should put optimized impls in the appx.\r\n\r\n- [ ] Domain separation (#124) - the discussion in the issue seems at this point to have identified the main pros and cons, so it seems like we should open this up for discussion on-list or at the meeting. We might not get this feedback in time, but we should try.\r\n\r\n## Not a blocker\r\n\r\n- [ ] Flow chart (#63, #118) - these will be very useful, but (as far as I know) we can't include non-ASCII diagrams in the draft, so it probably doesn't make sense to spend too much time on these before the deadline.\r\n\r\n- [ ] Code quality (#98, #112) - reference code isn't gated by the draft process, so we can de-prioritize.\r\n\r\n- [ ] style nits (#105, #110) - would be great to cover these, but not a killer if we don't."
+    "body": "The deadline for getting drafts updated before IETF 105 is [July 8th](https://datatracker.ietf.org/meeting/105/important-dates/). This is an attempt at triaging the open issues and known TODOs to hit that date.\r\n\r\nPlease let me know if anything seems to be miscategorized!\r\n\r\n## Really should have\r\n\r\n- [x] Definitions: maps, encodings, etc. (#127, #128) - making sure that the definitions and high-level framing are clear is important for getting useful feedback on the next draft. Plus, these should be very close to converging!\r\n\r\n- [x] Fix point conversions for Edwards -> Montgomery to agree with existing RFCs (#107) - see second comment in linked issue. VRF won't reference us until this is fixed. #132 handles this.\r\n\r\n- [ ] Update list of suites / decide on suite scope (#96, #126) - my hope is that we can take an initial cut at this and then solicit feedback.\r\n\r\n- [ ] Cofactor clearing (#95) - @chris-wood and I discussed including \"cofactor clearing value\" in the suites table. For curves that have optimized cofactor clearing (generally, pairing-friendly curves), this is sufficient to make sure that people who don't implement the optimization can still output the correct point via scalar multiplication. Adding a column in the suites table addresses this.\r\n\r\n## Nice to have\r\n\r\n- [ ] Submit PR to VRF folks to refer to this draft rather than describing its own version of hash-to-curve - not sure if we can coordinate this in time, but we should try!\r\n   \r\n   (EDIT: I'm in a conversation with the VRF folks about this. Looks like we won't make it before July 8th, but that's fine---we'll make it happen as we can.)\r\n\r\n- [ ] Projective coordinates / optimized implementations (#4, #43, #109, #111, #117) - once we have an updated list of suites, we should put optimized impls in the appx.\r\n\r\n- [x] Domain separation (#124) - the discussion in the issue seems at this point to have identified the main pros and cons, so it seems like we should open this up for discussion on-list or at the meeting. We might not get this feedback in time, but we should try.\r\n   \r\n   (EDIT: marked this completed because #139 landed. Not sure if that means we can close #124, though.)\r\n\r\n## Not a blocker\r\n\r\n- [ ] Flow chart (#63, #118) - these will be very useful, but (as far as I know) we can't include non-ASCII diagrams in the draft, so it probably doesn't make sense to spend too much time on these before the deadline.\r\n\r\n- [ ] Code quality (#98, #112) - reference code isn't gated by the draft process, so we can de-prioritize.\r\n\r\n- [ ] style nits (#105, #110) - would be great to cover these, but not a killer if we don't."
   },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/128",
@@ -1493,7 +1547,10 @@
     "closed_at": "2019-06-04T21:16:53Z",
     "author_association": "COLLABORATOR",
     "body": "Moved from #104 \r\n\r\n- [x] Consider mentioning related work on points-as-bitstrings (Elligator, Elligator Squared, Binary Elligator Squared)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/112",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -1541,10 +1598,7 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Moving these from #104.\r\n\r\n- [ ] consider removing unused implementations (e.g., ell2edwards, fouquetibouchi)\r\n\r\n- [ ] update test vectors\r\n\r\n- [ ] update hacspec implementations to cover new encodings\r\n\r\n- [ ] clear cofactors to match the document\r\n\r\n- [ ] edwards448: use 4-isogeny from RFC7748 rather than current rational map"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/111",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3005,7 +3059,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/83.patch"
     },
     "body": "Fixes: issue #80\r\n\r\nChanges:\r\n - Description of HashToBase in main document.\r\n - Sage scripts updated.\r\n - SWU test vectors were updated."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/82",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3053,10 +3110,7 @@
     "closed_at": "2019-06-04T15:38:24Z",
     "author_association": "COLLABORATOR",
     "body": "### background\r\nThe `sqrt(x)` function mathematically provides two correct answers, say r0, r1 \\in Fp such that `r0^2=r1^2=x` and r0+r1 = p\r\n### issue\r\nMost of the encoding papers prove how to obtain points on a elliptic curve internally using the `sqrt` function and this is enough for mathematical purposes. \r\nHowever, for implementation purposes this could bring a source of errors/incompatibilities if the `sqrt` function is not defined accordingly. \r\nI see two options to fix this issue:\r\n\r\n1. Declare explicitly how to compute the `sqrt` function for each case. Although that for `p=3 mod 4` is easy, the remainder cases are not easy to state.\r\n\r\n2. Declare explicitly which root to choose. Relying on math, the document can state, for example, that the valid root to use is the one that is odd (or even). It is known that either `r0` or `r1` will be odd. This allows the implementer to use the best-known algorithm for computing `sqrt` as soon as the root returned by it be the one that is odd (or even).\r\n\r\nI believe that Option 2 is suitable and more flexible. \r\nHappy to hear your comments about it.\r\n\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/81",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4545,7 +4599,10 @@
     "closed_at": "2019-02-09T21:25:58Z",
     "author_association": "COLLABORATOR",
     "body": "Currently the return statement of Elligator 2 is\r\n\r\n```\r\n19. Output (u, f(u))\r\n```\r\nBut this should be `sqrt(f(u))`.\r\nHowever, this requires guidance on which square root to choose."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/52",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4593,10 +4650,7 @@
     "closed_at": "2019-06-03T22:48:04Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/51",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6170,7 +6224,10 @@
     "closed_at": "2019-01-26T01:35:39Z",
     "author_association": "COLLABORATOR",
     "body": "See https://eprint.iacr.org/2010/539 for details."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/22",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6218,10 +6275,7 @@
     "closed_at": "2019-02-10T00:06:38Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/21",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
