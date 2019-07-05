@@ -815,7 +815,7 @@ Steps:
 <p id="rfc.section.5.1.p.3">For example, for 128-bit security, b &gt;= 256 bits; in this case, SHA256 would be an appropriate choice for H.</p>
 <p id="rfc.section.5.1.p.4">Ensuring that the hash_to_base output is a uniform random element of F requires care, even when H outputs a uniformly random string. For example, if H is SHA256 and F is a field of characteristic p = 2^255 - 19, then the result of reducing H(msg) (a 256-bit integer) modulo p is slightly more likely to be in [0, 38] than if the value were selected uniformly at random.  In this example the bias is negligible, but in general it can be significant.</p>
 <p id="rfc.section.5.1.p.5">To control bias, the input msg should be hashed to an integer comprising at least ceil(log2(p)) + k bits; reducing this integer modulo p gives bias at most 2^-k, which is a safe choice for a cryptosystem with k-bit security.  To obtain such an integer, HKDF <a href="#RFC5869" class="xref">[RFC5869]</a> is used to expand the input msg to a L-byte string, where L = ceil((ceil(log2(p)) + k) / 8); this string is then interpreted as an integer via OS2IP <a href="#RFC8017" class="xref">[RFC8017]</a>. For example, for p a 255-bit prime and k = 128-bit security, L = ceil((255 + 128) / 8) = 48 bytes.</p>
-<p><a href="#domain-separation" class="xref">Section 3.1</a> discusses requirements for domain separation and recommendations for choosing domain separation tags.  The hash_to_curve function takes such a tag as a parameter, DST; this is the RECOMMENDED way of applying domain separation.  As an alternative, implementations MAY instead prepend a domain separation tag to the input msg; in this case, DST SHOULD be the empty string.</p>
+<p><a href="#domain-separation" class="xref">Section 3.1</a> discusses requirements for domain separation and recommendations for choosing domain separation tags. The hash_to_curve function takes such a tag as a parameter, DST; this is the recommended way of applying domain separation. As an alternative, implementations MAY instead prepend a domain separation tag to the input msg; in this case, DST SHOULD be the empty string.</p>
 <p><a href="#hashtobase-impl" class="xref">Section 5.3</a> details the hash_to_base procedure.</p>
 <p id="rfc.section.5.1.p.8">Note that implementors SHOULD NOT use rejection sampling to generate a uniformly random element of F.  The reason is that these procedures are difficult to implement in constant time, and later well-meaning &#8220;optimizations&#8221; may silently render an implementation non-constant-time.</p>
 <h1 id="rfc.section.5.2">
@@ -832,12 +832,11 @@ Steps:
 hash_to_base(msg, ctr)
 
 Parameters:
-- DSS, a domain separation string chosen according to the
-  guidelines given in {{domain-separation}}.
+- DST, a domain separation tag (see discussion above).
 - H, a cryptographic hash function.
 - F, a finite field of characteristic p and order q = p^m.
-- L = ceil((ceil(log2(p)) + k) / 8), where k is the security parameter
-  of the cryptosystem (e.g., k = 128).
+- L = ceil((ceil(log2(p)) + k) / 8), where k is the security
+  parameter of the cryptosystem (e.g., k = 128).
 - HKDF-Extract-H is the HKDF-Extract function of RFC5869
   instantiated with hash function H.
 - HKDF-Expand-H is the HKDF-Expand function of RFC5869
