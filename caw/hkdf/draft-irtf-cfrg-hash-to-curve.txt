@@ -775,9 +775,9 @@ Internet-Draft                hash-to-curve                    July 2019
 
 5.2.  Performance considerations
 
-   Since hash_to_base may invoke H multiple times (Section 5.1), its
-   performance may be limited by the length of the input msg.  To
-   address this, hash_to_base first computes H(msg) and then derives the
+   The hash_to_base function uses HKDF-Extract to combine the input msg
+   and domain separation tag DST into a short digest, which is then
+   passed to HKDF-Expand [RFC5869].  For short messages, this entails at
 
 
 
@@ -786,29 +786,29 @@ Faz-Hernandez, et al.    Expires January 6, 2020               [Page 14]
 Internet-Draft                hash-to-curve                    July 2019
 
 
-   required bits from this value via further invocations of H.  For
-   short messages this entails one extra invocation of H, which is a
-   negligible overhead in the context of hashing to elliptic curves.
+   most two extra invocations of H, which is a negligible overhead in
+   the context of hashing to elliptic curves.
 
-   A related issue is that the random oracle construction of
-   Section 2.2.3 requires evaluating two independent hash functions H0
-   and H1 on msg.  A standard way to instantiate independent hashes is
-   to append a counter to the value being hashed, e.g., H(msg || 0) and
+   A related issue is that the random oracle construction described in
+   Section 3 requires evaluating two independent hash functions H0 and
+   H1 on msg.  A standard way to instantiate independent hashes is to
+   append a counter to the value being hashed, e.g., H(msg || 0) and
    H(msg || 1).  If msg is long, however, this is either inefficient
    (because it entails hashing msg twice) or requires non-black-box use
    of H (e.g., partial evaluation).
 
    To sidestep both of these issues, hash_to_base takes a second
-   argument, ctr, which it appends to H(msg) rather than to msg.  This
-   means that two invocations of hash_to_base on the same msg with
-   different ctr values both start by computing the value H(msg).  This
-   is an improvement because it allows sharing one evaluation of H(msg)
-   among multiple invocations of hash_to_base, by factoring out the
-   common computation.
+   argument, ctr, which it passes to HKDF-Expand.  This means that two
+   invocations of hash_to_base on the same msg with different ctr values
+   both start with identical invocations of HKDF-Extract.  This is an
+   improvement because it allows sharing one evaluation of HKDF-Extract
+   among multiple invocations of hash_to_base, i.e., by factoring out
+   the common computation.
 
 5.3.  Implementation
 
    The following procedure implements hash_to_base.
+
 
 
 
