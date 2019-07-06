@@ -338,7 +338,7 @@ ul.toc li {
 
   <meta name="dct.creator" content="Faz-Hernandez, A., Scott, S., Sullivan, N., Wahby, R., and C. Wood" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-irtf-cfrg-hash-to-curve-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-07-05" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-07-06" />
   <meta name="dct.abstract" content="This document specifies a number of algorithms that may be used to encode or hash an arbitrary string to a point on an elliptic curve." />
   <meta name="description" content="This document specifies a number of algorithms that may be used to encode or hash an arbitrary string to a point on an elliptic curve." />
 
@@ -362,7 +362,7 @@ ul.toc li {
 <td class="right">S. Scott</td>
 </tr>
 <tr>
-<td class="left">Expires: January 6, 2020</td>
+<td class="left">Expires: January 7, 2020</td>
 <td class="right">Cornell Tech</td>
 </tr>
 <tr>
@@ -391,7 +391,7 @@ ul.toc li {
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">July 05, 2019</td>
+<td class="right">July 06, 2019</td>
 </tr>
 
     	
@@ -407,7 +407,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on January 6, 2020.</p>
+<p>This Internet-Draft will expire on January 7, 2020.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -790,15 +790,16 @@ Steps:
 </ol>
 <p id="rfc.section.5.1.p.3">For example, for 128-bit security, b &gt;= 256 bits; in this case, SHA256 would be an appropriate choice for H.</p>
 <p id="rfc.section.5.1.p.4">Ensuring that the hash_to_base output is a uniform random element of F requires care, even when H outputs a uniformly random string. For example, if H is SHA256 and F is a field of characteristic p = 2^255 - 19, then the result of reducing H(msg) (a 256-bit integer) modulo p is slightly more likely to be in [0, 38] than if the value were selected uniformly at random.  In this example the bias is negligible, but in general it can be significant.</p>
-<p id="rfc.section.5.1.p.5">To control bias, the input msg should be hashed to an integer comprising at least ceil(log2(p)) + k bits; reducing this integer modulo p gives bias at most 2^-k, which is a safe choice for a cryptosystem with k-bit security.  To obtain such an integer, hash H with b-bit output should be evaluated W = ceil((ceil(log2(p)) + k) / b) times and the results concatenated to produce a (W * b)-bit integer. For example, for H = SHA256, k = 128-bit security, and p a 256-bit prime, W = ceil((256 + 128) / 256) = 2.</p>
+<p id="rfc.section.5.1.p.5">To control bias, the input msg should be hashed to an integer comprising at least ceil(log2(p)) + k bits; reducing this integer modulo p gives bias at most 2^-k, which is a safe choice for a cryptosystem with k-bit security.  To obtain such an integer, HKDF <a href="#RFC5869" class="xref">[RFC5869]</a> is used to expand the input msg to a L-byte string, where L = ceil((ceil(log2(p)) + k) / 8); this string is then interpreted as an integer via OS2IP <a href="#RFC8017" class="xref">[RFC8017]</a>. For example, for p a 255-bit prime and k = 128-bit security, L = ceil((255 + 128) / 8) = 48 bytes.</p>
+<p><a href="#domain-separation" class="xref">Section 3.1</a> discusses requirements for domain separation and recommendations for choosing domain separation tags. The hash_to_curve function takes such a tag as a parameter, DST; this is the recommended way of applying domain separation. As an alternative, implementations MAY instead prepend a domain separation tag to the input msg; in this case, DST SHOULD be the empty string.</p>
 <p><a href="#hashtobase-impl" class="xref">Section 5.3</a> details the hash_to_base procedure.</p>
-<p id="rfc.section.5.1.p.7">Note that implementors SHOULD NOT use rejection sampling to generate a uniformly random element of F.  The reason is that these procedures are difficult to implement in constant time, and later well-meaning &#8220;optimizations&#8221; may silently render an implementation non-constant-time.</p>
+<p id="rfc.section.5.1.p.8">Note that implementors SHOULD NOT use rejection sampling to generate a uniformly random element of F.  The reason is that these procedures are difficult to implement in constant time, and later well-meaning &#8220;optimizations&#8221; may silently render an implementation non-constant-time.</p>
 <h1 id="rfc.section.5.2">
 <a href="#rfc.section.5.2">5.2.</a> <a href="#hashtobase-perf" id="hashtobase-perf">Performance considerations</a>
 </h1>
-<p id="rfc.section.5.2.p.1">Since hash_to_base may invoke H multiple times (<a href="#hashtobase-sec" class="xref">Section 5.1</a>), its performance may be limited by the length of the input msg.  To address this, hash_to_base first computes H(msg) and then derives the required bits from this value via further invocations of H.  For short messages this entails one extra invocation of H, which is a negligible overhead in the context of hashing to elliptic curves.</p>
-<p id="rfc.section.5.2.p.2">A related issue is that the random oracle construction of <a href="#term-rom" class="xref">Section 2.2.3</a> requires evaluating two independent hash functions H0 and H1 on msg.  A standard way to instantiate independent hashes is to append a counter to the value being hashed, e.g., H(msg || 0) and H(msg || 1).  If msg is long, however, this is either inefficient (because it entails hashing msg twice) or requires non-black-box use of H (e.g., partial evaluation).</p>
-<p id="rfc.section.5.2.p.3">To sidestep both of these issues, hash_to_base takes a second argument, ctr, which it appends to H(msg) rather than to msg.  This means that two invocations of hash_to_base on the same msg with different ctr values both start by computing the value H(msg).  This is an improvement because it allows sharing one evaluation of H(msg) among multiple invocations of hash_to_base, by factoring out the common computation.</p>
+<p id="rfc.section.5.2.p.1">The hash_to_base function uses HKDF-Extract to combine the input msg and domain separation tag DST into a short digest, which is then passed to HKDF-Expand <a href="#RFC5869" class="xref">[RFC5869]</a>.  For short messages, this entails at most two extra invocations of H, which is a negligible overhead in the context of hashing to elliptic curves.</p>
+<p id="rfc.section.5.2.p.2">A related issue is that the random oracle construction described in <a href="#roadmap" class="xref">Section 3</a> requires evaluating two independent hash functions H0 and H1 on msg.  A standard way to instantiate independent hashes is to append a counter to the value being hashed, e.g., H(msg || 0) and H(msg || 1).  If msg is long, however, this is either inefficient (because it entails hashing msg twice) or requires non-black-box use of H (e.g., partial evaluation).</p>
+<p id="rfc.section.5.2.p.3">To sidestep both of these issues, hash_to_base takes a second argument, ctr, which it passes to HKDF-Expand.  This means that two invocations of hash_to_base on the same msg with different ctr values both start with identical invocations of HKDF-Extract.  This is an improvement because it allows sharing one evaluation of HKDF-Extract among multiple invocations of hash_to_base, i.e., by factoring out the common computation.</p>
 <h1 id="rfc.section.5.3">
 <a href="#rfc.section.5.3">5.3.</a> <a href="#hashtobase-impl" id="hashtobase-impl">Implementation</a>
 </h1>
@@ -807,27 +808,30 @@ Steps:
 hash_to_base(msg, ctr)
 
 Parameters:
-- H, a cryptographic hash function producing b bits.
+- DST, a domain separation tag (see discussion above).
+- H, a cryptographic hash function.
 - F, a finite field of characteristic p and order q = p^m.
-- W = ceil((ceil(log2(p)) + k) / b), where k is the security
+- L = ceil((ceil(log2(p)) + k) / 8), where k is the security
   parameter of the cryptosystem (e.g., k = 128).
+- HKDF-Extract and HKDF-Expand are as defined in RFC5869, 
+  instantiated with the hash function H.
 
 Inputs:
 - msg is the message to hash.
-- ctr is either 0, 1, or 2.
+- ctr is 0, 1, or 2.
   This is used to efficiently create independent
   instances of hash_to_base (see discussion above).
 
-Output: u, an element in F.
+Output:
+- u, an element in F.
 
 Steps:
-1. m' = "HASH-TO-CURVE" || H(msg) || I2OSP(ctr, 1)
+1. m' = HKDF-Extract(DST, msg)
 2. for i in (1, ..., m):
-3.   t = ""     // initialize t to the empty string
-4.   for j in (1, ..., W):
-5.     t = t || H( m' || I2OSP(i, 1) || I2OSP(j, 1) )
-6.   e_i = OS2IP(t) mod p
-7. return u = ( e_1, ..., e_m )
+3.   info = "H2C" || I2OSP(ctr, 1) || I2OSP(i, 1)
+4.   t = HKDF-Expand(m', info, L)
+5.   e_i = OS2IP(t) mod p
+6. return u = (e_1, ..., e_m)
 </pre>
 <h1 id="rfc.section.6">
 <a href="#rfc.section.6">6.</a> <a href="#mappings" id="mappings">Deterministic Mappings</a>
@@ -1487,6 +1491,11 @@ E': y^2 = g'(x) = x^3 + A' * x + B'
 <td class="reference"><b id="RFC2119">[RFC2119]</b></td>
 <td class="top">
 <a>Bradner, S.</a>, "<a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC5869">[RFC5869]</b></td>
+<td class="top">
+<a>Krawczyk, H.</a> and <a>P. Eronen</a>, "<a href="https://tools.ietf.org/html/rfc5869">HMAC-based Extract-and-Expand Key Derivation Function (HKDF)</a>", RFC 5869, DOI 10.17487/RFC5869, May 2010.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RFC7748">[RFC7748]</b></td>

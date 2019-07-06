@@ -5,14 +5,14 @@
 Network Working Group                                   A. Faz-Hernandez
 Internet-Draft                                                Cloudflare
 Intended status: Informational                                  S. Scott
-Expires: January 6, 2020                                    Cornell Tech
+Expires: January 7, 2020                                    Cornell Tech
                                                              N. Sullivan
                                                               Cloudflare
                                                                 R. Wahby
                                                      Stanford University
                                                                  C. Wood
                                                               Apple Inc.
-                                                           July 05, 2019
+                                                           July 06, 2019
 
 
                        Hashing to Elliptic Curves
@@ -38,7 +38,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on January 6, 2020.
+   This Internet-Draft will expire on January 7, 2020.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020                [Page 1]
+Faz-Hernandez, et al.    Expires January 7, 2020                [Page 1]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -82,48 +82,48 @@ Table of Contents
      5.1.  Security considerations . . . . . . . . . . . . . . . . .  13
      5.2.  Performance considerations  . . . . . . . . . . . . . . .  14
      5.3.  Implementation  . . . . . . . . . . . . . . . . . . . . .  15
-   6.  Deterministic Mappings  . . . . . . . . . . . . . . . . . . .  15
+   6.  Deterministic Mappings  . . . . . . . . . . . . . . . . . . .  16
      6.1.  Interface . . . . . . . . . . . . . . . . . . . . . . . .  16
-     6.2.  Notation  . . . . . . . . . . . . . . . . . . . . . . . .  16
-     6.3.  Sign of the resulting point . . . . . . . . . . . . . . .  16
+     6.2.  Notation  . . . . . . . . . . . . . . . . . . . . . . . .  17
+     6.3.  Sign of the resulting point . . . . . . . . . . . . . . .  17
      6.4.  Exceptional cases . . . . . . . . . . . . . . . . . . . .  17
-     6.5.  Mappings for Weierstrass curves . . . . . . . . . . . . .  17
-       6.5.1.  Icart Method  . . . . . . . . . . . . . . . . . . . .  17
-       6.5.2.  Simplified Shallue-van de Woestijne-Ulas Method . . .  18
-     6.6.  Mappings for Montgomery curves  . . . . . . . . . . . . .  20
-       6.6.1.  Elligator 2 Method  . . . . . . . . . . . . . . . . .  21
-     6.7.  Mappings for Twisted Edwards curves . . . . . . . . . . .  23
+     6.5.  Mappings for Weierstrass curves . . . . . . . . . . . . .  18
+       6.5.1.  Icart Method  . . . . . . . . . . . . . . . . . . . .  18
+       6.5.2.  Simplified Shallue-van de Woestijne-Ulas Method . . .  19
+     6.6.  Mappings for Montgomery curves  . . . . . . . . . . . . .  21
+       6.6.1.  Elligator 2 Method  . . . . . . . . . . . . . . . . .  22
+     6.7.  Mappings for Twisted Edwards curves . . . . . . . . . . .  24
        6.7.1.  Rational maps from Montgomery to twisted Edwards
-               curves  . . . . . . . . . . . . . . . . . . . . . . .  24
-       6.7.2.  Elligator 2 Method  . . . . . . . . . . . . . . . . .  25
-     6.8.  Mappings for Supersingular curves . . . . . . . . . . . .  26
-       6.8.1.  Boneh-Franklin Method . . . . . . . . . . . . . . . .  26
-       6.8.2.  Elligator 2, A == 0 Method  . . . . . . . . . . . . .  27
-     6.9.  Mappings for Pairing-Friendly curves  . . . . . . . . . .  28
-       6.9.1.  Shallue-van de Woestijne Method . . . . . . . . . . .  28
-       6.9.2.  Simplified SWU for Pairing-Friendly Curves  . . . . .  31
-   7.  Clearing the cofactor . . . . . . . . . . . . . . . . . . . .  32
-   8.  Suites for Hashing  . . . . . . . . . . . . . . . . . . . . .  32
-   9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  33
-   10. Security Considerations . . . . . . . . . . . . . . . . . . .  33
+               curves  . . . . . . . . . . . . . . . . . . . . . . .  25
+       6.7.2.  Elligator 2 Method  . . . . . . . . . . . . . . . . .  26
+     6.8.  Mappings for Supersingular curves . . . . . . . . . . . .  27
+       6.8.1.  Boneh-Franklin Method . . . . . . . . . . . . . . . .  27
+       6.8.2.  Elligator 2, A == 0 Method  . . . . . . . . . . . . .  28
+     6.9.  Mappings for Pairing-Friendly curves  . . . . . . . . . .  29
+       6.9.1.  Shallue-van de Woestijne Method . . . . . . . . . . .  29
+       6.9.2.  Simplified SWU for Pairing-Friendly Curves  . . . . .  32
+   7.  Clearing the cofactor . . . . . . . . . . . . . . . . . . . .  33
+   8.  Suites for Hashing  . . . . . . . . . . . . . . . . . . . . .  33
+   9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  34
+   10. Security Considerations . . . . . . . . . . . . . . . . . . .  34
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020                [Page 2]
+Faz-Hernandez, et al.    Expires January 7, 2020                [Page 2]
 
 Internet-Draft                hash-to-curve                    July 2019
 
 
-   11. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  34
-   12. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  34
-   13. References  . . . . . . . . . . . . . . . . . . . . . . . . .  34
-     13.1.  Normative References . . . . . . . . . . . . . . . . . .  34
-     13.2.  Informative References . . . . . . . . . . . . . . . . .  34
-   Appendix A.  Related Work . . . . . . . . . . . . . . . . . . . .  39
+   11. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  35
+   12. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  35
+   13. References  . . . . . . . . . . . . . . . . . . . . . . . . .  35
+     13.1.  Normative References . . . . . . . . . . . . . . . . . .  35
+     13.2.  Informative References . . . . . . . . . . . . . . . . .  35
+   Appendix A.  Related Work . . . . . . . . . . . . . . . . . . . .  40
    Appendix B.  Rational maps from twisted Edwards to Weierstrass
-                and Montgomery curves  . . . . . . . . . . . . . . .  41
-   Appendix C.  Sample Code  . . . . . . . . . . . . . . . . . . . .  42
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  42
+                and Montgomery curves  . . . . . . . . . . . . . . .  42
+   Appendix C.  Sample Code  . . . . . . . . . . . . . . . . . . . .  43
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  43
 
 1.  Introduction
 
@@ -165,7 +165,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020                [Page 3]
+Faz-Hernandez, et al.    Expires January 7, 2020                [Page 3]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -221,7 +221,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020                [Page 4]
+Faz-Hernandez, et al.    Expires January 7, 2020                [Page 4]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -277,7 +277,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020                [Page 5]
+Faz-Hernandez, et al.    Expires January 7, 2020                [Page 5]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -333,7 +333,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020                [Page 6]
+Faz-Hernandez, et al.    Expires January 7, 2020                [Page 6]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -389,7 +389,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020                [Page 7]
+Faz-Hernandez, et al.    Expires January 7, 2020                [Page 7]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -445,7 +445,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020                [Page 8]
+Faz-Hernandez, et al.    Expires January 7, 2020                [Page 8]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -501,7 +501,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020                [Page 9]
+Faz-Hernandez, et al.    Expires January 7, 2020                [Page 9]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -557,7 +557,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 10]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 10]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -613,7 +613,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 11]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 11]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -669,7 +669,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 12]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 12]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -725,7 +725,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 13]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 13]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -752,11 +752,18 @@ Internet-Draft                hash-to-curve                    July 2019
    To control bias, the input msg should be hashed to an integer
    comprising at least ceil(log2(p)) + k bits; reducing this integer
    modulo p gives bias at most 2^-k, which is a safe choice for a
-   cryptosystem with k-bit security.  To obtain such an integer, hash H
-   with b-bit output should be evaluated W = ceil((ceil(log2(p)) + k) /
-   b) times and the results concatenated to produce a (W * b)-bit
-   integer.  For example, for H = SHA256, k = 128-bit security, and p a
-   256-bit prime, W = ceil((256 + 128) / 256) = 2.
+   cryptosystem with k-bit security.  To obtain such an integer, HKDF
+   [RFC5869] is used to expand the input msg to a L-byte string, where L
+   = ceil((ceil(log2(p)) + k) / 8); this string is then interpreted as
+   an integer via OS2IP [RFC8017].  For example, for p a 255-bit prime
+   and k = 128-bit security, L = ceil((255 + 128) / 8) = 48 bytes.
+
+   Section 3.1 discusses requirements for domain separation and
+   recommendations for choosing domain separation tags.  The
+   hash_to_curve function takes such a tag as a parameter, DST; this is
+   the recommended way of applying domain separation.  As an
+   alternative, implementations MAY instead prepend a domain separation
+   tag to the input msg; in this case, DST SHOULD be the empty string.
 
    Section 5.3 details the hash_to_base procedure.
 
@@ -768,79 +775,106 @@ Internet-Draft                hash-to-curve                    July 2019
 
 5.2.  Performance considerations
 
-   Since hash_to_base may invoke H multiple times (Section 5.1), its
-   performance may be limited by the length of the input msg.  To
-   address this, hash_to_base first computes H(msg) and then derives the
-   required bits from this value via further invocations of H.  For
-   short messages this entails one extra invocation of H, which is a
-   negligible overhead in the context of hashing to elliptic curves.
-
-   A related issue is that the random oracle construction of
-   Section 2.2.3 requires evaluating two independent hash functions H0
-   and H1 on msg.  A standard way to instantiate independent hashes is
+   The hash_to_base function uses HKDF-Extract to combine the input msg
+   and domain separation tag DST into a short digest, which is then
+   passed to HKDF-Expand [RFC5869].  For short messages, this entails at
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 14]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 14]
 
 Internet-Draft                hash-to-curve                    July 2019
 
 
-   to append a counter to the value being hashed, e.g., H(msg || 0) and
+   most two extra invocations of H, which is a negligible overhead in
+   the context of hashing to elliptic curves.
+
+   A related issue is that the random oracle construction described in
+   Section 3 requires evaluating two independent hash functions H0 and
+   H1 on msg.  A standard way to instantiate independent hashes is to
+   append a counter to the value being hashed, e.g., H(msg || 0) and
    H(msg || 1).  If msg is long, however, this is either inefficient
    (because it entails hashing msg twice) or requires non-black-box use
    of H (e.g., partial evaluation).
 
    To sidestep both of these issues, hash_to_base takes a second
-   argument, ctr, which it appends to H(msg) rather than to msg.  This
-   means that two invocations of hash_to_base on the same msg with
-   different ctr values both start by computing the value H(msg).  This
-   is an improvement because it allows sharing one evaluation of H(msg)
-   among multiple invocations of hash_to_base, by factoring out the
-   common computation.
+   argument, ctr, which it passes to HKDF-Expand.  This means that two
+   invocations of hash_to_base on the same msg with different ctr values
+   both start with identical invocations of HKDF-Extract.  This is an
+   improvement because it allows sharing one evaluation of HKDF-Extract
+   among multiple invocations of hash_to_base, i.e., by factoring out
+   the common computation.
 
 5.3.  Implementation
 
    The following procedure implements hash_to_base.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 15]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
    hash_to_base(msg, ctr)
 
    Parameters:
-   - H, a cryptographic hash function producing b bits.
+   - DST, a domain separation tag (see discussion above).
+   - H, a cryptographic hash function.
    - F, a finite field of characteristic p and order q = p^m.
-   - W = ceil((ceil(log2(p)) + k) / b), where k is the security
+   - L = ceil((ceil(log2(p)) + k) / 8), where k is the security
      parameter of the cryptosystem (e.g., k = 128).
+   - HKDF-Extract and HKDF-Expand are as defined in RFC5869,
+     instantiated with the hash function H.
 
    Inputs:
    - msg is the message to hash.
-   - ctr is either 0, 1, or 2.
+   - ctr is 0, 1, or 2.
      This is used to efficiently create independent
      instances of hash_to_base (see discussion above).
 
-   Output: u, an element in F.
+   Output:
+   - u, an element in F.
 
    Steps:
-   1. m' = "HASH-TO-CURVE" || H(msg) || I2OSP(ctr, 1)
+   1. m' = HKDF-Extract(DST, msg)
    2. for i in (1, ..., m):
-   3.   t = ""     // initialize t to the empty string
-   4.   for j in (1, ..., W):
-   5.     t = t || H( m' || I2OSP(i, 1) || I2OSP(j, 1) )
-   6.   e_i = OS2IP(t) mod p
-   7. return u = ( e_1, ..., e_m )
+   3.   info = "H2C" || I2OSP(ctr, 1) || I2OSP(i, 1)
+   4.   t = HKDF-Expand(m', info, L)
+   5.   e_i = OS2IP(t) mod p
+   6. return u = (e_1, ..., e_m)
 
 6.  Deterministic Mappings
 
    The mappings in this section are suitable for constructing either
    nonuniform or random oracle encodings using the constructions of
    Section 3.
-
-
-
-
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 15]
-
-Internet-Draft                hash-to-curve                    July 2019
-
 
 6.1.  Interface
 
@@ -854,6 +888,15 @@ Internet-Draft                hash-to-curve                    July 2019
    F.  Note that the point (x, y) is not a uniformly random point.  If
    uniformity is required for security, the random oracle construction
    of Section 3 MUST be used instead.
+
+
+
+
+
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 16]
+
+Internet-Draft                hash-to-curve                    July 2019
+
 
 6.2.  Notation
 
@@ -891,13 +934,6 @@ Internet-Draft                hash-to-curve                    July 2019
    it gives implementors leeway to optimize their square-root
    implementations.
 
-
-
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 16]
-
-Internet-Draft                hash-to-curve                    July 2019
-
-
 6.4.  Exceptional cases
 
    Mappings may have have exceptional cases, i.e., inputs u on which the
@@ -909,6 +945,14 @@ Internet-Draft                hash-to-curve                    July 2019
    implementations SHOULD use inv0 (Section 4) to compute multiplicative
    inverses, to avoid exceptional cases that result from attempting to
    compute the inverse of 0.
+
+
+
+
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 17]
+
+Internet-Draft                hash-to-curve                    July 2019
+
 
 6.5.  Mappings for Weierstrass curves
 
@@ -949,7 +993,19 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 17]
+
+
+
+
+
+
+
+
+
+
+
+
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 18]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1005,7 +1061,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 18]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 19]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1061,7 +1117,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 19]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 20]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1117,7 +1173,7 @@ Steps:
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 20]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 21]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1173,7 +1229,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 21]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 22]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1229,7 +1285,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 22]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 23]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1285,7 +1341,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 23]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 24]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1341,7 +1397,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 24]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 25]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1397,7 +1453,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 25]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 26]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1453,7 +1509,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 26]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 27]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1509,7 +1565,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 27]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 28]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1565,7 +1621,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 28]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 29]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1621,7 +1677,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 29]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 30]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1677,7 +1733,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 30]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 31]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1733,7 +1789,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 31]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 32]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1789,7 +1845,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 32]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 33]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1845,7 +1901,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 33]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 34]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1875,6 +1931,11 @@ Internet-Draft                hash-to-curve                    July 2019
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
 
+   [RFC5869]  Krawczyk, H. and P. Eronen, "HMAC-based Extract-and-Expand
+              Key Derivation Function (HKDF)", RFC 5869,
+              DOI 10.17487/RFC5869, May 2010,
+              <https://www.rfc-editor.org/info/rfc5869>.
+
    [RFC7748]  Langley, A., Hamburg, M., and S. Turner, "Elliptic Curves
               for Security", RFC 7748, DOI 10.17487/RFC7748, January
               2016, <https://www.rfc-editor.org/info/rfc7748>.
@@ -1892,19 +1953,20 @@ Internet-Draft                hash-to-curve                    July 2019
               DOI 10.1007/978-3-319-13051-4_2, 2014,
               <https://doi.org/10.1007/978-3-319-13051-4_2>.
 
+
+
+
+
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 35]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
    [AR13]     Adj, G. and F. Rodriguez-Henriquez, "Square Root
               Computation over Even Extension Fields", In IEEE
               Transactions on Computers. vol 63 issue 11,
               pages 2829-2841, DOI 10.1109/TC.2013.145, November 2014,
               <https://doi.org/10.1109/TC.2013.145>.
-
-
-
-
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 34]
-
-Internet-Draft                hash-to-curve                    July 2019
-
 
    [BBJLP08]  Bernstein, D., Birkner, P., Joye, M., Lange, T., and C.
               Peters, "Twisted Edwards curves", In AFRICACRYPT 2008,
@@ -1948,19 +2010,19 @@ Internet-Draft                hash-to-curve                    July 2019
               DOI 10.1007/3-540-36413-7_19, 2003,
               <https://doi.org/10.1007/3-540-36413-7_19>.
 
+
+
+
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 36]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
    [BMP00]    Boyko, V., MacKenzie, P., and S. Patel, "Provably secure
               password-authenticated key exchange using Diffie-Hellman",
               In Advances in Cryptology - EUROCRYPT 2000, pages 156-171,
               DOI 10.1007/3-540-45539-6_12, May 2000,
               <https://doi.org/10.1007/3-540-45539-6_12>.
-
-
-
-
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 35]
-
-Internet-Draft                hash-to-curve                    July 2019
-
 
    [BN05]     Barreto, P. and M. Naehrig, "Pairing-Friendly Elliptic
               Curves of Prime Order", In Selected Areas in Cryptography
@@ -2002,21 +2064,20 @@ Internet-Draft                hash-to-curve                    July 2019
               2013, <https://nvlpubs.nist.gov/nistpubs/FIPS/
               NIST.FIPS.186-4.pdf>.
 
+
+
+
+
+
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 37]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
    [FJT13]    Fouque, P., Joux, A., and M. Tibouchi, "Injective
               encodings to elliptic curves", In ACISP 2013,
               pages 203-218, DOI 10.1007/978-3-642-39059-3_14, 2013,
               <https://doi.org/10.1007/978-3-642-39059-3_14>.
-
-
-
-
-
-
-
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 36]
-
-Internet-Draft                hash-to-curve                    July 2019
-
 
    [FKR11]    Fuentes-Castaneda, L., Knapp, E., and F. Rodriguez-
               Henriquez, "Fast Hashing to G2 on Pairing-Friendly
@@ -2064,12 +2125,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-
-
-
-
-
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 37]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 38]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -2125,7 +2181,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 38]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 39]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -2181,7 +2237,7 @@ Appendix A.  Related Work
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 39]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 40]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -2237,7 +2293,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 40]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 41]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -2293,7 +2349,7 @@ Appendix B.  Rational maps from twisted Edwards to Weierstrass and
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 41]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 42]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -2349,7 +2405,7 @@ Authors' Addresses
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 42]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 43]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -2405,4 +2461,4 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 6, 2020               [Page 43]
+Faz-Hernandez, et al.    Expires January 7, 2020               [Page 44]
