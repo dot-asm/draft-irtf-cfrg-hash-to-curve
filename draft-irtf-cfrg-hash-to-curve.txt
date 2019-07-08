@@ -5,14 +5,14 @@
 Network Working Group                                   A. Faz-Hernandez
 Internet-Draft                                                Cloudflare
 Intended status: Informational                                  S. Scott
-Expires: January 7, 2020                                    Cornell Tech
+Expires: January 9, 2020                                    Cornell Tech
                                                              N. Sullivan
                                                               Cloudflare
                                                                 R. Wahby
                                                      Stanford University
                                                                  C. Wood
                                                               Apple Inc.
-                                                           July 06, 2019
+                                                           July 08, 2019
 
 
                        Hashing to Elliptic Curves
@@ -38,7 +38,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on January 7, 2020.
+   This Internet-Draft will expire on January 9, 2020.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020                [Page 1]
+Faz-Hernandez, et al.    Expires January 9, 2020                [Page 1]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -66,16 +66,16 @@ Internet-Draft                hash-to-curve                    July 2019
 Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3
-     1.1.  Requirements  . . . . . . . . . . . . . . . . . . . . . .   3
-   2.  Background  . . . . . . . . . . . . . . . . . . . . . . . . .   3
-     2.1.  Elliptic curves . . . . . . . . . . . . . . . . . . . . .   3
+     1.1.  Requirements  . . . . . . . . . . . . . . . . . . . . . .   4
+   2.  Background  . . . . . . . . . . . . . . . . . . . . . . . . .   4
+     2.1.  Elliptic curves . . . . . . . . . . . . . . . . . . . . .   4
      2.2.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   5
        2.2.1.  Mappings  . . . . . . . . . . . . . . . . . . . . . .   5
        2.2.2.  Encodings . . . . . . . . . . . . . . . . . . . . . .   6
        2.2.3.  Random oracle encodings . . . . . . . . . . . . . . .   6
        2.2.4.  Serialization . . . . . . . . . . . . . . . . . . . .   7
        2.2.5.  Domain separation . . . . . . . . . . . . . . . . . .   7
-   3.  Roadmap . . . . . . . . . . . . . . . . . . . . . . . . . . .   7
+   3.  Roadmap . . . . . . . . . . . . . . . . . . . . . . . . . . .   8
      3.1.  Domain separation requirements  . . . . . . . . . . . . .   9
    4.  Utility Functions . . . . . . . . . . . . . . . . . . . . . .  10
    5.  Hashing to a Finite Field . . . . . . . . . . . . . . . . . .  13
@@ -103,27 +103,38 @@ Table of Contents
        6.9.1.  Shallue-van de Woestijne Method . . . . . . . . . . .  29
        6.9.2.  Simplified SWU for Pairing-Friendly Curves  . . . . .  32
    7.  Clearing the cofactor . . . . . . . . . . . . . . . . . . . .  33
-   8.  Suites for Hashing  . . . . . . . . . . . . . . . . . . . . .  33
-   9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  34
-   10. Security Considerations . . . . . . . . . . . . . . . . . . .  34
+   8.  Suites for Hashing  . . . . . . . . . . . . . . . . . . . . .  34
+     8.1.  Suites for NIST P-256 . . . . . . . . . . . . . . . . . .  35
+     8.2.  Suites for NIST P-384 . . . . . . . . . . . . . . . . . .  36
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020                [Page 2]
+Faz-Hernandez, et al.    Expires January 9, 2020                [Page 2]
 
 Internet-Draft                hash-to-curve                    July 2019
 
 
-   11. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  35
-   12. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  35
-   13. References  . . . . . . . . . . . . . . . . . . . . . . . . .  35
-     13.1.  Normative References . . . . . . . . . . . . . . . . . .  35
-     13.2.  Informative References . . . . . . . . . . . . . . . . .  35
-   Appendix A.  Related Work . . . . . . . . . . . . . . . . . . . .  40
+     8.3.  Suites for NIST P-521 . . . . . . . . . . . . . . . . . .  36
+     8.4.  Suites for curve25519 and edwards25519  . . . . . . . . .  37
+     8.5.  Suites for curve448 and edwards448  . . . . . . . . . . .  38
+     8.6.  Suites for SECP256K1  . . . . . . . . . . . . . . . . . .  39
+     8.7.  Suites for BLS12-381  . . . . . . . . . . . . . . . . . .  39
+   9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  41
+   10. Security Considerations . . . . . . . . . . . . . . . . . . .  41
+   11. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  41
+   12. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  41
+   13. References  . . . . . . . . . . . . . . . . . . . . . . . . .  41
+     13.1.  Normative References . . . . . . . . . . . . . . . . . .  41
+     13.2.  Informative References . . . . . . . . . . . . . . . . .  42
+   Appendix A.  Related Work . . . . . . . . . . . . . . . . . . . .  47
    Appendix B.  Rational maps from twisted Edwards to Weierstrass
-                and Montgomery curves  . . . . . . . . . . . . . . .  42
-   Appendix C.  Sample Code  . . . . . . . . . . . . . . . . . . . .  43
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  43
+                and Montgomery curves  . . . . . . . . . . . . . . .  49
+   Appendix C.  Isogenous curves and corresponding maps for
+                BLS12-381  . . . . . . . . . . . . . . . . . . . . .  49
+     C.1.  11-isogeny map for G1 . . . . . . . . . . . . . . . . . .  49
+     C.2.  3-isogeny map for G2  . . . . . . . . . . . . . . . . . .  53
+   Appendix D.  Sample Code  . . . . . . . . . . . . . . . . . . . .  55
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  55
 
 1.  Introduction
 
@@ -148,6 +159,17 @@ Internet-Draft                hash-to-curve                    July 2019
    security rationale behind each recommendation, and give guidance for
    elliptic curves that are not explicitly covered.
 
+
+
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020                [Page 3]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
 1.1.  Requirements
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -162,13 +184,6 @@ Internet-Draft                hash-to-curve                    July 2019
    emphasis on important parameters and their relation to hashing to
    curves.  For further reference on elliptic curves, consult
    [CFADLNV05] or [W08].
-
-
-
-Faz-Hernandez, et al.    Expires January 7, 2020                [Page 3]
-
-Internet-Draft                hash-to-curve                    July 2019
-
 
    Let F be the finite field GF(q) of prime characteristic p.  In most
    cases F is a prime field, so q = p.  Otherwise, F is a field
@@ -203,28 +218,15 @@ Internet-Draft                hash-to-curve                    July 2019
    the curve.  For each algorithm presented, this document lists the
    relevant restrictions.
 
-   Summary of quantities:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Faz-Hernandez, et al.    Expires January 7, 2020                [Page 4]
+Faz-Hernandez, et al.    Expires January 9, 2020                [Page 4]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+   Summary of quantities:
 
    +--------+----------------------------+-----------------------------+
    | Symbol | Meaning                    | Relevance                   |
@@ -271,16 +273,17 @@ Internet-Draft                hash-to-curve                    July 2019
    Mappings may also be invertible, meaning that there is an efficient
    algorithm that, for any point P output by the mapping, outputs an x
    in F such that applying the mapping to x outputs P.  Some of the
-   mappings given in Section 6 are invertible, but this document does
-   not discuss inversion algorithms.
 
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020                [Page 5]
+Faz-Hernandez, et al.    Expires January 9, 2020                [Page 5]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+   mappings given in Section 6 are invertible, but this document does
+   not discuss inversion algorithms.
 
 2.2.2.  Encodings
 
@@ -326,17 +329,19 @@ Internet-Draft                hash-to-curve                    July 2019
    construction is distinguishable from uniformly random, i.e., it does
    not behave like a random oracle.
 
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020                [Page 6]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
    Brier et al.  [BCIMRT10] describe two generic constructions whose
    outputs are indistinguishable from a random oracle.  Farashahi et al.
    [FFSTV13] and Tibouchi and Kim [TK17] refine the analysis of one of
    these constructions.  That construction is described in Section 3.
-
-
-
-Faz-Hernandez, et al.    Expires January 7, 2020                [Page 6]
-
-Internet-Draft                hash-to-curve                    July 2019
-
 
 2.2.4.  Serialization
 
@@ -378,21 +383,22 @@ Internet-Draft                hash-to-curve                    July 2019
    queries to R.  Thus, it is safe to treat R1 and R2 as independent
    oracles.
 
+
+
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020                [Page 7]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
 3.  Roadmap
 
    This section presents a general framework for encoding bit strings to
    points on an elliptic curve.  To construct these encodings, we rely
    on three basic functions:
-
-
-
-
-
-
-Faz-Hernandez, et al.    Expires January 7, 2020                [Page 7]
-
-Internet-Draft                hash-to-curve                    July 2019
-
 
    o  The function hash_to_base, {0, 1}^* -> F, hashes arbitrary-length
       bit strings to elements of a finite field; its implementation is
@@ -439,13 +445,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-
-
-
-
-
-
-Faz-Hernandez, et al.    Expires January 7, 2020                [Page 8]
+Faz-Hernandez, et al.    Expires January 9, 2020                [Page 8]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -501,7 +501,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020                [Page 9]
+Faz-Hernandez, et al.    Expires January 9, 2020                [Page 9]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -557,7 +557,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 10]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 10]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -613,7 +613,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 11]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 11]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -669,7 +669,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 12]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 12]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -725,7 +725,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 13]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 13]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -781,7 +781,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 14]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 14]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -837,7 +837,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 15]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 15]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -893,7 +893,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 16]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 16]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -949,7 +949,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 17]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 17]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1005,7 +1005,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 18]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 18]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1061,7 +1061,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 19]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 19]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1117,7 +1117,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 20]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 20]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1173,7 +1173,7 @@ Steps:
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 21]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 21]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1229,7 +1229,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 22]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 22]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1285,7 +1285,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 23]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 23]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1341,7 +1341,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 24]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 24]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1397,7 +1397,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 25]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 25]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1453,7 +1453,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 26]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 26]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1509,7 +1509,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 27]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 27]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1565,7 +1565,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 28]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 28]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1621,7 +1621,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 29]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 29]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1677,7 +1677,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 30]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 30]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1733,7 +1733,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 31]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 31]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1789,7 +1789,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 32]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 32]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -1801,80 +1801,446 @@ Internet-Draft                hash-to-curve                    July 2019
    Obtaining a point in G may require a final operation commonly called
    "clearing the cofactor," which takes as input any point on the curve.
 
-   This operation can always be implemented as a scalar multiplication
-   by h.  For elliptic curves where h = 1, i.e., the curves with a prime
-   number of points, no operation is required.  This applies, for
-   example, to the NIST curves P-256, P-384, and P-521 [FIPS186-4].
+   The cofactor can always be cleared via scalar multiplication by h.
+   For elliptic curves where h = 1, i.e., the curves with a prime number
+   of points, no operation is required.  This applies, for example, to
+   the NIST curves P-256, P-384, and P-521 [FIPS186-4].
 
    In some cases, it is possible to clear the cofactor via a faster
-   method than scalar multiplication.  For pairing-friendly curves
-   having subgroup G2 over an extension field, Scott et al.  [SBCDBK09]
-   describe a method for faster cofactor clearing that exploits an
-   efficiently-computable endomorphism.  Fuentes-Castaneda et al.
-   [FKR11] propose an alternative method that is sometimes more
-   efficient.  Budroni and Pintore [BP18] give concrete instantiations
-   of these methods for Barreto-Lynn-Scott pairing-friendly curves
-   [BLS03].
+   method than scalar multiplication by h.  These methods are equivalent
+   to (but usually faster than) multiplication by some scalar h_eff
+   whose value is determined by the method and the curve.  Examples of
+   fast cofactor clearing methods include the following:
 
-   Wahby and Boneh ([WB19], Section 5) describe a trick due to Scott for
-   faster cofactor clearing on any elliptic curve for which the prime
-   factorization of h and the number of points on the curve meet certain
-   conditions.
+   o  For certain pairing-friendly curves having subgroup G2 over an
+      extension field, Scott et al.  [SBCDBK09] describe a method for
+      fast cofactor clearing that exploits an efficiently-computable
+      endomorphism.  Fuentes-Castaneda et al.  [FKR11] propose an
+      alternative method that is sometimes more efficient.  Budroni and
+      Pintore [BP18] give concrete instantiations of these methods for
+      Barreto-Lynn-Scott pairing-friendly curves [BLS03].
 
-8.  Suites for Hashing
+   o  Wahby and Boneh ([WB19], Section 5) describe a trick due to Scott
+      for fast cofactor clearing on any elliptic curve for which the
+      prime factorization of h and the structure of the elliptic curve
+      group meet certain conditions.
 
-   The following table lists recommended algorithms for different curves
-   and encodings.  To select a suitable algorithm, choose the encoding
-   associated with the target curve.  For example, Elligator 2 is the
-   recommended encoding for Curve25519, whereas simplified SWU is the
-   recommended encoding for P-256.  When the hash function is to be used
-   in a protocol whose security is proven in the random oracle model,
-   applications SHOULD use the Random Oracle construction given in
-   Section 3.
+   The clear_cofactor function is parameterized by a scalar h_eff.
+   Specifically,
 
-   A suite is a bundle of algorithms that provides concrete
-   recommendations for hashing bit strings into points of specific
-   elliptic curve groups.  Each suite is a tuple (E, H, f, ROM) such
-   that
+   clear_cofactor(P) := h_eff * P
 
-   o  E, is the elliptic curve group.
+   where * represents scalar multiplication.  When a curve does not
+   support a fast cofactor clearing method, h_eff = h and the cofactor
+   MUST be cleared via scalar multiplication.
 
-   o  H, is the cryptographic hash function used by hash_to_base.
-
-   o  f, is an encoding function compatible with E.
+   When a curve admits a fast cofactor clearing method, clear_cofactor
+   MAY be evaluated either via that method or via scalar multiplication
+   by the equivalent h_eff; these two methods give the same result.
+   Note that in this case scalar multiplication by the cofactor h does
+   not generally give the same result as the fast method, and SHOULD NOT
+   be used.
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 33]
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 33]
 
 Internet-Draft                hash-to-curve                    July 2019
 
 
-   o  ROM, is a boolean flag indicating whether or not to use the random
-      oracle construction.
+8.  Suites for Hashing
 
-   This document describes the following set of ciphersuites
+   This section lists recommended suites for hashing to standard
+   elliptic curves.
 
-   +----------+--------------+--------+-------------------------+------+
-   | Suite ID | E            | H      | f                       | ROM  |
-   +----------+--------------+--------+-------------------------+------+
-   | H2C-0001 | P256         | SHA256 | Simplified SWU          | True |
-   |          |              |        |                         |      |
-   | H2C-0002 | P384         | SHA512 | Icart                   | True |
-   |          |              |        |                         |      |
-   | H2C-0003 | curve25519   | SHA512 | Elligator 2             | True |
-   |          |              |        |                         |      |
-   | H2C-0004 | curve448     | SHA512 | Elligator 2             | True |
-   |          |              |        |                         |      |
-   | H2C-0005 | edwards25519 | SHA512 | Elligator 2             | True |
-   |          |              |        |                         |      |
-   | H2C-0006 | edwards448   | SHA512 | Elligator 2             | True |
-   |          |              |        |                         |      |
-   | H2C-0007 | SECP256K1    | SHA512 | Shallue-van de          | True |
-   |          |              |        | Woestijne               |      |
-   |          |              |        |                         |      |
-   | H2C-0008 | BLS12381     | SHA512 | Simplified SWU          | True |
-   +----------+--------------+--------+-------------------------+------+
+   A suite fully specifies the procedure for hashing bit strings to
+   points on a specific elliptic curve group.  Each suite comprises the
+   following parameters:
+
+   o  Suite ID, a short name used to refer to a given suite.
+
+   o  E, the target elliptic curve over a field F.
+
+   o  p, the characteristic of the field F.
+
+   o  m, the extension degree of the field F.
+
+   o  H, the hash function used by hash_to_base (Section 5).
+
+   o  W, the number of evaluations of H in hash_to_base.
+
+   o  f, a mapping function from Section 6.
+
+   o  h_eff, the scalar parameter for clear_cofactor (Section 7).
+
+   In addition to the above parameters, the mapping f may require
+   additional parameters Z, M, rational_map, E', and/or iso_map.  These
+   are specified when applicable.
+
+   Suites whose ID includes "-RO" use the hash_to_curve procedure of
+   Section 3; suites whose ID includes "-NU" use the encode_to_curve
+   procedure from that section.  Applications whose security requires a
+   random oracle MUST use a "-RO" suite.
+
+   When standardizing a new elliptic curve, corresponding hash-to-curve
+   suites SHOULD be specified.
+
+   The below table lists the curves for which suites are defined and the
+   subsection that gives the corresponding parameters.
+
+
+
+
+
+
+
+
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 34]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
+                +---------------------------+-------------+
+                | E                         | Section     |
+                +---------------------------+-------------+
+                | NIST P-256                | Section 8.1 |
+                |                           |             |
+                | NIST P-384                | Section 8.2 |
+                |                           |             |
+                | NIST P-521                | Section 8.3 |
+                |                           |             |
+                | curve25519 / edwards25519 | Section 8.4 |
+                |                           |             |
+                | curve448 / edwards448     | Section 8.5 |
+                |                           |             |
+                | SECP256k1                 | Section 8.6 |
+                |                           |             |
+                | BLS12-381                 | Section 8.7 |
+                +---------------------------+-------------+
+
+8.1.  Suites for NIST P-256
+
+   The suites P256-SHA256-SSWU-RO and P256-SHA256-SSWU-NU are defined
+   for the NIST P-256 elliptic curve [FIPS186-4].  These suites share
+   the following parameters:
+
+   o  E: y^2 = x^3 + A * x + B, where
+
+      *  A = -3
+
+      *  B = 0x5ac635d8aa3a93e7b3ebbd55769886bc651d06b0cc53b0f63bce3c3e2
+         7d2604b
+
+   o  p: 2^256 - 2^224 + 2^192 + 2^96 - 1
+
+   o  m: 1
+
+   o  H: SHA-256
+
+   o  W: 2
+
+   o  f: Simplified SWU method, Section 6.5.2
+
+   o  Z: -2
+
+   o  h_eff: 1
+
+
+
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 35]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
+8.2.  Suites for NIST P-384
+
+   The suites P384-SHA512-ICART-RO and P384-SHA512-ICART-NU are defined
+   for the NIST P-384 elliptic curve [FIPS186-4].  These suites share
+   the following parameters:
+
+   o  E: y^2 = x^3 + A * x + B, where
+
+      *  A = -3
+
+      *  B = 0xb3312fa7e23ee7e4988e056be3f82d19181d9c6efe8141120314088f5
+         013875ac656398d8a2ed19d2a85c8edd3ec2aef
+
+   o  p: 2^384 - 2^128 - 2^96 + 2^32 - 1
+
+   o  m: 1
+
+   o  H: SHA-512
+
+   o  W: 2
+
+   o  f: Icart's method, Section 6.5.1
+
+   o  h_eff: 1
+
+8.3.  Suites for NIST P-521
+
+   The suites P521-SHA512-SSWU-RO and P521-SHA512-SSWU-NU are defined
+   for the NIST P-384 elliptic curve [FIPS186-4].  These suites share
+   the following parameters:
+
+   o  E: y^2 = x^3 + A * x + B, where
+
+      *  A = -3
+
+      *  B = 0x51953eb9618e1c9a1f929a21a0b68540eea2da725b99b315f3b8b4899
+         18ef109e156193951ec7e937b1652c0bd3bb1bf073573df883d2c34f1ef451f
+         d46b503f00
+
+   o  p: 2^521 - 1
+
+   o  m: 1
+
+   o  H: SHA-512
+
+   o  W: 2
+
+   o  f: Simplified SWU method, Section 6.5.2
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 36]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
+   o  Z: -2
+
+   o  h_eff: 1
+
+8.4.  Suites for curve25519 and edwards25519
+
+   This section defines ciphersuites for curve25519 and edwards25519
+   [RFC7748].
+
+   The suites curve25519-SHA256-ELL2-RO and curve25519-SHA256-ELL2-NU
+   share the following parameters, in addition to the common parameters
+   below.
+
+   o  E: B * y^2 = x^3 + A * x^2 + x, where
+
+      *  A = 486662
+
+      *  B = 1
+
+   o  f: Elligator 2 method, Section 6.6.1
+
+   The suites edwards25519-SHA256-EDELL2-RO and
+   edwards25519-SHA256-EDELL2-NU share the following parameters, in
+   addition to the common parameters below.
+
+   o  E: a * x^2 + y^2 = 1 + d * x^2 * y^2, where
+
+      *  a = -1
+
+      *  d = 0x52036cee2b6ffe738cc740797779e89800700a4d4141d8ab75eb4dca1
+         35978a3
+
+   o  f: Twisted Edwards Elligator 2 method, Section 6.7.2
+
+   o  M: curve25519 defined in [RFC7748], Section 4.1
+
+   o  rational_map: the birational map defined in [RFC7748], Section 4.1
+
+   The common parameters for all of the above suites are:
+
+   o  p: 2^255 - 19
+
+   o  m: 1
+
+   o  H: SHA-256
+
+   o  W: 2
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 37]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
+   o  Z: 2
+
+   o  h_eff: 8
+
+8.5.  Suites for curve448 and edwards448
+
+   This section defines ciphersuites for curve448 and edwards448
+   [RFC7748].
+
+   The suites curve448-SHA512-ELL2-RO and curve448-SHA512-ELL2-NU share
+   the following parameters, in addition to the common parameters below.
+
+   o  E: B * y^2 = x^3 + A * x^2 + x, where
+
+      *  A = 156326
+
+      *  B = 1
+
+   o  f: Elligator 2 method, Section 6.6.1
+
+   The suites edwards448-SHA512-EDELL2-RO and
+   edwards448-SHA512-EDELL2-NU share the following parameters, in
+   addition to the common parameters below.
+
+   o  E: a * x^2 + y^2 = 1 + d * x^2 * y^2, where
+
+      *  a = 1
+
+      *  d = -39081
+
+   o  f: Twisted Edwards Elligator 2 method, Section 6.7.2
+
+   o  M: curve448, defined in [RFC7748], Section 4.2
+
+   o  rational_map: the 4-isogeny map defined in [RFC7748], Section 4.2
+
+   The common parameters for all of the above suites are:
+
+   o  p: 2^448 - 2^224 - 1
+
+   o  m: 1
+
+   o  H: SHA-512
+
+   o  W: 2
+
+   o  Z: -1
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 38]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
+   o  h_eff: 4
+
+8.6.  Suites for SECP256K1
+
+   The suites SECP256K1-SHA256-SVDW-RO and SECP256K1-SHA256-SVDW-NU are
+   defined for the SECP256K1 elliptic curve [SEC2].  These suites share
+   the following parameters:
+
+   o  E: y^2 = x^3 + 7
+
+   o  p: 2^256 - 2^32 - 2^9 - 2^8 - 2^7 - 2^6 - 2^4 - 1
+
+   o  m: 1
+
+   o  H: SHA-256
+
+   o  W: 2
+
+   o  f: Shallue-van de Woestijne method, Section 6.9.1
+
+   o  Z: 1
+
+   o  h_eff: 1
+
+8.7.  Suites for BLS12-381
+
+   This section defines ciphersuites for groups G1 and G2 of the
+   BLS12-381 elliptic curve [draft-yonezawa-pfc-01].
+
+   The suites BLS12381G1-SHA256-SSWU-RO and BLS12381G1-SHA256-SSWU-NU
+   share the following parameters, in addition to the common parameters
+   below.
+
+   o  E: y^2 = x^3 + 4
+
+   o  m: 1
+
+   o  Z: -1
+
+   o  E': y'^2 = x'^3 + A * x' + B, where
+
+      *  A = 0x144698a3b8e9433d693a02c96d4982b0ea985383ee66a8d8e8981aefd
+         881ac98936f8da0e0f97f5cf428082d584c1d
+
+      *  B = 0x12e2908d11688030018b12e8753eee3b2016c1f0f24f4070a0b9c14fc
+         ef35ef55a23215a316ceaa5d1cc48e98e172be0
+
+   o  iso_map: the 11-isogeny map from E' to E given in Appendix C.1
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 39]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
+   o  h_eff: 0xd201000000010001
+
+   The suites BLS12381G2-SHA256-SSWU-RO and BLS12381G2-SHA256-SSWU-NU
+   share the following parameters, in addition to the common parameters
+   below.
+
+   o  F: GF(p^m), where
+
+      *  p: defined below
+
+      *  m: 2
+
+      *  (1, i) is the basis for F, where i^2 + 1 == 0 in F
+
+   o  E: y^2 = x^3 + 4 * (1 + i)
+
+   o  Z: 1 + i
+
+   o  E': y'^2 = x'^3 + A * x' + BB, where
+
+      *  A = 240 * i
+
+      *  B = 1012 * (1 + i)
+
+   o  iso_map: the isogeny map from E' to E given in Appendix C.2
+
+   o  h_eff: 0xbc69f08f2ee75b3584c6a0ea91b352888e2a8e9145ad7689986ff0315
+      08ffe1329c2f178731db956d82bf015d1212b02ec0ec69d7477c1ae954cbc06689
+      f6a359894c0adebbf6b4e8020005aaa95551
+
+   The common parameters for the above suites are:
+
+   o  p: 0x1a0111ea397fe69a4b1ba7b6434bacd764774b84f38512bf6730d2a0f6b0f
+      6241eabfffeb153ffffb9feffffffffaaab
+
+   o  H: SHA-256
+
+   o  W: 2
+
+   o  f: Simplified SWU for pairing-friendly curves, Section 6.9.2
+
+   Note that the h_eff parameters for all of the above suites are chosen
+   for compatibility with the fast cofactor clearing methods described
+   by Scott for G1 ([WB19] Section 5) and by Budroni and Pintore for G2
+   ([BP18], Section 4.1).
+
+
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 40]
+
+Internet-Draft                hash-to-curve                    July 2019
+
 
 9.  IANA Considerations
 
@@ -1893,18 +2259,6 @@ Internet-Draft                hash-to-curve                    July 2019
 
    Section 5 describes considerations for uniformly hashing to field
    elements.
-
-
-
-
-
-
-
-
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 34]
-
-Internet-Draft                hash-to-curve                    July 2019
-
 
 11.  Acknowledgements
 
@@ -1936,6 +2290,14 @@ Internet-Draft                hash-to-curve                    July 2019
               DOI 10.17487/RFC5869, May 2010,
               <https://www.rfc-editor.org/info/rfc5869>.
 
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 41]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
    [RFC7748]  Langley, A., Hamburg, M., and S. Turner, "Elliptic Curves
               for Security", RFC 7748, DOI 10.17487/RFC7748, January
               2016, <https://www.rfc-editor.org/info/rfc7748>.
@@ -1952,15 +2314,6 @@ Internet-Draft                hash-to-curve                    July 2019
               in Cryptography - SAC 2014, pages 20-37,
               DOI 10.1007/978-3-319-13051-4_2, 2014,
               <https://doi.org/10.1007/978-3-319-13051-4_2>.
-
-
-
-
-
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 35]
-
-Internet-Draft                hash-to-curve                    July 2019
-
 
    [AR13]     Adj, G. and F. Rodriguez-Henriquez, "Square Root
               Computation over Even Extension Fields", In IEEE
@@ -1993,6 +2346,14 @@ Internet-Draft                hash-to-curve                    July 2019
               security., pages 967-980, DOI 10.1145/2508859.2516734,
               November 2013, <https://doi.org/10.1145/2508859.2516734>.
 
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 42]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
    [BLMP19]   Bernstein, D., Lange, T., Martindale, C., and L. Panny,
               "Quantum circuits for the CSIDH: optimizing quantum
               evaluation of isogenies", In Advances in Cryptology -
@@ -2009,14 +2370,6 @@ Internet-Draft                hash-to-curve                    July 2019
               In Security in Communication Networks, pages 257-267,
               DOI 10.1007/3-540-36413-7_19, 2003,
               <https://doi.org/10.1007/3-540-36413-7_19>.
-
-
-
-
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 36]
-
-Internet-Draft                hash-to-curve                    July 2019
-
 
    [BMP00]    Boyko, V., MacKenzie, P., and S. Patel, "Provably secure
               password-authenticated key exchange using Diffie-Hellman",
@@ -2047,6 +2400,22 @@ Internet-Draft                hash-to-curve                    July 2019
               pages 266-281, DOI 10.1016/j.jsc.2011.11.003, 2012,
               <https://doi.org/10.1016/j.jsc.2011.11.003>.
 
+
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 43]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
+   [draft-yonezawa-pfc-01]
+              Yonezawa, S., Chikara, S., Kobayashi, T., and T. Saito,
+              "Pairing-friendly Curves", March 2019,
+              <https://datatracker.ietf.org/doc/
+              draft-yonezawa-pairing-friendly-curves/>.
+
    [F11]      Farashahi, R., "Hashing into Hessian curves",
               In AFRICACRYPT 2011, pages 278-289,
               DOI 10.1007/978-3-642-21969-6_17, 2011,
@@ -2063,16 +2432,6 @@ Internet-Draft                hash-to-curve                    July 2019
               "FIPS Publication 186-4: Digital Signature Standard", July
               2013, <https://nvlpubs.nist.gov/nistpubs/FIPS/
               NIST.FIPS.186-4.pdf>.
-
-
-
-
-
-
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 37]
-
-Internet-Draft                hash-to-curve                    July 2019
-
 
    [FJT13]    Fouque, P., Joux, A., and M. Tibouchi, "Injective
               encodings to elliptic curves", In ACISP 2013,
@@ -2096,6 +2455,16 @@ Internet-Draft                hash-to-curve                    July 2019
               curves.", In Progress in Cryptology - LATINCRYPT 2010,
               pages 81-91, DOI 10.1007/978-3-642-14712-8_5, 2010,
               <https://doi.org/10.1007/978-3-642-14712-8_5>.
+
+
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 44]
+
+Internet-Draft                hash-to-curve                    July 2019
+
 
    [FT12]     Fouque, P. and M. Tibouchi, "Indifferentiable Hashing to
               Barreto-Naehrig Curves", In Progress in Cryptology -
@@ -2123,13 +2492,6 @@ Internet-Draft                hash-to-curve                    July 2019
               pages 278-297, DOI 10.1007/978-3-642-17455-1_18, 2010,
               <https://doi.org/10.1007/978-3-642-17455-1_18>.
 
-
-
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 38]
-
-Internet-Draft                hash-to-curve                    July 2019
-
-
    [KSS08]    Kachisa, E., Schaefer, E., and M. Scott, "Constructing
               Brezing-Weng Pairing-Friendly Elliptic Curves Using
               Elements in the Cyclotomic Field", In Pairing-Based
@@ -2151,6 +2513,14 @@ Internet-Draft                hash-to-curve                    July 2019
               Computation vol 44 issue 170, pages 483-494,
               DOI 10.1090/S0025-5718-1985-0777280-6, April 1985,
               <https://doi.org/10.1090/S0025-5718-1985-0777280-6>.
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 45]
+
+Internet-Draft                hash-to-curve                    July 2019
+
 
    [SAGE]     The Sage Developers, "SageMath, the Sage Mathematics
               Software System", 2019, <https://www.sagemath.org>.
@@ -2176,16 +2546,6 @@ Internet-Draft                hash-to-curve                    July 2019
               52, no 3, pages 223-226, DOI 10.4064/ba52-3-1, 2004,
               <https://doi.org/10.4064/ba52-3-1>.
 
-
-
-
-
-
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 39]
-
-Internet-Draft                hash-to-curve                    July 2019
-
-
    [SW06]     Shallue, A. and C. van de Woestijne, "Construction of
               rational points on elliptic curves over finite fields",
               In Algorithmic Number Theory. ANTS 2006., pages 510-524,
@@ -2208,6 +2568,15 @@ Internet-Draft                hash-to-curve                    July 2019
               over finite fields", In Bulletin Polish Acad. Sci. Math.
               vol 55, no 2, pages 97-104, DOI 10.4064/ba55-2-1, 2007,
               <https://doi.org/10.4064/ba55-2-1>.
+
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 46]
+
+Internet-Draft                hash-to-curve                    July 2019
+
 
    [W08]      Washington, L., "Elliptic curves: Number theory and
               cryptography", edition 2nd, publisher Chapman and Hall /
@@ -2234,14 +2603,6 @@ Appendix A.  Related Work
    where the * operator represents scalar multiplication.  The reason
    this approach is insecure is that the resulting point has a known
    discrete log relationship to P.  Thus, except in cases where this
-
-
-
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 40]
-
-Internet-Draft                hash-to-curve                    July 2019
-
-
    method is specified by the protocol, it must not be used; doing so
    risks catastrophic security failures.
 
@@ -2265,6 +2626,14 @@ Internet-Draft                hash-to-curve                    July 2019
    Skalba's construction, yielding concretely efficient maps to a
    constant fraction of the points on almost any curve.  Ulas [U07]
    describes a simpler version of this map, and Brier et al.  [BCIMRT10]
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 47]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
    give a further simplification, which the authors call the "simplified
    SWU" map.  The simplified map applies only to fields of
    characteristic p = 3 mod 4; Wahby and Boneh [WB19] generalize to
@@ -2289,15 +2658,6 @@ Internet-Draft                hash-to-curve                    July 2019
    directly to construct a random oracle that outputs points on the
    curve.
 
-
-
-
-
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 41]
-
-Internet-Draft                hash-to-curve                    July 2019
-
-
    Brier et al.  [BCIMRT10] give two solutions to this problem.  The
    first, which Brier et al. prove applies to Icart's method, computes
    f(H0(msg)) + f(H1(msg)) for two distinct hash functions H0 and H1
@@ -2318,6 +2678,17 @@ Internet-Draft                hash-to-curve                    July 2019
    Edwards curves.  Tibouchi [T14] and Aranha et al.  [AFQTZ14]
    generalize these results.  This document does not deal with this
    complementary problem.
+
+
+
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 48]
+
+Internet-Draft                hash-to-curve                    July 2019
+
 
 Appendix B.  Rational maps from twisted Edwards to Weierstrass and
              Montgomery curves
@@ -2347,13 +2718,6 @@ Appendix B.  Rational maps from twisted Edwards to Weierstrass and
    twisted Edwards curve above via the following rational map
    ([BBJLP08], Theorem 3.2):
 
-
-
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 42]
-
-Internet-Draft                hash-to-curve                    July 2019
-
-
    o  A' = 2 * (a + d) / (a - d)
 
    o  B' = 4 / (a - d)
@@ -2362,7 +2726,318 @@ Internet-Draft                hash-to-curve                    July 2019
 
    o  y'' = (1 + y) / (x * (1 - y))
 
-Appendix C.  Sample Code
+Appendix C.  Isogenous curves and corresponding maps for BLS12-381
+
+   This section specifies the isogeny maps for the BLS12-381 suites
+   listed in Section 8.7.
+
+C.1.  11-isogeny map for G1
+
+   The 11-isogeny map from E' to E is given by the following rational
+   functions:
+
+   o  x = x_num / x_den, where
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 49]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
+      *  x_num = k_(1,11) * x'^11 + k_(1,10) * x'^10 + ... + k_(1,0)
+
+      *  x_den = x'^10 + k_(2,9) * x'^9 + ... + k_(2,0)
+
+   o  y = y' * y_num / y_den, where
+
+      *  y_num = k_(3,15) * x'^15 + k_(3,14) * x'^14 + ... + k_(3,0)
+
+      *  y_den = x'^15 + k_(4,14) * x'^14 + ... + k_(4,0)
+
+   The constants used to compute x_num are as follows:
+
+   o  k_(1,0) = 0x11a05f2b1e833340b809101dd99815856b303e88a2d7005ff2627b
+      56cdb4e2c85610c2d5f2e62d6eaeac1662734649b7
+
+   o  k_(1,1) = 0x17294ed3e943ab2f0588bab22147a81c7c17e75b2f6a8417f565e3
+      3c70d1e86b4838f2a6f318c356e834eef1b3cb83bb
+
+   o  k_(1,2) = 0xd54005db97678ec1d1048c5d10a9a1bce032473295983e56878e50
+      1ec68e25c958c3e3d2a09729fe0179f9dac9edcb0
+
+   o  k_(1,3) = 0x1778e7166fcc6db74e0609d307e55412d7f5e4656a8dbf25f1b332
+      89f1b330835336e25ce3107193c5b388641d9b6861
+
+   o  k_(1,4) = 0xe99726a3199f4436642b4b3e4118e5499db995a1257fb3f086eeb6
+      5982fac18985a286f301e77c451154ce9ac8895d9
+
+   o  k_(1,5) = 0x1630c3250d7313ff01d1201bf7a74ab5db3cb17dd952799b9ed3ab
+      9097e68f90a0870d2dcae73d19cd13c1c66f652983
+
+   o  k_(1,6) = 0xd6ed6553fe44d296a3726c38ae652bfb11586264f0f8ce19008e21
+      8f9c86b2a8da25128c1052ecaddd7f225a139ed84
+
+   o  k_(1,7) = 0x17b81e7701abdbe2e8743884d1117e53356de5ab275b4db1a682c6
+      2ef0f2753339b7c8f8c8f475af9ccb5618e3f0c88e
+
+   o  k_(1,8) = 0x80d3cf1f9a78fc47b90b33563be990dc43b756ce79f5574a2c596c
+      928c5d1de4fa295f296b74e956d71986a8497e317
+
+   o  k_(1,9) = 0x169b1f8e1bcfa7c42e0c37515d138f22dd2ecb803a0c5c99676314
+      baf4bb1b7fa3190b2edc0327797f241067be390c9e
+
+   o  k_(1,10) = 0x10321da079ce07e272d8ec09d2565b0dfa7dccdde6787f96d50af
+      36003b14866f69b771f8c285decca67df3f1605fb7b
+
+   o  k_(1,11) = 0x6e08c248e260e70bd1e962381edee3d31d79d7e22c837bc23c0bf
+      1bc24c6b68c24b1b80b64d391fa9c8ba2e8ba2d229
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 50]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
+   The constants used to compute x_den are as follows:
+
+   o  k_(2,0) = 0x8ca8d548cff19ae18b2e62f4bd3fa6f01d5ef4ba35b48ba9c95886
+      17fc8ac62b558d681be343df8993cf9fa40d21b1c
+
+   o  k_(2,1) = 0x12561a5deb559c4348b4711298e536367041e8ca0cf0800c0126c2
+      588c48bf5713daa8846cb026e9e5c8276ec82b3bff
+
+   o  k_(2,2) = 0xb2962fe57a3225e8137e629bff2991f6f89416f5a718cd1fca64e0
+      0b11aceacd6a3d0967c94fedcfcc239ba5cb83e19
+
+   o  k_(2,3) = 0x3425581a58ae2fec83aafef7c40eb545b08243f16b1655154cca8a
+      bc28d6fd04976d5243eecf5c4130de8938dc62cd8
+
+   o  k_(2,4) = 0x13a8e162022914a80a6f1d5f43e7a07dffdfc759a12062bb8d6b44
+      e833b306da9bd29ba81f35781d539d395b3532a21e
+
+   o  k_(2,5) = 0xe7355f8e4e667b955390f7f0506c6e9395735e9ce9cad4d0a43bce
+      f24b8982f7400d24bc4228f11c02df9a29f6304a5
+
+   o  k_(2,6) = 0x772caacf16936190f3e0c63e0596721570f5799af53a1894e2e073
+      062aede9cea73b3538f0de06cec2574496ee84a3a
+
+   o  k_(2,7) = 0x14a7ac2a9d64a8b230b3f5b074cf01996e7f63c21bca68a81996e1
+      cdf9822c580fa5b9489d11e2d311f7d99bbdcc5a5e
+
+   o  k_(2,8) = 0xa10ecf6ada54f825e920b3dafc7a3cce07f8d1d7161366b74100da
+      67f39883503826692abba43704776ec3a79a1d641
+
+   o  k_(2,9) = 0x95fc13ab9e92ad4476d6e3eb3a56680f682b4ee96f7d03776df533
+      978f31c1593174e4b4b7865002d6384d168ecdd0a
+
+   The constants used to compute y_num are as follows:
+
+   o  k_(3,0) = 0x90d97c81ba24ee0259d1f094980dcfa11ad138e48a869522b52af6
+      c956543d3cd0c7aee9b3ba3c2be9845719707bb33
+
+   o  k_(3,1) = 0x134996a104ee5811d51036d776fb46831223e96c254f383d0f9063
+      43eb67ad34d6c56711962fa8bfe097e75a2e41c696
+
+   o  k_(3,2) = 0xcc786baa966e66f4a384c86a3b49942552e2d658a31ce2c344be4b
+      91400da7d26d521628b00523b8dfe240c72de1f6
+
+   o  k_(3,3) = 0x1f86376e8981c217898751ad8746757d42aa7b90eeb791c09e4a3e
+      c03251cf9de405aba9ec61deca6355c77b0e5f4cb
+
+   o  k_(3,4) = 0x8cc03fdefe0ff135caf4fe2a21529c4195536fbe3ce50b879833fd
+      221351adc2ee7f8dc099040a841b6daecf2e8fedb
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 51]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
+   o  k_(3,5) = 0x16603fca40634b6a2211e11db8f0a6a074a7d0d4afadb7bd76505c
+      3d3ad5544e203f6326c95a807299b23ab13633a5f0
+
+   o  k_(3,6) = 0x4ab0b9bcfac1bbcb2c977d027796b3ce75bb8ca2be184cb5231413
+      c4d634f3747a87ac2460f415ec961f8855fe9d6f2
+
+   o  k_(3,7) = 0x987c8d5333ab86fde9926bd2ca6c674170a05bfe3bdd81ffd038da
+      6c26c842642f64550fedfe935a15e4ca31870fb29
+
+   o  k_(3,8) = 0x9fc4018bd96684be88c9e221e4da1bb8f3abd16679dc26c1e8b6e6
+      a1f20cabe69d65201c78607a360370e577bdba587
+
+   o  k_(3,9) = 0xe1bba7a1186bdb5223abde7ada14a23c42a0ca7915af6fe06985e7
+      ed1e4d43b9b3f7055dd4eba6f2bafaaebca731c30
+
+   o  k_(3,10) = 0x19713e47937cd1be0dfd0b8f1d43fb93cd2fcbcb6caf493fd1183
+      e416389e61031bf3a5cce3fbafce813711ad011c132
+
+   o  k_(3,11) = 0x18b46a908f36f6deb918c143fed2edcc523559b8aaf0c2462e6bf
+      e7f911f643249d9cdf41b44d606ce07c8a4d0074d8e
+
+   o  k_(3,12) = 0xb182cac101b9399d155096004f53f447aa7b12a3426b08ec02710
+      e807b4633f06c851c1919211f20d4c04f00b971ef8
+
+   o  k_(3,13) = 0x245a394ad1eca9b72fc00ae7be315dc757b3b080d4c158013e663
+      2d3c40659cc6cf90ad1c232a6442d9d3f5db980133
+
+   o  k_(3,14) = 0x5c129645e44cf1102a159f748c4a3fc5e673d81d7e86568d9ab0f
+      5d396a7ce46ba1049b6579afb7866b1e715475224b
+
+   o  k_(3,15) = 0x15e6be4e990f03ce4ea50b3b42df2eb5cb181d8f84965a3957add
+      4fa95af01b2b665027efec01c7704b456be69c8b604
+
+   The constants used to compute y_den are as follows:
+
+   o  k_(4,0) = 0x16112c4c3a9c98b252181140fad0eae9601a6de578980be6eec323
+      2b5be72e7a07f3688ef60c206d01479253b03663c1
+
+   o  k_(4,1) = 0x1962d75c2381201e1a0cbd6c43c348b885c84ff731c4d59ca4a103
+      56f453e01f78a4260763529e3532f6102c2e49a03d
+
+   o  k_(4,2) = 0x58df3306640da276faaae7d6e8eb15778c4855551ae7f310c35a5d
+      d279cd2eca6757cd636f96f891e2538b53dbf67f2
+
+   o  k_(4,3) = 0x16b7d288798e5395f20d23bf89edb4d1d115c5dbddbcd30e123da4
+      89e726af41727364f2c28297ada8d26d98445f5416
+
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 52]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
+   o  k_(4,4) = 0xbe0e079545f43e4b00cc912f8228ddcc6d19c9f0f69bbb0542eda0
+      fc9dec916a20b15dc0fd2ededda39142311a5001d
+
+   o  k_(4,5) = 0x8d9e5297186db2d9fb266eaac783182b70152c65550d881c5ecd87
+      b6f0f5a6449f38db9dfa9cce202c6477faaf9b7ac
+
+   o  k_(4,6) = 0x166007c08a99db2fc3ba8734ace9824b5eecfdfa8d0cf8ef5dd365
+      bc400a0051d5fa9c01a58b1fb93d1a1399126a775c
+
+   o  k_(4,7) = 0x16a3ef08be3ea7ea03bcddfabba6ff6ee5a4375efa1f4fd7feb34f
+      d206357132b920f5b00801dee460ee415a15812ed9
+
+   o  k_(4,8) = 0x1866c8ed336c61231a1be54fd1d74cc4f9fb0ce4c6af5920abc575
+      0c4bf39b4852cfe2f7bb9248836b233d9d55535d4a
+
+   o  k_(4,9) = 0x167a55cda70a6e1cea820597d94a84903216f763e13d87bb530859
+      2e7ea7d4fbc7385ea3d529b35e346ef48bb8913f55
+
+   o  k_(4,10) = 0x4d2f259eea405bd48f010a01ad2911d9c6dd039bb61a6290e591b
+      36e636a5c871a5c29f4f83060400f8b49cba8f6aa8
+
+   o  k_(4,11) = 0xaccbb67481d033ff5852c1e48c50c477f94ff8aefce42d28c0f9a
+      88cea7913516f968986f7ebbea9684b529e2561092
+
+   o  k_(4,12) = 0xad6b9514c767fe3c3613144b45f1496543346d98adf02267d5cee
+      f9a00d9b8693000763e3b90ac11e99b138573345cc
+
+   o  k_(4,13) = 0x2660400eb2e4f3b628bdd0d53cd76f2bf565b94e72927c1cb748d
+      f27942480e420517bd8714cc80d1fadc1326ed06f7
+
+   o  k_(4,14) = 0xe0fa1d816ddc03e6b24255e0d7819c171c40f65e273b853324efc
+      d6356caa205ca2f570f13497804415473a1d634b8f
+
+C.2.  3-isogeny map for G2
+
+   The 3-isogeny map from E' to E is given by the following rational
+   functions:
+
+   o  x = x_num / x_den, where
+
+      *  x_num = k_(1,3) * x'^3 + k_(1,2) * x'^2 + ... + k_(1,0)
+
+      *  x_den = x'^2 + k_(2,1) * x' + k_(2,0)
+
+   o  y = y' * y_num / y_den, where
+
+      *  y_num = k_(3,3) * x'^3 + k_(3,2) * x'^2 + ... + k_(3,0)
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 53]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
+      *  y_den = x'^3 + k_(4,2) * x'^2 + ... + k_(4,0)
+
+   The constants used to compute x_num are as follows:
+
+   o  k_(1,0) = 0x5c759507e8e333ebb5b7a9a47d7ed8532c52d39fd3a042a88b5842
+      3c50ae15d5c2638e343d9c71c6238aaaaaaaa97d6 + 0x5c759507e8e333ebb5b7
+      a9a47d7ed8532c52d39fd3a042a88b58423c50ae15d5c2638e343d9c71c6238aaa
+      aaaaa97d6 * i
+
+   o  k_(1,1) = 0x11560bf17baa99bc32126fced787c88f984f87adf7ae0c7f9a208c
+      6b4f20a4181472aaa9cb8d555526a9ffffffffc71a * i
+
+   o  k_(1,2) = 0x11560bf17baa99bc32126fced787c88f984f87adf7ae0c7f9a208c
+      6b4f20a4181472aaa9cb8d555526a9ffffffffc71e + 0x8ab05f8bdd54cde1909
+      37e76bc3e447cc27c3d6fbd7063fcd104635a790520c0a395554e5c6aaaa9354ff
+      ffffffe38d * i
+
+   o  k_(1,3) = 0x171d6541fa38ccfaed6dea691f5fb614cb14b4e7f4e810aa22d610
+      8f142b85757098e38d0f671c7188e2aaaaaaaa5ed1
+
+   The constants used to compute x_den are as follows:
+
+   o  k_(2,0) = 0x1a0111ea397fe69a4b1ba7b6434bacd764774b84f38512bf6730d2
+      a0f6b0f6241eabfffeb153ffffb9feffffffffaa63 * i
+
+   o  k_(2,1) = 0xc + 0x1a0111ea397fe69a4b1ba7b6434bacd764774b84f38512bf
+      6730d2a0f6b0f6241eabfffeb153ffffb9feffffffffaa9f * i
+
+   The constants used to compute y_num are as follows:
+
+   o  k_(3,0) = 0x1530477c7ab4113b59a4c18b076d11930f7da5d4a07f649bf54439
+      d87d27e500fc8c25ebf8c92f6812cfc71c71c6d706 + 0x1530477c7ab4113b59a
+      4c18b076d11930f7da5d4a07f649bf54439d87d27e500fc8c25ebf8c92f6812cfc
+      71c71c6d706 * i
+
+   o  k_(3,1) = 0x5c759507e8e333ebb5b7a9a47d7ed8532c52d39fd3a042a88b5842
+      3c50ae15d5c2638e343d9c71c6238aaaaaaaa97be * i
+
+   o  k_(3,2) = 0x11560bf17baa99bc32126fced787c88f984f87adf7ae0c7f9a208c
+      6b4f20a4181472aaa9cb8d555526a9ffffffffc71c + 0x8ab05f8bdd54cde1909
+      37e76bc3e447cc27c3d6fbd7063fcd104635a790520c0a395554e5c6aaaa9354ff
+      ffffffe38f * i
+
+   o  k_(3,3) = 0x124c9ad43b6cf79bfbf7043de3811ad0761b0f37a1e26286b0e977
+      c69aa274524e79097a56dc4bd9e1b371c71c718b10
+
+   The constants used to compute y_den are as follows:
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 54]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
+   o  k_(4,0) = 0x1a0111ea397fe69a4b1ba7b6434bacd764774b84f38512bf6730d2
+      a0f6b0f6241eabfffeb153ffffb9feffffffffa8fb + 0x1a0111ea397fe69a4b1
+      ba7b6434bacd764774b84f38512bf6730d2a0f6b0f6241eabfffeb153ffffb9fef
+      fffffffa8fb * i
+
+   o  k_(4,1) = 0x1a0111ea397fe69a4b1ba7b6434bacd764774b84f38512bf6730d2
+      a0f6b0f6241eabfffeb153ffffb9feffffffffa9d3 * i
+
+   o  k_(4,2) = 0x12 + 0x1a0111ea397fe69a4b1ba7b6434bacd764774b84f38512b
+      f6730d2a0f6b0f6241eabfffeb153ffffb9feffffffffaa99 * i
+
+Appendix D.  Sample Code
 
    Sample Sage [SAGE] code for each algorithm can be found in the draft
    repository [hash2curve-repo].
@@ -2402,10 +3077,7 @@ Authors' Addresses
 
 
 
-
-
-
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 43]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 55]
 
 Internet-Draft                hash-to-curve                    July 2019
 
@@ -2461,4 +3133,4 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-Faz-Hernandez, et al.    Expires January 7, 2020               [Page 44]
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 56]

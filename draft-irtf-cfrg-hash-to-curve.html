@@ -320,6 +320,13 @@ ul.toc li {
 <link href="#rfc.section.6.9.2" rel="Chapter" title="6.9.2 Simplified SWU for Pairing-Friendly Curves">
 <link href="#rfc.section.7" rel="Chapter" title="7 Clearing the cofactor">
 <link href="#rfc.section.8" rel="Chapter" title="8 Suites for Hashing">
+<link href="#rfc.section.8.1" rel="Chapter" title="8.1 Suites for NIST P-256">
+<link href="#rfc.section.8.2" rel="Chapter" title="8.2 Suites for NIST P-384">
+<link href="#rfc.section.8.3" rel="Chapter" title="8.3 Suites for NIST P-521">
+<link href="#rfc.section.8.4" rel="Chapter" title="8.4 Suites for curve25519 and edwards25519">
+<link href="#rfc.section.8.5" rel="Chapter" title="8.5 Suites for curve448 and edwards448">
+<link href="#rfc.section.8.6" rel="Chapter" title="8.6 Suites for SECP256K1">
+<link href="#rfc.section.8.7" rel="Chapter" title="8.7 Suites for BLS12-381">
 <link href="#rfc.section.9" rel="Chapter" title="9 IANA Considerations">
 <link href="#rfc.section.10" rel="Chapter" title="10 Security Considerations">
 <link href="#rfc.section.11" rel="Chapter" title="11 Acknowledgements">
@@ -329,7 +336,10 @@ ul.toc li {
 <link href="#rfc.references.2" rel="Chapter" title="13.2 Informative References">
 <link href="#rfc.appendix.A" rel="Chapter" title="A Related Work">
 <link href="#rfc.appendix.B" rel="Chapter" title="B Rational maps from twisted Edwards to Weierstrass and Montgomery curves">
-<link href="#rfc.appendix.C" rel="Chapter" title="C Sample Code">
+<link href="#rfc.appendix.C" rel="Chapter" title="C Isogenous curves and corresponding maps for BLS12-381">
+<link href="#rfc.appendix.C.1" rel="Chapter" title="C.1 11-isogeny map for G1">
+<link href="#rfc.appendix.C.2" rel="Chapter" title="C.2 3-isogeny map for G2">
+<link href="#rfc.appendix.D" rel="Chapter" title="D Sample Code">
 <link href="#rfc.authors" rel="Chapter">
 
 
@@ -338,7 +348,7 @@ ul.toc li {
 
   <meta name="dct.creator" content="Faz-Hernandez, A., Scott, S., Sullivan, N., Wahby, R., and C. Wood" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-irtf-cfrg-hash-to-curve-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-07-06" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-07-08" />
   <meta name="dct.abstract" content="This document specifies a number of algorithms that may be used to encode or hash an arbitrary string to a point on an elliptic curve." />
   <meta name="description" content="This document specifies a number of algorithms that may be used to encode or hash an arbitrary string to a point on an elliptic curve." />
 
@@ -362,7 +372,7 @@ ul.toc li {
 <td class="right">S. Scott</td>
 </tr>
 <tr>
-<td class="left">Expires: January 7, 2020</td>
+<td class="left">Expires: January 9, 2020</td>
 <td class="right">Cornell Tech</td>
 </tr>
 <tr>
@@ -391,7 +401,7 @@ ul.toc li {
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">July 06, 2019</td>
+<td class="right">July 08, 2019</td>
 </tr>
 
     	
@@ -407,7 +417,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on January 7, 2020.</p>
+<p>This Internet-Draft will expire on January 9, 2020.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -493,7 +503,21 @@ ul.toc li {
 </li>
 <li>8.   <a href="#rfc.section.8">Suites for Hashing</a>
 </li>
-<li>9.   <a href="#rfc.section.9">IANA Considerations</a>
+<ul><li>8.1.   <a href="#rfc.section.8.1">Suites for NIST P-256</a>
+</li>
+<li>8.2.   <a href="#rfc.section.8.2">Suites for NIST P-384</a>
+</li>
+<li>8.3.   <a href="#rfc.section.8.3">Suites for NIST P-521</a>
+</li>
+<li>8.4.   <a href="#rfc.section.8.4">Suites for curve25519 and edwards25519</a>
+</li>
+<li>8.5.   <a href="#rfc.section.8.5">Suites for curve448 and edwards448</a>
+</li>
+<li>8.6.   <a href="#rfc.section.8.6">Suites for SECP256K1</a>
+</li>
+<li>8.7.   <a href="#rfc.section.8.7">Suites for BLS12-381</a>
+</li>
+</ul><li>9.   <a href="#rfc.section.9">IANA Considerations</a>
 </li>
 <li>10.   <a href="#rfc.section.10">Security Considerations</a>
 </li>
@@ -511,7 +535,13 @@ ul.toc li {
 </li>
 <li>Appendix B.   <a href="#rfc.appendix.B">Rational maps from twisted Edwards to Weierstrass and Montgomery curves</a>
 </li>
-<li>Appendix C.   <a href="#rfc.appendix.C">Sample Code</a>
+<li>Appendix C.   <a href="#rfc.appendix.C">Isogenous curves and corresponding maps for BLS12-381</a>
+</li>
+<ul><li>C.1.   <a href="#rfc.appendix.C.1">11-isogeny map for G1</a>
+</li>
+<li>C.2.   <a href="#rfc.appendix.C.2">3-isogeny map for G2</a>
+</li>
+</ul><li>Appendix D.   <a href="#rfc.appendix.D">Sample Code</a>
 </li>
 <li><a href="#rfc.authors">Authors' Addresses</a>
 </li>
@@ -1220,7 +1250,7 @@ Steps:
 5. return (x, y)
 </pre>
 <h1 id="rfc.section.6.8.2">
-<a href="#rfc.section.6.8.2">6.8.2.</a> <a href="#elligator-2-a-0-method" id="elligator-2-a-0-method">Elligator 2, A == 0 Method</a>
+<a href="#rfc.section.6.8.2">6.8.2.</a> <a href="#ell2a0" id="ell2a0">Elligator 2, A == 0 Method</a>
 </h1>
 <p id="rfc.section.6.8.2.p.1">The function map_to_curve_ell2A0(u) implements an adaptation of Elligator 2 <a href="#BLMP19" class="xref">[BLMP19]</a> targeting curves given by y^2 = x^3 + B * x over F such that q = 3 (mod 4).</p>
 <p id="rfc.section.6.8.2.p.2">Preconditions: A supersingular curve over F such that q = 3 (mod 4).</p>
@@ -1375,90 +1405,290 @@ E': y^2 = g'(x) = x^3 + A' * x + B'
 <a href="#rfc.section.7">7.</a> <a href="#cofactor-clearing" id="cofactor-clearing">Clearing the cofactor</a>
 </h1>
 <p id="rfc.section.7.p.1">The mappings of <a href="#mappings" class="xref">Section 6</a> always output a point on the elliptic curve, i.e., a point in a group of order h * r (<a href="#bg-curves" class="xref">Section 2.1</a>). Obtaining a point in G may require a final operation commonly called &#8220;clearing the cofactor,&#8221; which takes as input any point on the curve.</p>
-<p id="rfc.section.7.p.2">This operation can always be implemented as a scalar multiplication by h.  For elliptic curves where h = 1, i.e., the curves with a prime number of points, no operation is required. This applies, for example, to the NIST curves P-256, P-384, and P-521 <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.</p>
-<p id="rfc.section.7.p.3">In some cases, it is possible to clear the cofactor via a faster method than scalar multiplication.  For pairing-friendly curves having subgroup G2 over an extension field, Scott et al. <a href="#SBCDBK09" class="xref">[SBCDBK09]</a> describe a method for faster cofactor clearing that exploits an efficiently-computable endomorphism. Fuentes-Castaneda et al. <a href="#FKR11" class="xref">[FKR11]</a> propose an alternative method that is sometimes more efficient.  Budroni and Pintore <a href="#BP18" class="xref">[BP18]</a> give concrete instantiations of these methods for Barreto-Lynn-Scott pairing-friendly curves <a href="#BLS03" class="xref">[BLS03]</a>.</p>
-<p id="rfc.section.7.p.4">Wahby and Boneh (<a href="#WB19" class="xref">[WB19]</a>, Section 5) describe a trick due to Scott for faster cofactor clearing on any elliptic curve for which the prime factorization of h and the number of points on the curve meet certain conditions.</p>
-<h1 id="rfc.section.8">
-<a href="#rfc.section.8">8.</a> <a href="#suites" id="suites">Suites for Hashing</a>
-</h1>
-<p id="rfc.section.8.p.1">The following table lists recommended algorithms for different curves and encodings. To select a suitable algorithm, choose the encoding associated with the target curve. For example, Elligator 2 is the recommended encoding for Curve25519, whereas simplified SWU is the recommended encoding for P-256.  When the hash function is to be used in a protocol whose security is proven in the random oracle model, applications SHOULD use the Random Oracle construction given in <a href="#roadmap" class="xref">Section 3</a>.</p>
-<p id="rfc.section.8.p.2">A suite is a bundle of algorithms that provides concrete recommendations for hashing bit strings into points of specific elliptic curve groups. Each suite is a tuple (E, H, f, ROM) such that</p>
+<p id="rfc.section.7.p.2">The cofactor can always be cleared via scalar multiplication by h.  For elliptic curves where h = 1, i.e., the curves with a prime number of points, no operation is required. This applies, for example, to the NIST curves P-256, P-384, and P-521 <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.</p>
+<p id="rfc.section.7.p.3">In some cases, it is possible to clear the cofactor via a faster method than scalar multiplication by h.  These methods are equivalent to (but usually faster than) multiplication by some scalar h_eff whose value is determined by the method and the curve.  Examples of fast cofactor clearing methods include the following:</p>
 <p></p>
 
 <ul>
-<li>E, is the elliptic curve group.</li>
-<li>H, is the cryptographic hash function used by hash_to_base.</li>
-<li>f, is an encoding function compatible with E.</li>
-<li>ROM, is a boolean flag indicating whether or not to use the random oracle construction.</li>
+<li>For certain pairing-friendly curves having subgroup G2 over an extension field, Scott et al. <a href="#SBCDBK09" class="xref">[SBCDBK09]</a> describe a method for fast cofactor clearing that exploits an efficiently-computable endomorphism. Fuentes-Castaneda et al. <a href="#FKR11" class="xref">[FKR11]</a> propose an alternative method that is sometimes more efficient.  Budroni and Pintore <a href="#BP18" class="xref">[BP18]</a> give concrete instantiations of these methods for Barreto-Lynn-Scott pairing-friendly curves <a href="#BLS03" class="xref">[BLS03]</a>.</li>
+<li>Wahby and Boneh (<a href="#WB19" class="xref">[WB19]</a>, Section 5) describe a trick due to Scott for fast cofactor clearing on any elliptic curve for which the prime factorization of h and the structure of the elliptic curve group meet certain conditions.</li>
 </ul>
-<p id="rfc.section.8.p.4">This document describes the following set of ciphersuites</p>
+<p id="rfc.section.7.p.5">The clear_cofactor function is parameterized by a scalar h_eff.  Specifically,</p>
+<pre>
+clear_cofactor(P) := h_eff * P
+</pre>
+<p id="rfc.section.7.p.6">where * represents scalar multiplication.  When a curve does not support a fast cofactor clearing method, h_eff = h and the cofactor MUST be cleared via scalar multiplication.</p>
+<p id="rfc.section.7.p.7">When a curve admits a fast cofactor clearing method, clear_cofactor MAY be evaluated either via that method or via scalar multiplication by the equivalent h_eff; these two methods give the same result.  Note that in this case scalar multiplication by the cofactor h does not generally give the same result as the fast method, and SHOULD NOT be used.</p>
+<h1 id="rfc.section.8">
+<a href="#rfc.section.8">8.</a> <a href="#suites" id="suites">Suites for Hashing</a>
+</h1>
+<p id="rfc.section.8.p.1">This section lists recommended suites for hashing to standard elliptic curves.</p>
+<p id="rfc.section.8.p.2">A suite fully specifies the procedure for hashing bit strings to points on a specific elliptic curve group.  Each suite comprises the following parameters:</p>
+<p></p>
+
+<ul>
+<li>Suite ID, a short name used to refer to a given suite.</li>
+<li>E, the target elliptic curve over a field F.</li>
+<li>p, the characteristic of the field F.</li>
+<li>m, the extension degree of the field F.</li>
+<li>H, the hash function used by hash_to_base (<a href="#hashtobase" class="xref">Section 5</a>).</li>
+<li>W, the number of evaluations of H in hash_to_base.</li>
+<li>f, a mapping function from <a href="#mappings" class="xref">Section 6</a>.</li>
+<li>h_eff, the scalar parameter for clear_cofactor (<a href="#cofactor-clearing" class="xref">Section 7</a>).</li>
+</ul>
+<p id="rfc.section.8.p.4">In addition to the above parameters, the mapping f may require additional parameters Z, M, rational_map, E&#8217;, and/or iso_map.  These are specified when applicable.</p>
+<p id="rfc.section.8.p.5">Suites whose ID includes &#8220;-RO&#8221; use the hash_to_curve procedure of <a href="#roadmap" class="xref">Section 3</a>; suites whose ID includes &#8220;-NU&#8221; use the encode_to_curve procedure from that section.  Applications whose security requires a random oracle MUST use a &#8220;-RO&#8221; suite.</p>
+<p id="rfc.section.8.p.6">When standardizing a new elliptic curve, corresponding hash-to-curve suites SHOULD be specified.</p>
+<p id="rfc.section.8.p.7">The below table lists the curves for which suites are defined and the subsection that gives the corresponding parameters.</p>
 <table cellpadding="3" cellspacing="0" class="tt full center">
 <thead><tr>
-<th class="left">Suite ID</th>
 <th class="left">E</th>
-<th class="left">H</th>
-<th class="left">f</th>
-<th class="left">ROM</th>
+<th class="left">Section</th>
 </tr></thead>
 <tbody>
 <tr>
-<td class="left">H2C-0001</td>
-<td class="left">P256</td>
-<td class="left">SHA256</td>
-<td class="left">Simplified SWU</td>
-<td class="left">True</td>
+<td class="left">NIST P-256</td>
+<td class="left"><a href="#suites-p256" class="xref">Section 8.1</a></td>
 </tr>
 <tr>
-<td class="left">H2C-0002</td>
-<td class="left">P384</td>
-<td class="left">SHA512</td>
-<td class="left">Icart</td>
-<td class="left">True</td>
+<td class="left">NIST P-384</td>
+<td class="left"><a href="#suites-p384" class="xref">Section 8.2</a></td>
 </tr>
 <tr>
-<td class="left">H2C-0003</td>
-<td class="left">curve25519</td>
-<td class="left">SHA512</td>
-<td class="left">Elligator 2</td>
-<td class="left">True</td>
+<td class="left">NIST P-521</td>
+<td class="left"><a href="#suites-p521" class="xref">Section 8.3</a></td>
 </tr>
 <tr>
-<td class="left">H2C-0004</td>
-<td class="left">curve448</td>
-<td class="left">SHA512</td>
-<td class="left">Elligator 2</td>
-<td class="left">True</td>
+<td class="left">curve25519 / edwards25519</td>
+<td class="left"><a href="#suites-25519" class="xref">Section 8.4</a></td>
 </tr>
 <tr>
-<td class="left">H2C-0005</td>
-<td class="left">edwards25519</td>
-<td class="left">SHA512</td>
-<td class="left">Elligator 2</td>
-<td class="left">True</td>
+<td class="left">curve448 / edwards448</td>
+<td class="left"><a href="#suites-448" class="xref">Section 8.5</a></td>
 </tr>
 <tr>
-<td class="left">H2C-0006</td>
-<td class="left">edwards448</td>
-<td class="left">SHA512</td>
-<td class="left">Elligator 2</td>
-<td class="left">True</td>
+<td class="left">SECP256k1</td>
+<td class="left"><a href="#suites-secp256k1" class="xref">Section 8.6</a></td>
 </tr>
 <tr>
-<td class="left">H2C-0007</td>
-<td class="left">SECP256K1</td>
-<td class="left">SHA512</td>
-<td class="left">Shallue-van de Woestijne</td>
-<td class="left">True</td>
-</tr>
-<tr>
-<td class="left">H2C-0008</td>
-<td class="left">BLS12381</td>
-<td class="left">SHA512</td>
-<td class="left">Simplified SWU</td>
-<td class="left">True</td>
+<td class="left">BLS12-381</td>
+<td class="left"><a href="#suites-bls12381" class="xref">Section 8.7</a></td>
 </tr>
 </tbody>
 </table>
+<h1 id="rfc.section.8.1">
+<a href="#rfc.section.8.1">8.1.</a> <a href="#suites-p256" id="suites-p256">Suites for NIST P-256</a>
+</h1>
+<p id="rfc.section.8.1.p.1">The suites P256-SHA256-SSWU-RO and P256-SHA256-SSWU-NU are defined for the NIST P-256 elliptic curve <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.  These suites share the following parameters:</p>
+<p></p>
+
+<ul>
+<li>E: y^2 = x^3 + A * x + B, where <ul>
+<li>A = -3</li>
+<li>B = 0x5ac635d8aa3a93e7b3ebbd55769886bc651d06b0cc53b0f63bce3c3e27d2604b</li>
+</ul>
+</li>
+<li>p: 2^256 - 2^224 + 2^192 + 2^96 - 1</li>
+<li>m: 1</li>
+<li>H: SHA-256</li>
+<li>W: 2</li>
+<li>f: Simplified SWU method, <a href="#simple-swu" class="xref">Section 6.5.2</a>
+</li>
+<li>Z: -2</li>
+<li>h_eff: 1</li>
+</ul>
+<h1 id="rfc.section.8.2">
+<a href="#rfc.section.8.2">8.2.</a> <a href="#suites-p384" id="suites-p384">Suites for NIST P-384</a>
+</h1>
+<p id="rfc.section.8.2.p.1">The suites P384-SHA512-ICART-RO and P384-SHA512-ICART-NU are defined for the NIST P-384 elliptic curve <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.  These suites share the following parameters:</p>
+<p></p>
+
+<ul>
+<li>E: y^2 = x^3 + A * x + B, where <ul>
+<li>A = -3</li>
+<li>B = 0xb3312fa7e23ee7e4988e056be3f82d19181d9c6efe8141120314088f5013875ac656398d8a2ed19d2a85c8edd3ec2aef</li>
+</ul>
+</li>
+<li>p: 2^384 - 2^128 - 2^96 + 2^32 - 1</li>
+<li>m: 1</li>
+<li>H: SHA-512</li>
+<li>W: 2</li>
+<li>f: Icart&#8217;s method, <a href="#icart" class="xref">Section 6.5.1</a>
+</li>
+<li>h_eff: 1</li>
+</ul>
+<h1 id="rfc.section.8.3">
+<a href="#rfc.section.8.3">8.3.</a> <a href="#suites-p521" id="suites-p521">Suites for NIST P-521</a>
+</h1>
+<p id="rfc.section.8.3.p.1">The suites P521-SHA512-SSWU-RO and P521-SHA512-SSWU-NU are defined for the NIST P-384 elliptic curve <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.  These suites share the following parameters:</p>
+<p></p>
+
+<ul>
+<li>E: y^2 = x^3 + A * x + B, where <ul>
+<li>A = -3</li>
+<li>B = 0x51953eb9618e1c9a1f929a21a0b68540eea2da725b99b315f3b8b489918ef109e156193951ec7e937b1652c0bd3bb1bf073573df883d2c34f1ef451fd46b503f00</li>
+</ul>
+</li>
+<li>p: 2^521 - 1</li>
+<li>m: 1</li>
+<li>H: SHA-512</li>
+<li>W: 2</li>
+<li>f: Simplified SWU method, <a href="#simple-swu" class="xref">Section 6.5.2</a>
+</li>
+<li>Z: -2</li>
+<li>h_eff: 1</li>
+</ul>
+<h1 id="rfc.section.8.4">
+<a href="#rfc.section.8.4">8.4.</a> <a href="#suites-25519" id="suites-25519">Suites for curve25519 and edwards25519</a>
+</h1>
+<p id="rfc.section.8.4.p.1">This section defines ciphersuites for curve25519 and edwards25519 <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
+<p id="rfc.section.8.4.p.2">The suites curve25519-SHA256-ELL2-RO and curve25519-SHA256-ELL2-NU share the following parameters, in addition to the common parameters below.</p>
+<p></p>
+
+<ul>
+<li>E: B * y^2 = x^3 + A * x^2 + x, where <ul>
+<li>A = 486662</li>
+<li>B = 1</li>
+</ul>
+</li>
+<li>f: Elligator 2 method, <a href="#elligator2" class="xref">Section 6.6.1</a>
+</li>
+</ul>
+<p id="rfc.section.8.4.p.4">The suites edwards25519-SHA256-EDELL2-RO and edwards25519-SHA256-EDELL2-NU share the following parameters, in addition to the common parameters below.</p>
+<p></p>
+
+<ul>
+<li>E: a * x^2 + y^2 = 1 + d * x^2 * y^2, where <ul>
+<li>a = -1</li>
+<li>d = 0x52036cee2b6ffe738cc740797779e89800700a4d4141d8ab75eb4dca135978a3</li>
+</ul>
+</li>
+<li>f: Twisted Edwards Elligator 2 method, <a href="#ell2edwards" class="xref">Section 6.7.2</a>
+</li>
+<li>M: curve25519 defined in <a href="#RFC7748" class="xref">[RFC7748]</a>, Section 4.1</li>
+<li>rational_map: the birational map defined in <a href="#RFC7748" class="xref">[RFC7748]</a>, Section 4.1</li>
+</ul>
+<p id="rfc.section.8.4.p.6">The common parameters for all of the above suites are:</p>
+<p></p>
+
+<ul>
+<li>p: 2^255 - 19</li>
+<li>m: 1</li>
+<li>H: SHA-256</li>
+<li>W: 2</li>
+<li>Z: 2</li>
+<li>h_eff: 8</li>
+</ul>
+<h1 id="rfc.section.8.5">
+<a href="#rfc.section.8.5">8.5.</a> <a href="#suites-448" id="suites-448">Suites for curve448 and edwards448</a>
+</h1>
+<p id="rfc.section.8.5.p.1">This section defines ciphersuites for curve448 and edwards448 <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
+<p id="rfc.section.8.5.p.2">The suites curve448-SHA512-ELL2-RO and curve448-SHA512-ELL2-NU share the following parameters, in addition to the common parameters below.</p>
+<p></p>
+
+<ul>
+<li>E: B * y^2 = x^3 + A * x^2 + x, where <ul>
+<li>A = 156326</li>
+<li>B = 1</li>
+</ul>
+</li>
+<li>f: Elligator 2 method, <a href="#elligator2" class="xref">Section 6.6.1</a>
+</li>
+</ul>
+<p id="rfc.section.8.5.p.4">The suites edwards448-SHA512-EDELL2-RO and edwards448-SHA512-EDELL2-NU share the following parameters, in addition to the common parameters below.</p>
+<p></p>
+
+<ul>
+<li>E: a * x^2 + y^2 = 1 + d * x^2 * y^2, where <ul>
+<li>a = 1</li>
+<li>d = -39081</li>
+</ul>
+</li>
+<li>f: Twisted Edwards Elligator 2 method, <a href="#ell2edwards" class="xref">Section 6.7.2</a>
+</li>
+<li>M: curve448, defined in <a href="#RFC7748" class="xref">[RFC7748]</a>, Section 4.2</li>
+<li>rational_map: the 4-isogeny map defined in <a href="#RFC7748" class="xref">[RFC7748]</a>, Section 4.2</li>
+</ul>
+<p id="rfc.section.8.5.p.6">The common parameters for all of the above suites are:</p>
+<p></p>
+
+<ul>
+<li>p: 2^448 - 2^224 - 1</li>
+<li>m: 1</li>
+<li>H: SHA-512</li>
+<li>W: 2</li>
+<li>Z: -1</li>
+<li>h_eff: 4</li>
+</ul>
+<h1 id="rfc.section.8.6">
+<a href="#rfc.section.8.6">8.6.</a> <a href="#suites-secp256k1" id="suites-secp256k1">Suites for SECP256K1</a>
+</h1>
+<p id="rfc.section.8.6.p.1">The suites SECP256K1-SHA256-SVDW-RO and SECP256K1-SHA256-SVDW-NU are defined for the SECP256K1 elliptic curve <a href="#SEC2" class="xref">[SEC2]</a>.  These suites share the following parameters:</p>
+<p></p>
+
+<ul>
+<li>E: y^2 = x^3 + 7</li>
+<li>p: 2^256 - 2^32 - 2^9 - 2^8 - 2^7 - 2^6 - 2^4 - 1</li>
+<li>m: 1</li>
+<li>H: SHA-256</li>
+<li>W: 2</li>
+<li>f: Shallue-van de Woestijne method, <a href="#swpairing" class="xref">Section 6.9.1</a>
+</li>
+<li>Z: 1</li>
+<li>h_eff: 1</li>
+</ul>
+<h1 id="rfc.section.8.7">
+<a href="#rfc.section.8.7">8.7.</a> <a href="#suites-bls12381" id="suites-bls12381">Suites for BLS12-381</a>
+</h1>
+<p id="rfc.section.8.7.p.1">This section defines ciphersuites for groups G1 and G2 of the BLS12-381 elliptic curve <a href="#draft-yonezawa-pfc-01" class="xref">[draft-yonezawa-pfc-01]</a>.</p>
+<p id="rfc.section.8.7.p.2">The suites BLS12381G1-SHA256-SSWU-RO and BLS12381G1-SHA256-SSWU-NU share the following parameters, in addition to the common parameters below.</p>
+<p></p>
+
+<ul>
+<li>E: y^2 = x^3 + 4</li>
+<li>m: 1</li>
+<li>Z: -1</li>
+<li>E&#8217;: y&#8217;^2 = x&#8217;^3 + A * x&#8217; + B, where <ul>
+<li>A = 0x144698a3b8e9433d693a02c96d4982b0ea985383ee66a8d8e8981aefd881ac98936f8da0e0f97f5cf428082d584c1d</li>
+<li>B = 0x12e2908d11688030018b12e8753eee3b2016c1f0f24f4070a0b9c14fcef35ef55a23215a316ceaa5d1cc48e98e172be0</li>
+</ul>
+</li>
+<li>iso_map: the 11-isogeny map from E&#8217; to E given in <a href="#appx-bls12381-g1" class="xref">Appendix C.1</a>
+</li>
+<li>h_eff: 0xd201000000010001</li>
+</ul>
+<p id="rfc.section.8.7.p.4">The suites BLS12381G2-SHA256-SSWU-RO and BLS12381G2-SHA256-SSWU-NU share the following parameters, in addition to the common parameters below.</p>
+<p></p>
+
+<ul>
+<li>F: GF(p^m), where <ul>
+<li>p: defined below</li>
+<li>m: 2</li>
+<li>(1, i) is the basis for F, where i^2 + 1 == 0 in F</li>
+</ul>
+</li>
+<li>E: y^2 = x^3 + 4 * (1 + i)</li>
+<li>Z: 1 + i</li>
+<li>E&#8217;: y&#8217;^2 = x&#8217;^3 + A * x&#8217; + BB, where <ul>
+<li>A = 240 * i</li>
+<li>B = 1012 * (1 + i)</li>
+</ul>
+</li>
+<li>iso_map: the isogeny map from E&#8217; to E given in <a href="#appx-bls12381-g2" class="xref">Appendix C.2</a>
+</li>
+<li>h_eff: 0xbc69f08f2ee75b3584c6a0ea91b352888e2a8e9145ad7689986ff031508ffe1329c2f178731db956d82bf015d1212b02ec0ec69d7477c1ae954cbc06689f6a359894c0adebbf6b4e8020005aaa95551</li>
+</ul>
+<p id="rfc.section.8.7.p.6">The common parameters for the above suites are:</p>
+<p></p>
+
+<ul>
+<li>p: 0x1a0111ea397fe69a4b1ba7b6434bacd764774b84f38512bf6730d2a0f6b0f6241eabfffeb153ffffb9feffffffffaaab</li>
+<li>H: SHA-256</li>
+<li>W: 2</li>
+<li>f: Simplified SWU for pairing-friendly curves, <a href="#simple-swu-pairing-friendly" class="xref">Section 6.9.2</a>
+</li>
+</ul>
+<p id="rfc.section.8.7.p.8">Note that the h_eff parameters for all of the above suites are chosen for compatibility with the fast cofactor clearing methods described by Scott for G1 (<a href="#WB19" class="xref">[WB19]</a> Section 5) and by Budroni and Pintore for G2 (<a href="#BP18" class="xref">[BP18]</a>, Section 4.1).</p>
 <h1 id="rfc.section.9">
 <a href="#rfc.section.9">9.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a>
 </h1>
@@ -1580,6 +1810,11 @@ E': y^2 = g'(x) = x^3 + A' * x + B'
 <td class="reference"><b id="CK11">[CK11]</b></td>
 <td class="top">
 <a title="Universite Bordeaux">Couveignes, J.</a> and <a title="Universite de Rennes">J. Kammerer</a>, "<a href="https://doi.org/10.1016/j.jsc.2011.11.003">The geometry of flex tangents to a cubic curve and its parameterizations</a>", In Journal of Symbolic Computation, vol 47 issue 3, pages 266-281, DOI 10.1016/j.jsc.2011.11.003, 2012.</td>
+</tr>
+<tr>
+<td class="reference"><b id="draft-yonezawa-pfc-01">[draft-yonezawa-pfc-01]</b></td>
+<td class="top">
+<a title="Lepidum">Yonezawa, S.</a>, <a title="NTT TechnoCross">Chikara, S.</a>, <a title="NTT">Kobayashi, T.</a> and <a title="NTT">T. Saito</a>, "<a href="https://datatracker.ietf.org/doc/draft-yonezawa-pairing-friendly-curves/">Pairing-friendly Curves</a>", March 2019.</td>
 </tr>
 <tr>
 <td class="reference"><b id="F11">[F11]</b></td>
@@ -1757,10 +1992,156 @@ E': y^2 = g'(x) = x^3 + A' * x + B'
 <li>y&#8217;&#8217; = (1 + y) / (x * (1 - y))</li>
 </ul>
 <h1 id="rfc.appendix.C">
-<a href="#rfc.appendix.C">Appendix C.</a> <a href="#samplecode" id="samplecode">Sample Code</a>
+<a href="#rfc.appendix.C">Appendix C.</a> <a href="#appx-bls12381" id="appx-bls12381">Isogenous curves and corresponding maps for BLS12-381</a>
 </h1>
-<p id="rfc.section.C.p.1">Sample Sage <a href="#SAGE" class="xref">[SAGE]</a> code for each algorithm can be found in the draft repository <a href="#hash2curve-repo" class="xref">[hash2curve-repo]</a>.</p>
-<p id="rfc.section.C.p.2">A future version of this document will give optimized examples for all curves listed in <a href="#suites" class="xref">Section 8</a>, and accompanying test vectors.</p>
+<p id="rfc.section.C.p.1">This section specifies the isogeny maps for the BLS12-381 suites listed in <a href="#suites-bls12381" class="xref">Section 8.7</a>.</p>
+<h1 id="rfc.appendix.C.1">
+<a href="#rfc.appendix.C.1">C.1.</a> <a href="#appx-bls12381-g1" id="appx-bls12381-g1">11-isogeny map for G1</a>
+</h1>
+<p id="rfc.section.C.1.p.1">The 11-isogeny map from E&#8217; to E is given by the following rational functions:</p>
+<p></p>
+
+<ul>
+<li>x = x_num / x_den, where <ul>
+<li>x_num = k_(1,11) * x&#8217;^11 + k_(1,10) * x&#8217;^10 + &#8230; + k_(1,0)</li>
+<li>x_den = x&#8217;^10 + k_(2,9) * x&#8217;^9 + &#8230; + k_(2,0)</li>
+</ul>
+</li>
+<li>y = y&#8217; * y_num / y_den, where <ul>
+<li>y_num = k_(3,15) * x&#8217;^15 + k_(3,14) * x&#8217;^14 + &#8230; + k_(3,0)</li>
+<li>y_den = x&#8217;^15 + k_(4,14) * x&#8217;^14 + &#8230; + k_(4,0)</li>
+</ul>
+</li>
+</ul>
+<p id="rfc.section.C.1.p.3">The constants used to compute x_num are as follows:</p>
+<p></p>
+
+<ul>
+<li>k_(1,0) = 0x11a05f2b1e833340b809101dd99815856b303e88a2d7005ff2627b56cdb4e2c85610c2d5f2e62d6eaeac1662734649b7</li>
+<li>k_(1,1) = 0x17294ed3e943ab2f0588bab22147a81c7c17e75b2f6a8417f565e33c70d1e86b4838f2a6f318c356e834eef1b3cb83bb</li>
+<li>k_(1,2) = 0xd54005db97678ec1d1048c5d10a9a1bce032473295983e56878e501ec68e25c958c3e3d2a09729fe0179f9dac9edcb0</li>
+<li>k_(1,3) = 0x1778e7166fcc6db74e0609d307e55412d7f5e4656a8dbf25f1b33289f1b330835336e25ce3107193c5b388641d9b6861</li>
+<li>k_(1,4) = 0xe99726a3199f4436642b4b3e4118e5499db995a1257fb3f086eeb65982fac18985a286f301e77c451154ce9ac8895d9</li>
+<li>k_(1,5) = 0x1630c3250d7313ff01d1201bf7a74ab5db3cb17dd952799b9ed3ab9097e68f90a0870d2dcae73d19cd13c1c66f652983</li>
+<li>k_(1,6) = 0xd6ed6553fe44d296a3726c38ae652bfb11586264f0f8ce19008e218f9c86b2a8da25128c1052ecaddd7f225a139ed84</li>
+<li>k_(1,7) = 0x17b81e7701abdbe2e8743884d1117e53356de5ab275b4db1a682c62ef0f2753339b7c8f8c8f475af9ccb5618e3f0c88e</li>
+<li>k_(1,8) = 0x80d3cf1f9a78fc47b90b33563be990dc43b756ce79f5574a2c596c928c5d1de4fa295f296b74e956d71986a8497e317</li>
+<li>k_(1,9) = 0x169b1f8e1bcfa7c42e0c37515d138f22dd2ecb803a0c5c99676314baf4bb1b7fa3190b2edc0327797f241067be390c9e</li>
+<li>k_(1,10) = 0x10321da079ce07e272d8ec09d2565b0dfa7dccdde6787f96d50af36003b14866f69b771f8c285decca67df3f1605fb7b</li>
+<li>k_(1,11) = 0x6e08c248e260e70bd1e962381edee3d31d79d7e22c837bc23c0bf1bc24c6b68c24b1b80b64d391fa9c8ba2e8ba2d229</li>
+</ul>
+<p id="rfc.section.C.1.p.5">The constants used to compute x_den are as follows:</p>
+<p></p>
+
+<ul>
+<li>k_(2,0) = 0x8ca8d548cff19ae18b2e62f4bd3fa6f01d5ef4ba35b48ba9c9588617fc8ac62b558d681be343df8993cf9fa40d21b1c</li>
+<li>k_(2,1) = 0x12561a5deb559c4348b4711298e536367041e8ca0cf0800c0126c2588c48bf5713daa8846cb026e9e5c8276ec82b3bff</li>
+<li>k_(2,2) = 0xb2962fe57a3225e8137e629bff2991f6f89416f5a718cd1fca64e00b11aceacd6a3d0967c94fedcfcc239ba5cb83e19</li>
+<li>k_(2,3) = 0x3425581a58ae2fec83aafef7c40eb545b08243f16b1655154cca8abc28d6fd04976d5243eecf5c4130de8938dc62cd8</li>
+<li>k_(2,4) = 0x13a8e162022914a80a6f1d5f43e7a07dffdfc759a12062bb8d6b44e833b306da9bd29ba81f35781d539d395b3532a21e</li>
+<li>k_(2,5) = 0xe7355f8e4e667b955390f7f0506c6e9395735e9ce9cad4d0a43bcef24b8982f7400d24bc4228f11c02df9a29f6304a5</li>
+<li>k_(2,6) = 0x772caacf16936190f3e0c63e0596721570f5799af53a1894e2e073062aede9cea73b3538f0de06cec2574496ee84a3a</li>
+<li>k_(2,7) = 0x14a7ac2a9d64a8b230b3f5b074cf01996e7f63c21bca68a81996e1cdf9822c580fa5b9489d11e2d311f7d99bbdcc5a5e</li>
+<li>k_(2,8) = 0xa10ecf6ada54f825e920b3dafc7a3cce07f8d1d7161366b74100da67f39883503826692abba43704776ec3a79a1d641</li>
+<li>k_(2,9) = 0x95fc13ab9e92ad4476d6e3eb3a56680f682b4ee96f7d03776df533978f31c1593174e4b4b7865002d6384d168ecdd0a</li>
+</ul>
+<p id="rfc.section.C.1.p.7">The constants used to compute y_num are as follows:</p>
+<p></p>
+
+<ul>
+<li>k_(3,0) = 0x90d97c81ba24ee0259d1f094980dcfa11ad138e48a869522b52af6c956543d3cd0c7aee9b3ba3c2be9845719707bb33</li>
+<li>k_(3,1) = 0x134996a104ee5811d51036d776fb46831223e96c254f383d0f906343eb67ad34d6c56711962fa8bfe097e75a2e41c696</li>
+<li>k_(3,2) = 0xcc786baa966e66f4a384c86a3b49942552e2d658a31ce2c344be4b91400da7d26d521628b00523b8dfe240c72de1f6</li>
+<li>k_(3,3) = 0x1f86376e8981c217898751ad8746757d42aa7b90eeb791c09e4a3ec03251cf9de405aba9ec61deca6355c77b0e5f4cb</li>
+<li>k_(3,4) = 0x8cc03fdefe0ff135caf4fe2a21529c4195536fbe3ce50b879833fd221351adc2ee7f8dc099040a841b6daecf2e8fedb</li>
+<li>k_(3,5) = 0x16603fca40634b6a2211e11db8f0a6a074a7d0d4afadb7bd76505c3d3ad5544e203f6326c95a807299b23ab13633a5f0</li>
+<li>k_(3,6) = 0x4ab0b9bcfac1bbcb2c977d027796b3ce75bb8ca2be184cb5231413c4d634f3747a87ac2460f415ec961f8855fe9d6f2</li>
+<li>k_(3,7) = 0x987c8d5333ab86fde9926bd2ca6c674170a05bfe3bdd81ffd038da6c26c842642f64550fedfe935a15e4ca31870fb29</li>
+<li>k_(3,8) = 0x9fc4018bd96684be88c9e221e4da1bb8f3abd16679dc26c1e8b6e6a1f20cabe69d65201c78607a360370e577bdba587</li>
+<li>k_(3,9) = 0xe1bba7a1186bdb5223abde7ada14a23c42a0ca7915af6fe06985e7ed1e4d43b9b3f7055dd4eba6f2bafaaebca731c30</li>
+<li>k_(3,10) = 0x19713e47937cd1be0dfd0b8f1d43fb93cd2fcbcb6caf493fd1183e416389e61031bf3a5cce3fbafce813711ad011c132</li>
+<li>k_(3,11) = 0x18b46a908f36f6deb918c143fed2edcc523559b8aaf0c2462e6bfe7f911f643249d9cdf41b44d606ce07c8a4d0074d8e</li>
+<li>k_(3,12) = 0xb182cac101b9399d155096004f53f447aa7b12a3426b08ec02710e807b4633f06c851c1919211f20d4c04f00b971ef8</li>
+<li>k_(3,13) = 0x245a394ad1eca9b72fc00ae7be315dc757b3b080d4c158013e6632d3c40659cc6cf90ad1c232a6442d9d3f5db980133</li>
+<li>k_(3,14) = 0x5c129645e44cf1102a159f748c4a3fc5e673d81d7e86568d9ab0f5d396a7ce46ba1049b6579afb7866b1e715475224b</li>
+<li>k_(3,15) = 0x15e6be4e990f03ce4ea50b3b42df2eb5cb181d8f84965a3957add4fa95af01b2b665027efec01c7704b456be69c8b604</li>
+</ul>
+<p id="rfc.section.C.1.p.9">The constants used to compute y_den are as follows:</p>
+<p></p>
+
+<ul>
+<li>k_(4,0) = 0x16112c4c3a9c98b252181140fad0eae9601a6de578980be6eec3232b5be72e7a07f3688ef60c206d01479253b03663c1</li>
+<li>k_(4,1) = 0x1962d75c2381201e1a0cbd6c43c348b885c84ff731c4d59ca4a10356f453e01f78a4260763529e3532f6102c2e49a03d</li>
+<li>k_(4,2) = 0x58df3306640da276faaae7d6e8eb15778c4855551ae7f310c35a5dd279cd2eca6757cd636f96f891e2538b53dbf67f2</li>
+<li>k_(4,3) = 0x16b7d288798e5395f20d23bf89edb4d1d115c5dbddbcd30e123da489e726af41727364f2c28297ada8d26d98445f5416</li>
+<li>k_(4,4) = 0xbe0e079545f43e4b00cc912f8228ddcc6d19c9f0f69bbb0542eda0fc9dec916a20b15dc0fd2ededda39142311a5001d</li>
+<li>k_(4,5) = 0x8d9e5297186db2d9fb266eaac783182b70152c65550d881c5ecd87b6f0f5a6449f38db9dfa9cce202c6477faaf9b7ac</li>
+<li>k_(4,6) = 0x166007c08a99db2fc3ba8734ace9824b5eecfdfa8d0cf8ef5dd365bc400a0051d5fa9c01a58b1fb93d1a1399126a775c</li>
+<li>k_(4,7) = 0x16a3ef08be3ea7ea03bcddfabba6ff6ee5a4375efa1f4fd7feb34fd206357132b920f5b00801dee460ee415a15812ed9</li>
+<li>k_(4,8) = 0x1866c8ed336c61231a1be54fd1d74cc4f9fb0ce4c6af5920abc5750c4bf39b4852cfe2f7bb9248836b233d9d55535d4a</li>
+<li>k_(4,9) = 0x167a55cda70a6e1cea820597d94a84903216f763e13d87bb5308592e7ea7d4fbc7385ea3d529b35e346ef48bb8913f55</li>
+<li>k_(4,10) = 0x4d2f259eea405bd48f010a01ad2911d9c6dd039bb61a6290e591b36e636a5c871a5c29f4f83060400f8b49cba8f6aa8</li>
+<li>k_(4,11) = 0xaccbb67481d033ff5852c1e48c50c477f94ff8aefce42d28c0f9a88cea7913516f968986f7ebbea9684b529e2561092</li>
+<li>k_(4,12) = 0xad6b9514c767fe3c3613144b45f1496543346d98adf02267d5ceef9a00d9b8693000763e3b90ac11e99b138573345cc</li>
+<li>k_(4,13) = 0x2660400eb2e4f3b628bdd0d53cd76f2bf565b94e72927c1cb748df27942480e420517bd8714cc80d1fadc1326ed06f7</li>
+<li>k_(4,14) = 0xe0fa1d816ddc03e6b24255e0d7819c171c40f65e273b853324efcd6356caa205ca2f570f13497804415473a1d634b8f</li>
+</ul>
+<h1 id="rfc.appendix.C.2">
+<a href="#rfc.appendix.C.2">C.2.</a> <a href="#appx-bls12381-g2" id="appx-bls12381-g2">3-isogeny map for G2</a>
+</h1>
+<p id="rfc.section.C.2.p.1">The 3-isogeny map from E&#8217; to E is given by the following rational functions:</p>
+<p></p>
+
+<ul>
+<li>x = x_num / x_den, where <ul>
+<li>x_num = k_(1,3) * x&#8217;^3 + k_(1,2) * x&#8217;^2 + &#8230; + k_(1,0)</li>
+<li>x_den = x&#8217;^2 + k_(2,1) * x&#8217; + k_(2,0)</li>
+</ul>
+</li>
+<li>y = y&#8217; * y_num / y_den, where <ul>
+<li>y_num = k_(3,3) * x&#8217;^3 + k_(3,2) * x&#8217;^2 + &#8230; + k_(3,0)</li>
+<li>y_den = x&#8217;^3 + k_(4,2) * x&#8217;^2 + &#8230; + k_(4,0)</li>
+</ul>
+</li>
+</ul>
+<p id="rfc.section.C.2.p.3">The constants used to compute x_num are as follows:</p>
+<p></p>
+
+<ul>
+<li>k_(1,0) = 0x5c759507e8e333ebb5b7a9a47d7ed8532c52d39fd3a042a88b58423c50ae15d5c2638e343d9c71c6238aaaaaaaa97d6 + 0x5c759507e8e333ebb5b7a9a47d7ed8532c52d39fd3a042a88b58423c50ae15d5c2638e343d9c71c6238aaaaaaaa97d6 * i</li>
+<li>k_(1,1) = 0x11560bf17baa99bc32126fced787c88f984f87adf7ae0c7f9a208c6b4f20a4181472aaa9cb8d555526a9ffffffffc71a * i</li>
+<li>k_(1,2) = 0x11560bf17baa99bc32126fced787c88f984f87adf7ae0c7f9a208c6b4f20a4181472aaa9cb8d555526a9ffffffffc71e + 0x8ab05f8bdd54cde190937e76bc3e447cc27c3d6fbd7063fcd104635a790520c0a395554e5c6aaaa9354ffffffffe38d * i</li>
+<li>k_(1,3) = 0x171d6541fa38ccfaed6dea691f5fb614cb14b4e7f4e810aa22d6108f142b85757098e38d0f671c7188e2aaaaaaaa5ed1</li>
+</ul>
+<p id="rfc.section.C.2.p.5">The constants used to compute x_den are as follows:</p>
+<p></p>
+
+<ul>
+<li>k_(2,0) = 0x1a0111ea397fe69a4b1ba7b6434bacd764774b84f38512bf6730d2a0f6b0f6241eabfffeb153ffffb9feffffffffaa63 * i</li>
+<li>k_(2,1) = 0xc + 0x1a0111ea397fe69a4b1ba7b6434bacd764774b84f38512bf6730d2a0f6b0f6241eabfffeb153ffffb9feffffffffaa9f * i</li>
+</ul>
+<p id="rfc.section.C.2.p.7">The constants used to compute y_num are as follows:</p>
+<p></p>
+
+<ul>
+<li>k_(3,0) = 0x1530477c7ab4113b59a4c18b076d11930f7da5d4a07f649bf54439d87d27e500fc8c25ebf8c92f6812cfc71c71c6d706 + 0x1530477c7ab4113b59a4c18b076d11930f7da5d4a07f649bf54439d87d27e500fc8c25ebf8c92f6812cfc71c71c6d706 * i</li>
+<li>k_(3,1) = 0x5c759507e8e333ebb5b7a9a47d7ed8532c52d39fd3a042a88b58423c50ae15d5c2638e343d9c71c6238aaaaaaaa97be * i</li>
+<li>k_(3,2) = 0x11560bf17baa99bc32126fced787c88f984f87adf7ae0c7f9a208c6b4f20a4181472aaa9cb8d555526a9ffffffffc71c + 0x8ab05f8bdd54cde190937e76bc3e447cc27c3d6fbd7063fcd104635a790520c0a395554e5c6aaaa9354ffffffffe38f * i</li>
+<li>k_(3,3) = 0x124c9ad43b6cf79bfbf7043de3811ad0761b0f37a1e26286b0e977c69aa274524e79097a56dc4bd9e1b371c71c718b10</li>
+</ul>
+<p id="rfc.section.C.2.p.9">The constants used to compute y_den are as follows:</p>
+<p></p>
+
+<ul>
+<li>k_(4,0) = 0x1a0111ea397fe69a4b1ba7b6434bacd764774b84f38512bf6730d2a0f6b0f6241eabfffeb153ffffb9feffffffffa8fb + 0x1a0111ea397fe69a4b1ba7b6434bacd764774b84f38512bf6730d2a0f6b0f6241eabfffeb153ffffb9feffffffffa8fb * i</li>
+<li>k_(4,1) = 0x1a0111ea397fe69a4b1ba7b6434bacd764774b84f38512bf6730d2a0f6b0f6241eabfffeb153ffffb9feffffffffa9d3 * i</li>
+<li>k_(4,2) = 0x12 + 0x1a0111ea397fe69a4b1ba7b6434bacd764774b84f38512bf6730d2a0f6b0f6241eabfffeb153ffffb9feffffffffaa99 * i</li>
+</ul>
+<h1 id="rfc.appendix.D">
+<a href="#rfc.appendix.D">Appendix D.</a> <a href="#samplecode" id="samplecode">Sample Code</a>
+</h1>
+<p id="rfc.section.D.p.1">Sample Sage <a href="#SAGE" class="xref">[SAGE]</a> code for each algorithm can be found in the draft repository <a href="#hash2curve-repo" class="xref">[hash2curve-repo]</a>.</p>
+<p id="rfc.section.D.p.2">A future version of this document will give optimized examples for all curves listed in <a href="#suites" class="xref">Section 8</a>, and accompanying test vectors.</p>
 <h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
 <div class="avoidbreak">
   <address class="vcard">
