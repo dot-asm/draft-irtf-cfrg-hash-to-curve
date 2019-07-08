@@ -2204,7 +2204,7 @@ Internet-Draft                hash-to-curve                    July 2019
 
    o  Z: 1 + i
 
-   o  E': y'^2 = x'^3 + A * x' + BB, where
+   o  E': y'^2 = x'^3 + A * x' + B, where
 
       *  A = 240 * i
 
