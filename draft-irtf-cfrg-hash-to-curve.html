@@ -655,7 +655,7 @@ R2(x) := R("R2" || x)
 <p></p>
 
 <ul>
-<li>The function hash_to_base, {0, 1}^* -&gt; F, hashes arbitrary-length bit strings to elements of a finite field; its implementation is defined in <a href="#hashtobase" class="xref">Section 5</a>.</li>
+<li>The function hash_to_base, {0, 1}^* x {0, 1, 2} -&gt; F, hashes arbitrary-length bit strings to elements of a finite field; its implementation is defined in <a href="#hashtobase" class="xref">Section 5</a>.</li>
 <li>The function map_to_curve, F -&gt; E, calculates a point on the elliptic curve E from an element of the finite field F over which E is defined.  <a href="#mappings" class="xref">Section 6</a> describes mappings for a range of curve families.</li>
 <li>The function clear_cofactor, E -&gt; G, sends any point on the curve E to the subgroup G of E. <a href="#cofactor-clearing" class="xref">Section 7</a> describes methods to perform this operation.</li>
 </ul>
@@ -818,7 +818,7 @@ Steps:
 <h1 id="rfc.section.5">
 <a href="#rfc.section.5">5.</a> <a href="#hashtobase" id="hashtobase">Hashing to a Finite Field</a>
 </h1>
-<p id="rfc.section.5.p.1">The hash_to_base(msg) function hashes a string msg of any length into an element of a field F. This function is parametrized by the field F (<a href="#bg-curves" class="xref">Section 2.1</a>) and by H, a cryptographic hash function that outputs b bits.</p>
+<p id="rfc.section.5.p.1">The hash_to_base function hashes a string msg of any length into an element of a field F. This function is parametrized by the field F (<a href="#bg-curves" class="xref">Section 2.1</a>) and by H, a cryptographic hash function that outputs b bits.</p>
 <h1 id="rfc.section.5.1">
 <a href="#rfc.section.5.1">5.1.</a> <a href="#hashtobase-sec" id="hashtobase-sec">Security considerations</a>
 </h1>
