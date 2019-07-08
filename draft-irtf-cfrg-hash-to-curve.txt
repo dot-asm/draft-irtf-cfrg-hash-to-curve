@@ -516,9 +516,9 @@ Internet-Draft                hash-to-curve                    July 2019
    <yy> are two-digit numbers indicating the version and ciphersuite,
    respectively.  Alternatively, if a variable-length ciphersuite string
    must be used, a reasonable choice of tag is "QUUX-V<xx>-
-   L<zz>-<csid>", where where <csid> is a the ciphersuite string, and
-   <xx> and <zz> are two-digit numbers indicating the version and the
-   length of the ciphersuite string, respectively.
+   L<zz>-<csid>", where <csid> is the ciphersuite string, and <xx> and
+   <zz> are two-digit numbers indicating the version and the length of
+   the ciphersuite string, respectively.
 
    As another example, consider a fictional protocol named Baz that
    requires two independent random oracles, where one oracle outputs
