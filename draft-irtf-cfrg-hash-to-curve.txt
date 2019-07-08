@@ -84,14 +84,14 @@ Table of Contents
      5.3.  Implementation  . . . . . . . . . . . . . . . . . . . . .  15
    6.  Deterministic Mappings  . . . . . . . . . . . . . . . . . . .  16
      6.1.  Interface . . . . . . . . . . . . . . . . . . . . . . . .  16
-     6.2.  Notation  . . . . . . . . . . . . . . . . . . . . . . . .  17
-     6.3.  Sign of the resulting point . . . . . . . . . . . . . . .  17
+     6.2.  Notation  . . . . . . . . . . . . . . . . . . . . . . . .  16
+     6.3.  Sign of the resulting point . . . . . . . . . . . . . . .  16
      6.4.  Exceptional cases . . . . . . . . . . . . . . . . . . . .  17
-     6.5.  Mappings for Weierstrass curves . . . . . . . . . . . . .  18
-       6.5.1.  Icart Method  . . . . . . . . . . . . . . . . . . . .  18
-       6.5.2.  Simplified Shallue-van de Woestijne-Ulas Method . . .  19
+     6.5.  Mappings for Weierstrass curves . . . . . . . . . . . . .  17
+       6.5.1.  Icart Method  . . . . . . . . . . . . . . . . . . . .  17
+       6.5.2.  Simplified Shallue-van de Woestijne-Ulas Method . . .  18
      6.6.  Mappings for Montgomery curves  . . . . . . . . . . . . .  21
-       6.6.1.  Elligator 2 Method  . . . . . . . . . . . . . . . . .  22
+       6.6.1.  Elligator 2 Method  . . . . . . . . . . . . . . . . .  21
      6.7.  Mappings for Twisted Edwards curves . . . . . . . . . . .  24
        6.7.1.  Rational maps from Montgomery to twisted Edwards
                curves  . . . . . . . . . . . . . . . . . . . . . . .  25
@@ -131,7 +131,7 @@ Internet-Draft                hash-to-curve                    July 2019
                 and Montgomery curves  . . . . . . . . . . . . . . .  49
    Appendix C.  Isogenous curves and corresponding maps for
                 BLS12-381  . . . . . . . . . . . . . . . . . . . . .  49
-     C.1.  11-isogeny map for G1 . . . . . . . . . . . . . . . . . .  49
+     C.1.  11-isogeny map for G1 . . . . . . . . . . . . . . . . . .  50
      C.2.  3-isogeny map for G2  . . . . . . . . . . . . . . . . . .  53
    Appendix D.  Sample Code  . . . . . . . . . . . . . . . . . . . .  55
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  55
@@ -460,7 +460,7 @@ Internet-Draft                hash-to-curve                    July 2019
    2. u1 = hash_to_base(alpha, 1)
    3. Q0 = map_to_curve(u0)
    4. Q1 = map_to_curve(u1)
-   5. R = Q0 + Q1
+   5. R = Q0 + Q1      // point addition
    6. P = clear_cofactor(R)
    7. return P
 
@@ -534,26 +534,26 @@ Internet-Draft                hash-to-curve                    July 2019
    Algorithms in this document make use of utility functions described
    below.
 
-   o  CMOV(a, b, c): If c == 0, CMOV returns a, otherwise returns b.  To
-      prevent against timing attacks, this operation must run in
-      constant time without revealing the value of c.  Commonly,
-      implementations assume that the selector is c == 1 or c == 0.  In
-      this case, given a bit string C, the desired selector c can be
-      computed by OR-ing all bits of C together.  The resulting selector
-      will be either 0 if all bits of C are zero, or 1 if at least one
-      bit of C is 1.
+   For security reasons, all field operations, comparisons, and
+   assignments MUST be implemented in constant time (i.e., execution
+   time MUST NOT depend on the values of the inputs), and without
+   branching.  Guidance on implementing these low-level operations in
+   constant time is beyond the scope of this document.
 
-   o  is_square(x, q): This function returns True whenever the value x
-      is a square in GF(q).  Due to Euler's criterion, this function can
-      be calculated in constant time as
+   o  CMOV(a, b, c): If c is False, CMOV returns a, otherwise it returns
+      b.  To prevent against timing attacks, this operation must run in
+      constant time, without revealing the value of c.  Commonly,
+      implementations assume that the selector c is 1 for True or 0 for
+      False.  In this case, given a bit string C, the desired selector c
+      can be computed by OR-ing all bits of C together.  The resulting
+      selector will be either 0 if all bits of C are zero, or 1 if at
+      least one bit of C is 1.
 
-   is_square(x, q) := { True,  if x^((q - 1) / 2) is 0 or 1;
-                      { False, otherwise.
+   o  is_square(x): This function returns True whenever the value x is a
+      square in the field F.  Due to Euler's criterion, this function
+      can be calculated in constant time as
 
-   o  sqrt(x, q): The sqrt operation is a multi-valued function, i.e.
-      there exist two roots of x whenever x is square.  To maintain
-      compatibility across implementations while allowing implementors
-      leeway for optimizations, this document does not require sqrt() to
+
 
 
 
@@ -562,12 +562,20 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 10]
 Internet-Draft                hash-to-curve                    July 2019
 
 
-      return a particular value.  Instead, as explained in Section 6.3,
-      any higher-level function that computes square roots also
-      specifies how to determine the sign of the result.
+   is_square(x) := { True,  if x^((q - 1) / 2) is 0 or 1 in F;
+                   { False, otherwise.
+
+   o  sqrt(x): The sqrt operation is a multi-valued function, i.e. there
+      exist two roots of x in the field F whenever x is square.  To
+      maintain compatibility across implementations while allowing
+      implementors leeway for optimizations, this document does not
+      require sqrt() to return a particular value.  Instead, as
+      explained in Section 6.3, any higher-level function that computes
+      square roots also specifies how to determine the sign of the
+      result.
 
       The preferred way of computing square roots is to fix a
-      deterministic algorithm particular to q.  We give algorithms for
+      deterministic algorithm particular to F.  We give algorithms for
       the three most common cases immediately below; other cases are
       analogous.
 
@@ -576,39 +584,31 @@ Internet-Draft                hash-to-curve                    July 2019
       extensions.  Regardless of the method chosen, the sqrt function
       MUST be performed in constant time.
 
+   s = sqrt(x)
 
+   Parameters:
+   - F, a finite field of characteristic p and order q = p^m, m >= 1.
 
+   Input: x, an element of F.
+   Output: s, an element of F such that (s^2) == x.
 
+   ======
 
+   Case 1: q = 3 (mod 4)
 
+   Constants:
+   1. c1 = (q + 1) / 4     // Integer arithmetic
 
+   Procedure:
+   1. return x^c1
 
+   ======
 
+   Case 2: q = 5 (mod 8)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   Constants:
+   1. c1 = sqrt(-1) in F, i.e., (c1^2) == -1 in F
+   2. c2 = (q + 3) / 8     // Integer arithmetic
 
 
 
@@ -618,29 +618,10 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 11]
 Internet-Draft                hash-to-curve                    July 2019
 
 
-   s = sqrt(x, q)
-
-   Input: x, an element of F.
-   Output: s, an element of F such that s * s = x.
-
-   ======
-
-   Case 1: q = 3 (mod 4)
-
    Procedure:
-   1. return x^((q + 1) / 4)
-
-   ======
-
-   Case 2: q = 5 (mod 8)
-
-   Constants:
-   1. c1 = sqrt(-1) in F, i.e., c1 * c1 = -1 mod q.
-
-   Procedure:
-   1. t1 = x^((q + 3) / 8)
-   2. e  = t1 * t1 == x
-   3. s  = CMOV(t1 * c1, t1, e)
+   1. t1 = x^c2
+   2.  e = (t1^2) == x
+   3.  s = CMOV(t1 * c1, t1, e)
    3. return s
 
    ======
@@ -648,22 +629,41 @@ Internet-Draft                hash-to-curve                    July 2019
    Case 3: q = 9 (mod 16)
 
    Constants:
-   1. c1 = sqrt(-1) in F, i.e., c1 * c1 = -1 mod q.
-   2. c2 = sqrt(sqrt(-1)) in F, i.e., c2 * c2 = c1 mod q.
-   3. c3 = sqrt(-sqrt(-1)) in F, i.e., c3 * c3 = -c1 mod q.
+   1. c1 = sqrt(-1) in F, i.e., (c1^2) == -1 in F
+   2. c2 = sqrt(c1) in F, i.e., (c2^2) == c1 in F
+   3. c3 = sqrt(-c1) in F, i.e., (c3^2) == -c1 in F
+   4. c4 = (q + 7) / 16    // Integer arithmetic
 
    Procedure:
-   1.  t1 = x^((q + 7) / 16)
+   1.  t1 = x^c4
    2.  t2 = c1 * t1
    3.  t3 = c2 * t1
    4.  t4 = c3 * t1
-   5.  e1 = t2 * t2 == x
-   6.  e2 = t3 * t3 == x
-   7.  t1 = CMOV(t1, t2, e1)  // select t2 if t2 * t2 == x
-   8.  t2 = CMOV(t4, t3, e2)  // select t3 if t3 * t3 == x
-   9.  e3 = t2 * t2 == x
-   10. s  = CMOV(t1, t2, e3)  // select the sqrt from t1 and t2
+   5.  e1 = (t2^2) == x
+   6.  e2 = (t3^2) == x
+   7.  t1 = CMOV(t1, t2, e1)  // select t2 if (t2^2) == x
+   8.  t2 = CMOV(t4, t3, e2)  // select t3 if (t3^2) == x
+   9.  e3 = (t2^2) == x
+   10.  s = CMOV(t1, t2, e3)  // select the sqrt from t1 and t2
    11. return s
+
+   o  sgn0(x): This function returns either +1 or -1 indicating the
+      "sign" of x, where sgn0(x) == -1 just when x is lexically greater
+      than -x.  Thus, this function considers 0 to be positive.  The
+      following procedure implements sgn0(x) in constant time.  See
+      Section 2.1 for a discussion of representing x as a vector.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -674,15 +674,11 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 12]
 Internet-Draft                hash-to-curve                    July 2019
 
 
-   o  sgn0(x): This function returns either +1 or -1, indicating the
-      sign of x.  This function considers 0 to be positive.  The
-      following procedure implements sgn0(x) in constant time.  See
-      Section 2.1 for a discussion of representing x as a vector.
-
    sgn0(x)
 
    Parameters:
-     1. F, a finite field of characteristic p and order q = p^m, m >= 1.
+   - F, a finite field of characteristic p and order q = p^m, m >= 1.
+
    Input: x, an element of F.
    Output: -1 or 1.
 
@@ -691,15 +687,18 @@ Internet-Draft                hash-to-curve                    July 2019
    Steps:
    1. sign = 0
    2. for i in (m, m - 1, ..., 1):
-   3.   sign_i = CMOV(1, -1, x_i > (p - 1) / 2)
+   3.   sign_i = CMOV(1, -1, x_i > ((p - 1) / 2))
    4.   sign_i = CMOV(sign_i, 0, x_i == 0)
    5.   sign = CMOV(sign, sign_i, sign == 0)
-   6. return CMOV(sign, 1, sign == 0)    # regard x = 0 as positive
+   6. return CMOV(sign, 1, sign == 0)    // regard x == 0 as positive
 
-   o  inv0(x, q): This function returns the multiplicative inverse of x
-      mod q, extended to all of F by fixing inv0(0) == 0.  To implement
-      inv0 in constant time, compute alpha = x^(q - 2) mod q.  Notice on
-      input 0, the output is 0 as required.
+   o  abs(x): The absolute value of x is defined in terms of sgn0 in the
+      natural way, namely, abs(x) := sgn0(x) * x.
+
+   o  inv0(x): This function returns the multiplicative inverse of x in
+      F, extended to all of F by fixing inv0(0) == 0.  To implement inv0
+      in constant time, compute inv0(x) := x^(q - 2).  Notice on input
+      0, the output is 0 as required.
 
    o  I2OSP and OS2IP: These functions are used to convert an octet
       string to and from a non-negative integer as described in
@@ -721,7 +720,8 @@ Internet-Draft                hash-to-curve                    July 2019
    hash_to_base requires a cryptographic hash function H which satisfies
    the following properties:
 
-
+   1.  The number of bits output by H should be b >= 2 * k for
+       sufficient collision resistance, where k is the target security
 
 
 
@@ -730,8 +730,6 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 13]
 Internet-Draft                hash-to-curve                    July 2019
 
 
-   1.  The number of bits output by H should be b >= 2 * k for
-       sufficient collision resistance, where k is the target security
        level in bits.  (This is needed for a birthday bound of
        approximately 2^(-k).)
 
@@ -778,6 +776,8 @@ Internet-Draft                hash-to-curve                    July 2019
    The hash_to_base function uses HKDF-Extract to combine the input msg
    and domain separation tag DST into a short digest, which is then
    passed to HKDF-Expand [RFC5869].  For short messages, this entails at
+   most two extra invocations of H, which is a negligible overhead in
+   the context of hashing to elliptic curves.
 
 
 
@@ -785,9 +785,6 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 14]
 
 Internet-Draft                hash-to-curve                    July 2019
 
-
-   most two extra invocations of H, which is a negligible overhead in
-   the context of hashing to elliptic curves.
 
    A related issue is that the random oracle construction described in
    Section 3 requires evaluating two independent hash functions H0 and
@@ -808,39 +805,6 @@ Internet-Draft                hash-to-curve                    July 2019
 5.3.  Implementation
 
    The following procedure implements hash_to_base.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Faz-Hernandez, et al.    Expires January 9, 2020               [Page 15]
-
-Internet-Draft                hash-to-curve                    July 2019
-
 
    hash_to_base(msg, ctr)
 
@@ -870,6 +834,14 @@ Internet-Draft                hash-to-curve                    July 2019
    5.   e_i = OS2IP(t) mod p
    6. return u = (e_1, ..., e_m)
 
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 15]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
 6.  Deterministic Mappings
 
    The mappings in this section are suitable for constructing either
@@ -888,15 +860,6 @@ Internet-Draft                hash-to-curve                    July 2019
    F.  Note that the point (x, y) is not a uniformly random point.  If
    uniformity is required for security, the random oracle construction
    of Section 3 MUST be used instead.
-
-
-
-
-
-Faz-Hernandez, et al.    Expires January 9, 2020               [Page 16]
-
-Internet-Draft                hash-to-curve                    July 2019
-
 
 6.2.  Notation
 
@@ -927,6 +890,14 @@ Internet-Draft                hash-to-curve                    July 2019
    two square roots when g(x) != 0, this results in an ambiguity
    regarding the sign of y.
 
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 16]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
    To resolve this ambiguity, the mappings in this section specify the
    sign of the y-coordinate in terms of the input to the mapping
    function.  Two main reasons support this approach.  First, this
@@ -946,14 +917,6 @@ Internet-Draft                hash-to-curve                    July 2019
    inverses, to avoid exceptional cases that result from attempting to
    compute the inverse of 0.
 
-
-
-
-Faz-Hernandez, et al.    Expires January 9, 2020               [Page 17]
-
-Internet-Draft                hash-to-curve                    July 2019
-
-
 6.5.  Mappings for Weierstrass curves
 
    The following mappings apply to elliptic curves defined by the
@@ -965,8 +928,8 @@ Internet-Draft                hash-to-curve                    July 2019
    The function map_to_curve_icart(u) implements the Icart method from
    [Icart09].
 
-   Preconditions: An elliptic curve over F, such that p>3 and q = p^m =
-   2 (mod 3), or p = 2 (mod 3) and odd m.
+   Preconditions: An elliptic curve over F, such that p > 3 and q = p^m
+   = 2 (mod 3), or p = 2 (mod 3) and odd m.
 
    Constants: A and B, the parameters of the Weierstrass curve.
 
@@ -974,41 +937,34 @@ Internet-Draft                hash-to-curve                    July 2019
    no ambiguity regarding the sign of y.
 
    Exceptions: The only exceptional case is u == 0.  Implementations
-   must detect this case by testing whether u == 0 and setting u = 1 if
+   MUST detect this case by testing whether u == 0 and setting u = 1 if
    so.
 
    Operations:
 
+
+
+
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 17]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
    1. If u == 0, set u = 1
    2. v = (3 * A - u^4) / (6 * u)
-   3. x = (v^2 - B - (u^6 / 27))^((2 * p - 1) / 3) + (u^2 / 3)
-   4. y = u * x + v
-   5. return (x, y)
+   3. w = (2 * p - 1) / 3          // Integer arithmetic
+   4. x = (v^2 - B - (u^6 / 27))^w + (u^2 / 3)
+   5. y = u * x + v
+   6. return (x, y)
 
 6.5.1.1.  Implementation
 
    The following procedure implements Icart's algorithm in a straight-
    line fashion.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Faz-Hernandez, et al.    Expires January 9, 2020               [Page 18]
-
-Internet-Draft                hash-to-curve                    July 2019
-
 
  map_to_curve_icart(u)
  Input: u, an element of F.
@@ -1029,12 +985,12 @@ Internet-Draft                hash-to-curve                    July 2019
  6.  t1 = 6 * u          // 6 * u
  7.  t1 = inv0(t1)       // 1 / (6 * u)
  8.   v = v * t1         // v = (3 * A - u^4) / (6 * u)
- 9.  x1 = v^2            // v^2
- 10. x1 = x1 - B         // v^2 - B
+ 9.   x = v^2            // v^2
+ 10.  x = x - B          // v^2 - B
  11. u6 = u4 * c3        // u^4 / 27
  12. u6 = u6 * u2        // u^6 / 27
- 13. x1 = x1 - u6        // v^2 - B - u^6 / 27
- 14. x1 = x^c1           // (v^2 - B - u^6 / 27)^(1 / 3)
+ 13.  x = x - u6         // v^2 - B - u^6 / 27
+ 14.  x = x^c1           // (v^2 - B - u^6 / 27)^(1 / 3)
  15. t1 = u2 * c2        // u^2 / 3
  16.  x = x + t1         // x = (v^2 - B - u^6 / 27)^(1 / 3) + (u^2 / 3)
  17.  y = u * x          // u * x
@@ -1046,6 +1002,14 @@ Internet-Draft                hash-to-curve                    July 2019
    The function map_to_curve_simple_swu(u) implements a simplification
    of the Shallue-van de Woestijne-Ulas mapping [U07] described by Brier
    et al.  [BCIMRT10], which they call the "simplified SWU" map.  Wahby
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 18]
+
+Internet-Draft                hash-to-curve                    July 2019
+
+
    and Boneh [WB19] generalize this mapping to curves over fields of odd
    characteristic p > 3.
 
@@ -1056,19 +1020,17 @@ Internet-Draft                hash-to-curve                    July 2019
 
    o  A and B, the parameters of the Weierstrass curve.
 
+   o  Z, the unique element of F meeting all of the following criteria:
 
+      1.  Z is non-square in F,
 
+      2.  g(B / (Z * A)) is square in F,
 
+      3.  there is no other Z' meeting criteria (1) and (2) for which
+          abs(Z') < abs(Z) (Section 4), and
 
-
-Faz-Hernandez, et al.    Expires January 9, 2020               [Page 19]
-
-Internet-Draft                hash-to-curve                    July 2019
-
-
-   o  Z, the smallest (in absolute value) non-square in F such that g(B
-      / (Z * A)) is square in F, breaking ties by choosing the positive
-      value.
+      4.  if Z and -Z both meet the above criteria, Z is the element
+          such that sgn0(Z) == 1.
 
    Sign of y: Inputs u and -u give the same x-coordinate.  Thus, we set
    sgn0(y) == sgn0(u).
@@ -1081,16 +1043,28 @@ Internet-Draft                hash-to-curve                    July 2019
 
    Operations:
 
-   1. den = inv0(Z^2 * u^4 + Z * u^2)
-   2.  x1 = (-B / A) * (1 + den)
-   3.  If den == 0, set x1 = B / (Z * A)
+   1.  t1 = inv0(Z^2 * u^4 + Z * u^2)
+   2.  x1 = (-B / A) * (1 + t1)
+   3.  If t1 == 0, set x1 = B / (Z * A)
    4. gx1 = x1^3 + A * x1 + B
    5.  x2 = Z * u^2 * x1
    6. gx2 = x2^3 + A * x2 + B
-   7.  If gx1 is square, set x = x1 and y = sqrt(gx1)
-   8.  If gx2 is square, set x = x2 and y = sqrt(gx2)
+   7.  If is_square(gx1), set x = x1 and y = sqrt(gx1)
+   8.  Else set x = x2 and y = sqrt(gx2)
    9.  If sgn0(u) != sgn0(y), set y = -y
    10. return (x, y)
+
+
+
+
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 19]
+
+Internet-Draft                hash-to-curve                    July 2019
+
 
 6.5.2.1.  Implementation
 
@@ -1099,28 +1073,6 @@ Internet-Draft                hash-to-curve                    July 2019
    that q = 3 (mod 4), which applies to P-256.  For discussion of how to
    generalize to q = 1 (mod 4), see [WB19] (Section 4) or the example
    code found at [hash2curve-repo].
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Faz-Hernandez, et al.    Expires January 9, 2020               [Page 20]
-
-Internet-Draft                hash-to-curve                    July 2019
-
 
 map_to_curve_simple_swu(u)
 Input: u, an element of F.
@@ -1132,6 +1084,7 @@ Constants:
 1.  c1 = -B / A
 2.  c2 = -1 / Z
 3.  c3 = sqrt(-Z^3)
+4.  c4 = (p + 1) / 4         // Integer arithmetic
 
 Steps:
 1.   t1 = Z * u^2
@@ -1147,15 +1100,27 @@ Steps:
 11. gx1 = gx1 * x1
 12. gx1 = gx1 + B            // gx1 = g(x1) = x1^3 + A * x1 + B
 13.  x2 = t1 * x1            // x2 = Z * u^2 * x1
-14.  t3 = gx1^((p + 1) / 4)  // if gx1 is square, this is sqrt(g(x1))
+14.  t3 = gx1^c4             // if gx1 is square, this is sqrt(g(x1))
 15.  t4 = t3 * c3
 16.  t4 = t4 * u^3           // if gx1 is not square, this is sqrt(g(x2))
-17.  e3 = t3^2 == gx1
-18.   x = CMOV(x2, x1, e3)   // if e2 == True, x = x1, else x = x2
-19.   y = CMOV(t4, t3, e3)   // if e2 == True, y = t3, else y = t4
+17.  e3 = (t3^2) == gx1
+18.   x = CMOV(x2, x1, e3)   // if e3 is True, x = x1, else x = x2
+19.   y = CMOV(t4, t3, e3)   // if e3 is True, y = t3, else y = t4
 20.  e4 = sgn0(u) == sgn0(y)
 21.   y = CMOV(-y, y, e4)
 22. return (x, y)
+
+
+
+
+
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 20]
+
+Internet-Draft                hash-to-curve                    July 2019
+
 
 6.6.  Mappings for Montgomery curves
 
@@ -1170,13 +1135,6 @@ Steps:
    o  A = A' / B'
 
    o  B = 1 / B'^2
-
-
-
-Faz-Hernandez, et al.    Expires January 9, 2020               [Page 21]
-
-Internet-Draft                hash-to-curve                    July 2019
-
 
    o  x = x' / B'
 
@@ -1201,10 +1159,24 @@ Internet-Draft                hash-to-curve                    July 2019
 
    Constants:
 
-   o  A and B, the parameters of the curve
+   o  A and B, the parameters of the elliptic curve.
 
-   o  Z, the smallest (in absolute value) non-square in F, breaking ties
-      by choosing the positive value.
+   o  Z, the unique element of F meeting all of the following criteria:
+
+      1.  Z is non-square in F,
+
+      2.  there is no other non-square Z' for which abs(Z') < abs(Z)
+          (Section 4), and
+
+      3.  if Z and -Z both met the above criteria, Z is the element such
+          that sgn0(Z) == 1.
+
+
+
+Faz-Hernandez, et al.    Expires January 9, 2020               [Page 21]
+
+Internet-Draft                hash-to-curve                    July 2019
+
 
    Sign of y: Inputs u and -u give the same x-coordinate.  Thus, we set
    sgn0(y) == sgn0(u).
@@ -1221,9 +1193,37 @@ Internet-Draft                hash-to-curve                    July 2019
    4.  x2 = -x1 - A
    5. gx2 = x2^3 + A * x2^2 + B * x2
    6.  If is_square(gx1), set x = x1 and y = sqrt(gx1)
-   7.  If is_square(gx2), set x = x2 and y = sqrt(gx2)
+   7.  Else if is_square(gx2), set x = x2 and y = sqrt(gx2)
    8.  If sgn0(u) != sgn0(y), set y = -y
    9.  return (x, y)
+
+6.6.1.1.  Implementation, q = 3 (mod 4)
+
+   The following procedure implements Elligator 2 in a straight-line
+   fashion for curves where q = 3 (mod 4), including Curve448.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1234,17 +1234,13 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 22]
 Internet-Draft                hash-to-curve                    July 2019
 
 
-6.6.1.1.  Implementation, q = 3 (mod 4)
-
-   The following procedure implements Elligator 2 in a straight-line
-   fashion for curves where q = 3 (mod 4), including Curve448.
-
    map_to_curve_elligator2_3mod4(u)
    Input: u, an element of F.
    Output: (x, y), a point on E.
 
    Constants:
-   1. c1 is Z^((q + 1) / 4) in F.
+   1. c1 = (q + 1) / 4           // Integer arithmetic
+   2. c2 = Z^c1
 
    Steps:
    1.   x1 = u^2
@@ -1252,19 +1248,19 @@ Internet-Draft                hash-to-curve                    July 2019
    3.   x1 = x1 + 1
    4.   x1 = inv0(x1)
    5.   e1 = x1 == 0
-   6.   x1 = CMOV(x1, 1, e1)     // if x1 == 0, set x1 == 1
+   6.   x1 = CMOV(x1, 1, e1)     // if x1 == 0, set x1 = 1
    7.   x1 = -A * x1             // x1 = -A / (1 + Z * u^2)
    8.  gx1 = x1 + A
    9.  gx1 = gx1 * x1
    10. gx1 = gx1 + B
    11. gx1 = gx1 * x1            // gx1 = x1^3 + A * x1^2 + B * x1
-   12.  y1 = gx1^((q + 1) / 4)
+   12.  y1 = gx1^c1
    13.  x2 = -x1 - A
    14.  y2 = y1 * u
-   15.  y2 = y2 * c1
-   16.  e2 = y1^2 == gx1
-   17.   x = CMOV(x2, x1, e2)    // If e == True, x = x1, else x = x2
-   18.   y = CMOV(y2, y1, e2)    // If e == True, y = y1, else y = y2
+   15.  y2 = y2 * c2
+   16.  e2 = (y1^2) == gx1
+   17.   x = CMOV(x2, x1, e2)    // If e2 == True, x = x1, else x = x2
+   18.   y = CMOV(y2, y1, e2)    // If e2 == True, y = y1, else y = y2
    19.  e3 = sgn0(u) == sgn0(y)  // fix sign of y
    20.   y = CMOV(-y, y, e3)
    21. return (x, y)
@@ -1273,6 +1269,10 @@ Internet-Draft                hash-to-curve                    July 2019
 
    The following is a straight-line implementation of Elligator 2 for
    curves where q = 5 (mod 8), including Curve25519.
+
+
+
+
 
 
 
@@ -1295,8 +1295,9 @@ Internet-Draft                hash-to-curve                    July 2019
    Output: (x, y), a point on E.
 
    Constants:
-   1. c1 is Z^((q + 3) / 8) in F.
-   2. c2 is sqrt(-1) in F.
+   1. c1 = (q + 3) / 8           // Integer arithmetic
+   2. c2 = Z^c1
+   3. c3 = sqrt(-1)
 
    Steps:
    1.   t1 = u^2
@@ -1308,18 +1309,18 @@ Internet-Draft                hash-to-curve                    July 2019
    7.  gx1 = gx1 * x1
    8.  gx1 = gx1 + B
    9.  gx1 = gx1 * x1            // gx1 = x1^3 + A * x1^2 + B * x1
-   10. y11 = gx1^((q + 3) / 8)
-   11. y12 = c2 * y11
-   12.  e1 = y12^2 == gx1
+   10. y11 = gx1^c1
+   11. y12 = c3 * y11
+   12.  e1 = (y12^2) == gx1
    13.  y1 = CMOV(y11, y12, e1)  // if gx1 is square, this is its sqrt
    14.  x2 = -x1 - A
    15. y21 = y11 * u
-   16. y21 = y21 * c1
-   17. y22 = c2 * y21
+   16. y21 = y21 * c2
+   17. y22 = c3 * y21
    18. gx2 = t1 * gx1
-   19.  e2 = y22^2 == gx2
+   19.  e2 = (y22^2) == gx2
    20.  y2 = CMOV(y21, y22, e2)  // if gx2 is square, this is its sqrt
-   21.  e3 = y1^2 == gx1
+   21.  e3 = (y1^2) == gx1
    22.   x = CMOV(x2, x1, e3)    // if e == True, x = x1, else x = x2
    23.   y = CMOV(y2, y1, e3)    // if e == True, y = y1, else y = y2
    24.  e4 = sgn0(u) == sgn0(y)  // fix sign of y
@@ -1336,8 +1337,7 @@ Internet-Draft                hash-to-curve                    July 2019
    equivalent Montgomery curve, then transform the result into a point
    on the twisted Edwards curve via a rational map.  This method of
    hashing to a twisted Edwards curve thus requires identifying a
-   corresponding Montgomery curve and rational map.  We describe how to
-   identify such a curve and map immediately below.
+
 
 
 
@@ -1345,6 +1345,9 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 24]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+   corresponding Montgomery curve and rational map.  We describe how to
+   identify such a curve and map immediately below.
 
 6.7.1.  Rational maps from Montgomery to twisted Edwards curves
 
@@ -1387,12 +1390,9 @@ Internet-Draft                hash-to-curve                    July 2019
    o  B = (a - d)^2 / 16
 
    Note that the above curve is given in the Weierstrass form required
-   by the Elligator 2 mapping.  The rational map from the point (x', y')
-   on this Weierstrass curve to the point (x, y) on the twisted Edwards
-   curve is given by
-
-   o  x = x' / y'
-
+   by the Elligator 2 mapping of Section 6.6.1.  The rational map from
+   the point (x', y') on this Weierstrass curve to the point (x, y) on
+   the twisted Edwards curve is given by
 
 
 
@@ -1401,6 +1401,8 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 25]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+   o  x = x' / y'
 
    o  y = (B' * x' - 1) / (B' * x' + 1), where B' = 1 / sqrt(B) = 4 / (a
       - d)
@@ -1451,8 +1453,6 @@ Internet-Draft                hash-to-curve                    July 2019
 
 
 
-
-
 Faz-Hernandez, et al.    Expires January 9, 2020               [Page 26]
 
 Internet-Draft                hash-to-curve                    July 2019
@@ -1494,15 +1494,15 @@ Internet-Draft                hash-to-curve                    July 2019
 
    Operations:
 
-   1. x = (u^2 - B)^((2 * q - 1) / 3)
-   2. y = u
-   3. return (x, y)
+   1. w = (2 * q - 1) / 3    // Integer arithmetic
+   2. x = (u^2 - B)^w
+   3. y = u
+   4. return (x, y)
 
 6.8.1.1.  Implementation
 
    The following procedure implements the Boneh-Franklin's algorithm in
    a straight-line fashion.
-
 
 
 
@@ -1534,9 +1534,9 @@ Internet-Draft                hash-to-curve                    July 2019
    Elligator 2 [BLMP19] targeting curves given by y^2 = x^3 + B * x over
    F such that q = 3 (mod 4).
 
-   Preconditions: A supersingular curve over F such that q = 3 (mod 4).
+   Preconditions: An elliptic curve over F such that q = 3 (mod 4).
 
-   Constants: B, the parameter of the supersingular curve.
+   Constants: B, the parameter of the elliptic curve.
 
    Sign of y: Inputs u and -u give the same x-coordinate.  Thus, we set
    sgn0(y) == sgn0(u).
@@ -1548,9 +1548,9 @@ Internet-Draft                hash-to-curve                    July 2019
    1.  x1 = u
    2. gx1 = x1^3 + B * x1
    3.  x2 = -x1
-   4. gx2 = x2^3 + B * x2
+   4. gx2 = -gx1
    5. If gx1 is square, x = x1 and y = sqrt(gx1)
-   6. If gx2 is square, x = x2 and y = sqrt(gx2)
+   6. Else x = x2 and y = sqrt(gx2)
    7. If sgn0(u) != sgn0(y), set y = -y.
    8. return (x, y)
 
@@ -1574,14 +1574,17 @@ Internet-Draft                hash-to-curve                    July 2019
    Input: u, an element of F.
    Output: (x, y), a point on E.
 
+   Constants:
+   1. c1 = (p + 1) / 4         // Integer arithmetic
+
    Steps:
    1.  x1 = u
    2.  x2 = -x1
    3. gx1 = x1^2
    4. gx1 = gx1 + B
    5. gx1 = gx1 * x1           // gx1 = x1^3 + B * x1
-   6.   y = gx1^((p + 1) / 4)  // this is either sqrt(gx1) or sqrt(gx2)
-   7.  e1 = y^2 == gx1
+   6.   y = gx1^c1             // this is either sqrt(gx1) or sqrt(gx2)
+   7.  e1 = (y^2) == gx1
    8.   x = CMOV(x2, x1, e1)
    9.  e2 = sgn0(u) == sgn0(y)
    10.  y = CMOV(-y, y, e2)
@@ -1610,14 +1613,11 @@ Internet-Draft                hash-to-curve                    July 2019
 
    Constants:
 
-   o  B, the parameter of the Weierstrass curve
+   o  B, the parameter of the Weierstrass curve.
 
-   o  Z, the smallest (in absolute value) element of F such that
-      g((sqrt(-3 * Z^2) - Z) / 2) is square, breaking ties by choosing
-      the positive value.
+   o  Z, the unique element of F meeting all of the following criteria:
 
-   Sign of y: Inputs u and -u give the same x-coordinate.  Thus, we set
-   sgn0(y) == sgn0(u).
+      1.  g((sqrt(-3 * Z^2) - Z) / 2) is square in F,
 
 
 
@@ -1625,6 +1625,15 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 29]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+      2.  there is no other Z' meeting criterion (1) for which abs(Z') <
+          abs(Z) (Section 4), and
+
+      3.  if Z and -Z both meet the above criteria, Z is the element
+          such that sgn0(Z) == 1.
+
+   Sign of y: Inputs u and -u give the same x-coordinate.  Thus, we set
+   sgn0(y) == sgn0(u).
 
    Exceptions: The exceptional cases for u occur when u^2 * (u^2 + g(Z))
    == 0.  The restriction on Z given above ensures that implementations
@@ -1638,9 +1647,9 @@ Internet-Draft                hash-to-curve                    July 2019
    4. x1 = ((sqrt(-3 * Z^2) - Z) / 2) - t3
    5. x2 = t3 - ((sqrt(-3 * Z^2) + Z) / 2)
    6. x3 = Z - (t1^3 * t2 / (3 * Z^2))
-   7.  If g(x1) is square, set x = x1 and y = sqrt(g(x1))
-   8.  If g(x2) is square, set x = x2 and y = sqrt(g(x2))
-   9.  If g(x3) is square, set x = x3 and y = sqrt(g(x3))
+   7.  If is_square(g(x1)), set x = x1 and y = sqrt(g(x1))
+   8.  Else If is_square(g(x2)), set x = x2 and y = sqrt(g(x2))
+   9.  Else set x = x3 and y = sqrt(g(x3))
    10. If sgn0(u) != sgn0(y), set y = -y
    11. return (x, y)
 
@@ -1648,15 +1657,6 @@ Internet-Draft                hash-to-curve                    July 2019
 
    The following procedure implements the Shallue and van de Woestijne
    method in a straight-line fashion.
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1724,7 +1724,7 @@ Internet-Draft                hash-to-curve                    July 2019
  28.  gx = CMOV(gx2, gx1, e1)
  29.   x = CMOV(x3, x, e3)   // select x3 if gx1 and gx2 are not square
  30.  gx = CMOV(gx3, gx, e3)
- 31.   y = sqrt(gx, q)
+ 31.   y = sqrt(gx)
  32.  e4 = sgn0(u) == sgn0(y)
  33.   y = CMOV(-y, y, e4)   // select correct sign of y
  34. return (x, y)
@@ -1754,9 +1754,16 @@ Internet-Draft                hash-to-curve                    July 2019
    document.)  This isogeny defines a map iso_map(x', y') that takes as
    input a point on E' and produces as output a point on E.
 
-   Once E' and iso_map are identified, this mapping is straightforward:
-   on input alpha, first apply the simplified SWU mapping to get a point
-   on E', then apply the isogeny map to that point to get a point on E.
+   Once E' and iso_map are identified, this mapping works as follows: on
+   input u, first apply the simplified SWU mapping to get a point on E',
+   then apply the isogeny map to that point to get a point on E.
+
+   Note that iso_map is a group homomorphism, meaning that point
+   addition commutes with iso_map.  Thus, when using this mapping in the
+   hash_to_curve construction of Section 3, one can effect a small
+   optimization by first mapping u0 and u1 to E', adding the resulting
+   points on E', and then applying iso_map to the sum.  This gives the
+   same result while requiring only one evaluation of iso_map.
 
    Preconditions: An elliptic curve E' with A' != 0 and B' != 0 that is
    isogenous to the target curve E with isogeny map iso_map(x, y) from
@@ -1780,19 +1787,16 @@ Internet-Draft                hash-to-curve                    July 2019
    2.   (x, y) = iso_map(x', y')               // (x, y) is on E
    3. return (x, y)
 
-   We do not repeat the sample implementation of Section 6.5.2 here.
-   See [hash2curve-repo] or [WB19] for details on implementing the
-   isogeny map.
-
-
-
-
 
 
 Faz-Hernandez, et al.    Expires January 9, 2020               [Page 32]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+   We do not repeat the sample implementation of Section 6.5.2 here.
+   See [hash2curve-repo] or [WB19] for details on implementing the
+   isogeny map.
 
 7.  Clearing the cofactor
 
@@ -1838,10 +1842,6 @@ Internet-Draft                hash-to-curve                    July 2019
    MAY be evaluated either via that method or via scalar multiplication
    by the equivalent h_eff; these two methods give the same result.
    Note that in this case scalar multiplication by the cofactor h does
-   not generally give the same result as the fast method, and SHOULD NOT
-   be used.
-
-
 
 
 
@@ -1849,6 +1849,9 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 33]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+   not generally give the same result as the fast method, and SHOULD NOT
+   be used.
 
 8.  Suites for Hashing
 
@@ -1889,9 +1892,6 @@ Internet-Draft                hash-to-curve                    July 2019
 
    The below table lists the curves for which suites are defined and the
    subsection that gives the corresponding parameters.
-
-
-
 
 
 
@@ -2248,6 +2248,10 @@ Internet-Draft                hash-to-curve                    July 2019
 
 10.  Security Considerations
 
+   When constant-time implementations are required, all basic operations
+   and utility functions must be implemented in constant time, as
+   discussed in Section 4.
+
    Each encoding function accepts arbitrary input and maps it to a
    pseudorandom point on the curve.  Directly evaluating the mappings of
    Section 6 produces an output that is distinguishable from random.
@@ -2285,10 +2289,6 @@ Internet-Draft                hash-to-curve                    July 2019
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
 
-   [RFC5869]  Krawczyk, H. and P. Eronen, "HMAC-based Extract-and-Expand
-              Key Derivation Function (HKDF)", RFC 5869,
-              DOI 10.17487/RFC5869, May 2010,
-              <https://www.rfc-editor.org/info/rfc5869>.
 
 
 
@@ -2297,6 +2297,11 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 41]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+   [RFC5869]  Krawczyk, H. and P. Eronen, "HMAC-based Extract-and-Expand
+              Key Derivation Function (HKDF)", RFC 5869,
+              DOI 10.17487/RFC5869, May 2010,
+              <https://www.rfc-editor.org/info/rfc5869>.
 
    [RFC7748]  Langley, A., Hamburg, M., and S. Turner, "Elliptic Curves
               for Security", RFC 7748, DOI 10.17487/RFC7748, January
@@ -2339,12 +2344,7 @@ Internet-Draft                hash-to-curve                    July 2019
               2001, pages 213-229, DOI 10.1007/3-540-44647-8_13, August
               2001, <https://doi.org/10.1007/3-540-44647-8_13>.
 
-   [BHKL13]   Bernstein, D., Hamburg, M., Krasnova, A., and T. Lange,
-              "Elligator: elliptic-curve points indistinguishable from
-              uniform random strings", In Proceedings of the 2013 ACM
-              SIGSAC conference on computer and communications
-              security., pages 967-980, DOI 10.1145/2508859.2516734,
-              November 2013, <https://doi.org/10.1145/2508859.2516734>.
+
 
 
 
@@ -2353,6 +2353,13 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 42]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+   [BHKL13]   Bernstein, D., Hamburg, M., Krasnova, A., and T. Lange,
+              "Elligator: elliptic-curve points indistinguishable from
+              uniform random strings", In Proceedings of the 2013 ACM
+              SIGSAC conference on computer and communications
+              security., pages 967-980, DOI 10.1145/2508859.2516734,
+              November 2013, <https://doi.org/10.1145/2508859.2516734>.
 
    [BLMP19]   Bernstein, D., Lange, T., Martindale, C., and L. Panny,
               "Quantum circuits for the CSIDH: optimizing quantum
@@ -2394,13 +2401,6 @@ Internet-Draft                hash-to-curve                    July 2019
               Hall / CRC, ISBN 9781584885184, 2005,
               <https://www.crcpress.com/9781584885184>.
 
-   [CK11]     Couveignes, J. and J. Kammerer, "The geometry of flex
-              tangents to a cubic curve and its parameterizations",
-              In Journal of Symbolic Computation, vol 47 issue 3,
-              pages 266-281, DOI 10.1016/j.jsc.2011.11.003, 2012,
-              <https://doi.org/10.1016/j.jsc.2011.11.003>.
-
-
 
 
 
@@ -2409,6 +2409,12 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 43]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+   [CK11]     Couveignes, J. and J. Kammerer, "The geometry of flex
+              tangents to a cubic curve and its parameterizations",
+              In Journal of Symbolic Computation, vol 47 issue 3,
+              pages 266-281, DOI 10.1016/j.jsc.2011.11.003, 2012,
+              <https://doi.org/10.1016/j.jsc.2011.11.003>.
 
    [draft-yonezawa-pfc-01]
               Yonezawa, S., Chikara, S., Kobayashi, T., and T. Saito,
@@ -2450,12 +2456,6 @@ Internet-Draft                hash-to-curve                    July 2019
               DOI 10.1515/JMC.2009.022, 2009,
               <https://doi.org/10.1515/JMC.2009.022>.
 
-   [FT10]     Fouque, P. and M. Tibouchi, "Estimating the size of the
-              image of deterministic hash functions to elliptic
-              curves.", In Progress in Cryptology - LATINCRYPT 2010,
-              pages 81-91, DOI 10.1007/978-3-642-14712-8_5, 2010,
-              <https://doi.org/10.1007/978-3-642-14712-8_5>.
-
 
 
 
@@ -2465,6 +2465,12 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 44]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+   [FT10]     Fouque, P. and M. Tibouchi, "Estimating the size of the
+              image of deterministic hash functions to elliptic
+              curves.", In Progress in Cryptology - LATINCRYPT 2010,
+              pages 81-91, DOI 10.1007/978-3-642-14712-8_5, 2010,
+              <https://doi.org/10.1007/978-3-642-14712-8_5>.
 
    [FT12]     Fouque, P. and M. Tibouchi, "Indifferentiable Hashing to
               Barreto-Naehrig Curves", In Progress in Cryptology -
@@ -2508,12 +2514,6 @@ Internet-Draft                hash-to-curve                    July 2019
               DOI 10.4064/aa117-3-7, 2005,
               <https://doi.org/10.4064/aa117-3-7>.
 
-   [S85]      Schoof, R., "Elliptic Curves Over Finite Fields and the
-              Computation of Square Roots mod p", In Mathematics of
-              Computation vol 44 issue 170, pages 483-494,
-              DOI 10.1090/S0025-5718-1985-0777280-6, April 1985,
-              <https://doi.org/10.1090/S0025-5718-1985-0777280-6>.
-
 
 
 
@@ -2521,6 +2521,12 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 45]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+   [S85]      Schoof, R., "Elliptic Curves Over Finite Fields and the
+              Computation of Square Roots mod p", In Mathematics of
+              Computation vol 44 issue 170, pages 483-494,
+              DOI 10.1090/S0025-5718-1985-0777280-6, April 1985,
+              <https://doi.org/10.1090/S0025-5718-1985-0777280-6>.
 
    [SAGE]     The Sage Developers, "SageMath, the Sage Mathematics
               Software System", 2019, <https://www.sagemath.org>.
@@ -2564,12 +2570,6 @@ Internet-Draft                hash-to-curve                    July 2019
               DOI 10.1007/s10623-016-0288-2, 2017,
               <https://doi.org/10.1007/s10623-016-0288-2>.
 
-   [U07]      Ulas, M., "Rational points on certain hyperelliptic curves
-              over finite fields", In Bulletin Polish Acad. Sci. Math.
-              vol 55, no 2, pages 97-104, DOI 10.4064/ba55-2-1, 2007,
-              <https://doi.org/10.4064/ba55-2-1>.
-
-
 
 
 
@@ -2577,6 +2577,11 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 46]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+   [U07]      Ulas, M., "Rational points on certain hyperelliptic curves
+              over finite fields", In Bulletin Polish Acad. Sci. Math.
+              vol 55, no 2, pages 97-104, DOI 10.4064/ba55-2-1, 2007,
+              <https://doi.org/10.4064/ba55-2-1>.
 
    [W08]      Washington, L., "Elliptic curves: Number theory and
               cryptography", edition 2nd, publisher Chapman and Hall /
@@ -2621,11 +2626,6 @@ Appendix A.  Related Work
    Schinzel and Skalba [SS04] introduce the first method of constructing
    elliptic curve points deterministically, for a restricted class of
    curves and a very small number of points.  Skalba [S05] generalizes
-   this construction to more curves and more points on those curves.
-   Shallue and van de Woestijne [SW06] further generalize and simplify
-   Skalba's construction, yielding concretely efficient maps to a
-   constant fraction of the points on almost any curve.  Ulas [U07]
-   describes a simpler version of this map, and Brier et al.  [BCIMRT10]
 
 
 
@@ -2634,6 +2634,11 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 47]
 Internet-Draft                hash-to-curve                    July 2019
 
 
+   this construction to more curves and more points on those curves.
+   Shallue and van de Woestijne [SW06] further generalize and simplify
+   Skalba's construction, yielding concretely efficient maps to a
+   constant fraction of the points on almost any curve.  Ulas [U07]
+   describes a simpler version of this map, and Brier et al.  [BCIMRT10]
    give a further simplification, which the authors call the "simplified
    SWU" map.  The simplified map applies only to fields of
    characteristic p = 3 mod 4; Wahby and Boneh [WB19] generalize to
@@ -2676,11 +2681,6 @@ Internet-Draft                hash-to-curve                    July 2019
    from elliptic curve points to uniformly random bit strings, giving
    solutions for a class of curves including Montgomery and twisted
    Edwards curves.  Tibouchi [T14] and Aranha et al.  [AFQTZ14]
-   generalize these results.  This document does not deal with this
-   complementary problem.
-
-
-
 
 
 
@@ -2689,6 +2689,9 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 48]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+   generalize these results.  This document does not deal with this
+   complementary problem.
 
 Appendix B.  Rational maps from twisted Edwards to Weierstrass and
              Montgomery curves
@@ -2731,12 +2734,9 @@ Appendix C.  Isogenous curves and corresponding maps for BLS12-381
    This section specifies the isogeny maps for the BLS12-381 suites
    listed in Section 8.7.
 
-C.1.  11-isogeny map for G1
 
-   The 11-isogeny map from E' to E is given by the following rational
-   functions:
 
-   o  x = x_num / x_den, where
+
 
 
 
@@ -2745,6 +2745,13 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 49]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+C.1.  11-isogeny map for G1
+
+   The 11-isogeny map from E' to E is given by the following rational
+   functions:
+
+   o  x = x_num / x_den, where
 
       *  x_num = k_(1,11) * x'^11 + k_(1,10) * x'^10 + ... + k_(1,0)
 
@@ -2788,19 +2795,18 @@ Internet-Draft                hash-to-curve                    July 2019
    o  k_(1,9) = 0x169b1f8e1bcfa7c42e0c37515d138f22dd2ecb803a0c5c99676314
       baf4bb1b7fa3190b2edc0327797f241067be390c9e
 
-   o  k_(1,10) = 0x10321da079ce07e272d8ec09d2565b0dfa7dccdde6787f96d50af
-      36003b14866f69b771f8c285decca67df3f1605fb7b
-
-   o  k_(1,11) = 0x6e08c248e260e70bd1e962381edee3d31d79d7e22c837bc23c0bf
-      1bc24c6b68c24b1b80b64d391fa9c8ba2e8ba2d229
-
-
 
 
 Faz-Hernandez, et al.    Expires January 9, 2020               [Page 50]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+   o  k_(1,10) = 0x10321da079ce07e272d8ec09d2565b0dfa7dccdde6787f96d50af
+      36003b14866f69b771f8c285decca67df3f1605fb7b
+
+   o  k_(1,11) = 0x6e08c248e260e70bd1e962381edee3d31d79d7e22c837bc23c0bf
+      1bc24c6b68c24b1b80b64d391fa9c8ba2e8ba2d229
 
    The constants used to compute x_den are as follows:
 
@@ -2845,18 +2851,18 @@ Internet-Draft                hash-to-curve                    July 2019
    o  k_(3,2) = 0xcc786baa966e66f4a384c86a3b49942552e2d658a31ce2c344be4b
       91400da7d26d521628b00523b8dfe240c72de1f6
 
-   o  k_(3,3) = 0x1f86376e8981c217898751ad8746757d42aa7b90eeb791c09e4a3e
-      c03251cf9de405aba9ec61deca6355c77b0e5f4cb
-
-   o  k_(3,4) = 0x8cc03fdefe0ff135caf4fe2a21529c4195536fbe3ce50b879833fd
-      221351adc2ee7f8dc099040a841b6daecf2e8fedb
-
 
 
 Faz-Hernandez, et al.    Expires January 9, 2020               [Page 51]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+   o  k_(3,3) = 0x1f86376e8981c217898751ad8746757d42aa7b90eeb791c09e4a3e
+      c03251cf9de405aba9ec61deca6355c77b0e5f4cb
+
+   o  k_(3,4) = 0x8cc03fdefe0ff135caf4fe2a21529c4195536fbe3ce50b879833fd
+      221351adc2ee7f8dc099040a841b6daecf2e8fedb
 
    o  k_(3,5) = 0x16603fca40634b6a2211e11db8f0a6a074a7d0d4afadb7bd76505c
       3d3ad5544e203f6326c95a807299b23ab13633a5f0
@@ -2899,12 +2905,6 @@ Internet-Draft                hash-to-curve                    July 2019
    o  k_(4,1) = 0x1962d75c2381201e1a0cbd6c43c348b885c84ff731c4d59ca4a103
       56f453e01f78a4260763529e3532f6102c2e49a03d
 
-   o  k_(4,2) = 0x58df3306640da276faaae7d6e8eb15778c4855551ae7f310c35a5d
-      d279cd2eca6757cd636f96f891e2538b53dbf67f2
-
-   o  k_(4,3) = 0x16b7d288798e5395f20d23bf89edb4d1d115c5dbddbcd30e123da4
-      89e726af41727364f2c28297ada8d26d98445f5416
-
 
 
 
@@ -2913,6 +2913,12 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 52]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+   o  k_(4,2) = 0x58df3306640da276faaae7d6e8eb15778c4855551ae7f310c35a5d
+      d279cd2eca6757cd636f96f891e2538b53dbf67f2
+
+   o  k_(4,3) = 0x16b7d288798e5395f20d23bf89edb4d1d115c5dbddbcd30e123da4
+      89e726af41727364f2c28297ada8d26d98445f5416
 
    o  k_(4,4) = 0xbe0e079545f43e4b00cc912f8228ddcc6d19c9f0f69bbb0542eda0
       fc9dec916a20b15dc0fd2ededda39142311a5001d
@@ -2956,12 +2962,6 @@ C.2.  3-isogeny map for G2
 
       *  x_num = k_(1,3) * x'^3 + k_(1,2) * x'^2 + ... + k_(1,0)
 
-      *  x_den = x'^2 + k_(2,1) * x' + k_(2,0)
-
-   o  y = y' * y_num / y_den, where
-
-      *  y_num = k_(3,3) * x'^3 + k_(3,2) * x'^2 + ... + k_(3,0)
-
 
 
 
@@ -2969,6 +2969,12 @@ Faz-Hernandez, et al.    Expires January 9, 2020               [Page 53]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+      *  x_den = x'^2 + k_(2,1) * x' + k_(2,0)
+
+   o  y = y' * y_num / y_den, where
+
+      *  y_num = k_(3,3) * x'^3 + k_(3,2) * x'^2 + ... + k_(3,0)
 
       *  y_den = x'^3 + k_(4,2) * x'^2 + ... + k_(4,0)
 
@@ -3013,18 +3019,17 @@ Internet-Draft                hash-to-curve                    July 2019
       37e76bc3e447cc27c3d6fbd7063fcd104635a790520c0a395554e5c6aaaa9354ff
       ffffffe38f * i
 
-   o  k_(3,3) = 0x124c9ad43b6cf79bfbf7043de3811ad0761b0f37a1e26286b0e977
-      c69aa274524e79097a56dc4bd9e1b371c71c718b10
-
-   The constants used to compute y_den are as follows:
-
-
 
 
 Faz-Hernandez, et al.    Expires January 9, 2020               [Page 54]
 
 Internet-Draft                hash-to-curve                    July 2019
 
+
+   o  k_(3,3) = 0x124c9ad43b6cf79bfbf7043de3811ad0761b0f37a1e26286b0e977
+      c69aa274524e79097a56dc4bd9e1b371c71c718b10
+
+   The constants used to compute y_den are as follows:
 
    o  k_(4,0) = 0x1a0111ea397fe69a4b1ba7b6434bacd764774b84f38512bf6730d2
       a0f6b0f6241eabfffeb153ffffb9feffffffffa8fb + 0x1a0111ea397fe69a4b1
@@ -3065,13 +3070,8 @@ Authors' Addresses
    Email: sam.scott@cornell.edu
 
 
-   Nick Sullivan
-   Cloudflare
-   101 Townsend St
-   San Francisco
-   United States of America
 
-   Email: nick@cloudflare.com
+
 
 
 
@@ -3080,6 +3080,15 @@ Authors' Addresses
 Faz-Hernandez, et al.    Expires January 9, 2020               [Page 55]
 
 Internet-Draft                hash-to-curve                    July 2019
+
+
+   Nick Sullivan
+   Cloudflare
+   101 Townsend St
+   San Francisco
+   United States of America
+
+   Email: nick@cloudflare.com
 
 
    Riad S. Wahby
@@ -3095,15 +3104,6 @@ Internet-Draft                hash-to-curve                    July 2019
    United States of America
 
    Email: cawood@apple.com
-
-
-
-
-
-
-
-
-
 
 
 
