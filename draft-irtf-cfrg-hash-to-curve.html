@@ -340,6 +340,12 @@ ul.toc li {
 <link href="#rfc.appendix.C.1" rel="Chapter" title="C.1 11-isogeny map for G1">
 <link href="#rfc.appendix.C.2" rel="Chapter" title="C.2 3-isogeny map for G2">
 <link href="#rfc.appendix.D" rel="Chapter" title="D Sample Code">
+<link href="#rfc.appendix.D.1" rel="Chapter" title="D.1 Interface and projective coordinate systems">
+<link href="#rfc.appendix.D.2" rel="Chapter" title="D.2 P-256 (Simplified SWU)">
+<link href="#rfc.appendix.D.3" rel="Chapter" title="D.3 curve25519 (Elligator 2)">
+<link href="#rfc.appendix.D.4" rel="Chapter" title="D.4 edwards25519 (Elligator 2)">
+<link href="#rfc.appendix.D.5" rel="Chapter" title="D.5 curve448 (Elligator 2)">
+<link href="#rfc.appendix.D.6" rel="Chapter" title="D.6 edwards448 (Elligator 2)">
 <link href="#rfc.authors" rel="Chapter">
 
 
@@ -543,7 +549,19 @@ ul.toc li {
 </li>
 </ul><li>Appendix D.   <a href="#rfc.appendix.D">Sample Code</a>
 </li>
-<li><a href="#rfc.authors">Authors' Addresses</a>
+<ul><li>D.1.   <a href="#rfc.appendix.D.1">Interface and projective coordinate systems</a>
+</li>
+<li>D.2.   <a href="#rfc.appendix.D.2">P-256 (Simplified SWU)</a>
+</li>
+<li>D.3.   <a href="#rfc.appendix.D.3">curve25519 (Elligator 2)</a>
+</li>
+<li>D.4.   <a href="#rfc.appendix.D.4">edwards25519 (Elligator 2)</a>
+</li>
+<li>D.5.   <a href="#rfc.appendix.D.5">curve448 (Elligator 2)</a>
+</li>
+<li>D.6.   <a href="#rfc.appendix.D.6">edwards448 (Elligator 2)</a>
+</li>
+</ul><li><a href="#rfc.authors">Authors' Addresses</a>
 </li>
 
 
@@ -795,7 +813,7 @@ Parameters:
 - F, a finite field of characteristic p and order q = p^m, m &gt;= 1.
 
 Input: x, an element of F.
-Output: -1 or 1.
+Output: -1 or 1 (an integer).
 
 Notation: x_i is the i^th element of the vector representation of x.
 
@@ -1002,19 +1020,15 @@ Steps:
 <h1 id="rfc.section.6.5.2.1">
 <a href="#rfc.section.6.5.2.1">6.5.2.1.</a> <a href="#implementation-1" id="implementation-1">Implementation</a>
 </h1>
-<p id="rfc.section.6.5.2.1.p.1">The following procedure implements the simplified SWU algorithm in a straight-line fashion. This implementation is optimized for the case that q = 3 (mod 4), which applies to P-256.  For discussion of how to generalize to q = 1 (mod 4), see <a href="#WB19" class="xref">[WB19]</a> (Section 4) or the example code found at <a href="#hash2curve-repo" class="xref">[hash2curve-repo]</a>.</p>
+<p id="rfc.section.6.5.2.1.p.1">The following procedure implements the simplified SWU mapping in a straight-line fashion.  <a href="#samplecode" class="xref">Appendix D</a> gives an optimized straight-line procedure for P-256 <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.  For discussion of how to generalize to q = 1 (mod 4), see <a href="#WB19" class="xref">[WB19]</a> (Section 4) or the example code found at <a href="#hash2curve-repo" class="xref">[hash2curve-repo]</a>.</p>
 <pre>
 map_to_curve_simple_swu(u)
 Input: u, an element of F.
 Output: (x, y), a point on E.
 
-Precondition: q = 3 (mod 4)
-
 Constants:
 1.  c1 = -B / A
 2.  c2 = -1 / Z
-3.  c3 = sqrt(-Z^3)
-4.  c4 = (p + 1) / 4         // Integer arithmetic
 
 Steps:
 1.   t1 = Z * u^2
@@ -1023,21 +1037,21 @@ Steps:
 4.   x1 = inv0(x1)
 5.   e1 = x1 == 0
 6.   x1 = x1 + 1
-7.   x1 = CMOV(x1, c2, e1)   // if (t1 + t2) == 0, set x1 = -1 / Z
+7.   x1 = CMOV(x1, c2, e1)    // if (t1 + t2) == 0, set x1 = -1 / Z
 8.   x1 = x1 * c1      // x1 = (-B / A) * (1 + (1 / (Z^2 * u^4 + Z * u^2)))
 9.  gx1 = x1^2
 10. gx1 = gx1 + A
 11. gx1 = gx1 * x1
-12. gx1 = gx1 + B            // gx1 = g(x1) = x1^3 + A * x1 + B
-13.  x2 = t1 * x1            // x2 = Z * u^2 * x1
-14.  t3 = gx1^c4             // if gx1 is square, this is sqrt(g(x1))
-15.  t4 = t3 * c3
-16.  t4 = t4 * u^3           // if gx1 is not square, this is sqrt(g(x2))
-17.  e3 = (t3^2) == gx1
-18.   x = CMOV(x2, x1, e3)   // if e3 is True, x = x1, else x = x2
-19.   y = CMOV(t4, t3, e3)   // if e3 is True, y = t3, else y = t4
-20.  e4 = sgn0(u) == sgn0(y)
-21.   y = CMOV(-y, y, e4)
+12. gx1 = gx1 + B             // gx1 = g(x1) = x1^3 + A * x1 + B
+13.  x2 = t1 * x1             // x2 = Z * u^2 * x1
+14.  t2 = t1 * t2
+15. gx2 = gx1 * t2            // gx2 = (Z * u^2)^3 * gx1
+16.  e2 = is_square(gx1)
+17.   x = CMOV(x2, x1, e2)    // If is_square(gx1), x = x1, else x = x2
+18.  y2 = CMOV(gx2, gx1, e2)  // If is_square(gx1), y2 = gx1, else y2 = gx2
+19.   y = sqrt(y2)
+20.  e3 = sgn0(u) == sgn0(y)  // fix sign of y
+21.   y = CMOV(-y, y, e3)
 22. return (x, y)
 </pre>
 <h1 id="rfc.section.6.6">
@@ -1092,22 +1106,18 @@ Steps:
 9.  return (x, y)
 </pre>
 <h1 id="rfc.section.6.6.1.1">
-<a href="#rfc.section.6.6.1.1">6.6.1.1.</a> <a href="#implementation-q-3-mod-4" id="implementation-q-3-mod-4">Implementation, q = 3 (mod 4)</a>
+<a href="#rfc.section.6.6.1.1">6.6.1.1.</a> <a href="#implementation-2" id="implementation-2">Implementation</a>
 </h1>
-<p id="rfc.section.6.6.1.1.p.1">The following procedure implements Elligator 2 in a straight-line fashion for curves where q = 3 (mod 4), including Curve448.</p>
+<p id="rfc.section.6.6.1.1.p.1">The following procedure implements Elligator 2 in a straight-line fashion.  <a href="#samplecode" class="xref">Appendix D</a> gives optimized straight-line procedures for curve25519 and curve448 <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
 <pre>
-map_to_curve_elligator2_3mod4(u)
+map_to_curve_elligator2(u)
 Input: u, an element of F.
 Output: (x, y), a point on E.
 
-Constants:
-1. c1 = (q + 1) / 4           // Integer arithmetic
-2. c2 = Z^c1
-
 Steps:
-1.   x1 = u^2
-2.   x1 = Z * x1
-3.   x1 = x1 + 1
+1.   t1 = u^2
+2.   t1 = Z * t1              // Z * u^2
+3.   x1 = t1 + 1
 4.   x1 = inv0(x1)
 5.   e1 = x1 == 0
 6.   x1 = CMOV(x1, 1, e1)     // if x1 == 0, set x1 = 1
@@ -1116,58 +1126,15 @@ Steps:
 9.  gx1 = gx1 * x1
 10. gx1 = gx1 + B
 11. gx1 = gx1 * x1            // gx1 = x1^3 + A * x1^2 + B * x1
-12.  y1 = gx1^c1
-13.  x2 = -x1 - A
-14.  y2 = y1 * u
-15.  y2 = y2 * c2
-16.  e2 = (y1^2) == gx1
-17.   x = CMOV(x2, x1, e2)    // If e2 == True, x = x1, else x = x2
-18.   y = CMOV(y2, y1, e2)    // If e2 == True, y = y1, else y = y2
-19.  e3 = sgn0(u) == sgn0(y)  // fix sign of y
-20.   y = CMOV(-y, y, e3)
-21. return (x, y)
-</pre>
-<h1 id="rfc.section.6.6.1.2">
-<a href="#rfc.section.6.6.1.2">6.6.1.2.</a> <a href="#implementation-q-5-mod-8" id="implementation-q-5-mod-8">Implementation, q = 5 (mod 8)</a>
-</h1>
-<p id="rfc.section.6.6.1.2.p.1">The following is a straight-line implementation of Elligator 2 for curves where q = 5 (mod 8), including Curve25519.</p>
-<pre>
-map_to_curve_elligator2_5mod8(u)
-Input: u, an element of F.
-Output: (x, y), a point on E.
-
-Constants:
-1. c1 = (q + 3) / 8           // Integer arithmetic
-2. c2 = Z^c1
-3. c3 = sqrt(-1)
-
-Steps:
-1.   t1 = u^2
-2.   t1 = Z * t1
-3.   x1 = t1 + 1
-4.   x1 = inv0(x1)            // cannot be 0 because q = 5 mod 8
-5.   x1 = -A * x1             // x1 = -A / (1 + Z * u^2)
-6.  gx1 = x1 + A
-7.  gx1 = gx1 * x1
-8.  gx1 = gx1 + B
-9.  gx1 = gx1 * x1            // gx1 = x1^3 + A * x1^2 + B * x1
-10. y11 = gx1^c1
-11. y12 = c3 * y11
-12.  e1 = (y12^2) == gx1
-13.  y1 = CMOV(y11, y12, e1)  // if gx1 is square, this is its sqrt
-14.  x2 = -x1 - A
-15. y21 = y11 * u
-16. y21 = y21 * c2
-17. y22 = c3 * y21
-18. gx2 = t1 * gx1
-19.  e2 = (y22^2) == gx2
-20.  y2 = CMOV(y21, y22, e2)  // if gx2 is square, this is its sqrt
-21.  e3 = (y1^2) == gx1
-22.   x = CMOV(x2, x1, e3)    // if e == True, x = x1, else x = x2
-23.   y = CMOV(y2, y1, e3)    // if e == True, y = y1, else y = y2
-24.  e4 = sgn0(u) == sgn0(y)  // fix sign of y
-25.   y = CMOV(-y, y, e4)
-26. return (x, y)
+12.  x2 = -x1 - A
+13. gx2 = t1 * gx1
+14.  e2 = is_square(gx1)
+15.   x = CMOV(x2, x1, e2)    // If is_square(gx1), x = x1, else x = x2
+16.  y2 = CMOV(gx2, gx1, e2)  // If is_square(gx1), y2 = gx1, else y2 = gx2
+17.   y = sqrt(y2)
+18.  e3 = sgn0(u) == sgn0(y)  // fix sign of y
+19.   y = CMOV(-y, y, e3)
+20. return (x, y)
 </pre>
 <h1 id="rfc.section.6.7">
 <a href="#rfc.section.6.7">6.7.</a> <a href="#mappings-for-twisted-edwards-curves" id="mappings-for-twisted-edwards-curves">Mappings for Twisted Edwards curves</a>
@@ -1258,7 +1225,7 @@ Output: (x, y), a point on E.
 4. return (x, y)
 </pre>
 <h1 id="rfc.section.6.8.1.1">
-<a href="#rfc.section.6.8.1.1">6.8.1.1.</a> <a href="#implementation-2" id="implementation-2">Implementation</a>
+<a href="#rfc.section.6.8.1.1">6.8.1.1.</a> <a href="#implementation-3" id="implementation-3">Implementation</a>
 </h1>
 <p id="rfc.section.6.8.1.1.p.1">The following procedure implements the Boneh-Franklin&#8217;s algorithm in a straight-line fashion.</p>
 <pre>
@@ -1296,9 +1263,9 @@ Steps:
 8. return (x, y)
 </pre>
 <h1 id="rfc.section.6.8.2.1">
-<a href="#rfc.section.6.8.2.1">6.8.2.1.</a> <a href="#implementation-3" id="implementation-3">Implementation</a>
+<a href="#rfc.section.6.8.2.1">6.8.2.1.</a> <a href="#implementation-4" id="implementation-4">Implementation</a>
 </h1>
-<p id="rfc.section.6.8.2.1.p.1">The following procedure implements the Elligator 2 algorithm for supersingular curves in a straight-line fashion.</p>
+<p id="rfc.section.6.8.2.1.p.1">The following procedure implements the Elligator 2 mapping for supersingular curves in a straight-line fashion.</p>
 <pre>
 map_to_curve_ell2A0(u)
 Input: u, an element of F.
@@ -1358,7 +1325,7 @@ Steps:
 11. return (x, y)
 </pre>
 <h1 id="rfc.section.6.9.1.1">
-<a href="#rfc.section.6.9.1.1">6.9.1.1.</a> <a href="#implementation-4" id="implementation-4">Implementation</a>
+<a href="#rfc.section.6.9.1.1">6.9.1.1.</a> <a href="#implementation-5" id="implementation-5">Implementation</a>
 </h1>
 <p id="rfc.section.6.9.1.1.p.1">The following procedure implements the Shallue and van de Woestijne method in a straight-line fashion.</p>
 <pre>
@@ -1574,6 +1541,7 @@ clear_cofactor(P) := h_eff * P
 <li>Z: -2</li>
 <li>h_eff: 1</li>
 </ul>
+<p id="rfc.section.8.3.p.3">An optimized example implementation of the above mapping is given in <a href="#map-to-p256" class="xref">Appendix D.2</a>.</p>
 <h1 id="rfc.section.8.4">
 <a href="#rfc.section.8.4">8.4.</a> <a href="#suites-25519" id="suites-25519">Suites for curve25519 and edwards25519</a>
 </h1>
@@ -1615,6 +1583,7 @@ clear_cofactor(P) := h_eff * P
 <li>Z: 2</li>
 <li>h_eff: 8</li>
 </ul>
+<p id="rfc.section.8.4.p.8">Optimized example implementations of the above mappings are given in <a href="#map-to-curve25519" class="xref">Appendix D.3</a> and <a href="#map-to-edwards25519" class="xref">Appendix D.4</a>.</p>
 <h1 id="rfc.section.8.5">
 <a href="#rfc.section.8.5">8.5.</a> <a href="#suites-448" id="suites-448">Suites for curve448 and edwards448</a>
 </h1>
@@ -1656,6 +1625,7 @@ clear_cofactor(P) := h_eff * P
 <li>Z: -1</li>
 <li>h_eff: 4</li>
 </ul>
+<p id="rfc.section.8.5.p.8">Optimized example implementations of the above mappings are given in <a href="#map-to-curve448" class="xref">Appendix D.5</a> and <a href="#map-to-edwards448" class="xref">Appendix D.6</a>.</p>
 <h1 id="rfc.section.8.6">
 <a href="#rfc.section.8.6">8.6.</a> <a href="#suites-secp256k1" id="suites-secp256k1">Suites for SECP256K1</a>
 </h1>
@@ -2177,8 +2147,241 @@ clear_cofactor(P) := h_eff * P
 <h1 id="rfc.appendix.D">
 <a href="#rfc.appendix.D">Appendix D.</a> <a href="#samplecode" id="samplecode">Sample Code</a>
 </h1>
-<p id="rfc.section.D.p.1">Sample Sage <a href="#SAGE" class="xref">[SAGE]</a> code for each algorithm can be found in the draft repository <a href="#hash2curve-repo" class="xref">[hash2curve-repo]</a>.</p>
-<p id="rfc.section.D.p.2">A future version of this document will give optimized examples for all curves listed in <a href="#suites" class="xref">Section 8</a>, and accompanying test vectors.</p>
+<p id="rfc.section.D.p.1">This section gives sample implementations optimized for some of the elliptic curves listed in <a href="#suites" class="xref">Section 8</a>.  A future version of this document will include all listed curves, plus accompanying test vectors.  Sample Sage <a href="#SAGE" class="xref">[SAGE]</a> code for each algorithm can also be found in the draft repository <a href="#hash2curve-repo" class="xref">[hash2curve-repo]</a>.</p>
+<h1 id="rfc.appendix.D.1">
+<a href="#rfc.appendix.D.1">D.1.</a> <a href="#interface-and-projective-coordinate-systems" id="interface-and-projective-coordinate-systems">Interface and projective coordinate systems</a>
+</h1>
+<p id="rfc.section.D.1.p.1">The sample code in this section uses a different interface than the mappings of <a href="#mappings" class="xref">Section 6</a>.  Specifically, each mapping function in this section has the following signature:</p>
+<pre>
+(xn, xd, yn, nd) = map_to_curve(u)
+</pre>
+<p id="rfc.section.D.1.p.2">The resulting point (x, y) is given by (xn / xd, yn / yd).</p>
+<p id="rfc.section.D.1.p.3">The reason for this modified interface is that it enables further optimizations when working with points in a projective coordinate system.  This is desirable, for example, when the resulting point will be immediately multiplied by a scalar, since most scalar multiplication algorithms operate on projective points.</p>
+<p id="rfc.section.D.1.p.4">The following are two commonly used projective coordinate systems and the corresponding conversions:</p>
+<p></p>
+
+<ul>
+<li>A point (X, Y, Z) in homogeneous projective coordinates corresponds to the affine point (x, y) = (X / Z, Y / Z); the inverse conversion is given by (X, Y, Z) = (x, y, 1).  To convert (xn, xd, yn, yd) to homogeneous projective coordinates, compute (X, Y, Z) = (xn * yd, yn * xd, xd * yd).</li>
+<li>A point (X&#8217;, Y&#8217;, Z&#8217;) in Jacobian projective coordinates corresponds to the affine point (x, y) = (X&#8217; / Z&#8217;^2, Y&#8217; / Z&#8217;^3); the inverse conversion is given by (X&#8217;, Y&#8217;, Z&#8217;) = (x, y, 1).  To convert (xn, xd, yn, yd) to Jacobian projective coordinates, compute (X&#8217;, Y&#8217;, Z&#8217;) = (xn * xd * yd^2, yn * yd^2 * xd^3, xd * yd).</li>
+</ul>
+<h1 id="rfc.appendix.D.2">
+<a href="#rfc.appendix.D.2">D.2.</a> <a href="#map-to-p256" id="map-to-p256">P-256 (Simplified SWU)</a>
+</h1>
+<p id="rfc.section.D.2.p.1">The following is a straight-line implementation of the Simplified SWU mapping for P-256 <a href="#FIPS186-4" class="xref">[FIPS186-4]</a> as specified in <a href="#suites-p256" class="xref">Section 8.1</a>.</p>
+<pre>
+map_to_curve_simple_swu_p256(u)
+Input: u, an element of F.
+Output: (xn, xd, yn, yd) such that (xn / xd, yn / yd) is a
+        point on P-256.
+
+Constants:
+1.   B = 0x5ac635d8aa3a93e7b3ebbd55769886bc651d06b0cc53b0f63bce3c3e27d2604b
+2.  c1 = B / 3
+3.  c2 = (p - 3) / 4          // Integer arithmetic
+4.  c3 = sqrt(8)
+
+Steps:
+1.   t1 = u^2
+2.   t3 = -2 * t1
+3.   t2 = t3^2
+4.   xd = t2 + t3
+5.  x1n = xd + 1
+6.  x1n = x1n * B
+7.   xd = xd * 3
+8.   e1 = xd == 0
+9.   xd = CMOV(xd, 6, e1)     // If xd == 0, set xd = Z * A == 6
+10.  t2 = xd^2
+11. gxd = t2 * xd             // gxd == xd^3
+12.  t2 = -3 * t2
+13. gx1 = x1n^2
+14. gx1 = gx1 + t2            // x1n^2 + A * xd^2
+15. gx1 = gx1 * x1n           // x1n^3 + A * x1n * xd^2
+16.  t2 = B * gxd
+17. gx1 = gx1 + t2            // x1n^3 + A * x1n * xd^2 + B * xd^3
+18.  t4 = gxd^2
+19.  t2 = gx1 * gxd
+20.  t4 = t4 * t2             // gx1 * gxd^3
+21.  y1 = t4^c2               // (gx1 * gxd^3)^((p - 3) / 4)
+22.  y1 = y1 * t2             // gx1 * gxd * (gx1 * gxd^3)^((p - 3) / 4)
+23. x2n = t3 * x1n            // x2 = x2n / xd = -2 * u^2 * x1n / xd
+24.  y2 = y1 * c3
+25.  y2 = y2 * t1
+26.  y2 = y2 * u
+27.  t2 = y1^2
+28.  t2 = t2 * gxd
+29.  e2 = t2 == gx1
+30.  xn = CMOV(x2n, x1n, e2)  // If e2, x = x1, else x = x2
+31.   y = CMOV(y2, y1, e2)    // If e2, y = y1, else y = y2
+32.  e3 = sgn0(u) == sgn0(y)  // fix sign of y
+33.   y = CMOV(-y, y, e3)
+34. return (xn, xd, y, 1)
+</pre>
+<h1 id="rfc.appendix.D.3">
+<a href="#rfc.appendix.D.3">D.3.</a> <a href="#map-to-curve25519" id="map-to-curve25519">curve25519 (Elligator 2)</a>
+</h1>
+<p id="rfc.section.D.3.p.1">The following is a straight-line implementation of Elligator 2 for curve25519 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-25519" class="xref">Section 8.4</a>.</p>
+<pre>
+map_to_curve_elligator2_curve25519(u)
+Input: u, an element of F.
+Output: (xn, xd, yn, yd) such that (xn / xd, yn / yd) is a
+        point on curve25519.
+
+Constants:
+1. c1 = (p + 3) / 8           // Integer arithmetic
+2. c2 = 2^c1
+3. c3 = sqrt(-1)
+4. c4 = (p - 5) / 8           // Integer arithmetic
+
+Steps:
+1.   t1 = u^2
+2.   t1 = 2 * t1
+3.   xd = t1 + 1              // nonzero: -1 is square mod p, xd is not
+4.  x1n = -486662             // x1 = x1n / xd = -486662 / (1 + 2 * u^2)
+5.   t2 = xd^2
+6.  gxd = t2 * xd             // gxd = xd^3
+7.  gx1 = 486662 * xd         // 486662 * xd
+8.  gx1 = gx1 + x1n           // x1n + 486662 * xd
+9.  gx1 = gx1 * x1n           // x1n^2 + 486662 * x1n * xd
+10. gx1 = gx1 + t2            // x1n^2 + 486662 * x1n * xd + xd^2
+11. gx1 = gx1 * x1n           // x1n^3 + 486662 * x1n^2 * xd + x1n * xd^2
+12.  t3 = gxd^2
+13.  t2 = t3^2                // gxd^4
+14.  t3 = t3 * gxd            // gxd^3
+15.  t3 = t3 * gx1            // gx1 * gxd^3
+16.  t2 = t2 * t3             // gx1 * gxd^7
+17. y11 = t2^c4               // (gx1 * gxd^7)^((p - 5) / 8)
+18. y11 = y11 * t3            // gx1 * gxd^3 * (gx1 * gxd^7)^((p - 5) / 8)
+19. y12 = y11 * c3
+20.  t2 = y11^2
+21.  t2 = t2 * gxd
+22.  e1 = t2 == gx1
+23.  y1 = CMOV(y12, y11, e1)  // If g(x1) is square, this is its sqrt
+24. x2n = x1n * t1            // x2 = x2n / xd = 2 * u^2 * x1n / xd
+25. y21 = y11 * u
+26. y21 = y21 * c2
+27. y22 = y21 * c3
+28. gx2 = gx1 * t1            // g(x2) = gx2 / gxd = 2 * u^2 * g(x1)
+29.  t2 = y21^2
+30.  t2 = t2 * gxd
+31.  e2 = t2 == gx2
+32.  y2 = CMOV(y22, y21, e2)  // If g(x2) is square, this is its sqrt
+33.  t2 = y1^2
+34.  t2 = t2 * gxd
+35.  e3 = t2 == gx1
+36.  xn = CMOV(x2n, x1n, e3)  // if e3, x = x1, else x = x2
+37.   y = CMOV(y2, y1, e3)    // if e3, y = y1, else y = y2
+38.  e4 = sgn0(u) == sgn0(y)  // fix sign of y
+39.   y = CMOV(-y, y, e4)
+40. return (xn, xd, y, 1)
+</pre>
+<h1 id="rfc.appendix.D.4">
+<a href="#rfc.appendix.D.4">D.4.</a> <a href="#map-to-edwards25519" id="map-to-edwards25519">edwards25519 (Elligator 2)</a>
+</h1>
+<p id="rfc.section.D.4.p.1">The following is a straight-line implementation of Elligator 2 for edwards25519 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-25519" class="xref">Section 8.4</a>.  The subroutine map_to_curve_elligator2_curve25519 is defined in <a href="#map-to-curve25519" class="xref">Appendix D.3</a>.</p>
+<pre>
+map_to_curve_elligator2_edwards25519(u)
+Input: u, an element of F.
+Output: (xn, xd, yn, yd) such that (xn / xd, yn / yd) is a
+        point on edwards25519.
+
+Constants:
+1. c1 = sqrt(-486664)   // sign MUST be chosen such that sgn0(c1) == 1
+
+Steps:
+1. (xMn, xMd, yMn, yMd) = map_to_curve_elligator2_curve25519(u)
+2. xn = xMn * yMd
+3. xn = xn * c1
+4. xd = xMd * yMn       // xn / xd = c1 * xM / yM
+5. yn = xMn - xMd
+6. yd = xMn + xMd       // (n / d - 1) / (n / d + 1) = (n - d) / (n + d)
+7. return (xn, xd, yn, yd)
+</pre>
+<h1 id="rfc.appendix.D.5">
+<a href="#rfc.appendix.D.5">D.5.</a> <a href="#map-to-curve448" id="map-to-curve448">curve448 (Elligator 2)</a>
+</h1>
+<p id="rfc.section.D.5.p.1">The following is a straight-line implementation of Elligator 2 for curve448 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-448" class="xref">Section 8.5</a>.</p>
+<pre>
+map_to_curve_elligator2_curve448(u)
+Input: u, an element of F.
+Output: (xn, xd, yn, yd) such that (xn / xd, yn / yd) is a
+        point on curve448.
+
+Constants:
+1. c1 = (p - 3) / 4           // Integer arithmetic
+
+Steps:
+1.   t1 = u^2
+2.   xd = 1 - t1
+3.   e1 = xd == 0
+4.   xd = CMOV(xd, 1, e1)       // If xd == 0, set xd = 1
+5.  x1n = CMOV(-156326, 1, e1)  // If xd == 0, x1n = 1, else x1n = -A
+6.   t2 = xd^2
+7.  gxd = t2 * xd             // gxd = xd^3
+8.  gx1 = 156326 * xd         // 156326 * xd
+9.  gx1 = gx1 + x1n           // x1n + 156326 * xd
+10. gx1 = gx1 * x1n           // x1n^2 + 156326 * x1n * xd
+11. gx1 = gx1 + t2            // x1n^2 + 156326 * x1n * xd + xd^2
+12. gx1 = gx1 * x1n           // x1n^3 + 156326 * x1n^2 * xd + x1n * xd^2
+13.  t3 = gxd^2
+14.  t2 = gx1 * gxd           // gx1 * gxd
+15.  t3 = t3 * t2             // gx1 * gxd^3
+16.  y1 = t3^c1               // (gx1 * gxd^3)^((p - 3) / 4)
+17.  y1 = y1 * t2             // gx1 * gxd * (gx1 * gxd^3)^((p - 3) / 4)
+18. x2n = -t1 * x1n           // x2 = x2n / xd = -1 * u^2 * x1n / xd
+19.  y2 = y1 * u
+20.  t2 = y1^2
+21.  t2 = t2 * gxd
+22.  e2 = t2 == gx1
+23.  xn = CMOV(x2n, x1n, e2)  // If e2, x = x1, else x = x2
+24.   y = CMOV(y2, y1, e2)    // If e2, y = y1, else y = y2
+25.  e3 = sgn0(u) == sgn0(y)  // fix sign of y
+26.   y = CMOV(-y, y, e3)
+27. return (xn, xd, y, 1)
+</pre>
+<h1 id="rfc.appendix.D.6">
+<a href="#rfc.appendix.D.6">D.6.</a> <a href="#map-to-edwards448" id="map-to-edwards448">edwards448 (Elligator 2)</a>
+</h1>
+<p id="rfc.section.D.6.p.1">The following is a straight-line implementation of Elligator 2 for edwards448 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-448" class="xref">Section 8.5</a>.  The subroutine map_to_curve_elligator2_curve448 is defined in <a href="#map-to-curve448" class="xref">Appendix D.5</a>.</p>
+<pre>
+map_to_curve_elligator2_edwards448(u)
+Input: u, an element of F.
+Output: (xn, xd, yn, yd) such that (xn / xd, yn / yd) is a
+        point on edwards448.
+
+Steps:
+1. (xn, xd, yn, yd) = map_to_curve_elligator2_curve448(u)
+2.  xn2 = xn^2
+3.  xd2 = xd^2
+4.  xd4 = xd2^2
+5.  yn2 = yn^2
+6.  yd2 = yd^2
+7.  xEn = xn2 - xd2
+8.   t2 = xEn - xd2
+9.  xEn = xEn * xd2
+10. xEn = xEn * yd
+11. xEn = xEn * yn
+12. xEn = xEn * 4
+13.  t2 = t2 * xn2
+14.  t2 = t2 * yd2
+15.  t3 = 4 * yn2
+16.  t1 = t3 + yd2
+17.  t1 = t1 * xd4
+18. xEd = t1 + t2
+19.  t2 = t2 * xn
+20.  t4 = xn * xd4
+21. yEn = t3 - yd2
+22. yEn = yEn * t4
+23. yEn = yEn - t2
+24.  t1 = xn2 + xd2
+25.  t1 = t1 * xd2
+26.  t1 = t1 * xd
+27.  t1 = t1 * yn2
+28.  t1 = -2 * t1
+29. yEd = t2 + t1
+30.  t4 = t4 * yd2
+31. yEd = yEd + t4
+32. return (xEn, xEd, yEn, yEd)
+</pre>
 <h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
 <div class="avoidbreak">
   <address class="vcard">
