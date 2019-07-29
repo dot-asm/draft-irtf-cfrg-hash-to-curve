@@ -1,6 +1,714 @@
 [
 
   {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/160",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/160/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/160/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/160/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/160",
+    "id": 472989400,
+    "node_id": "MDU6SXNzdWU0NzI5ODk0MDA=",
+    "number": 160,
+    "title": "suites specify W for hash_to_base, should be L",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-25T17:42:10Z",
+    "updated_at": "2019-07-25T17:42:10Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "see title. Just need to harmonize this in suites. Oops!!!"
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/159",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/159/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/159/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/159/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/159",
+    "id": 471902317,
+    "node_id": "MDU6SXNzdWU0NzE5MDIzMTc=",
+    "number": 159,
+    "title": "Z selection pseudocode",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-23T19:54:52Z",
+    "updated_at": "2019-07-23T19:54:52Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "We may want to include pseudocode that outputs Z for a given map, curve params, etc., to ensure that everyone arrives at the same value!"
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/158",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/158/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/158/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/158/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/158",
+    "id": 471503320,
+    "node_id": "MDU6SXNzdWU0NzE1MDMzMjA=",
+    "number": 158,
+    "title": "consider using WB19 approach for secp256k1 (and others?)",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-07-23T06:10:12Z",
+    "updated_at": "2019-07-23T06:11:06Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "secp256k1 is currently specified using Shallue and van de Woestijne. In general it's much cheaper to use the technique from WB19, i.e., map to an isogenous curve and then evaluate the isogeny map. For secp256k1, there are curves 3-isogenous to secp256k1 with nonzero j-invariant in the base field. It probably makes sense to leverage these for a (3x) faster mapping than S-vdW."
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/157",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/157/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/157/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/157/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/157",
+    "id": 471501879,
+    "node_id": "MDU6SXNzdWU0NzE1MDE4Nzk=",
+    "number": 157,
+    "title": "define sign of sqrt in constants for S-vdW and others",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-23T06:04:56Z",
+    "updated_at": "2019-07-23T06:06:01Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "Some of the maps use constants whose definitions include sqrts. The document should specify for these that the intended constant value is the one computed for the \"positive\" sqrt branch, i.e., the value `c = sqrt(something)` such that `sgn0(c) == 1` to avoid ambiguity about the value of `c`."
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/156",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/156/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/156/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/156/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/156",
+    "id": 468895035,
+    "node_id": "MDU6SXNzdWU0Njg4OTUwMzU=",
+    "number": 156,
+    "title": "IPR issues",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-16T22:17:41Z",
+    "updated_at": "2019-07-16T22:17:41Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "Bjoern Haase has filed an IPR notice for Icart's algorithm.\r\n\r\nThere is also some concern that Simplified SWU with Z = -1 is covered by a patent. We may wish to sidestep this issue by specifying that Z != -1 for Simplified SWU.\r\n\r\nGiven the patent issues with Icart, we probably want to switch P-384 from Icart's algorithm to Simplified SWU with Z = -2."
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/155",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/155/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/155/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/155/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/155",
+    "id": 468815415,
+    "node_id": "MDU6SXNzdWU0Njg4MTU0MTU=",
+    "number": 155,
+    "title": "cover S--vdW at least for j=0 and j=1728 cases",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-16T19:04:38Z",
+    "updated_at": "2019-07-16T19:04:38Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "In [this post](https://mailarchive.ietf.org/arch/msg/cfrg/gFn3tvf62e1FKx_SkVXk8hsSVig), Dan Harkins points out (in essence) that the draft isn't clear on how to apply S--vdW to the case where j-invariant is 1728.\r\n\r\nIt would be nice to make S--vdW clear on this point, since it's effectively the \"method of last resort\": it will always work, even when some other method won't."
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/154",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/154/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/154/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/154/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/154",
+    "id": 465685455,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjk1Njc2NDAy",
+    "number": 154,
+    "title": "Avoid rehashing msg",
+    "user": {
+      "login": "JustinDrake",
+      "id": 731743,
+      "node_id": "MDQ6VXNlcjczMTc0Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/731743?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/JustinDrake",
+      "html_url": "https://github.com/JustinDrake",
+      "followers_url": "https://api.github.com/users/JustinDrake/followers",
+      "following_url": "https://api.github.com/users/JustinDrake/following{/other_user}",
+      "gists_url": "https://api.github.com/users/JustinDrake/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/JustinDrake/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/JustinDrake/subscriptions",
+      "organizations_url": "https://api.github.com/users/JustinDrake/orgs",
+      "repos_url": "https://api.github.com/users/JustinDrake/repos",
+      "events_url": "https://api.github.com/users/JustinDrake/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/JustinDrake/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 4,
+    "created_at": "2019-07-09T09:54:38Z",
+    "updated_at": "2019-07-10T09:43:05Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/154",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/154",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/154.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/154.patch"
+    },
+    "body": "`msg` can be large so we want to avoid rehashing it. As I understand it, `HKDF-Extract(DST, msg)` imposes an \"arbitrary\" hashing of `msg`, namely `H(DST XOR ipad, msg)` where `ipad` is the byte `0x36` repeated 64 times. (See section 2 in [RFC 2104](https://tools.ietf.org/html/rfc2104).) Since various applications will have `H(msg)` readily computed, it makes sense to use `H(msg)` in `HKDF-Extract` as a \"natural\" way to minimise the chances of hashing `msg` multiple times."
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/153",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/153/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/153/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/153/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/153",
+    "id": 465671460,
+    "node_id": "MDU6SXNzdWU0NjU2NzE0NjA=",
+    "number": 153,
+    "title": "Add section on try and increment",
+    "user": {
+      "login": "JustinDrake",
+      "id": 731743,
+      "node_id": "MDQ6VXNlcjczMTc0Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/731743?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/JustinDrake",
+      "html_url": "https://github.com/JustinDrake",
+      "followers_url": "https://api.github.com/users/JustinDrake/followers",
+      "following_url": "https://api.github.com/users/JustinDrake/following{/other_user}",
+      "gists_url": "https://api.github.com/users/JustinDrake/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/JustinDrake/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/JustinDrake/subscriptions",
+      "organizations_url": "https://api.github.com/users/JustinDrake/orgs",
+      "repos_url": "https://api.github.com/users/JustinDrake/repos",
+      "events_url": "https://api.github.com/users/JustinDrake/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/JustinDrake/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 4,
+    "created_at": "2019-07-09T09:26:09Z",
+    "updated_at": "2019-07-10T21:51:33Z",
+    "closed_at": "2019-07-10T21:43:30Z",
+    "author_association": "CONTRIBUTOR",
+    "body": "The current draft does not mention the \"naive\" try and increment. I feel implementers will undoubtedly want to consider it. If the intent is to discourage the use of try and increment a section explaining why it is discouraged may be warranted. If it is not discouraged then a section standardising it may also be warranted. "
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/152",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/152/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/152/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/152/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/152",
+    "id": 465664782,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjk1NjU5NTM2",
+    "number": 152,
+    "title": "Fix off by one",
+    "user": {
+      "login": "JustinDrake",
+      "id": 731743,
+      "node_id": "MDQ6VXNlcjczMTc0Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/731743?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/JustinDrake",
+      "html_url": "https://github.com/JustinDrake",
+      "followers_url": "https://api.github.com/users/JustinDrake/followers",
+      "following_url": "https://api.github.com/users/JustinDrake/following{/other_user}",
+      "gists_url": "https://api.github.com/users/JustinDrake/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/JustinDrake/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/JustinDrake/subscriptions",
+      "organizations_url": "https://api.github.com/users/JustinDrake/orgs",
+      "repos_url": "https://api.github.com/users/JustinDrake/repos",
+      "events_url": "https://api.github.com/users/JustinDrake/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/JustinDrake/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-09T09:12:32Z",
+    "updated_at": "2019-07-09T09:12:44Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/152",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/152",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/152.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/152.patch"
+    },
+    "body": "Since `2**256 - 1 mod 2**255-19` is 37"
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/151",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/151/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/151/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/151/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/151",
+    "id": 465494216,
+    "node_id": "MDU6SXNzdWU0NjU0OTQyMTY=",
+    "number": 151,
+    "title": "add README in poc that gives correspondence between code and sections of the document",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-08T22:56:43Z",
+    "updated_at": "2019-07-08T22:56:43Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "It should be warned somewhere in the main doc which sage scripts correspond to the version we will submit.\r\n\r\n_Originally posted by @armfazh in https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/146#issuecomment-509419284_"
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/150",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/150/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/150/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/150/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/150",
+    "id": 465485625,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjk1NTE4MjA4",
+    "number": 150,
+    "title": "fix type signature issues with hash_to_base",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-08T22:25:46Z",
+    "updated_at": "2019-07-08T22:38:14Z",
+    "closed_at": "2019-07-08T22:38:13Z",
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/150",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/150",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/150.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/150.patch"
+    },
+    "body": "closes #149"
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/149",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/149/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/149/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/149/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/149",
+    "id": 465453054,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjk1NDkxNTU5",
+    "number": 149,
+    "title": "Typo",
+    "user": {
+      "login": "JustinDrake",
+      "id": 731743,
+      "node_id": "MDQ6VXNlcjczMTc0Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/731743?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/JustinDrake",
+      "html_url": "https://github.com/JustinDrake",
+      "followers_url": "https://api.github.com/users/JustinDrake/followers",
+      "following_url": "https://api.github.com/users/JustinDrake/following{/other_user}",
+      "gists_url": "https://api.github.com/users/JustinDrake/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/JustinDrake/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/JustinDrake/subscriptions",
+      "organizations_url": "https://api.github.com/users/JustinDrake/orgs",
+      "repos_url": "https://api.github.com/users/JustinDrake/repos",
+      "events_url": "https://api.github.com/users/JustinDrake/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/JustinDrake/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 3,
+    "created_at": "2019-07-08T20:48:15Z",
+    "updated_at": "2019-07-08T22:26:35Z",
+    "closed_at": "2019-07-08T22:26:35Z",
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/149",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/149",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/149.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/149.patch"
+    },
+    "body": "The `hash_to_base` function has two parameters.\r\n\r\nNote: I'm note sure how new lines are determined. It looks like line 1260 is now longer than the others."
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/148",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/148/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/148/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/148/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/148",
+    "id": 465449654,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjk1NDg4NzM1",
+    "number": 148,
+    "title": "Remove a duplicated word",
+    "user": {
+      "login": "armfazh",
+      "id": 10335519,
+      "node_id": "MDQ6VXNlcjEwMzM1NTE5",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10335519?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/armfazh",
+      "html_url": "https://github.com/armfazh",
+      "followers_url": "https://api.github.com/users/armfazh/followers",
+      "following_url": "https://api.github.com/users/armfazh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/armfazh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/armfazh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/armfazh/subscriptions",
+      "organizations_url": "https://api.github.com/users/armfazh/orgs",
+      "repos_url": "https://api.github.com/users/armfazh/repos",
+      "events_url": "https://api.github.com/users/armfazh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/armfazh/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-08T20:39:39Z",
+    "updated_at": "2019-07-08T21:04:09Z",
+    "closed_at": "2019-07-08T21:04:09Z",
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/148",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/148",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/148.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/148.patch"
+    },
+    "body": ""
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/147",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/147/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/147/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/147/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/147",
+    "id": 465438540,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjk1NDc5NjMy",
+    "number": 147,
+    "title": "Typo",
+    "user": {
+      "login": "JustinDrake",
+      "id": 731743,
+      "node_id": "MDQ6VXNlcjczMTc0Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/731743?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/JustinDrake",
+      "html_url": "https://github.com/JustinDrake",
+      "followers_url": "https://api.github.com/users/JustinDrake/followers",
+      "following_url": "https://api.github.com/users/JustinDrake/following{/other_user}",
+      "gists_url": "https://api.github.com/users/JustinDrake/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/JustinDrake/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/JustinDrake/subscriptions",
+      "organizations_url": "https://api.github.com/users/JustinDrake/orgs",
+      "repos_url": "https://api.github.com/users/JustinDrake/repos",
+      "events_url": "https://api.github.com/users/JustinDrake/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/JustinDrake/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 3,
+    "created_at": "2019-07-08T20:11:59Z",
+    "updated_at": "2019-07-08T20:17:47Z",
+    "closed_at": "2019-07-08T20:17:42Z",
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/147",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/147",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/147.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/147.patch"
+    },
+    "body": ""
+  },
+  {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/146",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/146/labels{/name}",
@@ -34,17 +742,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 11,
     "created_at": "2019-07-08T05:06:45Z",
-    "updated_at": "2019-07-08T18:27:19Z",
-    "closed_at": null,
+    "updated_at": "2019-07-08T23:30:52Z",
+    "closed_at": "2019-07-08T23:30:52Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/146",
@@ -88,17 +796,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-07-07T05:34:44Z",
-    "updated_at": "2019-07-08T18:46:08Z",
-    "closed_at": null,
+    "updated_at": "2019-07-08T20:25:00Z",
+    "closed_at": "2019-07-08T20:18:55Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/145",
@@ -706,7 +1414,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -715,8 +1423,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-06-27T15:41:59Z",
-    "updated_at": "2019-06-27T20:00:08Z",
-    "closed_at": null,
+    "updated_at": "2019-07-08T23:30:52Z",
+    "closed_at": "2019-07-08T23:30:52Z",
     "author_association": "COLLABORATOR",
     "body": "From Björn Haase on the list:\r\n\r\n> Regarding the Elligator 2 map, the algorithm shown in the  github version of the draft is actually slower than necessary. It requires two exponentiations (for one inverse and one square root).\r\n>\r\n> Some time ago Mike Hamburg did point me to a solution on how to implement this with one single exponentiation. The algorithm is found also somewhere hidden within the Ed25519 paper of Bernstein, Duif, Lange, Schwabe and Yang. Still Benoît and me did consider it helpful to write down the faster algorithm explicitly in our last paper, because we thought that there might be others that missed this optimization opportunity :-).\r\n>\r\n> You'll find the explicit write-down in section 8.2 on page 33 of\r\n>\r\n> https://tches.iacr.org/index.php/TCHES/article/view/7384\r\n"
   },
@@ -827,7 +1535,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/131.patch"
     },
     "body": "Oops. This is minor, just missed a few words. Sorry @chris-wood, spoke too soon when I said \"good to go.\""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/130",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -925,10 +1636,10 @@
     "milestone": null,
     "comments": 9,
     "created_at": "2019-06-25T15:38:36Z",
-    "updated_at": "2019-07-05T00:06:52Z",
+    "updated_at": "2019-07-08T22:27:54Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
-    "body": "The deadline for getting drafts updated before IETF 105 is [July 8th](https://datatracker.ietf.org/meeting/105/important-dates/). This is an attempt at triaging the open issues and known TODOs to hit that date.\r\n\r\nPlease let me know if anything seems to be miscategorized!\r\n\r\n## Really should have\r\n\r\n- [x] Definitions: maps, encodings, etc. (#127, #128) - making sure that the definitions and high-level framing are clear is important for getting useful feedback on the next draft. Plus, these should be very close to converging!\r\n\r\n- [x] Fix point conversions for Edwards -> Montgomery to agree with existing RFCs (#107) - see second comment in linked issue. VRF won't reference us until this is fixed. #132 handles this.\r\n\r\n- [ ] Update list of suites / decide on suite scope (#96, #126) - my hope is that we can take an initial cut at this and then solicit feedback.\r\n\r\n- [ ] Cofactor clearing (#95) - @chris-wood and I discussed including \"cofactor clearing value\" in the suites table. For curves that have optimized cofactor clearing (generally, pairing-friendly curves), this is sufficient to make sure that people who don't implement the optimization can still output the correct point via scalar multiplication. Adding a column in the suites table addresses this.\r\n\r\n## Nice to have\r\n\r\n- [ ] Submit PR to VRF folks to refer to this draft rather than describing its own version of hash-to-curve - not sure if we can coordinate this in time, but we should try!\r\n   \r\n   (EDIT: I'm in a conversation with the VRF folks about this. Looks like we won't make it before July 8th, but that's fine---we'll make it happen as we can.)\r\n\r\n- [ ] Projective coordinates / optimized implementations (#4, #43, #109, #111, #117) - once we have an updated list of suites, we should put optimized impls in the appx.\r\n\r\n- [x] Domain separation (#124) - the discussion in the issue seems at this point to have identified the main pros and cons, so it seems like we should open this up for discussion on-list or at the meeting. We might not get this feedback in time, but we should try.\r\n   \r\n   (EDIT: marked this completed because #139 landed. Not sure if that means we can close #124, though.)\r\n\r\n## Not a blocker\r\n\r\n- [ ] Flow chart (#63, #118) - these will be very useful, but (as far as I know) we can't include non-ASCII diagrams in the draft, so it probably doesn't make sense to spend too much time on these before the deadline.\r\n\r\n- [ ] Code quality (#98, #112) - reference code isn't gated by the draft process, so we can de-prioritize.\r\n\r\n- [ ] style nits (#105, #110) - would be great to cover these, but not a killer if we don't."
+    "body": "The deadline for getting drafts updated before IETF 105 is [July 8th](https://datatracker.ietf.org/meeting/105/important-dates/). This is an attempt at triaging the open issues and known TODOs to hit that date.\r\n\r\nPlease let me know if anything seems to be miscategorized!\r\n\r\n## Really should have\r\n\r\n- [x] Definitions: maps, encodings, etc. (#127, #128) - making sure that the definitions and high-level framing are clear is important for getting useful feedback on the next draft. Plus, these should be very close to converging!\r\n\r\n- [x] Fix point conversions for Edwards -> Montgomery to agree with existing RFCs (#107) - see second comment in linked issue. VRF won't reference us until this is fixed. #132 handles this.\r\n\r\n- [x] Update list of suites / decide on suite scope (#96, #126) - my hope is that we can take an initial cut at this and then solicit feedback.\r\n\r\n- [x] Cofactor clearing (#95) - @chris-wood and I discussed including \"cofactor clearing value\" in the suites table. For curves that have optimized cofactor clearing (generally, pairing-friendly curves), this is sufficient to make sure that people who don't implement the optimization can still output the correct point via scalar multiplication. Adding a column in the suites table addresses this.\r\n\r\n## Nice to have\r\n\r\n- [ ] Submit PR to VRF folks to refer to this draft rather than describing its own version of hash-to-curve - not sure if we can coordinate this in time, but we should try!\r\n   \r\n   (EDIT: I'm in a conversation with the VRF folks about this. Looks like we won't make it before July 8th, but that's fine---we'll make it happen as we can.)\r\n\r\n- [ ] Projective coordinates / optimized implementations (#4, #43, #109, #111, #117) - once we have an updated list of suites, we should put optimized impls in the appx.\r\n\r\n- [x] Domain separation (#124) - the discussion in the issue seems at this point to have identified the main pros and cons, so it seems like we should open this up for discussion on-list or at the meeting. We might not get this feedback in time, but we should try.\r\n   \r\n   (EDIT: marked this completed because #139 landed. Not sure if that means we can close #124, though.)\r\n\r\n## Not a blocker\r\n\r\n- [ ] Flow chart (#63, #118) - these will be very useful, but (as far as I know) we can't include non-ASCII diagrams in the draft, so it probably doesn't make sense to spend too much time on these before the deadline.\r\n\r\n- [ ] Code quality (#98, #112) - reference code isn't gated by the draft process, so we can de-prioritize.\r\n\r\n- [ ] style nits (#105, #110) - would be great to cover these, but not a killer if we don't."
   },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/128",
@@ -1547,10 +2258,7 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "In some parts, examples use branching statements instead of cmov-like instructions. Examples of this are in the hacspec code: https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/blob/master/draft-irtf-cfrg-hash-to-curve.md#simplified-swu-method-sswu\r\n\r\nIt is better to use cmov-like instructions everywhere, to avoid developers from using conditional branches in their code (which possibly will lead to side-channel attacks)."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/116",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -2342,7 +3050,10 @@
     "closed_at": "2019-06-02T21:26:13Z",
     "author_association": "COLLABORATOR",
     "body": "See https://eprint.iacr.org/2019/403"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/100",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3059,10 +3770,7 @@
     "closed_at": "2019-03-01T16:23:55Z",
     "author_association": "NONE",
     "body": "In the description of HashToBase in section 4, there is a requirement that “H is a hash function which outputs at least floor(log2(p))+**2** bits. In appendix C.5 however, the precondition says that the hash function should output >= floor(log2(p))+**1** bits. I'm not sure which is correct, but they should be consistent.\r\n\r\nIn the algorithm for SimpleSWU, the overview says that the right factor of alpha is (1+(1/(t^4 **+** t^2))), but the original paper (Prop 7) shows (1+(1/(t^4 **-** t^2))). The problem is only in the overview; the algorithm details look correct because step 3 negates alpha.\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/86",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3884,7 +4592,10 @@
     "closed_at": "2019-06-05T16:52:10Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/70",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4611,10 +5322,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/57.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/56",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -5330,9 +6038,9 @@
       }
     ],
     "milestone": null,
-    "comments": 3,
+    "comments": 5,
     "created_at": "2018-07-25T19:03:28Z",
-    "updated_at": "2019-01-26T01:31:17Z",
+    "updated_at": "2019-07-08T22:00:01Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "The Decaf approach \r\n\r\nhttps://www.shiftleft.org/papers/decaf/\r\n\r\nhttps://ristretto.group/"
@@ -5432,7 +6140,10 @@
     "closed_at": "2019-02-09T16:00:55Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/40",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6192,10 +6903,7 @@
     "closed_at": "2018-07-13T20:23:42Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/26",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -7075,7 +7783,10 @@
     "closed_at": "2018-10-22T20:33:48Z",
     "author_association": "COLLABORATOR",
     "body": "Step \"21\" indicates an equality comparison.  Unless implemented specially, these could lead to side-channel attacks as an equality check of equal values takes longer than one where the values are unequal. It might be more secure to separately compute both comparisons, i.e. also compute \"e_2 = (y2 ^ 2 == h3)\" as a mitigation strategy or alternative to implementing constant time equality checks, which might not be readily available in different BigInteger libraries/languages.\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/10",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -7443,7 +8154,7 @@
         "default": true
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": {
       "login": "chris-wood",
@@ -7490,8 +8201,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2018-02-27T15:41:41Z",
-    "updated_at": "2019-01-25T19:51:17Z",
-    "closed_at": null,
+    "updated_at": "2019-07-08T23:30:52Z",
+    "closed_at": "2019-07-08T23:30:52Z",
     "author_association": "COLLABORATOR",
     "body": ""
   },
