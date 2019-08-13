@@ -320,13 +320,14 @@ ul.toc li {
 <link href="#rfc.section.6.9.2" rel="Chapter" title="6.9.2 Simplified SWU for Pairing-Friendly Curves">
 <link href="#rfc.section.7" rel="Chapter" title="7 Clearing the cofactor">
 <link href="#rfc.section.8" rel="Chapter" title="8 Suites for Hashing">
-<link href="#rfc.section.8.1" rel="Chapter" title="8.1 Suites for NIST P-256">
-<link href="#rfc.section.8.2" rel="Chapter" title="8.2 Suites for NIST P-384">
-<link href="#rfc.section.8.3" rel="Chapter" title="8.3 Suites for NIST P-521">
-<link href="#rfc.section.8.4" rel="Chapter" title="8.4 Suites for curve25519 and edwards25519">
-<link href="#rfc.section.8.5" rel="Chapter" title="8.5 Suites for curve448 and edwards448">
-<link href="#rfc.section.8.6" rel="Chapter" title="8.6 Suites for SECP256K1">
-<link href="#rfc.section.8.7" rel="Chapter" title="8.7 Suites for BLS12-381">
+<link href="#rfc.section.8.1" rel="Chapter" title="8.1 Suite ID naming conventions">
+<link href="#rfc.section.8.2" rel="Chapter" title="8.2 Suites for NIST P-256">
+<link href="#rfc.section.8.3" rel="Chapter" title="8.3 Suites for NIST P-384">
+<link href="#rfc.section.8.4" rel="Chapter" title="8.4 Suites for NIST P-521">
+<link href="#rfc.section.8.5" rel="Chapter" title="8.5 Suites for curve25519 and edwards25519">
+<link href="#rfc.section.8.6" rel="Chapter" title="8.6 Suites for curve448 and edwards448">
+<link href="#rfc.section.8.7" rel="Chapter" title="8.7 Suites for SECP256K1">
+<link href="#rfc.section.8.8" rel="Chapter" title="8.8 Suites for BLS12-381">
 <link href="#rfc.section.9" rel="Chapter" title="9 IANA Considerations">
 <link href="#rfc.section.10" rel="Chapter" title="10 Security Considerations">
 <link href="#rfc.section.11" rel="Chapter" title="11 Acknowledgements">
@@ -354,7 +355,7 @@ ul.toc li {
 
   <meta name="dct.creator" content="Faz-Hernandez, A., Scott, S., Sullivan, N., Wahby, R., and C. Wood" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-irtf-cfrg-hash-to-curve-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-07-08" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-08-13" />
   <meta name="dct.abstract" content="This document specifies a number of algorithms that may be used to encode or hash an arbitrary string to a point on an elliptic curve." />
   <meta name="description" content="This document specifies a number of algorithms that may be used to encode or hash an arbitrary string to a point on an elliptic curve." />
 
@@ -378,7 +379,7 @@ ul.toc li {
 <td class="right">S. Scott</td>
 </tr>
 <tr>
-<td class="left">Expires: January 9, 2020</td>
+<td class="left">Expires: February 14, 2020</td>
 <td class="right">Cornell Tech</td>
 </tr>
 <tr>
@@ -407,7 +408,7 @@ ul.toc li {
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">July 08, 2019</td>
+<td class="right">August 13, 2019</td>
 </tr>
 
     	
@@ -423,7 +424,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on January 9, 2020.</p>
+<p>This Internet-Draft will expire on February 14, 2020.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -509,19 +510,21 @@ ul.toc li {
 </li>
 <li>8.   <a href="#rfc.section.8">Suites for Hashing</a>
 </li>
-<ul><li>8.1.   <a href="#rfc.section.8.1">Suites for NIST P-256</a>
+<ul><li>8.1.   <a href="#rfc.section.8.1">Suite ID naming conventions</a>
 </li>
-<li>8.2.   <a href="#rfc.section.8.2">Suites for NIST P-384</a>
+<li>8.2.   <a href="#rfc.section.8.2">Suites for NIST P-256</a>
 </li>
-<li>8.3.   <a href="#rfc.section.8.3">Suites for NIST P-521</a>
+<li>8.3.   <a href="#rfc.section.8.3">Suites for NIST P-384</a>
 </li>
-<li>8.4.   <a href="#rfc.section.8.4">Suites for curve25519 and edwards25519</a>
+<li>8.4.   <a href="#rfc.section.8.4">Suites for NIST P-521</a>
 </li>
-<li>8.5.   <a href="#rfc.section.8.5">Suites for curve448 and edwards448</a>
+<li>8.5.   <a href="#rfc.section.8.5">Suites for curve25519 and edwards25519</a>
 </li>
-<li>8.6.   <a href="#rfc.section.8.6">Suites for SECP256K1</a>
+<li>8.6.   <a href="#rfc.section.8.6">Suites for curve448 and edwards448</a>
 </li>
-<li>8.7.   <a href="#rfc.section.8.7">Suites for BLS12-381</a>
+<li>8.7.   <a href="#rfc.section.8.7">Suites for SECP256K1</a>
+</li>
+<li>8.8.   <a href="#rfc.section.8.8">Suites for BLS12-381</a>
 </li>
 </ul><li>9.   <a href="#rfc.section.9">IANA Considerations</a>
 </li>
@@ -885,12 +888,14 @@ Output:
 - u, an element in F.
 
 Steps:
-1. m' = HKDF-Extract(DST, msg)
-2. for i in (1, ..., m):
-3.   info = "H2C" || I2OSP(ctr, 1) || I2OSP(i, 1)
-4.   t = HKDF-Expand(m', info, L)
-5.   e_i = OS2IP(t) mod p
-6. return u = (e_1, ..., e_m)
+1. msg_prime = HKDF-Extract(DST, msg)
+2. info_pfx = "H2C" || I2OSP(ctr, 1)   // "H2C" is a 3-byte ASCII string
+3. for i in (1, ..., m):
+4.   info = info_pfx || I2OSP(i, 1)
+5.   t = HKDF-Expand(msg_prime, info, L)
+6.   e_i = OS2IP(t) mod p
+7. u = (e_1, ..., e_m)
+8. return u
 </pre>
 <h1 id="rfc.section.6">
 <a href="#rfc.section.6">6.</a> <a href="#mappings" id="mappings">Deterministic Mappings</a>
@@ -1430,17 +1435,17 @@ clear_cofactor(P) := h_eff * P
 <p></p>
 
 <ul>
-<li>Suite ID, a short name used to refer to a given suite.</li>
+<li>Suite ID, a short name used to refer to a given suite.  The ID also indicates whether a suite is a random oracle or nonuniform encoding (<a href="#term-rom" class="xref">Section 2.2.3</a>, <a href="#roadmap" class="xref">Section 3</a>).  <a href="#suiteIDformat" class="xref">Section 8.1</a> discusses the naming conventions for suite IDs.</li>
 <li>E, the target elliptic curve over a field F.</li>
 <li>p, the characteristic of the field F.</li>
 <li>m, the extension degree of the field F.</li>
-<li>H, the hash function used by hash_to_base (<a href="#hashtobase" class="xref">Section 5</a>).</li>
-<li>W, the number of evaluations of H in hash_to_base.</li>
+<li>H, the hash function used by hash_to_base (<a href="#hashtobase-sec" class="xref">Section 5.1</a>).</li>
+<li>L, the length of HKDF-Expand output in hash_to_base (<a href="#hashtobase-sec" class="xref">Section 5.1</a>).</li>
 <li>f, a mapping function from <a href="#mappings" class="xref">Section 6</a>.</li>
 <li>h_eff, the scalar parameter for clear_cofactor (<a href="#cofactor-clearing" class="xref">Section 7</a>).</li>
 </ul>
-<p id="rfc.section.8.p.4">In addition to the above parameters, the mapping f may require additional parameters Z, M, rational_map, E&#8217;, and/or iso_map.  These are specified when applicable.</p>
-<p id="rfc.section.8.p.5">Suites whose ID includes &#8220;-RO&#8221; use the hash_to_curve procedure of <a href="#roadmap" class="xref">Section 3</a>; suites whose ID includes &#8220;-NU&#8221; use the encode_to_curve procedure from that section.  Applications whose security requires a random oracle MUST use a &#8220;-RO&#8221; suite.</p>
+<p id="rfc.section.8.p.4">In addition to the above parameters, the mapping f may require additional parameters Z, M, rational_map, E&#8217;, and/or iso_map.  These MUST be specified when applicable.</p>
+<p id="rfc.section.8.p.5">Applications whose security requires a random oracle MUST use a suite specifying hash_to_curve (<a href="#roadmap" class="xref">Section 3</a>); see <a href="#suiteIDformat" class="xref">Section 8.1</a>.</p>
 <p id="rfc.section.8.p.6">When standardizing a new elliptic curve, corresponding hash-to-curve suites SHOULD be specified.</p>
 <p id="rfc.section.8.p.7">The below table lists the curves for which suites are defined and the subsection that gives the corresponding parameters.</p>
 <table cellpadding="3" cellspacing="0" class="tt full center">
@@ -1451,38 +1456,61 @@ clear_cofactor(P) := h_eff * P
 <tbody>
 <tr>
 <td class="left">NIST P-256</td>
-<td class="left"><a href="#suites-p256" class="xref">Section 8.1</a></td>
+<td class="left"><a href="#suites-p256" class="xref">Section 8.2</a></td>
 </tr>
 <tr>
 <td class="left">NIST P-384</td>
-<td class="left"><a href="#suites-p384" class="xref">Section 8.2</a></td>
+<td class="left"><a href="#suites-p384" class="xref">Section 8.3</a></td>
 </tr>
 <tr>
 <td class="left">NIST P-521</td>
-<td class="left"><a href="#suites-p521" class="xref">Section 8.3</a></td>
+<td class="left"><a href="#suites-p521" class="xref">Section 8.4</a></td>
 </tr>
 <tr>
 <td class="left">curve25519 / edwards25519</td>
-<td class="left"><a href="#suites-25519" class="xref">Section 8.4</a></td>
+<td class="left"><a href="#suites-25519" class="xref">Section 8.5</a></td>
 </tr>
 <tr>
 <td class="left">curve448 / edwards448</td>
-<td class="left"><a href="#suites-448" class="xref">Section 8.5</a></td>
+<td class="left"><a href="#suites-448" class="xref">Section 8.6</a></td>
 </tr>
 <tr>
 <td class="left">SECP256k1</td>
-<td class="left"><a href="#suites-secp256k1" class="xref">Section 8.6</a></td>
+<td class="left"><a href="#suites-secp256k1" class="xref">Section 8.7</a></td>
 </tr>
 <tr>
 <td class="left">BLS12-381</td>
-<td class="left"><a href="#suites-bls12381" class="xref">Section 8.7</a></td>
+<td class="left"><a href="#suites-bls12381" class="xref">Section 8.8</a></td>
 </tr>
 </tbody>
 </table>
 <h1 id="rfc.section.8.1">
-<a href="#rfc.section.8.1">8.1.</a> <a href="#suites-p256" id="suites-p256">Suites for NIST P-256</a>
+<a href="#rfc.section.8.1">8.1.</a> <a href="#suiteIDformat" id="suiteIDformat">Suite ID naming conventions</a>
 </h1>
-<p id="rfc.section.8.1.p.1">The suites P256-SHA256-SSWU-RO and P256-SHA256-SSWU-NU are defined for the NIST P-256 elliptic curve <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.  These suites share the following parameters:</p>
+<p id="rfc.section.8.1.p.1">Suite IDs MUST be constructed as follows:</p>
+<pre>
+CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
+</pre>
+<p id="rfc.section.8.1.p.2">The fields CURVE_ID, HASH_ID, MAP_ID, and ENC_VAR are ASCII-encoded strings of at most 64 characters each.  Fields can contain only ASCII characters between 0x21 and 0x7E (inclusive) other than hyphen and underscore (i.e., 0x2d, and 0x5f).  As indicated above, each field (including the last) is followed by a hyphen (&#8220;-&#8220;, ASCII 0x2d); this helps to ensure that Suite IDs are prefix free.</p>
+<p id="rfc.section.8.1.p.3">Fields MUST be chosen as follows:</p>
+<p></p>
+
+<ul>
+<li>CURVE_ID: a human-readable representation of the target elliptic curve.</li>
+<li>HASH_ID: a human-readable representation of the hash function used in hash_to_base (<a href="#hashtobase" class="xref">Section 5</a>).</li>
+<li>MAP_ID: a human-readable representation of the map_to_curve function (<a href="#mappings" class="xref">Section 6</a>).</li>
+<li>ENC_VAR: a string indicating the encoding type and other information.  The first two characters of this string indicate whether the suite represents a hash_to_curve or an encode_to_curve operation (<a href="#roadmap" class="xref">Section 3</a>), as follows:  <ul>
+<li>If ENC_VAR begins with &#8220;RO&#8221;, the suite uses hash_to_curve.</li>
+<li>If ENC_VAR begins with &#8220;NU&#8221;, the suite uses encode_to_curve.</li>
+<li>ENC_VAR MUST NOT begin with any other string.</li>
+</ul>
+<p> ENC_VAR MAY also be used to encode other information used to identify variants, for example, a version number.  The RECOMMENDED way to do so is to add one or more subfields separated by colons.  For example, &#8220;RO:V02&#8221; is an appropriate ENC_VAR value for the second version of a random-oracle suite, while &#8220;RO:V02:FOO01:BAR17&#8221; might be used to indicate a variant of that suite.</p>
+</li>
+</ul>
+<h1 id="rfc.section.8.2">
+<a href="#rfc.section.8.2">8.2.</a> <a href="#suites-p256" id="suites-p256">Suites for NIST P-256</a>
+</h1>
+<p id="rfc.section.8.2.p.1">The suites P256-SHA256-SSWU-RO- and P256-SHA256-SSWU-NU- are defined for the NIST P-256 elliptic curve <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.  These suites share the following parameters:</p>
 <p></p>
 
 <ul>
@@ -1494,16 +1522,16 @@ clear_cofactor(P) := h_eff * P
 <li>p: 2^256 - 2^224 + 2^192 + 2^96 - 1</li>
 <li>m: 1</li>
 <li>H: SHA-256</li>
-<li>W: 2</li>
+<li>L: 48</li>
 <li>f: Simplified SWU method, <a href="#simple-swu" class="xref">Section 6.5.2</a>
 </li>
 <li>Z: -2</li>
 <li>h_eff: 1</li>
 </ul>
-<h1 id="rfc.section.8.2">
-<a href="#rfc.section.8.2">8.2.</a> <a href="#suites-p384" id="suites-p384">Suites for NIST P-384</a>
+<h1 id="rfc.section.8.3">
+<a href="#rfc.section.8.3">8.3.</a> <a href="#suites-p384" id="suites-p384">Suites for NIST P-384</a>
 </h1>
-<p id="rfc.section.8.2.p.1">The suites P384-SHA512-ICART-RO and P384-SHA512-ICART-NU are defined for the NIST P-384 elliptic curve <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.  These suites share the following parameters:</p>
+<p id="rfc.section.8.3.p.1">The suites P384-SHA512-ICART-RO- and P384-SHA512-ICART-NU- are defined for the NIST P-384 elliptic curve <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.  These suites share the following parameters:</p>
 <p></p>
 
 <ul>
@@ -1515,15 +1543,15 @@ clear_cofactor(P) := h_eff * P
 <li>p: 2^384 - 2^128 - 2^96 + 2^32 - 1</li>
 <li>m: 1</li>
 <li>H: SHA-512</li>
-<li>W: 2</li>
+<li>L: 72</li>
 <li>f: Icart&#8217;s method, <a href="#icart" class="xref">Section 6.5.1</a>
 </li>
 <li>h_eff: 1</li>
 </ul>
-<h1 id="rfc.section.8.3">
-<a href="#rfc.section.8.3">8.3.</a> <a href="#suites-p521" id="suites-p521">Suites for NIST P-521</a>
+<h1 id="rfc.section.8.4">
+<a href="#rfc.section.8.4">8.4.</a> <a href="#suites-p521" id="suites-p521">Suites for NIST P-521</a>
 </h1>
-<p id="rfc.section.8.3.p.1">The suites P521-SHA512-SSWU-RO and P521-SHA512-SSWU-NU are defined for the NIST P-384 elliptic curve <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.  These suites share the following parameters:</p>
+<p id="rfc.section.8.4.p.1">The suites P521-SHA512-SSWU-RO- and P521-SHA512-SSWU-NU- are defined for the NIST P-384 elliptic curve <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.  These suites share the following parameters:</p>
 <p></p>
 
 <ul>
@@ -1535,18 +1563,18 @@ clear_cofactor(P) := h_eff * P
 <li>p: 2^521 - 1</li>
 <li>m: 1</li>
 <li>H: SHA-512</li>
-<li>W: 2</li>
+<li>L: 96</li>
 <li>f: Simplified SWU method, <a href="#simple-swu" class="xref">Section 6.5.2</a>
 </li>
 <li>Z: -2</li>
 <li>h_eff: 1</li>
 </ul>
-<p id="rfc.section.8.3.p.3">An optimized example implementation of the above mapping is given in <a href="#map-to-p256" class="xref">Appendix D.2</a>.</p>
-<h1 id="rfc.section.8.4">
-<a href="#rfc.section.8.4">8.4.</a> <a href="#suites-25519" id="suites-25519">Suites for curve25519 and edwards25519</a>
+<p id="rfc.section.8.4.p.3">An optimized example implementation of the above mapping is given in <a href="#map-to-p256" class="xref">Appendix D.2</a>.</p>
+<h1 id="rfc.section.8.5">
+<a href="#rfc.section.8.5">8.5.</a> <a href="#suites-25519" id="suites-25519">Suites for curve25519 and edwards25519</a>
 </h1>
-<p id="rfc.section.8.4.p.1">This section defines ciphersuites for curve25519 and edwards25519 <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
-<p id="rfc.section.8.4.p.2">The suites curve25519-SHA256-ELL2-RO and curve25519-SHA256-ELL2-NU share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.5.p.1">This section defines ciphersuites for curve25519 and edwards25519 <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
+<p id="rfc.section.8.5.p.2">The suites curve25519-SHA256-ELL2-RO- and curve25519-SHA256-ELL2-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
@@ -1558,7 +1586,7 @@ clear_cofactor(P) := h_eff * P
 <li>f: Elligator 2 method, <a href="#elligator2" class="xref">Section 6.6.1</a>
 </li>
 </ul>
-<p id="rfc.section.8.4.p.4">The suites edwards25519-SHA256-EDELL2-RO and edwards25519-SHA256-EDELL2-NU share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.5.p.4">The suites edwards25519-SHA256-EDELL2-RO- and edwards25519-SHA256-EDELL2-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
@@ -1572,23 +1600,23 @@ clear_cofactor(P) := h_eff * P
 <li>M: curve25519 defined in <a href="#RFC7748" class="xref">[RFC7748]</a>, Section 4.1</li>
 <li>rational_map: the birational map defined in <a href="#RFC7748" class="xref">[RFC7748]</a>, Section 4.1</li>
 </ul>
-<p id="rfc.section.8.4.p.6">The common parameters for all of the above suites are:</p>
+<p id="rfc.section.8.5.p.6">The common parameters for all of the above suites are:</p>
 <p></p>
 
 <ul>
 <li>p: 2^255 - 19</li>
 <li>m: 1</li>
 <li>H: SHA-256</li>
-<li>W: 2</li>
+<li>L: 48</li>
 <li>Z: 2</li>
 <li>h_eff: 8</li>
 </ul>
-<p id="rfc.section.8.4.p.8">Optimized example implementations of the above mappings are given in <a href="#map-to-curve25519" class="xref">Appendix D.3</a> and <a href="#map-to-edwards25519" class="xref">Appendix D.4</a>.</p>
-<h1 id="rfc.section.8.5">
-<a href="#rfc.section.8.5">8.5.</a> <a href="#suites-448" id="suites-448">Suites for curve448 and edwards448</a>
+<p id="rfc.section.8.5.p.8">Optimized example implementations of the above mappings are given in <a href="#map-to-curve25519" class="xref">Appendix D.3</a> and <a href="#map-to-edwards25519" class="xref">Appendix D.4</a>.</p>
+<h1 id="rfc.section.8.6">
+<a href="#rfc.section.8.6">8.6.</a> <a href="#suites-448" id="suites-448">Suites for curve448 and edwards448</a>
 </h1>
-<p id="rfc.section.8.5.p.1">This section defines ciphersuites for curve448 and edwards448 <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
-<p id="rfc.section.8.5.p.2">The suites curve448-SHA512-ELL2-RO and curve448-SHA512-ELL2-NU share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.6.p.1">This section defines ciphersuites for curve448 and edwards448 <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
+<p id="rfc.section.8.6.p.2">The suites curve448-SHA512-ELL2-RO- and curve448-SHA512-ELL2-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
@@ -1600,7 +1628,7 @@ clear_cofactor(P) := h_eff * P
 <li>f: Elligator 2 method, <a href="#elligator2" class="xref">Section 6.6.1</a>
 </li>
 </ul>
-<p id="rfc.section.8.5.p.4">The suites edwards448-SHA512-EDELL2-RO and edwards448-SHA512-EDELL2-NU share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.6.p.4">The suites edwards448-SHA512-EDELL2-RO- and edwards448-SHA512-EDELL2-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
@@ -1614,22 +1642,22 @@ clear_cofactor(P) := h_eff * P
 <li>M: curve448, defined in <a href="#RFC7748" class="xref">[RFC7748]</a>, Section 4.2</li>
 <li>rational_map: the 4-isogeny map defined in <a href="#RFC7748" class="xref">[RFC7748]</a>, Section 4.2</li>
 </ul>
-<p id="rfc.section.8.5.p.6">The common parameters for all of the above suites are:</p>
+<p id="rfc.section.8.6.p.6">The common parameters for all of the above suites are:</p>
 <p></p>
 
 <ul>
 <li>p: 2^448 - 2^224 - 1</li>
 <li>m: 1</li>
 <li>H: SHA-512</li>
-<li>W: 2</li>
+<li>L: 84</li>
 <li>Z: -1</li>
 <li>h_eff: 4</li>
 </ul>
-<p id="rfc.section.8.5.p.8">Optimized example implementations of the above mappings are given in <a href="#map-to-curve448" class="xref">Appendix D.5</a> and <a href="#map-to-edwards448" class="xref">Appendix D.6</a>.</p>
-<h1 id="rfc.section.8.6">
-<a href="#rfc.section.8.6">8.6.</a> <a href="#suites-secp256k1" id="suites-secp256k1">Suites for SECP256K1</a>
+<p id="rfc.section.8.6.p.8">Optimized example implementations of the above mappings are given in <a href="#map-to-curve448" class="xref">Appendix D.5</a> and <a href="#map-to-edwards448" class="xref">Appendix D.6</a>.</p>
+<h1 id="rfc.section.8.7">
+<a href="#rfc.section.8.7">8.7.</a> <a href="#suites-secp256k1" id="suites-secp256k1">Suites for SECP256K1</a>
 </h1>
-<p id="rfc.section.8.6.p.1">The suites SECP256K1-SHA256-SVDW-RO and SECP256K1-SHA256-SVDW-NU are defined for the SECP256K1 elliptic curve <a href="#SEC2" class="xref">[SEC2]</a>.  These suites share the following parameters:</p>
+<p id="rfc.section.8.7.p.1">The suites SECP256K1-SHA256-SVDW-RO- and SECP256K1-SHA256-SVDW-NU- are defined for the SECP256K1 elliptic curve <a href="#SEC2" class="xref">[SEC2]</a>.  These suites share the following parameters:</p>
 <p></p>
 
 <ul>
@@ -1637,17 +1665,17 @@ clear_cofactor(P) := h_eff * P
 <li>p: 2^256 - 2^32 - 2^9 - 2^8 - 2^7 - 2^6 - 2^4 - 1</li>
 <li>m: 1</li>
 <li>H: SHA-256</li>
-<li>W: 2</li>
+<li>L: 48</li>
 <li>f: Shallue-van de Woestijne method, <a href="#swpairing" class="xref">Section 6.9.1</a>
 </li>
 <li>Z: 1</li>
 <li>h_eff: 1</li>
 </ul>
-<h1 id="rfc.section.8.7">
-<a href="#rfc.section.8.7">8.7.</a> <a href="#suites-bls12381" id="suites-bls12381">Suites for BLS12-381</a>
+<h1 id="rfc.section.8.8">
+<a href="#rfc.section.8.8">8.8.</a> <a href="#suites-bls12381" id="suites-bls12381">Suites for BLS12-381</a>
 </h1>
-<p id="rfc.section.8.7.p.1">This section defines ciphersuites for groups G1 and G2 of the BLS12-381 elliptic curve <a href="#draft-yonezawa-pfc-01" class="xref">[draft-yonezawa-pfc-01]</a>.</p>
-<p id="rfc.section.8.7.p.2">The suites BLS12381G1-SHA256-SSWU-RO and BLS12381G1-SHA256-SSWU-NU share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.8.p.1">This section defines ciphersuites for groups G1 and G2 of the BLS12-381 elliptic curve <a href="#draft-yonezawa-pfc-01" class="xref">[draft-yonezawa-pfc-01]</a>.</p>
+<p id="rfc.section.8.8.p.2">The suites BLS12381G1-SHA256-SSWU-RO- and BLS12381G1-SHA256-SSWU-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
@@ -1663,7 +1691,7 @@ clear_cofactor(P) := h_eff * P
 </li>
 <li>h_eff: 0xd201000000010001</li>
 </ul>
-<p id="rfc.section.8.7.p.4">The suites BLS12381G2-SHA256-SSWU-RO and BLS12381G2-SHA256-SSWU-NU share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.8.p.4">The suites BLS12381G2-SHA256-SSWU-RO- and BLS12381G2-SHA256-SSWU-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
@@ -1684,17 +1712,17 @@ clear_cofactor(P) := h_eff * P
 </li>
 <li>h_eff: 0xbc69f08f2ee75b3584c6a0ea91b352888e2a8e9145ad7689986ff031508ffe1329c2f178731db956d82bf015d1212b02ec0ec69d7477c1ae954cbc06689f6a359894c0adebbf6b4e8020005aaa95551</li>
 </ul>
-<p id="rfc.section.8.7.p.6">The common parameters for the above suites are:</p>
+<p id="rfc.section.8.8.p.6">The common parameters for the above suites are:</p>
 <p></p>
 
 <ul>
 <li>p: 0x1a0111ea397fe69a4b1ba7b6434bacd764774b84f38512bf6730d2a0f6b0f6241eabfffeb153ffffb9feffffffffaaab</li>
 <li>H: SHA-256</li>
-<li>W: 2</li>
+<li>L: 64</li>
 <li>f: Simplified SWU for pairing-friendly curves, <a href="#simple-swu-pairing-friendly" class="xref">Section 6.9.2</a>
 </li>
 </ul>
-<p id="rfc.section.8.7.p.8">Note that the h_eff parameters for all of the above suites are chosen for compatibility with the fast cofactor clearing methods described by Scott for G1 (<a href="#WB19" class="xref">[WB19]</a> Section 5) and by Budroni and Pintore for G2 (<a href="#BP18" class="xref">[BP18]</a>, Section 4.1).</p>
+<p id="rfc.section.8.8.p.8">Note that the h_eff parameters for all of the above suites are chosen for compatibility with the fast cofactor clearing methods described by Scott for G1 (<a href="#WB19" class="xref">[WB19]</a> Section 5) and by Budroni and Pintore for G2 (<a href="#BP18" class="xref">[BP18]</a>, Section 4.1).</p>
 <h1 id="rfc.section.9">
 <a href="#rfc.section.9">9.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a>
 </h1>
@@ -2001,7 +2029,7 @@ clear_cofactor(P) := h_eff * P
 <h1 id="rfc.appendix.C">
 <a href="#rfc.appendix.C">Appendix C.</a> <a href="#appx-bls12381" id="appx-bls12381">Isogenous curves and corresponding maps for BLS12-381</a>
 </h1>
-<p id="rfc.section.C.p.1">This section specifies the isogeny maps for the BLS12-381 suites listed in <a href="#suites-bls12381" class="xref">Section 8.7</a>.</p>
+<p id="rfc.section.C.p.1">This section specifies the isogeny maps for the BLS12-381 suites listed in <a href="#suites-bls12381" class="xref">Section 8.8</a>.</p>
 <h1 id="rfc.appendix.C.1">
 <a href="#rfc.appendix.C.1">C.1.</a> <a href="#appx-bls12381-g1" id="appx-bls12381-g1">11-isogeny map for G1</a>
 </h1>
@@ -2167,7 +2195,7 @@ clear_cofactor(P) := h_eff * P
 <h1 id="rfc.appendix.D.2">
 <a href="#rfc.appendix.D.2">D.2.</a> <a href="#map-to-p256" id="map-to-p256">P-256 (Simplified SWU)</a>
 </h1>
-<p id="rfc.section.D.2.p.1">The following is a straight-line implementation of the Simplified SWU mapping for P-256 <a href="#FIPS186-4" class="xref">[FIPS186-4]</a> as specified in <a href="#suites-p256" class="xref">Section 8.1</a>.</p>
+<p id="rfc.section.D.2.p.1">The following is a straight-line implementation of the Simplified SWU mapping for P-256 <a href="#FIPS186-4" class="xref">[FIPS186-4]</a> as specified in <a href="#suites-p256" class="xref">Section 8.2</a>.</p>
 <pre>
 map_to_curve_simple_swu_p256(u)
 Input: u, an element of F.
@@ -2219,7 +2247,7 @@ Steps:
 <h1 id="rfc.appendix.D.3">
 <a href="#rfc.appendix.D.3">D.3.</a> <a href="#map-to-curve25519" id="map-to-curve25519">curve25519 (Elligator 2)</a>
 </h1>
-<p id="rfc.section.D.3.p.1">The following is a straight-line implementation of Elligator 2 for curve25519 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-25519" class="xref">Section 8.4</a>.</p>
+<p id="rfc.section.D.3.p.1">The following is a straight-line implementation of Elligator 2 for curve25519 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-25519" class="xref">Section 8.5</a>.</p>
 <pre>
 map_to_curve_elligator2_curve25519(u)
 Input: u, an element of F.
@@ -2277,7 +2305,7 @@ Steps:
 <h1 id="rfc.appendix.D.4">
 <a href="#rfc.appendix.D.4">D.4.</a> <a href="#map-to-edwards25519" id="map-to-edwards25519">edwards25519 (Elligator 2)</a>
 </h1>
-<p id="rfc.section.D.4.p.1">The following is a straight-line implementation of Elligator 2 for edwards25519 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-25519" class="xref">Section 8.4</a>.  The subroutine map_to_curve_elligator2_curve25519 is defined in <a href="#map-to-curve25519" class="xref">Appendix D.3</a>.</p>
+<p id="rfc.section.D.4.p.1">The following is a straight-line implementation of Elligator 2 for edwards25519 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-25519" class="xref">Section 8.5</a>.  The subroutine map_to_curve_elligator2_curve25519 is defined in <a href="#map-to-curve25519" class="xref">Appendix D.3</a>.</p>
 <pre>
 map_to_curve_elligator2_edwards25519(u)
 Input: u, an element of F.
@@ -2299,7 +2327,7 @@ Steps:
 <h1 id="rfc.appendix.D.5">
 <a href="#rfc.appendix.D.5">D.5.</a> <a href="#map-to-curve448" id="map-to-curve448">curve448 (Elligator 2)</a>
 </h1>
-<p id="rfc.section.D.5.p.1">The following is a straight-line implementation of Elligator 2 for curve448 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-448" class="xref">Section 8.5</a>.</p>
+<p id="rfc.section.D.5.p.1">The following is a straight-line implementation of Elligator 2 for curve448 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-448" class="xref">Section 8.6</a>.</p>
 <pre>
 map_to_curve_elligator2_curve448(u)
 Input: u, an element of F.
@@ -2341,7 +2369,7 @@ Steps:
 <h1 id="rfc.appendix.D.6">
 <a href="#rfc.appendix.D.6">D.6.</a> <a href="#map-to-edwards448" id="map-to-edwards448">edwards448 (Elligator 2)</a>
 </h1>
-<p id="rfc.section.D.6.p.1">The following is a straight-line implementation of Elligator 2 for edwards448 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-448" class="xref">Section 8.5</a>.  The subroutine map_to_curve_elligator2_curve448 is defined in <a href="#map-to-curve448" class="xref">Appendix D.5</a>.</p>
+<p id="rfc.section.D.6.p.1">The following is a straight-line implementation of Elligator 2 for edwards448 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-448" class="xref">Section 8.6</a>.  The subroutine map_to_curve_elligator2_curve448 is defined in <a href="#map-to-curve448" class="xref">Appendix D.5</a>.</p>
 <pre>
 map_to_curve_elligator2_edwards448(u)
 Input: u, an element of F.
