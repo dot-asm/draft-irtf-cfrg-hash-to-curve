@@ -1,6 +1,204 @@
 [
 
   {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/164",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/164/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/164/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/164/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/164",
+    "id": 479317465,
+    "node_id": "MDU6SXNzdWU0NzkzMTc0NjU=",
+    "number": 164,
+    "title": "404 link in readme",
+    "user": {
+      "login": "JustinDrake",
+      "id": 731743,
+      "node_id": "MDQ6VXNlcjczMTc0Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/731743?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/JustinDrake",
+      "html_url": "https://github.com/JustinDrake",
+      "followers_url": "https://api.github.com/users/JustinDrake/followers",
+      "following_url": "https://api.github.com/users/JustinDrake/following{/other_user}",
+      "gists_url": "https://api.github.com/users/JustinDrake/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/JustinDrake/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/JustinDrake/subscriptions",
+      "organizations_url": "https://api.github.com/users/JustinDrake/orgs",
+      "repos_url": "https://api.github.com/users/JustinDrake/repos",
+      "events_url": "https://api.github.com/users/JustinDrake/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/JustinDrake/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-08-11T00:05:19Z",
+    "updated_at": "2019-08-11T00:05:19Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "[Compare Editor's Copy to Individual Draft](https://cfrg.github.io/draft-irtf-cfrg-hash-to-curve/draft-irtf-cfrg-hash-to-curve.diff) points to a 404"
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/163",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/163/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/163/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/163/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/163",
+    "id": 478752135,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzA1ODAxODUz",
+    "number": 163,
+    "title": "small fixes to address #160, #161, #162",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 2,
+    "created_at": "2019-08-09T01:18:44Z",
+    "updated_at": "2019-08-13T15:41:59Z",
+    "closed_at": "2019-08-13T15:41:59Z",
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/163",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/163",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/163.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/163.patch"
+    },
+    "body": "This is mostly a minor edit to address the above.\r\n\r\nThe most major thing is a new (small) section laying out the convention for creating a new Suite ID. The reason for having the convention is that it's best if suite IDs are prefix-free, and this convention helps with that."
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/162",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/162/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/162/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/162/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/162",
+    "id": 476224040,
+    "node_id": "MDU6SXNzdWU0NzYyMjQwNDA=",
+    "number": 162,
+    "title": "make sure \"H2C\" is unambiguous in hash_to_base",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-08-02T15:00:46Z",
+    "updated_at": "2019-08-13T15:42:01Z",
+    "closed_at": "2019-08-13T15:42:01Z",
+    "author_association": "COLLABORATOR",
+    "body": "May want to specify that \"H2C\" is the sequence of bytes 0x48, 0x32, 0x43, i.e., the ASCII/UTF-8 encoding of the string."
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/161",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/161/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/161/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/161/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/161",
+    "id": 476217503,
+    "node_id": "MDU6SXNzdWU0NzYyMTc1MDM=",
+    "number": 161,
+    "title": "ensure that suite names are prefix-free",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-08-02T14:48:02Z",
+    "updated_at": "2019-08-13T15:42:01Z",
+    "closed_at": "2019-08-13T15:42:01Z",
+    "author_association": "COLLABORATOR",
+    "body": "@hoeteck suggests out-of-band that it will be useful to have prefix-free ciphersuite names in case upper-level protocols want to include those suite names in their domain separation strings.\r\n\r\nOne easy way to do this is to add a trailing hyphen (e.g., \"P256-SHA256-SSWU-RO-\"). Probably reasonable to add as cheap insurance against misuse."
+  },
+  {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/160",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/160/labels{/name}",
@@ -34,7 +232,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -43,8 +241,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-07-25T17:42:10Z",
-    "updated_at": "2019-07-25T17:42:10Z",
-    "closed_at": null,
+    "updated_at": "2019-08-13T15:42:01Z",
+    "closed_at": "2019-08-13T15:42:01Z",
     "author_association": "COLLABORATOR",
     "body": "see title. Just need to harmonize this in suites. Oops!!!"
   },
@@ -185,9 +383,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-07-23T06:04:56Z",
-    "updated_at": "2019-07-23T06:06:01Z",
+    "updated_at": "2019-07-30T01:34:02Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Some of the maps use constants whose definitions include sqrts. The document should specify for these that the intended constant value is the one computed for the \"positive\" sqrt branch, i.e., the value `c = sqrt(something)` such that `sgn0(c) == 1` to avoid ambiguity about the value of `c`."
@@ -281,9 +479,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-07-16T19:04:38Z",
-    "updated_at": "2019-07-16T19:04:38Z",
+    "updated_at": "2019-08-02T14:51:43Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "In [this post](https://mailarchive.ietf.org/arch/msg/cfrg/gFn3tvf62e1FKx_SkVXk8hsSVig), Dan Harkins points out (in essence) that the draft isn't clear on how to apply S--vdW to the case where j-invariant is 1728.\r\n\r\nIt would be nice to make S--vdW clear on this point, since it's effectively the \"method of last resort\": it will always work, even when some other method won't."
@@ -329,9 +527,9 @@
 
     ],
     "milestone": null,
-    "comments": 4,
+    "comments": 6,
     "created_at": "2019-07-09T09:54:38Z",
-    "updated_at": "2019-07-10T09:43:05Z",
+    "updated_at": "2019-08-12T21:27:15Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -433,7 +631,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-07-09T09:12:32Z",
-    "updated_at": "2019-07-09T09:12:44Z",
+    "updated_at": "2019-08-09T00:20:07Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -857,9 +1055,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 2,
     "created_at": "2019-07-06T19:16:39Z",
-    "updated_at": "2019-07-06T19:16:39Z",
+    "updated_at": "2019-07-30T01:38:58Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "There's a potential enhancement/improvement to sgn0 that we might want to consider. This option may have been discussed a little before, but it's probably worth revisiting before things get too ossified.\r\n\r\nThe current version of sgn0 says that an element x in GF(p) is negative just when it is greater than (p - 1) / 2. (Things are slightly more complicated for GF(p^m), but let's ignore that for now.)\r\n\r\nSince p is odd, an alternative means of differentiating between x and -x is via the least significant bit: if the least significant bit of x is set, call x negative, otherwise call it positive. (This works because p - x and x have opposite LSBs, except when x = 0.)\r\n\r\nThe major advantage to this approach is that it's much easier to check a single bit in constant time than it is to compare a value to (p-1)/2. On the other hand, I'd guess that in many cases a constant-time comparison function is already available, so maybe this isn't such a decisive advantage after all.\r\n\r\nThe major disadvantage (if it can be called that) is that it leads to slightly nonintuitive definitions of \"negative.\" For example, normally we'd think of 1 as positive, but by the parity definition, sgn0(1) == -1, and sgn0(p - 1) == 1. But maybe that's OK.\r\n\r\nThoughts?\r\n\r\nSince this would be a breaking change, sooner is better than later. Also, it might change the suites definitions, since some suites have a constant Z that is \"smallest in absolute value, breaking ties by choosing the positive one,\" and changing the definition of sign might change that."
@@ -1060,17 +1258,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 3,
+    "comments": 4,
     "created_at": "2019-07-03T12:40:53Z",
-    "updated_at": "2019-07-05T18:34:38Z",
-    "closed_at": null,
+    "updated_at": "2019-08-13T15:42:01Z",
+    "closed_at": "2019-08-13T15:42:01Z",
     "author_association": "COLLABORATOR",
     "body": "This seems like a low-priority issue, but wanted to get the thoughts down\r\nfor future discussion:\r\n\r\nLooking ahead to where we will realistically fall on ciphersuite definitions,\r\nit is unlikely that aspects such as specific constants (e.g. quadratic non-residues),\r\nand even the scalar used for cofactor clearing (in the case of optimised\r\nimplementations) will be explicit in the ciphersuite **label**, despite\r\nbeing explicit in the definition itself.\r\n\r\nIn the future, there is a chance that different choices will be desired, \r\nfor example, due to new algorithmic improvements. Changing these requires\r\na new ciphersuite tag, else implementations may become incompatible.\r\n\r\nThis leaves open the question of versioning the ciphersuites themselves,\r\nsince we may want a \"v2\" of a ciphersuite.\r\n\r\nHowever, this possibility seems low enough probability that forcing a \"v1\"\r\nsuffix onto all existing ciphersuites seems unnecessary.\r\nOne solution seems to be considering future extensions to the draft to\r\nallow changing \"curvexxx-hashyyy-mapzzz-ro\" to simply \"curvexxx-hashyyy-mapzzz-ro-v2\"\r\nin such an scenario.\r\n"
   },
@@ -1331,7 +1529,10 @@
     "closed_at": "2019-07-07T06:38:26Z",
     "author_association": "NONE",
     "body": "Field calculation \\pmod{p} at steps 15,16 of Icart method (lines 311,312)\r\nused later as a power at step 17\r\nmight be a copy-paste\r\nthat should be calculation over integers instead."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/134",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -1535,10 +1736,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/131.patch"
     },
     "body": "Oops. This is minor, just missed a few words. Sorry @chris-wood, spoke too soon when I said \"good to go.\""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/130",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -2852,7 +3050,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "In a previous commit I tried to improve consistency for spacing around math operators, but I didn't quite catch them all.\r\n\r\n~~I think the biggest remaining one is whether `=` should have surrounding spaces or not.~~ done (#136)\r\n\r\nTODO: implement consistent style"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/104",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3050,10 +3251,7 @@
     "closed_at": "2019-06-02T21:26:13Z",
     "author_association": "COLLABORATOR",
     "body": "See https://eprint.iacr.org/2019/403"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/100",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4388,7 +4586,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/75.patch"
     },
     "body": "Solves #66."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/74",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4592,10 +4793,7 @@
     "closed_at": "2019-06-05T16:52:10Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/70",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -5904,7 +6102,10 @@
     "closed_at": "2019-02-09T16:42:05Z",
     "author_association": "NONE",
     "body": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/blob/fdb70a5f0c836a4ab8090c5a84952c688e5ccc35/draft-irtf-cfrg-hash-to-curve.txt#L566\r\n\r\nShould the sign in front of t^2 be minus rather than plus (see step 4 of the algorithm, which computes alpha^2 + alpha where alpha is -t^2; see also Proposition 7 of https://eprint.iacr.org/2009/340.pdf)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/44",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6140,10 +6341,7 @@
     "closed_at": "2019-02-09T16:00:55Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/40",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -7591,7 +7789,10 @@
     "closed_at": "2019-02-09T16:42:35Z",
     "author_association": "COLLABORATOR",
     "body": "For what little it's worth, (I think that) none of the algorithms\r\nspecified in this I-D work for 2y^2=x^3+x/GF(8^91+5), because p=1 mod 3, p=1\r\nmod 4, and j=1728.\r\n\r\nFor this special curve, I sketched a modification of Elligator 2, which I\r\ncalled Elligator i, in Sections 5.2 (math) and C.10 (pseudocode) of\r\nhttps://datatracker.ietf.org/doc/draft-brown-ec-2y2-x3-x-mod-8-to-91-plus-5/\r\nthough I am not sure which set of curves it would generalize to.  (I admit I\r\ndon't recall trying Icart or SWU on this special curve: maybe some\r\nvariations of these would have worked just as well.)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/14",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -7783,10 +7984,7 @@
     "closed_at": "2018-10-22T20:33:48Z",
     "author_association": "COLLABORATOR",
     "body": "Step \"21\" indicates an equality comparison.  Unless implemented specially, these could lead to side-channel attacks as an equality check of equal values takes longer than one where the values are unequal. It might be more secure to separately compute both comparisons, i.e. also compute \"e_2 = (y2 ^ 2 == h3)\" as a mitigation strategy or alternative to implementing constant time equality checks, which might not be readily available in different BigInteger libraries/languages.\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/10",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
