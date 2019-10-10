@@ -1,6 +1,264 @@
 [
 
   {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/169",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/169/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/169/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/169/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/169",
+    "id": 499826802,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzIyNDUwMzYw",
+    "number": 169,
+    "title": "Security consideration: brute-force attacks",
+    "user": {
+      "login": "vanhoefm",
+      "id": 637995,
+      "node_id": "MDQ6VXNlcjYzNzk5NQ==",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/637995?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/vanhoefm",
+      "html_url": "https://github.com/vanhoefm",
+      "followers_url": "https://api.github.com/users/vanhoefm/followers",
+      "following_url": "https://api.github.com/users/vanhoefm/following{/other_user}",
+      "gists_url": "https://api.github.com/users/vanhoefm/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/vanhoefm/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/vanhoefm/subscriptions",
+      "organizations_url": "https://api.github.com/users/vanhoefm/orgs",
+      "repos_url": "https://api.github.com/users/vanhoefm/repos",
+      "events_url": "https://api.github.com/users/vanhoefm/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/vanhoefm/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-09-28T22:15:25Z",
+    "updated_at": "2019-10-10T16:44:25Z",
+    "closed_at": null,
+    "author_association": "FIRST_TIME_CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/169",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/169",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/169.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/169.patch"
+    },
+    "body": "This informs the reader of brute-force attacks if the output of hash_to_base (or derived values) is leaked. Suggested defence is to preprocess the input of hash_to_base.\r\n\r\nComments are welcome!"
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/168",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/168/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/168/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/168/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/168",
+    "id": 495517804,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzE5MDUxNjE4",
+    "number": 168,
+    "title": "Removing Icart encoding",
+    "user": {
+      "login": "armfazh",
+      "id": 10335519,
+      "node_id": "MDQ6VXNlcjEwMzM1NTE5",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10335519?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/armfazh",
+      "html_url": "https://github.com/armfazh",
+      "followers_url": "https://api.github.com/users/armfazh/followers",
+      "following_url": "https://api.github.com/users/armfazh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/armfazh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/armfazh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/armfazh/subscriptions",
+      "organizations_url": "https://api.github.com/users/armfazh/orgs",
+      "repos_url": "https://api.github.com/users/armfazh/repos",
+      "events_url": "https://api.github.com/users/armfazh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/armfazh/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 2,
+    "created_at": "2019-09-19T00:47:13Z",
+    "updated_at": "2019-10-10T21:35:08Z",
+    "closed_at": "2019-10-10T21:35:08Z",
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/168",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/168",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/168.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/168.patch"
+    },
+    "body": "The curve P384 is one example that uses Icart method. However, it can also be used SW and SSWU mappings instead.\r\n\r\nLets argue on this proposal."
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/167",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/167/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/167/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/167/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/167",
+    "id": 495514049,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzE5MDQ4NzMw",
+    "number": 167,
+    "title": "Promoting SW as a general map",
+    "user": {
+      "login": "armfazh",
+      "id": 10335519,
+      "node_id": "MDQ6VXNlcjEwMzM1NTE5",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10335519?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/armfazh",
+      "html_url": "https://github.com/armfazh",
+      "followers_url": "https://api.github.com/users/armfazh/followers",
+      "following_url": "https://api.github.com/users/armfazh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/armfazh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/armfazh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/armfazh/subscriptions",
+      "organizations_url": "https://api.github.com/users/armfazh/orgs",
+      "repos_url": "https://api.github.com/users/armfazh/repos",
+      "events_url": "https://api.github.com/users/armfazh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/armfazh/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-09-19T00:28:38Z",
+    "updated_at": "2019-10-10T04:06:13Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/167",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/167",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/167.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/167.patch"
+    },
+    "body": "The original construction of Shallue-van de Woestijne (SW, to avoid confusion with names) can be used as a (almost) generic method for hashing into **any** curve in short Weierstrass form.\r\n\r\nChanges:\r\n - SW stands now as a generic method.\r\n - SW costs 4 exponentiation (in affine coordinates).\r\n - Added SW suites for P-256, P-384, P-521, BN256, SECP256K1.\r\n - Added a PDF with the description of the formulas (it follows a combination of Fouque-Tibouchi and Wahby approaches) File: ([math/sw.pdf](https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/blob/a0c68c9c78e67d5019e7aa3659e5a9f0af2ba29a/math/sw.pdf))."
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/166",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/166/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/166/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/166/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/166",
+    "id": 482443294,
+    "node_id": "MDU6SXNzdWU0ODI0NDMyOTQ=",
+    "number": 166,
+    "title": "cofactor clearing pseudocode",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 6,
+    "created_at": "2019-08-19T17:46:24Z",
+    "updated_at": "2019-10-02T18:24:59Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "I ran into @mmaker at CRYPTO, who suggested that including pseudocode for fast cofactor clearing for BLS12-381 would be a nice addition to the document and probably wouldn't be all that complicated.\r\n\r\nI tend to agree---certainly if we're going to have optimized pcode in the appendix, there's a good argument for including this...\r\n\r\nThoughts?"
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/165",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/165/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/165/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/165/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/165",
+    "id": 480935652,
+    "node_id": "MDU6SXNzdWU0ODA5MzU2NTI=",
+    "number": 165,
+    "title": "Support for SHA-3 and SHAKE / cSHAKE",
+    "user": {
+      "login": "mimoo",
+      "id": 1316043,
+      "node_id": "MDQ6VXNlcjEzMTYwNDM=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1316043?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mimoo",
+      "html_url": "https://github.com/mimoo",
+      "followers_url": "https://api.github.com/users/mimoo/followers",
+      "following_url": "https://api.github.com/users/mimoo/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mimoo/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mimoo/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mimoo/subscriptions",
+      "organizations_url": "https://api.github.com/users/mimoo/orgs",
+      "repos_url": "https://api.github.com/users/mimoo/repos",
+      "events_url": "https://api.github.com/users/mimoo/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mimoo/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 8,
+    "created_at": "2019-08-14T23:48:05Z",
+    "updated_at": "2019-08-18T10:12:58Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The current draft only seems to standardize the algorithms with SHA-2. I'd like to see support for SHA-3 and SHAKE (and cSHAKE) if possible so that we don't have to write an extension/another RFC later on.\r\n\r\nusing cSHAKE would allow to replace the hash and HKDF with one algorithm."
+  },
+  {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/164",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/164/labels{/name}",
@@ -91,7 +349,7 @@
     "milestone": null,
     "comments": 2,
     "created_at": "2019-08-09T01:18:44Z",
-    "updated_at": "2019-08-13T15:41:59Z",
+    "updated_at": "2019-08-14T01:36:41Z",
     "closed_at": "2019-08-13T15:41:59Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -479,9 +737,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 3,
     "created_at": "2019-07-16T19:04:38Z",
-    "updated_at": "2019-08-02T14:51:43Z",
+    "updated_at": "2019-10-10T04:28:34Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "In [this post](https://mailarchive.ietf.org/arch/msg/cfrg/gFn3tvf62e1FKx_SkVXk8hsSVig), Dan Harkins points out (in essence) that the draft isn't clear on how to apply S--vdW to the case where j-invariant is 1728.\r\n\r\nIt would be nice to make S--vdW clear on this point, since it's effectively the \"method of last resort\": it will always work, even when some other method won't."
@@ -520,17 +778,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 6,
+    "comments": 7,
     "created_at": "2019-07-09T09:54:38Z",
-    "updated_at": "2019-08-12T21:27:15Z",
-    "closed_at": null,
+    "updated_at": "2019-09-04T09:20:16Z",
+    "closed_at": "2019-09-04T09:20:15Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/154",
@@ -631,7 +889,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-07-09T09:12:32Z",
-    "updated_at": "2019-08-09T00:20:07Z",
+    "updated_at": "2019-09-04T19:25:09Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -1055,9 +1313,9 @@
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 3,
     "created_at": "2019-07-06T19:16:39Z",
-    "updated_at": "2019-07-30T01:38:58Z",
+    "updated_at": "2019-08-19T20:32:02Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "There's a potential enhancement/improvement to sgn0 that we might want to consider. This option may have been discussed a little before, but it's probably worth revisiting before things get too ossified.\r\n\r\nThe current version of sgn0 says that an element x in GF(p) is negative just when it is greater than (p - 1) / 2. (Things are slightly more complicated for GF(p^m), but let's ignore that for now.)\r\n\r\nSince p is odd, an alternative means of differentiating between x and -x is via the least significant bit: if the least significant bit of x is set, call x negative, otherwise call it positive. (This works because p - x and x have opposite LSBs, except when x = 0.)\r\n\r\nThe major advantage to this approach is that it's much easier to check a single bit in constant time than it is to compare a value to (p-1)/2. On the other hand, I'd guess that in many cases a constant-time comparison function is already available, so maybe this isn't such a decisive advantage after all.\r\n\r\nThe major disadvantage (if it can be called that) is that it leads to slightly nonintuitive definitions of \"negative.\" For example, normally we'd think of 1 as positive, but by the parity definition, sgn0(1) == -1, and sgn0(p - 1) == 1. But maybe that's OK.\r\n\r\nThoughts?\r\n\r\nSince this would be a breaking change, sooner is better than later. Also, it might change the suites definitions, since some suites have a constant Z that is \"smallest in absolute value, breaking ties by choosing the positive one,\" and changing the definition of sign might change that."
@@ -1271,7 +1529,10 @@
     "closed_at": "2019-08-13T15:42:01Z",
     "author_association": "COLLABORATOR",
     "body": "This seems like a low-priority issue, but wanted to get the thoughts down\r\nfor future discussion:\r\n\r\nLooking ahead to where we will realistically fall on ciphersuite definitions,\r\nit is unlikely that aspects such as specific constants (e.g. quadratic non-residues),\r\nand even the scalar used for cofactor clearing (in the case of optimised\r\nimplementations) will be explicit in the ciphersuite **label**, despite\r\nbeing explicit in the definition itself.\r\n\r\nIn the future, there is a chance that different choices will be desired, \r\nfor example, due to new algorithmic improvements. Changing these requires\r\na new ciphersuite tag, else implementations may become incompatible.\r\n\r\nThis leaves open the question of versioning the ciphersuites themselves,\r\nsince we may want a \"v2\" of a ciphersuite.\r\n\r\nHowever, this possibility seems low enough probability that forcing a \"v1\"\r\nsuffix onto all existing ciphersuites seems unnecessary.\r\nOne solution seems to be considering future extensions to the draft to\r\nallow changing \"curvexxx-hashyyy-mapzzz-ro\" to simply \"curvexxx-hashyyy-mapzzz-ro-v2\"\r\nin such an scenario.\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/139",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -1369,7 +1630,7 @@
     "milestone": null,
     "comments": 5,
     "created_at": "2019-07-03T00:22:47Z",
-    "updated_at": "2019-07-08T18:47:39Z",
+    "updated_at": "2019-08-14T01:36:35Z",
     "closed_at": "2019-07-08T18:47:39Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -1529,10 +1790,7 @@
     "closed_at": "2019-07-07T06:38:26Z",
     "author_association": "NONE",
     "body": "Field calculation \\pmod{p} at steps 15,16 of Icart method (lines 311,312)\r\nused later as a power at step 17\r\nmight be a copy-paste\r\nthat should be calculation over integers instead."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/134",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -1825,17 +2083,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 9,
+    "comments": 10,
     "created_at": "2019-06-25T15:38:36Z",
-    "updated_at": "2019-07-08T22:27:54Z",
-    "closed_at": null,
+    "updated_at": "2019-08-13T16:03:40Z",
+    "closed_at": "2019-08-13T16:03:40Z",
     "author_association": "COLLABORATOR",
     "body": "The deadline for getting drafts updated before IETF 105 is [July 8th](https://datatracker.ietf.org/meeting/105/important-dates/). This is an attempt at triaging the open issues and known TODOs to hit that date.\r\n\r\nPlease let me know if anything seems to be miscategorized!\r\n\r\n## Really should have\r\n\r\n- [x] Definitions: maps, encodings, etc. (#127, #128) - making sure that the definitions and high-level framing are clear is important for getting useful feedback on the next draft. Plus, these should be very close to converging!\r\n\r\n- [x] Fix point conversions for Edwards -> Montgomery to agree with existing RFCs (#107) - see second comment in linked issue. VRF won't reference us until this is fixed. #132 handles this.\r\n\r\n- [x] Update list of suites / decide on suite scope (#96, #126) - my hope is that we can take an initial cut at this and then solicit feedback.\r\n\r\n- [x] Cofactor clearing (#95) - @chris-wood and I discussed including \"cofactor clearing value\" in the suites table. For curves that have optimized cofactor clearing (generally, pairing-friendly curves), this is sufficient to make sure that people who don't implement the optimization can still output the correct point via scalar multiplication. Adding a column in the suites table addresses this.\r\n\r\n## Nice to have\r\n\r\n- [ ] Submit PR to VRF folks to refer to this draft rather than describing its own version of hash-to-curve - not sure if we can coordinate this in time, but we should try!\r\n   \r\n   (EDIT: I'm in a conversation with the VRF folks about this. Looks like we won't make it before July 8th, but that's fine---we'll make it happen as we can.)\r\n\r\n- [ ] Projective coordinates / optimized implementations (#4, #43, #109, #111, #117) - once we have an updated list of suites, we should put optimized impls in the appx.\r\n\r\n- [x] Domain separation (#124) - the discussion in the issue seems at this point to have identified the main pros and cons, so it seems like we should open this up for discussion on-list or at the meeting. We might not get this feedback in time, but we should try.\r\n   \r\n   (EDIT: marked this completed because #139 landed. Not sure if that means we can close #124, though.)\r\n\r\n## Not a blocker\r\n\r\n- [ ] Flow chart (#63, #118) - these will be very useful, but (as far as I know) we can't include non-ASCII diagrams in the draft, so it probably doesn't make sense to spend too much time on these before the deadline.\r\n\r\n- [ ] Code quality (#98, #112) - reference code isn't gated by the draft process, so we can de-prioritize.\r\n\r\n- [ ] style nits (#105, #110) - would be great to cover these, but not a killer if we don't."
   },
@@ -2810,7 +3068,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "@armfazh prefers short variable names (per comments in #104).\r\n\r\n@chris-wood observed that there are some inconsistencies in naming, e.g., `msg` vs `alpha`.\r\n\r\nMy changes in #104 were aimed at avoiding overloaded symbols.\r\n\r\nI think it's possible to resolve all of these simultaneously, with some thought. Let's discuss what the names should be (short? descriptive? `msg`? `alpha`? `x`?), write down a \"style guide,\" and update the document to follow it."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/109",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3050,10 +3311,7 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "In a previous commit I tried to improve consistency for spacing around math operators, but I didn't quite catch them all.\r\n\r\n~~I think the biggest remaining one is whether `=` should have surrounding spaces or not.~~ done (#136)\r\n\r\nTODO: implement consistent style"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/104",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4322,7 +4580,10 @@
     "closed_at": "2019-03-01T16:28:11Z",
     "author_association": "COLLABORATOR",
     "body": "I am aware that the index allows to separate calls to `hash2base` function inside of SWU and on the construction of Random Oracles. \r\nHowever, I think that the index can be handled externally as follows:\r\n```\r\nRandomOracle(alpha) = hash2Base( alpha || 0 ) + hash2Base( alpha || 1 )\r\n```\r\nand SWU can be handled in the same fashion.  \r\n```\r\ndef SWU(alpha):\r\n    u = hash2Base(label || alpha || 0 ) \r\n    v = hash2Base(label || alpha || 1 )\r\n```\r\nThis modification eases the internal implementation of `hash2base` function and does not require to indicate default values for index in the cases where it is not present.\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/79",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4586,10 +4847,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/75.patch"
     },
     "body": "Solves #66."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/74",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -5862,7 +6120,10 @@
     "closed_at": "2018-10-22T19:29:13Z",
     "author_association": "COLLABORATOR",
     "body": "1. Section 2 states that n = qh + r, where n is order of the group of elliptic curve points, q is a prime order of a subgroup of the group of elliptic curve points, h is a cofactor and r is a remainder. Is there any sense to use value r? Every nonzero r directly violates Lagrange's theorem.\r\n\r\n2. In the sixth paragraph of Section 2 states that n can be estimated using Hasse's theorem as |n-p| < 2 * sqrt(p). This is true for the prime field case, otherwise we have to use Hasse-Weil theorem.\r\n\r\n3. The same paragraph refers that if point (x, y) belongs to some curve, then (x, -y) also does. It must be stated explicitly, that it is true for certain curve forms – because this is not true for some coordinate forms like twisted Edwards.\r\n\r\n4. The second paragraph of Section 2.1.1 states that \"In most cases, the curve E is over a finite field GF(p^k), with p > 2.\". Are you sure about it? The vast majority of standardized curves defined over extension fields seems to have p = 2.\r\n\r\n5. Some clarifications about two separate HashToBase implementations should be added into Section 5.2.2.\r\n\r\n6. Section 5.2.2, paragraph 6. Add word <<short>> before <<Weierstrass form>>.\r\n\r\n7. Section 5.2.4. Description of Elligator2 method uses f(x) function and returns its value instead of a pair of coordinates.\r\n\r\n8. Appendix B, paragraph 1. “Section Section”.\r\n\r\n9. Appendix B, algorithm description, step 4E. Does symbol ^ stay here for scalar point multiplication?\r\n\r\n10. I believe that the HashToBase function has to be described as explicitly as it is possible (including byte order, possible hash function sets for different curves) (the same issue with “be as explicit as possible” applies to our “Randomness improvements …” draft also J\r\n\r\n11. Appendix A.5. “&#8746” instead of cup symbol?\r\n\r\n12. Misprints: “artbirary”, “simplified”."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/49",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6102,10 +6363,7 @@
     "closed_at": "2019-02-09T16:42:05Z",
     "author_association": "NONE",
     "body": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/blob/fdb70a5f0c836a4ab8090c5a84952c688e5ccc35/draft-irtf-cfrg-hash-to-curve.txt#L566\r\n\r\nShould the sign in front of t^2 be minus rather than plus (see step 4 of the algorithm, which computes alpha^2 + alpha where alpha is -t^2; see also Proposition 7 of https://eprint.iacr.org/2009/340.pdf)"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/44",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -7537,7 +7795,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/20.patch"
     },
     "body": "Added a section on hashing onto BN curves, which are pairing-friendly.\r\nIncludes a brief introduction to BN curves, the FT-encoding function, and steps for the overall hash function."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/19",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -7789,10 +8050,7 @@
     "closed_at": "2019-02-09T16:42:35Z",
     "author_association": "COLLABORATOR",
     "body": "For what little it's worth, (I think that) none of the algorithms\r\nspecified in this I-D work for 2y^2=x^3+x/GF(8^91+5), because p=1 mod 3, p=1\r\nmod 4, and j=1728.\r\n\r\nFor this special curve, I sketched a modification of Elligator 2, which I\r\ncalled Elligator i, in Sections 5.2 (math) and C.10 (pseudocode) of\r\nhttps://datatracker.ietf.org/doc/draft-brown-ec-2y2-x3-x-mod-8-to-91-plus-5/\r\nthough I am not sure which set of curves it would generalize to.  (I admit I\r\ndon't recall trying Icart or SWU on this special curve: maybe some\r\nvariations of these would have worked just as well.)"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/14",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
