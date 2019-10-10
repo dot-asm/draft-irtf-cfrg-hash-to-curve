@@ -305,8 +305,7 @@ ul.toc li {
 <link href="#rfc.section.6.3" rel="Chapter" title="6.3 Sign of the resulting point">
 <link href="#rfc.section.6.4" rel="Chapter" title="6.4 Exceptional cases">
 <link href="#rfc.section.6.5" rel="Chapter" title="6.5 Mappings for Weierstrass curves">
-<link href="#rfc.section.6.5.1" rel="Chapter" title="6.5.1 Icart Method">
-<link href="#rfc.section.6.5.2" rel="Chapter" title="6.5.2 Simplified Shallue-van de Woestijne-Ulas Method">
+<link href="#rfc.section.6.5.1" rel="Chapter" title="6.5.1 Simplified Shallue-van de Woestijne-Ulas Method">
 <link href="#rfc.section.6.6" rel="Chapter" title="6.6 Mappings for Montgomery curves">
 <link href="#rfc.section.6.6.1" rel="Chapter" title="6.6.1 Elligator 2 Method">
 <link href="#rfc.section.6.7" rel="Chapter" title="6.7 Mappings for Twisted Edwards curves">
@@ -350,12 +349,12 @@ ul.toc li {
 <link href="#rfc.authors" rel="Chapter">
 
 
-  <meta name="generator" content="xml2rfc version 2.22.2 - https://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.32.0 - https://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Faz-Hernandez, A., Scott, S., Sullivan, N., Wahby, R., and C. Wood" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-irtf-cfrg-hash-to-curve-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-08-13" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-10-10" />
   <meta name="dct.abstract" content="This document specifies a number of algorithms that may be used to encode or hash an arbitrary string to a point on an elliptic curve." />
   <meta name="description" content="This document specifies a number of algorithms that may be used to encode or hash an arbitrary string to a point on an elliptic curve." />
 
@@ -379,7 +378,7 @@ ul.toc li {
 <td class="right">S. Scott</td>
 </tr>
 <tr>
-<td class="left">Expires: February 14, 2020</td>
+<td class="left">Expires: April 12, 2020</td>
 <td class="right">Cornell Tech</td>
 </tr>
 <tr>
@@ -408,7 +407,7 @@ ul.toc li {
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">August 13, 2019</td>
+<td class="right">October 10, 2019</td>
 </tr>
 
     	
@@ -424,7 +423,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on February 14, 2020.</p>
+<p>This Internet-Draft will expire on April 12, 2020.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -480,9 +479,7 @@ ul.toc li {
 </li>
 <li>6.5.   <a href="#rfc.section.6.5">Mappings for Weierstrass curves</a>
 </li>
-<ul><li>6.5.1.   <a href="#rfc.section.6.5.1">Icart Method</a>
-</li>
-<li>6.5.2.   <a href="#rfc.section.6.5.2">Simplified Shallue-van de Woestijne-Ulas Method</a>
+<ul><li>6.5.1.   <a href="#rfc.section.6.5.1">Simplified Shallue-van de Woestijne-Ulas Method</a>
 </li>
 </ul><li>6.6.   <a href="#rfc.section.6.6">Mappings for Montgomery curves</a>
 </li>
@@ -875,7 +872,7 @@ Parameters:
 - F, a finite field of characteristic p and order q = p^m.
 - L = ceil((ceil(log2(p)) + k) / 8), where k is the security
   parameter of the cryptosystem (e.g., k = 128).
-- HKDF-Extract and HKDF-Expand are as defined in RFC5869, 
+- HKDF-Extract and HKDF-Expand are as defined in RFC5869,
   instantiated with the hash function H.
 
 Inputs:
@@ -937,64 +934,11 @@ Steps:
 </h1>
 <p id="rfc.section.6.5.p.1">The following mappings apply to elliptic curves defined by the equation E: y^2 = g(x) = x^3 + A * x + B, where 4 * A^3 + 27 * B^2 != 0.</p>
 <h1 id="rfc.section.6.5.1">
-<a href="#rfc.section.6.5.1">6.5.1.</a> <a href="#icart" id="icart">Icart Method</a>
+<a href="#rfc.section.6.5.1">6.5.1.</a> <a href="#simple-swu" id="simple-swu">Simplified Shallue-van de Woestijne-Ulas Method</a>
 </h1>
-<p id="rfc.section.6.5.1.p.1">The function map_to_curve_icart(u) implements the Icart method from <a href="#Icart09" class="xref">[Icart09]</a>.</p>
-<p id="rfc.section.6.5.1.p.2">Preconditions: An elliptic curve over F, such that p &gt; 3 and q = p^m = 2 (mod 3), or p = 2 (mod 3) and odd m.</p>
-<p id="rfc.section.6.5.1.p.3">Constants: A and B, the parameters of the Weierstrass curve.</p>
-<p id="rfc.section.6.5.1.p.4">Sign of y: this mapping does not compute a square root, so there is no ambiguity regarding the sign of y.</p>
-<p id="rfc.section.6.5.1.p.5">Exceptions: The only exceptional case is u == 0.  Implementations MUST detect this case by testing whether u == 0 and setting u = 1 if so.</p>
-<p id="rfc.section.6.5.1.p.6">Operations:</p>
-<pre>
-1. If u == 0, set u = 1
-2. v = (3 * A - u^4) / (6 * u)
-3. w = (2 * p - 1) / 3          // Integer arithmetic
-4. x = (v^2 - B - (u^6 / 27))^w + (u^2 / 3)
-5. y = u * x + v
-6. return (x, y)
-</pre>
-<h1 id="rfc.section.6.5.1.1">
-<a href="#rfc.section.6.5.1.1">6.5.1.1.</a> <a href="#implementation" id="implementation">Implementation</a>
-</h1>
-<p id="rfc.section.6.5.1.1.p.1">The following procedure implements Icart&#8217;s algorithm in a straight-line fashion.</p>
-<pre>
-map_to_curve_icart(u)
-Input: u, an element of F.
-Output: (x, y), a point on E.
-
-Constants:
-1. c1 = (2 * p - 1) / 3   // Integer arithmetic
-2. c2 = 1 / 3
-3. c3 = c2^3
-4. c4 = 3 * A
-
-Steps:
-1.   e = u == 0
-2.   u = CMOV(u, 1, e)  // handle exceptional case u == 0
-3.  u2 = u^2            // u^2
-4.  u4 = u2^2           // u^4
-5.   v = c4 - u4        // 3 * A - u^4
-6.  t1 = 6 * u          // 6 * u
-7.  t1 = inv0(t1)       // 1 / (6 * u)
-8.   v = v * t1         // v = (3 * A - u^4) / (6 * u)
-9.   x = v^2            // v^2
-10.  x = x - B          // v^2 - B
-11. u6 = u4 * c3        // u^4 / 27
-12. u6 = u6 * u2        // u^6 / 27
-13.  x = x - u6         // v^2 - B - u^6 / 27
-14.  x = x^c1           // (v^2 - B - u^6 / 27)^(1 / 3)
-15. t1 = u2 * c2        // u^2 / 3
-16.  x = x + t1         // x = (v^2 - B - u^6 / 27)^(1 / 3) + (u^2 / 3)
-17.  y = u * x          // u * x
-18.  y = y + v          // y = u * x + v
-19. return (x, y)
-</pre>
-<h1 id="rfc.section.6.5.2">
-<a href="#rfc.section.6.5.2">6.5.2.</a> <a href="#simple-swu" id="simple-swu">Simplified Shallue-van de Woestijne-Ulas Method</a>
-</h1>
-<p id="rfc.section.6.5.2.p.1">The function map_to_curve_simple_swu(u) implements a simplification of the Shallue-van de Woestijne-Ulas mapping <a href="#U07" class="xref">[U07]</a> described by Brier et al. <a href="#BCIMRT10" class="xref">[BCIMRT10]</a>, which they call the &#8220;simplified SWU&#8221; map. Wahby and Boneh <a href="#WB19" class="xref">[WB19]</a> generalize this mapping to curves over fields of odd characteristic p &gt; 3.</p>
-<p id="rfc.section.6.5.2.p.2">Preconditions: A Weierstrass curve over F such that A != 0 and B != 0.</p>
-<p id="rfc.section.6.5.2.p.3">Constants:</p>
+<p id="rfc.section.6.5.1.p.1">The function map_to_curve_simple_swu(u) implements a simplification of the Shallue-van de Woestijne-Ulas mapping <a href="#U07" class="xref">[U07]</a> described by Brier et al. <a href="#BCIMRT10" class="xref">[BCIMRT10]</a>, which they call the &#8220;simplified SWU&#8221; map. Wahby and Boneh <a href="#WB19" class="xref">[WB19]</a> generalize this mapping to curves over fields of odd characteristic p &gt; 3.</p>
+<p id="rfc.section.6.5.1.p.2">Preconditions: A Weierstrass curve over F such that A != 0 and B != 0.</p>
+<p id="rfc.section.6.5.1.p.3">Constants:</p>
 <p></p>
 
 <ul>
@@ -1007,9 +951,9 @@ Steps:
 </ol>
 </li>
 </ul>
-<p id="rfc.section.6.5.2.p.5">Sign of y: Inputs u and -u give the same x-coordinate.  Thus, we set sgn0(y) == sgn0(u).</p>
-<p id="rfc.section.6.5.2.p.6">Exceptions: The exceptional cases are values of u such that Z^2 * u^4 + Z * u^2 == 0. This includes u == 0, and may include other values depending on Z. Implementations must detect this case and set x1 = B / (Z * A), which guarantees that g(x1) is square by the condition on Z given above.</p>
-<p id="rfc.section.6.5.2.p.7">Operations:</p>
+<p id="rfc.section.6.5.1.p.5">Sign of y: Inputs u and -u give the same x-coordinate.  Thus, we set sgn0(y) == sgn0(u).</p>
+<p id="rfc.section.6.5.1.p.6">Exceptions: The exceptional cases are values of u such that Z^2 * u^4 + Z * u^2 == 0. This includes u == 0, and may include other values depending on Z. Implementations must detect this case and set x1 = B / (Z * A), which guarantees that g(x1) is square by the condition on Z given above.</p>
+<p id="rfc.section.6.5.1.p.7">Operations:</p>
 <pre>
 1.  t1 = inv0(Z^2 * u^4 + Z * u^2)
 2.  x1 = (-B / A) * (1 + t1)
@@ -1022,10 +966,10 @@ Steps:
 9.  If sgn0(u) != sgn0(y), set y = -y
 10. return (x, y)
 </pre>
-<h1 id="rfc.section.6.5.2.1">
-<a href="#rfc.section.6.5.2.1">6.5.2.1.</a> <a href="#implementation-1" id="implementation-1">Implementation</a>
+<h1 id="rfc.section.6.5.1.1">
+<a href="#rfc.section.6.5.1.1">6.5.1.1.</a> <a href="#implementation" id="implementation">Implementation</a>
 </h1>
-<p id="rfc.section.6.5.2.1.p.1">The following procedure implements the simplified SWU mapping in a straight-line fashion.  <a href="#samplecode" class="xref">Appendix D</a> gives an optimized straight-line procedure for P-256 <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.  For discussion of how to generalize to q = 1 (mod 4), see <a href="#WB19" class="xref">[WB19]</a> (Section 4) or the example code found at <a href="#hash2curve-repo" class="xref">[hash2curve-repo]</a>.</p>
+<p id="rfc.section.6.5.1.1.p.1">The following procedure implements the simplified SWU mapping in a straight-line fashion.  <a href="#samplecode" class="xref">Appendix D</a> gives an optimized straight-line procedure for P-256 <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.  For discussion of how to generalize to q = 1 (mod 4), see <a href="#WB19" class="xref">[WB19]</a> (Section 4) or the example code found at <a href="#hash2curve-repo" class="xref">[hash2curve-repo]</a>.</p>
 <pre>
 map_to_curve_simple_swu(u)
 Input: u, an element of F.
@@ -1111,7 +1055,7 @@ Steps:
 9.  return (x, y)
 </pre>
 <h1 id="rfc.section.6.6.1.1">
-<a href="#rfc.section.6.6.1.1">6.6.1.1.</a> <a href="#implementation-2" id="implementation-2">Implementation</a>
+<a href="#rfc.section.6.6.1.1">6.6.1.1.</a> <a href="#implementation-1" id="implementation-1">Implementation</a>
 </h1>
 <p id="rfc.section.6.6.1.1.p.1">The following procedure implements Elligator 2 in a straight-line fashion.  <a href="#samplecode" class="xref">Appendix D</a> gives optimized straight-line procedures for curve25519 and curve448 <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
 <pre>
@@ -1230,7 +1174,7 @@ Output: (x, y), a point on E.
 4. return (x, y)
 </pre>
 <h1 id="rfc.section.6.8.1.1">
-<a href="#rfc.section.6.8.1.1">6.8.1.1.</a> <a href="#implementation-3" id="implementation-3">Implementation</a>
+<a href="#rfc.section.6.8.1.1">6.8.1.1.</a> <a href="#implementation-2" id="implementation-2">Implementation</a>
 </h1>
 <p id="rfc.section.6.8.1.1.p.1">The following procedure implements the Boneh-Franklin&#8217;s algorithm in a straight-line fashion.</p>
 <pre>
@@ -1268,7 +1212,7 @@ Steps:
 8. return (x, y)
 </pre>
 <h1 id="rfc.section.6.8.2.1">
-<a href="#rfc.section.6.8.2.1">6.8.2.1.</a> <a href="#implementation-4" id="implementation-4">Implementation</a>
+<a href="#rfc.section.6.8.2.1">6.8.2.1.</a> <a href="#implementation-3" id="implementation-3">Implementation</a>
 </h1>
 <p id="rfc.section.6.8.2.1.p.1">The following procedure implements the Elligator 2 mapping for supersingular curves in a straight-line fashion.</p>
 <pre>
@@ -1330,7 +1274,7 @@ Steps:
 11. return (x, y)
 </pre>
 <h1 id="rfc.section.6.9.1.1">
-<a href="#rfc.section.6.9.1.1">6.9.1.1.</a> <a href="#implementation-5" id="implementation-5">Implementation</a>
+<a href="#rfc.section.6.9.1.1">6.9.1.1.</a> <a href="#implementation-4" id="implementation-4">Implementation</a>
 </h1>
 <p id="rfc.section.6.9.1.1.p.1">The following procedure implements the Shallue and van de Woestijne method in a straight-line fashion.</p>
 <pre>
@@ -1384,7 +1328,7 @@ Steps:
 <h1 id="rfc.section.6.9.2">
 <a href="#rfc.section.6.9.2">6.9.2.</a> <a href="#simple-swu-pairing-friendly" id="simple-swu-pairing-friendly">Simplified SWU for Pairing-Friendly Curves</a>
 </h1>
-<p id="rfc.section.6.9.2.p.1">Wahby and Boneh <a href="#WB19" class="xref">[WB19]</a> show how to adapt the simplified SWU mapping to certain Weierstrass curves having either A = 0 or B = 0, one of which is almost always true for pairing-friendly curves. Note that neither case is supported by the mapping of <a href="#simple-swu" class="xref">Section 6.5.2</a>.</p>
+<p id="rfc.section.6.9.2.p.1">Wahby and Boneh <a href="#WB19" class="xref">[WB19]</a> show how to adapt the simplified SWU mapping to certain Weierstrass curves having either A = 0 or B = 0, one of which is almost always true for pairing-friendly curves. Note that neither case is supported by the mapping of <a href="#simple-swu" class="xref">Section 6.5.1</a>.</p>
 <p id="rfc.section.6.9.2.p.2">This method requires finding another elliptic curve</p>
 <pre>
 E': y^2 = g'(x) = x^3 + A' * x + B'
@@ -1397,7 +1341,7 @@ E': y^2 = g'(x) = x^3 + A' * x + B'
 <p></p>
 
 <ul>
-<li>map_to_curve_simple_swu is the mapping of <a href="#simple-swu" class="xref">Section 6.5.2</a> to E&#8217;</li>
+<li>map_to_curve_simple_swu is the mapping of <a href="#simple-swu" class="xref">Section 6.5.1</a> to E&#8217;</li>
 <li>iso_map is the isogeny map from E&#8217; to E</li>
 </ul>
 <p id="rfc.section.6.9.2.p.9">Sign of y: for this map, the sign is determined by map_to_curve_elligator2.  No further sign adjustments are necessary.</p>
@@ -1408,7 +1352,7 @@ E': y^2 = g'(x) = x^3 + A' * x + B'
 2.   (x, y) = iso_map(x', y')               // (x, y) is on E
 3. return (x, y)
 </pre>
-<p id="rfc.section.6.9.2.p.12">We do not repeat the sample implementation of <a href="#simple-swu" class="xref">Section 6.5.2</a> here.  See <a href="#hash2curve-repo" class="xref">[hash2curve-repo]</a> or <a href="#WB19" class="xref">[WB19]</a> for details on implementing the isogeny map.</p>
+<p id="rfc.section.6.9.2.p.12">We do not repeat the sample implementation of <a href="#simple-swu" class="xref">Section 6.5.1</a> here.  See <a href="#hash2curve-repo" class="xref">[hash2curve-repo]</a> or <a href="#WB19" class="xref">[WB19]</a> for details on implementing the isogeny map.</p>
 <h1 id="rfc.section.7">
 <a href="#rfc.section.7">7.</a> <a href="#cofactor-clearing" id="cofactor-clearing">Clearing the cofactor</a>
 </h1>
@@ -1523,7 +1467,7 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>m: 1</li>
 <li>H: SHA-256</li>
 <li>L: 48</li>
-<li>f: Simplified SWU method, <a href="#simple-swu" class="xref">Section 6.5.2</a>
+<li>f: Simplified SWU method, <a href="#simple-swu" class="xref">Section 6.5.1</a>
 </li>
 <li>Z: -2</li>
 <li>h_eff: 1</li>
@@ -1531,7 +1475,7 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <h1 id="rfc.section.8.3">
 <a href="#rfc.section.8.3">8.3.</a> <a href="#suites-p384" id="suites-p384">Suites for NIST P-384</a>
 </h1>
-<p id="rfc.section.8.3.p.1">The suites P384-SHA512-ICART-RO- and P384-SHA512-ICART-NU- are defined for the NIST P-384 elliptic curve <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.  These suites share the following parameters:</p>
+<p id="rfc.section.8.3.p.1">The suites P384-SHA512-SSWU-RO- and P384-SHA512-SSWU-NU- are defined for the NIST P-384 elliptic curve <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.  These suites share the following parameters:</p>
 <p></p>
 
 <ul>
@@ -1544,8 +1488,9 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>m: 1</li>
 <li>H: SHA-512</li>
 <li>L: 72</li>
-<li>f: Icart&#8217;s method, <a href="#icart" class="xref">Section 6.5.1</a>
+<li>f: Simplified SWU method, <a href="#simple-swu" class="xref">Section 6.5.1</a>
 </li>
+<li>Z: -1</li>
 <li>h_eff: 1</li>
 </ul>
 <h1 id="rfc.section.8.4">
@@ -1564,7 +1509,7 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>m: 1</li>
 <li>H: SHA-512</li>
 <li>L: 96</li>
-<li>f: Simplified SWU method, <a href="#simple-swu" class="xref">Section 6.5.2</a>
+<li>f: Simplified SWU method, <a href="#simple-swu" class="xref">Section 6.5.1</a>
 </li>
 <li>Z: -2</li>
 <li>h_eff: 1</li>
