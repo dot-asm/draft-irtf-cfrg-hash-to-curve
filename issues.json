@@ -1,6 +1,210 @@
 [
 
   {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/173",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/173/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/173/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/173/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/173",
+    "id": 511587265,
+    "node_id": "MDU6SXNzdWU1MTE1ODcyNjU=",
+    "number": 173,
+    "title": "proposal: remove the maps to supersingular curves",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-10-23T21:41:53Z",
+    "updated_at": "2019-10-23T21:42:28Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "At this point we don't have any clear examples of when people would want to do this.\r\n\r\nIt might become the case in the future that someone wants to do it. If so, it would be easy to create a new document that incorporates all of h2c by reference and specifies Boneh-Franklin and/or Ell2-A0.\r\n\r\nThe advantage of getting rid of them here is reducing confusion and reducing document surface area. To me this is a win.\r\n\r\nThoughts?\r\n\r\nCC @grittygrease @armfazh @chris-wood @JustinDrake"
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/172",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/172/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/172/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/172/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/172",
+    "id": 510421066,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzMwNzk4NDU4",
+    "number": 172,
+    "title": "update Z selection, add pseudocode, promote SvdW map",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-10-22T04:24:01Z",
+    "updated_at": "2019-10-23T17:03:50Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/172",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/172",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/172.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/172.patch"
+    },
+    "body": "This PR updates the Z selection criteria to [avoid patent infringement](https://mailarchive.ietf.org/arch/msg/cfrg/jV4Wr4fbMKkd4vzsbEhKbous16Y) for S-SWU, and to add Sage scripts for generating parameters.\r\n\r\nI've also promoted the S-vdW map (using the more general parameterization, rather than the one in #167, which has issues I pointed out there), rewritten the pseudocode, etc.\r\n\r\nOne change from the prior version of this document is that this version no longer tries to establish a canonical Z. Rather, it gives the criteria, and then gives a Sage script for computing the RECOMMENDED Z."
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/171",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/171/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/171/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/171/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/171",
+    "id": 508077523,
+    "node_id": "MDU6SXNzdWU1MDgwNzc1MjM=",
+    "number": 171,
+    "title": "require Z != -1 for s-swu",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 3,
+    "created_at": "2019-10-16T20:20:37Z",
+    "updated_at": "2019-10-21T00:22:02Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "This avoids infringing US patent 8712038."
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/170",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/170/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/170/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/170/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/170",
+    "id": 506117160,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzI3NDE1MzI4",
+    "number": 170,
+    "title": "roll-up of a few small-ish changes",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 8,
+    "created_at": "2019-10-12T02:15:25Z",
+    "updated_at": "2019-10-23T21:46:33Z",
+    "closed_at": "2019-10-23T21:46:33Z",
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/170",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/170",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/170.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/170.patch"
+    },
+    "body": "This PR addresses a few TODOs from my list.\r\n\r\nThe most major one is that it addresses @cjpatton's suggestions regarding domain separation.\r\n\r\nIt also rolls in suggestions from @JustinDrake and @vanhoefm, and fixes some small editorial nits.\r\n\r\nOh, and it updates the acknowledgment sections."
+  },
+  {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/169",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/169/labels{/name}",
@@ -34,7 +238,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -43,9 +247,9 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-09-28T22:15:25Z",
-    "updated_at": "2019-10-10T16:44:25Z",
-    "closed_at": null,
-    "author_association": "FIRST_TIME_CONTRIBUTOR",
+    "updated_at": "2019-10-23T21:46:35Z",
+    "closed_at": "2019-10-23T21:46:35Z",
+    "author_association": "NONE",
     "pull_request": {
       "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/169",
       "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/169",
@@ -203,9 +407,9 @@
 
     ],
     "milestone": null,
-    "comments": 6,
+    "comments": 10,
     "created_at": "2019-08-19T17:46:24Z",
-    "updated_at": "2019-10-02T18:24:59Z",
+    "updated_at": "2019-10-16T14:58:47Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "I ran into @mmaker at CRYPTO, who suggested that including pseudocode for fast cofactor clearing for BLS12-381 would be a nice addition to the document and probably wouldn't be all that complicated.\r\n\r\nI tend to agree---certainly if we're going to have optimized pcode in the appendix, there's a good argument for including this...\r\n\r\nThoughts?"
@@ -251,9 +455,9 @@
 
     ],
     "milestone": null,
-    "comments": 8,
+    "comments": 9,
     "created_at": "2019-08-14T23:48:05Z",
-    "updated_at": "2019-08-18T10:12:58Z",
+    "updated_at": "2019-10-13T05:31:04Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "The current draft only seems to standardize the algorithms with SHA-2. I'd like to see support for SHA-3 and SHAKE (and cSHAKE) if possible so that we don't have to write an extension/another RFC later on.\r\n\r\nusing cSHAKE would allow to replace the hash and HKDF with one algorithm."
@@ -682,17 +886,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-07-16T22:17:41Z",
-    "updated_at": "2019-07-16T22:17:41Z",
-    "closed_at": null,
+    "updated_at": "2019-10-23T03:54:16Z",
+    "closed_at": "2019-10-23T03:54:16Z",
     "author_association": "COLLABORATOR",
     "body": "Bjoern Haase has filed an IPR notice for Icart's algorithm.\r\n\r\nThere is also some concern that Simplified SWU with Z = -1 is covered by a patent. We may wish to sidestep this issue by specifying that Z != -1 for Simplified SWU.\r\n\r\nGiven the patent issues with Icart, we probably want to switch P-384 from Icart's algorithm to Simplified SWU with Z = -2."
   },
@@ -880,7 +1084,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -889,8 +1093,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-07-09T09:12:32Z",
-    "updated_at": "2019-09-04T19:25:09Z",
-    "closed_at": null,
+    "updated_at": "2019-10-23T21:46:34Z",
+    "closed_at": "2019-10-23T21:46:34Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/152",
@@ -1313,13 +1517,16 @@
 
     ],
     "milestone": null,
-    "comments": 3,
+    "comments": 8,
     "created_at": "2019-07-06T19:16:39Z",
-    "updated_at": "2019-08-19T20:32:02Z",
+    "updated_at": "2019-10-16T21:27:39Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "There's a potential enhancement/improvement to sgn0 that we might want to consider. This option may have been discussed a little before, but it's probably worth revisiting before things get too ossified.\r\n\r\nThe current version of sgn0 says that an element x in GF(p) is negative just when it is greater than (p - 1) / 2. (Things are slightly more complicated for GF(p^m), but let's ignore that for now.)\r\n\r\nSince p is odd, an alternative means of differentiating between x and -x is via the least significant bit: if the least significant bit of x is set, call x negative, otherwise call it positive. (This works because p - x and x have opposite LSBs, except when x = 0.)\r\n\r\nThe major advantage to this approach is that it's much easier to check a single bit in constant time than it is to compare a value to (p-1)/2. On the other hand, I'd guess that in many cases a constant-time comparison function is already available, so maybe this isn't such a decisive advantage after all.\r\n\r\nThe major disadvantage (if it can be called that) is that it leads to slightly nonintuitive definitions of \"negative.\" For example, normally we'd think of 1 as positive, but by the parity definition, sgn0(1) == -1, and sgn0(p - 1) == 1. But maybe that's OK.\r\n\r\nThoughts?\r\n\r\nSince this would be a breaking change, sooner is better than later. Also, it might change the suites definitions, since some suites have a constant Z that is \"smallest in absolute value, breaking ties by choosing the positive one,\" and changing the definition of sign might change that."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/143",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -1529,10 +1736,7 @@
     "closed_at": "2019-08-13T15:42:01Z",
     "author_association": "COLLABORATOR",
     "body": "This seems like a low-priority issue, but wanted to get the thoughts down\r\nfor future discussion:\r\n\r\nLooking ahead to where we will realistically fall on ciphersuite definitions,\r\nit is unlikely that aspects such as specific constants (e.g. quadratic non-residues),\r\nand even the scalar used for cofactor clearing (in the case of optimised\r\nimplementations) will be explicit in the ciphersuite **label**, despite\r\nbeing explicit in the definition itself.\r\n\r\nIn the future, there is a chance that different choices will be desired, \r\nfor example, due to new algorithmic improvements. Changing these requires\r\na new ciphersuite tag, else implementations may become incompatible.\r\n\r\nThis leaves open the question of versioning the ciphersuites themselves,\r\nsince we may want a \"v2\" of a ciphersuite.\r\n\r\nHowever, this possibility seems low enough probability that forcing a \"v1\"\r\nsuffix onto all existing ciphersuites seems unnecessary.\r\nOne solution seems to be considering future extensions to the draft to\r\nallow changing \"curvexxx-hashyyy-mapzzz-ro\" to simply \"curvexxx-hashyyy-mapzzz-ro-v2\"\r\nin such an scenario.\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/139",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -2876,7 +3080,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/114.patch"
     },
     "body": "This addresses one of @chris-wood's comments on #104 which is captured in #108 \r\n\r\nNOTE: this and #115  can rebase cleanly on top of one another, so if the preference is to keep a clean history we can sequence a merge->rebase->merge for these two.\r\n\r\ncloses #108"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/113",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3068,10 +3275,7 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "@armfazh prefers short variable names (per comments in #104).\r\n\r\n@chris-wood observed that there are some inconsistencies in naming, e.g., `msg` vs `alpha`.\r\n\r\nMy changes in #104 were aimed at avoiding overloaded symbols.\r\n\r\nI think it's possible to resolve all of these simultaneously, with some thought. Let's discuss what the names should be (short? descriptive? `msg`? `alpha`? `x`?), write down a \"style guide,\" and update the document to follow it."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/109",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4382,7 +4586,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/84.patch"
     },
     "body": "This PR adds few things about formatting of algorithms. \r\nMakes a visible separation between Weierstrass and Montgomery curves.\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/83",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4580,10 +4787,7 @@
     "closed_at": "2019-03-01T16:28:11Z",
     "author_association": "COLLABORATOR",
     "body": "I am aware that the index allows to separate calls to `hash2base` function inside of SWU and on the construction of Random Oracles. \r\nHowever, I think that the index can be handled externally as follows:\r\n```\r\nRandomOracle(alpha) = hash2Base( alpha || 0 ) + hash2Base( alpha || 1 )\r\n```\r\nand SWU can be handled in the same fashion.  \r\n```\r\ndef SWU(alpha):\r\n    u = hash2Base(label || alpha || 0 ) \r\n    v = hash2Base(label || alpha || 1 )\r\n```\r\nThis modification eases the internal implementation of `hash2base` function and does not require to indicate default values for index in the cases where it is not present.\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/79",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -5928,7 +6132,10 @@
     "closed_at": "2019-06-04T15:38:45Z",
     "author_association": "COLLABORATOR",
     "body": "As in #53, many algorithms require taking a square root and choosing one. In some cases we have an additional bit left over from HashToBase (e.g. with Curve25519 and SHA256, there is a free bit).\r\nWe can consider using this bit as a sign (as at the end of 2.6 of https://signal.org/docs/specifications/xeddsa/#hashing-to-a-point-with-elligator-2)."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/53",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6120,10 +6327,7 @@
     "closed_at": "2018-10-22T19:29:13Z",
     "author_association": "COLLABORATOR",
     "body": "1. Section 2 states that n = qh + r, where n is order of the group of elliptic curve points, q is a prime order of a subgroup of the group of elliptic curve points, h is a cofactor and r is a remainder. Is there any sense to use value r? Every nonzero r directly violates Lagrange's theorem.\r\n\r\n2. In the sixth paragraph of Section 2 states that n can be estimated using Hasse's theorem as |n-p| < 2 * sqrt(p). This is true for the prime field case, otherwise we have to use Hasse-Weil theorem.\r\n\r\n3. The same paragraph refers that if point (x, y) belongs to some curve, then (x, -y) also does. It must be stated explicitly, that it is true for certain curve forms – because this is not true for some coordinate forms like twisted Edwards.\r\n\r\n4. The second paragraph of Section 2.1.1 states that \"In most cases, the curve E is over a finite field GF(p^k), with p > 2.\". Are you sure about it? The vast majority of standardized curves defined over extension fields seems to have p = 2.\r\n\r\n5. Some clarifications about two separate HashToBase implementations should be added into Section 5.2.2.\r\n\r\n6. Section 5.2.2, paragraph 6. Add word <<short>> before <<Weierstrass form>>.\r\n\r\n7. Section 5.2.4. Description of Elligator2 method uses f(x) function and returns its value instead of a pair of coordinates.\r\n\r\n8. Appendix B, paragraph 1. “Section Section”.\r\n\r\n9. Appendix B, algorithm description, step 4E. Does symbol ^ stay here for scalar point multiplication?\r\n\r\n10. I believe that the HashToBase function has to be described as explicitly as it is possible (including byte order, possible hash function sets for different curves) (the same issue with “be as explicit as possible” applies to our “Randomness improvements …” draft also J\r\n\r\n11. Appendix A.5. “&#8746” instead of cup symbol?\r\n\r\n12. Misprints: “artbirary”, “simplified”."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/49",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -7515,7 +7719,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/24.patch"
     },
     "body": "This is a first cut at #23. It doesn't go into details regarding what is a suitable encoding for the construction, although all those considered (except Elligator2) were shown to work. (@samscott89, we should do the math and figure out if Elligator2 works.)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/23",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -7795,10 +8002,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/20.patch"
     },
     "body": "Added a section on hashing onto BN curves, which are pairing-friendly.\r\nIncludes a brief introduction to BN curves, the FT-encoding function, and steps for the overall hash function."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/19",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
