@@ -349,12 +349,12 @@ ul.toc li {
 <link href="#rfc.authors" rel="Chapter">
 
 
-  <meta name="generator" content="xml2rfc version 2.32.0 - https://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.33.0 - https://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Faz-Hernandez, A., Scott, S., Sullivan, N., Wahby, R., and C. Wood" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-irtf-cfrg-hash-to-curve-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-10-10" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-10-23" />
   <meta name="dct.abstract" content="This document specifies a number of algorithms that may be used to encode or hash an arbitrary string to a point on an elliptic curve." />
   <meta name="description" content="This document specifies a number of algorithms that may be used to encode or hash an arbitrary string to a point on an elliptic curve." />
 
@@ -378,7 +378,7 @@ ul.toc li {
 <td class="right">S. Scott</td>
 </tr>
 <tr>
-<td class="left">Expires: April 12, 2020</td>
+<td class="left">Expires: April 25, 2020</td>
 <td class="right">Cornell Tech</td>
 </tr>
 <tr>
@@ -407,7 +407,7 @@ ul.toc li {
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">October 10, 2019</td>
+<td class="right">October 23, 2019</td>
 </tr>
 
     	
@@ -423,7 +423,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on April 12, 2020.</p>
+<p>This Internet-Draft will expire on April 25, 2020.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -573,6 +573,7 @@ ul.toc li {
 <p id="rfc.section.1.p.1">Many cryptographic protocols require a procedure that encodes an arbitrary input, e.g., a password, to a point on an elliptic curve. This procedure is known as hashing to an elliptic curve. Prominent examples of cryptosystems that hash to elliptic curves include Simple Password Exponential Key Exchange <a href="#J96" class="xref">[J96]</a>, Password Authenticated Key Exchange <a href="#BMP00" class="xref">[BMP00]</a>, Identity-Based Encryption <a href="#BF01" class="xref">[BF01]</a> and Boneh-Lynn-Shacham signatures <a href="#BLS01" class="xref">[BLS01]</a>.</p>
 <p id="rfc.section.1.p.2">Unfortunately for implementors, the precise hash function that is suitable for a given scheme is not necessarily included in the description of the protocol.  Compounding this problem is the need to pick a suitable curve for the specific protocol.</p>
 <p id="rfc.section.1.p.3">This document aims to bridge this gap by providing a thorough set of recommended algorithms for a range of curve types.  Each algorithm conforms to a common interface: it takes as input an arbitrary-length bit string and produces as output a point on an elliptic curve.  We provide implementation details for each algorithm, describe the security rationale behind each recommendation, and give guidance for elliptic curves that are not explicitly covered.</p>
+<p id="rfc.section.1.p.4">This document does not cover rejection sampling methods, sometimes known as &#8220;try-and-increment&#8221; or &#8220;hunt-and-peck,&#8221; because the goal is to describe algorithms that can plausibly be made constant time. Use of these rejection methods is NOT RECOMMENDED, because they have been a perennial cause of side-channel vulnerabilities.</p>
 <h1 id="rfc.section.1.1">
 <a href="#rfc.section.1.1">1.1.</a> <a href="#requirements" id="requirements">Requirements</a>
 </h1>
@@ -650,7 +651,7 @@ ul.toc li {
 </h1>
 <p id="rfc.section.2.2.3.p.1">Two different types of encodings are possible: nonuniform encodings, whose output distribution is not uniformly random, and random oracle encodings, whose output distribution is indistinguishable from uniformly random.  Some protocols require a random oracle for security, while others can be securely instantiated with a nonuniform encoding.  When the required encoding is not clear, applications SHOULD use a random oracle.</p>
 <p id="rfc.section.2.2.3.p.2">Care is required when constructing a random oracle from a mapping function.  A simple but insecure approach is to use the output of a cryptographically secure hash function H as the input to the mapping.  Because in general the mapping is not surjective, the output of this construction is distinguishable from uniformly random, i.e., it does not behave like a random oracle.</p>
-<p id="rfc.section.2.2.3.p.3">Brier et al. <a href="#BCIMRT10" class="xref">[BCIMRT10]</a> describe two generic constructions whose outputs are indistinguishable from a random oracle. Farashahi et al. <a href="#FFSTV13" class="xref">[FFSTV13]</a> and Tibouchi and Kim <a href="#TK17" class="xref">[TK17]</a> refine the analysis of one of these constructions.  That construction is described in <a href="#roadmap" class="xref">Section 3</a>.</p>
+<p id="rfc.section.2.2.3.p.3">Brier et al. <a href="#BCIMRT10" class="xref">[BCIMRT10]</a> describe two generic constructions whose outputs are indifferentiable from a random oracle when the constructions are instantiated with appropriate hash functions modeled as random oracles.  Farashahi et al. <a href="#FFSTV13" class="xref">[FFSTV13]</a> and Tibouchi and Kim <a href="#TK17" class="xref">[TK17]</a> refine the analysis of one of these constructions.  That construction is described in <a href="#roadmap" class="xref">Section 3</a>.</p>
 <h1 id="rfc.section.2.2.4">
 <a href="#rfc.section.2.2.4">2.2.4.</a> <a href="#term-serialization" id="term-serialization">Serialization</a>
 </h1>
@@ -695,7 +696,7 @@ Steps:
 </pre>
 <p></p>
 
-<ul><li>Random oracle encoding (hash_to_curve). This function encodes bit strings to points in G.  The distribution of the output is indistinguishable from uniformly random in G provided that map_to_curve is &#8220;well distributed&#8221; (<a href="#FFSTV13" class="xref">[FFSTV13]</a>, Def. 1).  All of the map_to_curve functions defined in <a href="#mappings" class="xref">Section 6</a> meet this requirement.</li></ul>
+<ul><li>Random oracle encoding (hash_to_curve). This function encodes bit strings to points in G.  This function is suitable for applications requiring a random oracle returning points in G, provided that map_to_curve is &#8220;well distributed&#8221; (<a href="#FFSTV13" class="xref">[FFSTV13]</a>, Def. 1).  All of the map_to_curve functions defined in <a href="#mappings" class="xref">Section 6</a> meet this requirement.</li></ul>
 <pre>
 hash_to_curve(alpha)
 
@@ -715,20 +716,20 @@ Steps:
 <h1 id="rfc.section.3.1">
 <a href="#rfc.section.3.1">3.1.</a> <a href="#domain-separation" id="domain-separation">Domain separation requirements</a>
 </h1>
-<p id="rfc.section.3.1.p.1">When invoking hash_to_curve from a higher-level protocol, implementors MUST use domain separation (<a href="#term-domain-separation" class="xref">Section 2.2.5</a>) to avoid interfering with other protocols that also use the hash_to_curve functionality.  Protocols that use encode_to_curve SHOULD use domain separation if possible, though it is not required in this case.</p>
-<p id="rfc.section.3.1.p.2">Protocols that instantiate multiple, independent random oracles based on hash_to_curve MUST enforce domain separation between those oracles.  This requirement applies both in the case of multiple oracles to the same curve and in the case of multiple oracles to different curves.  This is because the hash_to_base primitive (<a href="#hashtobase" class="xref">Section 5</a>) requires domain separation to guarantee independent outputs.</p>
-<p id="rfc.section.3.1.p.3">Care is required when choosing a domain separation tag.  Implementors SHOULD observe the following guidelines:</p>
+<p id="rfc.section.3.1.p.1">When invoking hash_to_curve or encode_to_curve from a higher-level protocol, implementors MUST always use domain separation (<a href="#term-domain-separation" class="xref">Section 2.2.5</a>) to avoid interfering with other protocols that also use the same functionality.</p>
+<p id="rfc.section.3.1.p.2">Protocols that instantiate multiple, independent hash functions based on either hash_to_curve or encode_to_curve MUST enforce domain separation between those hash functions.  This requirement applies both in the case of multiple hashes to the same curve and in the case of multiple hashes to different curves.  (This is because the hash_to_base primitive (<a href="#hashtobase" class="xref">Section 5</a>) requires domain separation to guarantee independent outputs.)</p>
+<p id="rfc.section.3.1.p.3">Care is required when choosing a domain separation tag.  Implementors MUST observe the following guidelines:</p>
 <p></p>
 
 <ol>
-<li>Tags should be prepended to the value being hashed, as in the example in <a href="#term-domain-separation" class="xref">Section 2.2.5</a>.</li>
-<li>Tags should have fixed length, or should be encoded in a way that makes the length of a given tag unambiguous.  If a variable-length tag is used, it should be prefixed with a fixed-length field that encodes the length of the tag.</li>
-<li>Tags should begin with a fixed protocol identification string.  Ideally, this identification string should be unique to the protocol.</li>
-<li>Tags should include a protocol version number.</li>
-<li>For protocols that support multiple ciphersuites, tags should include a ciphersuite identifier.</li>
+<li>Tags must be supplied as the DST parameter to hash_to_base, as described in <a href="#hashtobase" class="xref">Section 5</a>.</li>
+<li>Tags must begin with a fixed protocol identification string.  This identification string should be unique to the protocol.</li>
+<li>Tags must include a protocol version number.</li>
+<li>For protocols that define multiple ciphersuites, each ciphersuite&#8217;s tag must be different. For this purpose, it is recommended to include a ciphersuite identifier in each tag.</li>
+<li>For protocols that use multiple encodings, either to the same curve or to different curves, each encoding must use a different tag.</li>
 </ol>
-<p id="rfc.section.3.1.p.5">As an example, consider a fictional key exchange protocol named Quux.  A reasonable choice of tag is &#8220;QUUX-V&lt;xx&gt;-CS&lt;yy&gt;&#8221;, where &lt;xx&gt; and &lt;yy&gt; are two-digit numbers indicating the version and ciphersuite, respectively.  Alternatively, if a variable-length ciphersuite string must be used, a reasonable choice of tag is &#8220;QUUX-V&lt;xx&gt;-L&lt;zz&gt;-&lt;csid&gt;&#8221;, where &lt;csid&gt; is the ciphersuite string, and &lt;xx&gt; and &lt;zz&gt; are two-digit numbers indicating the version and the length of the ciphersuite string, respectively.</p>
-<p id="rfc.section.3.1.p.6">As another example, consider a fictional protocol named Baz that requires two independent random oracles, where one oracle outputs points on the curve E1 and the other outputs points on the curve E2.  To ensure that these two random oracles are independent, each one must be called with a distinct domain separation tag.  Reasonable choices of tags for the E1 and E2 oracles are &#8220;BAZ-V&lt;xx&gt;-CS&lt;yy&gt;-E1&#8221; and &#8220;BAZ-V&lt;xx&gt;-CS&lt;yy&gt;-E2&#8221;, respectively, where &lt;xx&gt; and &lt;yy&gt; are as defined above.</p>
+<p id="rfc.section.3.1.p.5">As an example, consider a fictional key exchange protocol named Quux that defines several different ciphersuites.  A reasonable choice of tag is &#8220;QUUX-V&lt;xx&gt;-CS&lt;yy&gt;&#8221;, where &lt;xx&gt; and &lt;yy&gt; are two-digit numbers indicating the version and ciphersuite, respectively.</p>
+<p id="rfc.section.3.1.p.6">As another example, consider a fictional protocol named Baz that requires two independent random oracles, where one oracle outputs points on the curve E1 and the other outputs points on the curve E2.  Reasonable choices of tags for the E1 and E2 oracles are &#8220;BAZ-V&lt;xx&gt;-CS&lt;yy&gt;-E1&#8221; and &#8220;BAZ-V&lt;xx&gt;-CS&lt;yy&gt;-E2&#8221;, respectively, where &lt;xx&gt; and &lt;yy&gt; are as described above.</p>
 <h1 id="rfc.section.4">
 <a href="#rfc.section.4">4.</a> <a href="#utility" id="utility">Utility Functions</a>
 </h1>
@@ -845,19 +846,20 @@ Steps:
 
 <ol>
 <li>The number of bits output by H should be b &gt;= 2 * k for sufficient collision resistance, where k is the target security level in bits. (This is needed for a birthday bound of approximately 2^(-k).)</li>
-<li>H is modeled as a random oracle, so its output must be indistinguishable from a uniformly random bit string.</li>
+<li>H is modeled as a random oracle, so care should be taken when instantiating it.  Hash functions in the SHA-2 and SHA-3 families are typical and RECOMMENDED choices.</li>
 </ol>
 <p id="rfc.section.5.1.p.3">For example, for 128-bit security, b &gt;= 256 bits; in this case, SHA256 would be an appropriate choice for H.</p>
-<p id="rfc.section.5.1.p.4">Ensuring that the hash_to_base output is a uniform random element of F requires care, even when H outputs a uniformly random string. For example, if H is SHA256 and F is a field of characteristic p = 2^255 - 19, then the result of reducing H(msg) (a 256-bit integer) modulo p is slightly more likely to be in [0, 38] than if the value were selected uniformly at random.  In this example the bias is negligible, but in general it can be significant.</p>
+<p id="rfc.section.5.1.p.4">Ensuring that the hash_to_base output is a uniform random element of F requires care, even when H is modeled as a random oracle. For example, if H is SHA256 and F is a field of characteristic p = 2^255 - 19, then the result of reducing H(msg) (a 256-bit integer) modulo p is slightly more likely to be in [0, 37] than if the value were selected uniformly at random.  In this example the bias is negligible, but in general it can be significant.</p>
 <p id="rfc.section.5.1.p.5">To control bias, the input msg should be hashed to an integer comprising at least ceil(log2(p)) + k bits; reducing this integer modulo p gives bias at most 2^-k, which is a safe choice for a cryptosystem with k-bit security.  To obtain such an integer, HKDF <a href="#RFC5869" class="xref">[RFC5869]</a> is used to expand the input msg to a L-byte string, where L = ceil((ceil(log2(p)) + k) / 8); this string is then interpreted as an integer via OS2IP <a href="#RFC8017" class="xref">[RFC8017]</a>. For example, for p a 255-bit prime and k = 128-bit security, L = ceil((255 + 128) / 8) = 48 bytes.</p>
-<p><a href="#domain-separation" class="xref">Section 3.1</a> discusses requirements for domain separation and recommendations for choosing domain separation tags. The hash_to_curve function takes such a tag as a parameter, DST; this is the recommended way of applying domain separation. As an alternative, implementations MAY instead prepend a domain separation tag to the input msg; in this case, DST SHOULD be the empty string.</p>
+<p id="rfc.section.5.1.p.6">Finally, hash_to_base appends one zero byte to msg in the invocation of HKDF-Extract.  This ensures that the use of HKDF in hash_to_base is indifferentiable from a random oracle (see <a href="#LBB19" class="xref">[LBB19]</a>, Lemma 8 and <a href="#DRST12" class="xref">[DRST12]</a>, Theorems 4.3 and 4.4).  (In particular, this approach works because it ensures that the final byte of each HMAC invocation in HKDF-Extract and HKDF-Expand is distinct.)</p>
+<p><a href="#domain-separation" class="xref">Section 3.1</a> discusses requirements for domain separation and recommendations for choosing domain separation tags. The hash_to_curve function takes such a tag as a parameter, DST; this is the REQUIRED method for applying domain separation.</p>
 <p><a href="#hashtobase-impl" class="xref">Section 5.3</a> details the hash_to_base procedure.</p>
-<p id="rfc.section.5.1.p.8">Note that implementors SHOULD NOT use rejection sampling to generate a uniformly random element of F.  The reason is that these procedures are difficult to implement in constant time, and later well-meaning &#8220;optimizations&#8221; may silently render an implementation non-constant-time.</p>
+<p id="rfc.section.5.1.p.9">Note that implementors SHOULD NOT use rejection sampling to generate a uniformly random element of F.  The reason is that these procedures are difficult to implement in constant time, and later well-meaning &#8220;optimizations&#8221; may silently render an implementation non-constant-time.</p>
 <h1 id="rfc.section.5.2">
 <a href="#rfc.section.5.2">5.2.</a> <a href="#hashtobase-perf" id="hashtobase-perf">Performance considerations</a>
 </h1>
 <p id="rfc.section.5.2.p.1">The hash_to_base function uses HKDF-Extract to combine the input msg and domain separation tag DST into a short digest, which is then passed to HKDF-Expand <a href="#RFC5869" class="xref">[RFC5869]</a>.  For short messages, this entails at most two extra invocations of H, which is a negligible overhead in the context of hashing to elliptic curves.</p>
-<p id="rfc.section.5.2.p.2">A related issue is that the random oracle construction described in <a href="#roadmap" class="xref">Section 3</a> requires evaluating two independent hash functions H0 and H1 on msg.  A standard way to instantiate independent hashes is to append a counter to the value being hashed, e.g., H(msg || 0) and H(msg || 1).  If msg is long, however, this is either inefficient (because it entails hashing msg twice) or requires non-black-box use of H (e.g., partial evaluation).</p>
+<p id="rfc.section.5.2.p.2">A related issue is that the random oracle construction described in <a href="#roadmap" class="xref">Section 3</a> requires evaluating two independent hash functions H0 and H1 on msg.  One way to instantiate independent hashes is to append a counter to the value being hashed, e.g., H(msg || 0) and H(msg || 1).  If msg is long, however, this is either inefficient (because it entails hashing msg twice) or requires non-black-box use of H (e.g., partial evaluation).</p>
 <p id="rfc.section.5.2.p.3">To sidestep both of these issues, hash_to_base takes a second argument, ctr, which it passes to HKDF-Expand.  This means that two invocations of hash_to_base on the same msg with different ctr values both start with identical invocations of HKDF-Extract.  This is an improvement because it allows sharing one evaluation of HKDF-Extract among multiple invocations of hash_to_base, i.e., by factoring out the common computation.</p>
 <h1 id="rfc.section.5.3">
 <a href="#rfc.section.5.3">5.3.</a> <a href="#hashtobase-impl" id="hashtobase-impl">Implementation</a>
@@ -870,6 +872,8 @@ Parameters:
 - DST, a domain separation tag (see discussion above).
 - H, a cryptographic hash function.
 - F, a finite field of characteristic p and order q = p^m.
+- p, the characteristic of F (see immediately above).
+- m, the extension degree of F (see immediately above).
 - L = ceil((ceil(log2(p)) + k) / 8), where k is the security
   parameter of the cryptosystem (e.g., k = 128).
 - HKDF-Extract and HKDF-Expand are as defined in RFC5869,
@@ -885,7 +889,7 @@ Output:
 - u, an element in F.
 
 Steps:
-1. msg_prime = HKDF-Extract(DST, msg)
+1. msg_prime = HKDF-Extract(DST, msg || I2OSP(0, 1))
 2. info_pfx = "H2C" || I2OSP(ctr, 1)   // "H2C" is a 3-byte ASCII string
 3. for i in (1, ..., m):
 4.   info = info_pfx || I2OSP(i, 1)
@@ -1362,7 +1366,7 @@ E': y^2 = g'(x) = x^3 + A' * x + B'
 <p></p>
 
 <ul>
-<li>For certain pairing-friendly curves having subgroup G2 over an extension field, Scott et al. <a href="#SBCDBK09" class="xref">[SBCDBK09]</a> describe a method for fast cofactor clearing that exploits an efficiently-computable endomorphism. Fuentes-Castaneda et al. <a href="#FKR11" class="xref">[FKR11]</a> propose an alternative method that is sometimes more efficient.  Budroni and Pintore <a href="#BP18" class="xref">[BP18]</a> give concrete instantiations of these methods for Barreto-Lynn-Scott pairing-friendly curves <a href="#BLS03" class="xref">[BLS03]</a>.</li>
+<li>For certain pairing-friendly curves having subgroup G2 over an extension field, Scott et al. <a href="#SBCDK09" class="xref">[SBCDK09]</a> describe a method for fast cofactor clearing that exploits an efficiently-computable endomorphism. Fuentes-Castaneda et al. <a href="#FKR11" class="xref">[FKR11]</a> propose an alternative method that is sometimes more efficient.  Budroni and Pintore <a href="#BP18" class="xref">[BP18]</a> give concrete instantiations of these methods for Barreto-Lynn-Scott pairing-friendly curves <a href="#BLS03" class="xref">[BLS03]</a>.</li>
 <li>Wahby and Boneh (<a href="#WB19" class="xref">[WB19]</a>, Section 5) describe a trick due to Scott for fast cofactor clearing on any elliptic curve for which the prime factorization of h and the structure of the elliptic curve group meet certain conditions.</li>
 </ul>
 <p id="rfc.section.7.p.5">The clear_cofactor function is parameterized by a scalar h_eff.  Specifically,</p>
@@ -1389,7 +1393,7 @@ clear_cofactor(P) := h_eff * P
 <li>h_eff, the scalar parameter for clear_cofactor (<a href="#cofactor-clearing" class="xref">Section 7</a>).</li>
 </ul>
 <p id="rfc.section.8.p.4">In addition to the above parameters, the mapping f may require additional parameters Z, M, rational_map, E&#8217;, and/or iso_map.  These MUST be specified when applicable.</p>
-<p id="rfc.section.8.p.5">Applications whose security requires a random oracle MUST use a suite specifying hash_to_curve (<a href="#roadmap" class="xref">Section 3</a>); see <a href="#suiteIDformat" class="xref">Section 8.1</a>.</p>
+<p id="rfc.section.8.p.5">All applications MUST choose a domain separation tag (DST) for use with hash_to_base (<a href="#hashtobase" class="xref">Section 5</a>), in accordance with the guidelines of <a href="#domain-separation" class="xref">Section 3.1</a>.  In addition, applications whose security requires a random oracle MUST use a suite specifying hash_to_curve (<a href="#roadmap" class="xref">Section 3</a>); see <a href="#suiteIDformat" class="xref">Section 8.1</a>.</p>
 <p id="rfc.section.8.p.6">When standardizing a new elliptic curve, corresponding hash-to-curve suites SHOULD be specified.</p>
 <p id="rfc.section.8.p.7">The below table lists the curves for which suites are defined and the subsection that gives the corresponding parameters.</p>
 <table cellpadding="3" cellspacing="0" class="tt full center">
@@ -1679,10 +1683,12 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <p id="rfc.section.10.p.2">Each encoding function accepts arbitrary input and maps it to a pseudorandom point on the curve.  Directly evaluating the mappings of <a href="#mappings" class="xref">Section 6</a> produces an output that is distinguishable from random.  <a href="#roadmap" class="xref">Section 3</a> shows how to use these mappings to construct a function approximating a random oracle.</p>
 <p><a href="#domain-separation" class="xref">Section 3.1</a> describes considerations related to domain separation for random oracle encodings.</p>
 <p><a href="#hashtobase" class="xref">Section 5</a> describes considerations for uniformly hashing to field elements.</p>
+<p id="rfc.section.10.p.5">When the hash_to_curve function (<a href="#roadmap" class="xref">Section 3</a>) is instantiated with hash_to_base (<a href="#hashtobase" class="xref">Section 5</a>), the resulting function is indifferentiable from a random oracle.  In most cases such a function can be safely used in protocols whose security analysis assumes a random oracle that outputs points on an elliptic curve.  As Ristenpart et al. discuss in <a href="#RSS11" class="xref">[RSS11]</a>, however, not all security proofs that rely on random oracles continue to hold when those oracles are replaced by indifferentiable functionalities.  This limitation should be considered when analyzing the security of protocols relying on the hash_to_curve function.</p>
+<p id="rfc.section.10.p.6">When hashing passwords using any function described in this document, an adversary who learns the output of the hash function (or potentially any intermediate value, e.g., the output of hash_to_base) may be able to carry out a dictionary attack.  To mitigate such attacks, it is recommended to first execute a more costly key derivation function (e.g., PBKDF2 <a href="#RFC2898" class="xref">[RFC2898]</a> or scrypt <a href="#RFC7914" class="xref">[RFC7914]</a>) on the password, then hash the output of that function to the target elliptic curve.  For collision resistance, the hash underlying the key derivation function should be chosen according to the guidelines listed in <a href="#hashtobase-sec" class="xref">Section 5.1</a>.</p>
 <h1 id="rfc.section.11">
 <a href="#rfc.section.11">11.</a> <a href="#acknowledgements" id="acknowledgements">Acknowledgements</a>
 </h1>
-<p id="rfc.section.11.p.1">The authors would like to thank Adam Langley for his detailed writeup up Elligator 2 with Curve25519 <a href="#L13" class="xref">[L13]</a>. We also thank Sean Devlin and Thomas Icart for feedback on earlier versions of this document.</p>
+<p id="rfc.section.11.p.1">The authors would like to thank Adam Langley for his detailed writeup of Elligator 2 with Curve25519 <a href="#L13" class="xref">[L13]</a>; Christopher Patton and Benjamin Lipp for educational discussions; and Sean Devlin, Justin Drake, Dan Harkins, Thomas Icart, Michael Scott, and Mathy Vanhoef for helpful feedback.</p>
 <h1 id="rfc.section.12">
 <a href="#rfc.section.12">12.</a> <a href="#contributors" id="contributors">Contributors</a>
 </h1>
@@ -1703,6 +1709,11 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <a>Bradner, S.</a>, "<a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997.</td>
 </tr>
 <tr>
+<td class="reference"><b id="RFC2898">[RFC2898]</b></td>
+<td class="top">
+<a>Kaliski, B.</a>, "<a href="https://tools.ietf.org/html/rfc2898">PKCS #5: Password-Based Cryptography Specification Version 2.0</a>", RFC 2898, DOI 10.17487/RFC2898, September 2000.</td>
+</tr>
+<tr>
 <td class="reference"><b id="RFC5869">[RFC5869]</b></td>
 <td class="top">
 <a>Krawczyk, H.</a> and <a>P. Eronen</a>, "<a href="https://tools.ietf.org/html/rfc5869">HMAC-based Extract-and-Expand Key Derivation Function (HKDF)</a>", RFC 5869, DOI 10.17487/RFC5869, May 2010.</td>
@@ -1711,6 +1722,11 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <td class="reference"><b id="RFC7748">[RFC7748]</b></td>
 <td class="top">
 <a>Langley, A.</a>, <a>Hamburg, M.</a> and <a>S. Turner</a>, "<a href="https://tools.ietf.org/html/rfc7748">Elliptic Curves for Security</a>", RFC 7748, DOI 10.17487/RFC7748, January 2016.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC7914">[RFC7914]</b></td>
+<td class="top">
+<a>Percival, C.</a> and <a>S. Josefsson</a>, "<a href="https://tools.ietf.org/html/rfc7914">The scrypt Password-Based Key Derivation Function</a>", RFC 7914, DOI 10.17487/RFC7914, August 2016.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RFC8017">[RFC8017]</b></td>
@@ -1797,6 +1813,11 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <a title="Lepidum">Yonezawa, S.</a>, <a title="NTT TechnoCross">Chikara, S.</a>, <a title="NTT">Kobayashi, T.</a> and <a title="NTT">T. Saito</a>, "<a href="https://datatracker.ietf.org/doc/draft-yonezawa-pairing-friendly-curves/">Pairing-friendly Curves</a>", March 2019.</td>
 </tr>
 <tr>
+<td class="reference"><b id="DRST12">[DRST12]</b></td>
+<td class="top">
+<a title="New York University">Dodis, Y.</a>, <a title="University of Wisconsin-Madison">Ristenpart, T.</a>, <a title="Tsinghua University">Steinberger, J.</a> and <a title="Massachusetts Institute of Technology">S. Tessaro</a>, "<a href="https://doi.org/10.1007/978-3-642-32009-5_21">To hash or not to hash again? (In)differentiability results for H^2 and HMAC</a>", In Advances in Cryptology - CRYPTO 2012, pages 348-366, DOI 10.1007/978-3-642-32009-5_21, August 2012.</td>
+</tr>
+<tr>
 <td class="reference"><b id="F11">[F11]</b></td>
 <td class="top">
 <a title="Macquarie Universit">Farashahi, R.</a>, "<a href="https://doi.org/10.1007/978-3-642-21969-6_17">Hashing into Hessian curves</a>", In AFRICACRYPT 2011, pages 278-289, DOI 10.1007/978-3-642-21969-6_17, 2011.</td>
@@ -1866,6 +1887,16 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <a>Langley, A.</a>, "<a href="https://www.imperialviolet.org/2013/12/25/elligator.html">Implementing Elligator for Curve25519</a>", 2013.</td>
 </tr>
 <tr>
+<td class="reference"><b id="LBB19">[LBB19]</b></td>
+<td class="top">
+<a title="INRIA Paris">Lipp, B.</a>, <a title="INRIA Paris">Blanchet, B.</a> and <a title="INRIA Paris">K. Bhargavan</a>, "<a href="https://hal.inria.fr/hal-02100345/">A Mechanised Proof of the WireGuard Virtual Private Network Protocol</a>", In INRIA Research Report No. 9269, April 2019.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RSS11">[RSS11]</b></td>
+<td class="top">
+<a title="University of Wisconsin-Madison">Ristenpart, T.</a>, <a title="UC San Diego">Shacham, H.</a> and <a title="Portland State University">T. Shrimpton</a>, "<a href="https://doi.org/10.1007/978-3-642-20465-4_27">Careful with Composition: Limitations of the Indifferentiability Framework</a>", In Advances in Cryptology - EUROCRYPT 2011, pages 487-506, DOI 10.1007/978-3-642-20465-4_27, May 2011.</td>
+</tr>
+<tr>
 <td class="reference"><b id="S05">[S05]</b></td>
 <td class="top">
 <a title="Department of Mathematics, University of Warsaw">Skalba, M.</a>, "<a href="https://doi.org/10.4064/aa117-3-7">Points on elliptic curves over finite fields</a>", In Acta Arithmetica, vol 117 no 3, pages 293-301, DOI 10.4064/aa117-3-7, 2005.</td>
@@ -1881,9 +1912,9 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <a>The Sage Developers</a>, "<a href="https://www.sagemath.org">SageMath, the Sage Mathematics Software System</a>", 2019.</td>
 </tr>
 <tr>
-<td class="reference"><b id="SBCDBK09">[SBCDBK09]</b></td>
+<td class="reference"><b id="SBCDK09">[SBCDK09]</b></td>
 <td class="top">
-<a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">Scott, M.</a>, <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">Benger, N.</a>, <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">Charlemagne, M.</a>, <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">Dominguez Perez, L.</a>, <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">Benger, N.</a> and <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">E. Kachisa</a>, "<a href="https://doi.org/10.1007/978-3-642-03298-1_8">Fast Hashing to G2 on Pairing-Friendly Curves</a>", In Pairing-Based Cryptography - Pairing 2009, pages 102-113, DOI 10.1007/978-3-642-03298-1_8, 2009.</td>
+<a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">Scott, M.</a>, <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">Benger, N.</a>, <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">Charlemagne, M.</a>, <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">Dominguez Perez, L.</a> and <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">E. Kachisa</a>, "<a href="https://doi.org/10.1007/978-3-642-03298-1_8">Fast Hashing to G2 on Pairing-Friendly Curves</a>", In Pairing-Based Cryptography - Pairing 2009, pages 102-113, DOI 10.1007/978-3-642-03298-1_8, 2009.</td>
 </tr>
 <tr>
 <td class="reference"><b id="SEC2">[SEC2]</b></td>
