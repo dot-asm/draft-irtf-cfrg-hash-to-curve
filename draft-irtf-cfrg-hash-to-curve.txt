@@ -2487,8 +2487,8 @@ Internet-Draft                hash-to-curve                 October 2019
    [draft-yonezawa-pfc-01]
               Yonezawa, S., Chikara, S., Kobayashi, T., and T. Saito,
               "Pairing-friendly Curves", March 2019,
-              <https://datatracker.ietf.org/doc/draft-yonezawa-pairing-
-              friendly-curves/>.
+              <https://datatracker.ietf.org/doc/
+              draft-yonezawa-pairing-friendly-curves/>.
 
    [DRST12]   Dodis, Y., Ristenpart, T., Steinberger, J., and S.
               Tessaro, "To hash or not to hash again?
