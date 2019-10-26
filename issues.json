@@ -1,6 +1,54 @@
 [
 
   {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/174",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/174/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/174/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/174/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/174",
+    "id": 512157387,
+    "node_id": "MDU6SXNzdWU1MTIxNTczODc=",
+    "number": 174,
+    "title": "meta-issue: triage for Singapore IETF meeting",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 2,
+    "created_at": "2019-10-24T20:13:43Z",
+    "updated_at": "2019-10-25T04:24:40Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "The next IETF meeting in Singapore happens soon. The cutoff for submitting a new I-D is [November 4th at 23:59 UTC](https://datatracker.ietf.org/meeting/106/important-dates/). This issue is to help with triage.\r\n\r\n# High priority\r\n\r\n- [ ] Z selection (#159, #171, #172) --- PR is WIP (#172)\r\n\r\n- [ ] SvdW update (#155, #157, #172) --- PR is WIP (#172)\r\n\r\n- [ ] Ciphersuite updates (#158) --- PR is WIP (#172)\r\n\r\n- [ ] sgn0 / sqrt definitions (#144) --- I've got a PR in the wings for this. I'll push it to completion and submit it in the next couple days.\r\n\r\n- [ ] Coordinate with Ristretto --- can happen before or after. Main goal is to figure out what the right API is, both for Ristretto and for whichever pieces of h2c the Ristretto draft uses.\r\n\r\n- [ ] Coordinate with VRF (possibly including a PR) --- needs to happen *after* we've pushed our I-D.\r\n\r\n# Nice to have\r\n\r\n- [ ] Handle some out-of-band comments from emails (some of these haven't been translated to issues)\r\n\r\n- [ ] Discussion of alternative hash_to_base algorithms (#165) --- probably just want a paragraph in Suites talking about how to indicate that a suite uses an alternative hash_to_base (e.g., SHAKE).\r\n\r\n- [ ] Style nits (#105, #110) --- might be nice to do a sweep for these, if there's time.\r\n\r\n# Not now\r\n\r\n- [ ] cofactor clearing pseudocode (#166) --- I think this probably goes in the pairings draft, not ours, right?\r\n\r\n- [ ] #164 --- only pertains to the repo, not the draft\r\n\r\n- [ ] Decide on removing supersingular maps (#173) - I'd like to talk to some more folks before we make a decision on this. I'm going to be at the ECC Workshop in December---maybe some people there have an opinion.\r\n\r\n- [ ] Flow-chart (#63, #118) - nice to have, but probably doesn't go inside the draft, so we can push this to later.\r\n\r\n- [ ] Code clean-up (#98, #112, #151) --- hate to keep kicking this can down the road, but we've got enough on our plates and I doubt there's time. (This also includes test vectors...)\r\n\r\n# Issues that can be closed right now\r\n\r\nI think all of the following can be closed without further action. Please reply if you disagree.\r\n\r\n- #43 - Ristretto will handle this\r\n- #95 - Suites now handle this\r\n- #96 - BLS sigs draft now handles this\r\n- #107 - we now discuss the relevant conversions\r\n- #109 - we decided to do projective in the appendices and affine in the body\r\n- #111 - we decided to do generic straight-line in body text, specific appendix\r\n- #124 - we've decided on a plan here, and it's in the text\r\n- #126 - I think we've got a plan here, too"
+  },
+  {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/173",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/173/labels{/name}",
@@ -41,9 +89,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 2,
     "created_at": "2019-10-23T21:41:53Z",
-    "updated_at": "2019-10-23T21:42:28Z",
+    "updated_at": "2019-10-26T10:09:50Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "At this point we don't have any clear examples of when people would want to do this.\r\n\r\nIt might become the case in the future that someone wants to do it. If so, it would be easy to create a new document that incorporates all of h2c by reference and specifies Boneh-Franklin and/or Ell2-A0.\r\n\r\nThe advantage of getting rid of them here is reducing confusion and reducing document surface area. To me this is a win.\r\n\r\nThoughts?\r\n\r\nCC @grittygrease @armfazh @chris-wood @JustinDrake"
@@ -82,17 +130,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 4,
     "created_at": "2019-10-22T04:24:01Z",
-    "updated_at": "2019-10-23T17:03:50Z",
-    "closed_at": null,
+    "updated_at": "2019-10-26T19:16:27Z",
+    "closed_at": "2019-10-26T19:16:27Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/172",
@@ -136,7 +184,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -145,8 +193,8 @@
     "milestone": null,
     "comments": 3,
     "created_at": "2019-10-16T20:20:37Z",
-    "updated_at": "2019-10-21T00:22:02Z",
-    "closed_at": null,
+    "updated_at": "2019-10-26T19:16:28Z",
+    "closed_at": "2019-10-26T19:16:28Z",
     "author_association": "COLLABORATOR",
     "body": "This avoids infringing US patent 8712038."
   },
@@ -346,17 +394,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2019-09-19T00:28:38Z",
-    "updated_at": "2019-10-10T04:06:13Z",
-    "closed_at": null,
+    "updated_at": "2019-10-23T21:54:53Z",
+    "closed_at": "2019-10-23T21:54:53Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/167",
@@ -402,14 +450,52 @@
     ],
     "state": "open",
     "locked": false,
-    "assignee": null,
+    "assignee": {
+      "login": "chris-wood",
+      "id": 2172048,
+      "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chris-wood",
+      "html_url": "https://github.com/chris-wood",
+      "followers_url": "https://api.github.com/users/chris-wood/followers",
+      "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+      "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+      "repos_url": "https://api.github.com/users/chris-wood/repos",
+      "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+      "type": "User",
+      "site_admin": false
+    },
     "assignees": [
-
+      {
+        "login": "chris-wood",
+        "id": 2172048,
+        "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+        "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/chris-wood",
+        "html_url": "https://github.com/chris-wood",
+        "followers_url": "https://api.github.com/users/chris-wood/followers",
+        "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+        "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+        "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+        "repos_url": "https://api.github.com/users/chris-wood/repos",
+        "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+        "type": "User",
+        "site_admin": false
+      }
     ],
     "milestone": null,
     "comments": 10,
     "created_at": "2019-08-19T17:46:24Z",
-    "updated_at": "2019-10-16T14:58:47Z",
+    "updated_at": "2019-10-24T20:20:50Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "I ran into @mmaker at CRYPTO, who suggested that including pseudocode for fast cofactor clearing for BLS12-381 would be a nice addition to the document and probably wouldn't be all that complicated.\r\n\r\nI tend to agree---certainly if we're going to have optimized pcode in the appendix, there's a good argument for including this...\r\n\r\nThoughts?"
@@ -498,14 +584,52 @@
     ],
     "state": "open",
     "locked": false,
-    "assignee": null,
+    "assignee": {
+      "login": "chris-wood",
+      "id": 2172048,
+      "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chris-wood",
+      "html_url": "https://github.com/chris-wood",
+      "followers_url": "https://api.github.com/users/chris-wood/followers",
+      "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+      "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+      "repos_url": "https://api.github.com/users/chris-wood/repos",
+      "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+      "type": "User",
+      "site_admin": false
+    },
     "assignees": [
-
+      {
+        "login": "chris-wood",
+        "id": 2172048,
+        "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+        "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/chris-wood",
+        "html_url": "https://github.com/chris-wood",
+        "followers_url": "https://api.github.com/users/chris-wood/followers",
+        "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+        "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+        "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+        "repos_url": "https://api.github.com/users/chris-wood/repos",
+        "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+        "type": "User",
+        "site_admin": false
+      }
     ],
     "milestone": null,
     "comments": 0,
     "created_at": "2019-08-11T00:05:19Z",
-    "updated_at": "2019-08-11T00:05:19Z",
+    "updated_at": "2019-10-24T20:20:53Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "[Compare Editor's Copy to Individual Draft](https://cfrg.github.io/draft-irtf-cfrg-hash-to-curve/draft-irtf-cfrg-hash-to-curve.diff) points to a 404"
@@ -742,7 +866,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -751,8 +875,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-07-23T19:54:52Z",
-    "updated_at": "2019-07-23T19:54:52Z",
-    "closed_at": null,
+    "updated_at": "2019-10-26T19:16:28Z",
+    "closed_at": "2019-10-26T19:16:28Z",
     "author_association": "COLLABORATOR",
     "body": "We may want to include pseudocode that outputs Z for a given map, curve params, etc., to ensure that everyone arrives at the same value!"
   },
@@ -790,7 +914,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -799,8 +923,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-07-23T06:10:12Z",
-    "updated_at": "2019-07-23T06:11:06Z",
-    "closed_at": null,
+    "updated_at": "2019-10-26T19:16:29Z",
+    "closed_at": "2019-10-26T19:16:29Z",
     "author_association": "COLLABORATOR",
     "body": "secp256k1 is currently specified using Shallue and van de Woestijne. In general it's much cheaper to use the technique from WB19, i.e., map to an isogenous curve and then evaluate the isogeny map. For secp256k1, there are curves 3-isogenous to secp256k1 with nonzero j-invariant in the base field. It probably makes sense to leverage these for a (3x) faster mapping than S-vdW."
   },
@@ -838,7 +962,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -847,8 +971,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-07-23T06:04:56Z",
-    "updated_at": "2019-07-30T01:34:02Z",
-    "closed_at": null,
+    "updated_at": "2019-10-26T19:16:28Z",
+    "closed_at": "2019-10-26T19:16:28Z",
     "author_association": "COLLABORATOR",
     "body": "Some of the maps use constants whose definitions include sqrts. The document should specify for these that the intended constant value is the one computed for the \"positive\" sqrt branch, i.e., the value `c = sqrt(something)` such that `sgn0(c) == 1` to avoid ambiguity about the value of `c`."
   },
@@ -934,7 +1058,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -943,8 +1067,8 @@
     "milestone": null,
     "comments": 3,
     "created_at": "2019-07-16T19:04:38Z",
-    "updated_at": "2019-10-10T04:28:34Z",
-    "closed_at": null,
+    "updated_at": "2019-10-26T19:16:28Z",
+    "closed_at": "2019-10-26T19:16:28Z",
     "author_association": "COLLABORATOR",
     "body": "In [this post](https://mailarchive.ietf.org/arch/msg/cfrg/gFn3tvf62e1FKx_SkVXk8hsSVig), Dan Harkins points out (in essence) that the draft isn't clear on how to apply S--vdW to the case where j-invariant is 1728.\r\n\r\nIt would be nice to make S--vdW clear on this point, since it's effectively the \"method of last resort\": it will always work, even when some other method won't."
   },
@@ -1140,14 +1264,52 @@
     ],
     "state": "open",
     "locked": false,
-    "assignee": null,
+    "assignee": {
+      "login": "chris-wood",
+      "id": 2172048,
+      "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chris-wood",
+      "html_url": "https://github.com/chris-wood",
+      "followers_url": "https://api.github.com/users/chris-wood/followers",
+      "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+      "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+      "repos_url": "https://api.github.com/users/chris-wood/repos",
+      "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+      "type": "User",
+      "site_admin": false
+    },
     "assignees": [
-
+      {
+        "login": "chris-wood",
+        "id": 2172048,
+        "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+        "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/chris-wood",
+        "html_url": "https://github.com/chris-wood",
+        "followers_url": "https://api.github.com/users/chris-wood/followers",
+        "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+        "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+        "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+        "repos_url": "https://api.github.com/users/chris-wood/repos",
+        "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+        "type": "User",
+        "site_admin": false
+      }
     ],
     "milestone": null,
     "comments": 0,
     "created_at": "2019-07-08T22:56:43Z",
-    "updated_at": "2019-07-08T22:56:43Z",
+    "updated_at": "2019-10-24T20:20:58Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "It should be warned somewhere in the main doc which sage scripts correspond to the version we will submit.\r\n\r\n_Originally posted by @armfazh in https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/146#issuecomment-509419284_"
@@ -1475,7 +1637,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/145.patch"
     },
     "body": "This commit fixes some clarity issues that @reyzin pointed out in personal communication.\r\n\r\nAlso clarify which values are integer arithmetic and which are field arithmetic in implementations, which I think responds to #135."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/144",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -1523,10 +1688,7 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "There's a potential enhancement/improvement to sgn0 that we might want to consider. This option may have been discussed a little before, but it's probably worth revisiting before things get too ossified.\r\n\r\nThe current version of sgn0 says that an element x in GF(p) is negative just when it is greater than (p - 1) / 2. (Things are slightly more complicated for GF(p^m), but let's ignore that for now.)\r\n\r\nSince p is odd, an alternative means of differentiating between x and -x is via the least significant bit: if the least significant bit of x is set, call x negative, otherwise call it positive. (This works because p - x and x have opposite LSBs, except when x = 0.)\r\n\r\nThe major advantage to this approach is that it's much easier to check a single bit in constant time than it is to compare a value to (p-1)/2. On the other hand, I'd guess that in many cases a constant-time comparison function is already available, so maybe this isn't such a decisive advantage after all.\r\n\r\nThe major disadvantage (if it can be called that) is that it leads to slightly nonintuitive definitions of \"negative.\" For example, normally we'd think of 1 as positive, but by the parity definition, sgn0(1) == -1, and sgn0(p - 1) == 1. But maybe that's OK.\r\n\r\nThoughts?\r\n\r\nSince this would be a breaking change, sooner is better than later. Also, it might change the suites definitions, since some suites have a constant Z that is \"smallest in absolute value, breaking ties by choosing the positive one,\" and changing the definition of sign might change that."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/143",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -2905,17 +3067,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2019-05-26T13:28:36Z",
-    "updated_at": "2019-06-02T21:12:38Z",
-    "closed_at": null,
+    "updated_at": "2019-10-24T19:54:27Z",
+    "closed_at": "2019-10-24T19:54:27Z",
     "author_association": "NONE",
     "body": "In some parts, examples use branching statements instead of cmov-like instructions. Examples of this are in the hacspec code: https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/blob/master/draft-irtf-cfrg-hash-to-curve.md#simplified-swu-method-sswu\r\n\r\nIt is better to use cmov-like instructions everywhere, to avoid developers from using conditional branches in their code (which possibly will lead to side-channel attacks)."
   },
@@ -3026,7 +3188,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/115.patch"
     },
     "body": "This clarifies the definition of square roots as requested by @chris-wood's comment on #104 and captured in #106.\r\n\r\nSee note in #114 about sequencing merges and rebases to keep a clean commit history, if desired.\r\n\r\ncloses #106"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/114",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3080,10 +3245,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/114.patch"
     },
     "body": "This addresses one of @chris-wood's comments on #104 which is captured in #108 \r\n\r\nNOTE: this and #115  can rebase cleanly on top of one another, so if the preference is to keep a clean history we can sequence a merge->rebase->merge for these two.\r\n\r\ncloses #108"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/113",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3168,17 +3330,55 @@
     ],
     "state": "open",
     "locked": false,
-    "assignee": null,
+    "assignee": {
+      "login": "chris-wood",
+      "id": 2172048,
+      "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chris-wood",
+      "html_url": "https://github.com/chris-wood",
+      "followers_url": "https://api.github.com/users/chris-wood/followers",
+      "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+      "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+      "repos_url": "https://api.github.com/users/chris-wood/repos",
+      "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+      "type": "User",
+      "site_admin": false
+    },
     "assignees": [
-
+      {
+        "login": "chris-wood",
+        "id": 2172048,
+        "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+        "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/chris-wood",
+        "html_url": "https://github.com/chris-wood",
+        "followers_url": "https://api.github.com/users/chris-wood/followers",
+        "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+        "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+        "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+        "repos_url": "https://api.github.com/users/chris-wood/repos",
+        "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+        "type": "User",
+        "site_admin": false
+      }
     ],
     "milestone": null,
     "comments": 1,
     "created_at": "2019-05-21T19:55:18Z",
-    "updated_at": "2019-06-28T01:03:14Z",
+    "updated_at": "2019-10-24T20:20:56Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
-    "body": "Moving these from #104.\r\n\r\n- [ ] consider removing unused implementations (e.g., ell2edwards, fouquetibouchi)\r\n\r\n- [ ] update test vectors\r\n\r\n- [ ] update hacspec implementations to cover new encodings\r\n\r\n- [ ] clear cofactors to match the document\r\n\r\n- [ ] edwards448: use 4-isogeny from RFC7748 rather than current rational map"
+    "body": "Moving these from #104.\r\n\r\n- [ ] consider removing unused implementations (e.g., ell2edwards, fouquetibouchi)\r\n\r\n- [ ] update test vectors\r\n\r\n- [ ] update hacspec implementations to cover new encodings\r\n\r\n- [ ] clear cofactors to match the document\r\n\r\n- [ ] edwards448: use 4-isogeny from RFC7748 rather than current rational map\r\n\r\n- [ ] #117 --- make sure to use CMOV in straight-line impls"
   },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/111",
@@ -3264,14 +3464,52 @@
     ],
     "state": "open",
     "locked": false,
-    "assignee": null,
+    "assignee": {
+      "login": "chris-wood",
+      "id": 2172048,
+      "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chris-wood",
+      "html_url": "https://github.com/chris-wood",
+      "followers_url": "https://api.github.com/users/chris-wood/followers",
+      "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+      "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+      "repos_url": "https://api.github.com/users/chris-wood/repos",
+      "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+      "type": "User",
+      "site_admin": false
+    },
     "assignees": [
-
+      {
+        "login": "chris-wood",
+        "id": 2172048,
+        "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+        "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/chris-wood",
+        "html_url": "https://github.com/chris-wood",
+        "followers_url": "https://api.github.com/users/chris-wood/followers",
+        "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+        "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+        "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+        "repos_url": "https://api.github.com/users/chris-wood/repos",
+        "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+        "type": "User",
+        "site_admin": false
+      }
     ],
     "milestone": null,
     "comments": 3,
     "created_at": "2019-05-21T18:16:42Z",
-    "updated_at": "2019-06-27T20:01:51Z",
+    "updated_at": "2019-10-24T20:21:02Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "@armfazh prefers short variable names (per comments in #104).\r\n\r\n@chris-wood observed that there are some inconsistencies in naming, e.g., `msg` vs `alpha`.\r\n\r\nMy changes in #104 were aimed at avoiding overloaded symbols.\r\n\r\nI think it's possible to resolve all of these simultaneously, with some thought. Let's discuss what the names should be (short? descriptive? `msg`? `alpha`? `x`?), write down a \"style guide,\" and update the document to follow it."
@@ -3504,14 +3742,52 @@
     ],
     "state": "open",
     "locked": false,
-    "assignee": null,
+    "assignee": {
+      "login": "chris-wood",
+      "id": 2172048,
+      "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chris-wood",
+      "html_url": "https://github.com/chris-wood",
+      "followers_url": "https://api.github.com/users/chris-wood/followers",
+      "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+      "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+      "repos_url": "https://api.github.com/users/chris-wood/repos",
+      "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+      "type": "User",
+      "site_admin": false
+    },
     "assignees": [
-
+      {
+        "login": "chris-wood",
+        "id": 2172048,
+        "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+        "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/chris-wood",
+        "html_url": "https://github.com/chris-wood",
+        "followers_url": "https://api.github.com/users/chris-wood/followers",
+        "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+        "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+        "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+        "repos_url": "https://api.github.com/users/chris-wood/repos",
+        "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+        "type": "User",
+        "site_admin": false
+      }
     ],
     "milestone": null,
     "comments": 3,
     "created_at": "2019-05-19T04:58:33Z",
-    "updated_at": "2019-07-03T03:30:23Z",
+    "updated_at": "2019-10-24T20:21:00Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "In a previous commit I tried to improve consistency for spacing around math operators, but I didn't quite catch them all.\r\n\r\n~~I think the biggest remaining one is whether `=` should have surrounding spaces or not.~~ done (#136)\r\n\r\nTODO: implement consistent style"
@@ -3846,14 +4122,52 @@
     ],
     "state": "open",
     "locked": false,
-    "assignee": null,
+    "assignee": {
+      "login": "chris-wood",
+      "id": 2172048,
+      "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chris-wood",
+      "html_url": "https://github.com/chris-wood",
+      "followers_url": "https://api.github.com/users/chris-wood/followers",
+      "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+      "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+      "repos_url": "https://api.github.com/users/chris-wood/repos",
+      "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+      "type": "User",
+      "site_admin": false
+    },
     "assignees": [
-
+      {
+        "login": "chris-wood",
+        "id": 2172048,
+        "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+        "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/chris-wood",
+        "html_url": "https://github.com/chris-wood",
+        "followers_url": "https://api.github.com/users/chris-wood/followers",
+        "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+        "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+        "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+        "repos_url": "https://api.github.com/users/chris-wood/repos",
+        "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+        "type": "User",
+        "site_admin": false
+      }
     ],
     "milestone": null,
     "comments": 0,
     "created_at": "2019-04-12T23:44:35Z",
-    "updated_at": "2019-04-12T23:45:14Z",
+    "updated_at": "2019-10-24T20:20:55Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "This includes things like updating names, building a framework for testing the hash2curve implementations, and generating test vectors via a script."
@@ -4532,7 +4846,10 @@
     "closed_at": "2019-03-01T18:29:18Z",
     "author_association": "COLLABORATOR",
     "body": "I think the way we specify the FFSTV (and potentially all the algorithms) is a bit clunky (at best) or ambiguous.\r\n\r\nIf we look at https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/blob/master/draft-irtf-cfrg-hash-to-curve.md#general-construction-ffstv13-ffstv\r\n\r\n```\r\n~~~\r\nhash2curve(alpha) = F(H0(alpha)) + F(H1(alpha))\r\n~~~\r\n\r\nThis construction works for the Icart, SWU, and Simplfied SWU encodings.\r\n\r\nHere, H0 and H1 are constructed as follows:\r\n\r\n~~~\r\nH0(alpha) = HashToBase(alpha || 0x2)\r\nH1(alpha) = HashToBase(alpha || 0x3)\r\n~~~\r\n```\r\n\r\nJust to check we are in agreement with what this is/should be doing. As it is written, you will hash alpha (with 0x02 or 0x03), pass the result to F. Which generally speaking will compute another hash. \r\n\r\nI.e. in Icart, you would effectively have `u = HashToBase(HashToBase(alpha || 0x02))` when computing the first of those? Which is a bit confusing since HashToBase outputs an element in Fp.\r\n\r\nAs an alternative, would we consider rewriting the algorithms to all be `Fp -> E`... Which saves the redundant hashing for some algorithms, but is messy since SWU actually needs `(Fp x Fp) -> E`.\r\n\r\nAnyway, just checking that the above is a correct reading."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/84",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4586,10 +4903,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/84.patch"
     },
     "body": "This PR adds few things about formatting of algorithms. \r\nMakes a visible separation between Weierstrass and Montgomery curves.\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/83",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6084,7 +6398,10 @@
     "closed_at": "2019-01-26T01:30:48Z",
     "author_association": "COLLABORATOR",
     "body": "As per the title, as one concrete existing implementation of this functionality, plus an existing spec. We should consider whether we want to agree with the existing Signal specification https://signal.org/docs/specifications/xeddsa/."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/54",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6132,10 +6449,7 @@
     "closed_at": "2019-06-04T15:38:45Z",
     "author_association": "COLLABORATOR",
     "body": "As in #53, many algorithms require taking a square root and choosing one. In some cases we have an additional bit left over from HashToBase (e.g. with Curve25519 and SHA256, there is a free bit).\r\nWe can consider using this bit as a sign (as at the end of 2.6 of https://signal.org/docs/specifications/xeddsa/#hashing-to-a-point-with-elligator-2)."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/53",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -7665,7 +7979,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/25.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/24",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -7719,10 +8036,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/24.patch"
     },
     "body": "This is a first cut at #23. It doesn't go into details regarding what is a suitable encoding for the construction, although all those considered (except Elligator2) were shown to work. (@samscott89, we should do the math and figure out if Elligator2 works.)"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/23",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
