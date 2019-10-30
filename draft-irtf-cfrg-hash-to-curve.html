@@ -764,17 +764,17 @@ Steps:
 <h1 id="rfc.section.3.1">
 <a href="#rfc.section.3.1">3.1.</a> <a href="#domain-separation" id="domain-separation">Domain separation requirements</a>
 </h1>
-<p id="rfc.section.3.1.p.1">When invoking hash_to_curve or encode_to_curve from a higher-level protocol, implementors MUST always use domain separation (<a href="#term-domain-separation" class="xref">Section 2.2.5</a>) to avoid interfering with other protocols that also use the same functionality.</p>
+<p id="rfc.section.3.1.p.1">All uses of the encoding functions defined in this document MUST include domain separation (<a href="#term-domain-separation" class="xref">Section 2.2.5</a>) to avoid interfering with other uses of similar functionality.</p>
 <p id="rfc.section.3.1.p.2">Protocols that instantiate multiple, independent hash functions based on either hash_to_curve or encode_to_curve MUST enforce domain separation between those hash functions.  This requirement applies both in the case of multiple hashes to the same curve and in the case of multiple hashes to different curves.  (This is because the hash_to_base primitive (<a href="#hashtobase" class="xref">Section 5</a>) requires domain separation to guarantee independent outputs.)</p>
-<p id="rfc.section.3.1.p.3">Care is required when choosing a domain separation tag.  Implementors MUST observe the following guidelines:</p>
+<p id="rfc.section.3.1.p.3">Care is required when selecting and using a domain separation tag.  The following requirements apply:</p>
 <p></p>
 
 <ol>
-<li>Tags must be supplied as the DST parameter to hash_to_base, as described in <a href="#hashtobase" class="xref">Section 5</a>.</li>
-<li>Tags must begin with a fixed protocol identification string.  This identification string should be unique to the protocol.</li>
-<li>Tags must include a protocol version number.</li>
-<li>For protocols that define multiple ciphersuites, each ciphersuite&#8217;s tag must be different. For this purpose, it is recommended to include a ciphersuite identifier in each tag.</li>
-<li>For protocols that use multiple encodings, either to the same curve or to different curves, each encoding must use a different tag.</li>
+<li>Tags MUST be supplied as the DST parameter to hash_to_base, as described in <a href="#hashtobase" class="xref">Section 5</a>.</li>
+<li>Tags MUST begin with a fixed protocol identification string.  This identification string should be unique to the protocol.</li>
+<li>Tags SHOULD include a protocol version number.</li>
+<li>For protocols that define multiple ciphersuites, each ciphersuite&#8217;s tag MUST be different. For this purpose, it is RECOMMENDED to include a ciphersuite identifier in each tag.</li>
+<li>For protocols that use multiple encodings, either to the same curve or to different curves, each encoding MUST use a different tag.  For this purpose, it is RECOMMENDED to include the encoding&#8217;s Suite ID (<a href="#suites" class="xref">Section 8</a>) in the domain separation tag.</li>
 </ol>
 <p id="rfc.section.3.1.p.5">As an example, consider a fictional key exchange protocol named Quux that defines several different ciphersuites.  A reasonable choice of tag is &#8220;QUUX-V&lt;xx&gt;-CS&lt;yy&gt;&#8221;, where &lt;xx&gt; and &lt;yy&gt; are two-digit numbers indicating the version and ciphersuite, respectively.</p>
 <p id="rfc.section.3.1.p.6">As another example, consider a fictional protocol named Baz that requires two independent random oracles, where one oracle outputs points on the curve E1 and the other outputs points on the curve E2.  Reasonable choices of tags for the E1 and E2 oracles are &#8220;BAZ-V&lt;xx&gt;-CS&lt;yy&gt;-E1&#8221; and &#8220;BAZ-V&lt;xx&gt;-CS&lt;yy&gt;-E2&#8221;, respectively, where &lt;xx&gt; and &lt;yy&gt; are as described above.</p>

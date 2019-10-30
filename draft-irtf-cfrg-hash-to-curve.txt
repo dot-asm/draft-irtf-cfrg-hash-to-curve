@@ -492,12 +492,12 @@ Internet-Draft                hash-to-curve                 October 2019
 
 3.1.  Domain separation requirements
 
-   When invoking hash_to_curve or encode_to_curve from a higher-level
-   protocol, implementors MUST always use domain separation
-   (Section 2.2.5) to avoid interfering with other protocols that also
-   use the same functionality.
+   All uses of the encoding functions defined in this document MUST
+   include domain separation (Section 2.2.5) to avoid interfering with
+   other uses of similar functionality.
 
-
+   Protocols that instantiate multiple, independent hash functions based
+   on either hash_to_curve or encode_to_curve MUST enforce domain
 
 
 
@@ -506,32 +506,31 @@ Faz-Hernandez, et al.      Expires May 2, 2020                  [Page 9]
 Internet-Draft                hash-to-curve                 October 2019
 
 
-   Protocols that instantiate multiple, independent hash functions based
-   on either hash_to_curve or encode_to_curve MUST enforce domain
    separation between those hash functions.  This requirement applies
    both in the case of multiple hashes to the same curve and in the case
    of multiple hashes to different curves.  (This is because the
    hash_to_base primitive (Section 5) requires domain separation to
    guarantee independent outputs.)
 
-   Care is required when choosing a domain separation tag.  Implementors
-   MUST observe the following guidelines:
+   Care is required when selecting and using a domain separation tag.
+   The following requirements apply:
 
-   1.  Tags must be supplied as the DST parameter to hash_to_base, as
+   1.  Tags MUST be supplied as the DST parameter to hash_to_base, as
        described in Section 5.
 
-   2.  Tags must begin with a fixed protocol identification string.
+   2.  Tags MUST begin with a fixed protocol identification string.
        This identification string should be unique to the protocol.
 
-   3.  Tags must include a protocol version number.
+   3.  Tags SHOULD include a protocol version number.
 
    4.  For protocols that define multiple ciphersuites, each
-       ciphersuite's tag must be different.  For this purpose, it is
-       recommended to include a ciphersuite identifier in each tag.
+       ciphersuite's tag MUST be different.  For this purpose, it is
+       RECOMMENDED to include a ciphersuite identifier in each tag.
 
    5.  For protocols that use multiple encodings, either to the same
-       curve or to different curves, each encoding must use a different
-       tag.
+       curve or to different curves, each encoding MUST use a different
+       tag.  For this purpose, it is RECOMMENDED to include the
+       encoding's Suite ID (Section 8) in the domain separation tag.
 
    As an example, consider a fictional key exchange protocol named Quux
    that defines several different ciphersuites.  A reasonable choice of
@@ -553,7 +552,8 @@ Internet-Draft                hash-to-curve                 October 2019
    For security reasons, all field operations, comparisons, and
    assignments MUST be implemented in constant time (i.e., execution
    time MUST NOT depend on the values of the inputs), and without
-
+   branching.  Guidance on implementing these low-level operations in
+   constant time is beyond the scope of this document.
 
 
 
@@ -561,9 +561,6 @@ Faz-Hernandez, et al.      Expires May 2, 2020                 [Page 10]
 
 Internet-Draft                hash-to-curve                 October 2019
 
-
-   branching.  Guidance on implementing these low-level operations in
-   constant time is beyond the scope of this document.
 
    o  CMOV(a, b, c): If c is False, CMOV returns a, otherwise it returns
       b.  To prevent against timing attacks, this operation must run in
@@ -609,6 +606,9 @@ Internet-Draft                hash-to-curve                 October 2019
 
    o  inv0(x): This function returns the multiplicative inverse of x in
       F, extended to all of F by fixing inv0(0) == 0.  To implement inv0
+      in constant time, compute inv0(x) := x^(q - 2).  Notice on input
+      0, the output is 0 as required.
+
 
 
 
@@ -617,9 +617,6 @@ Faz-Hernandez, et al.      Expires May 2, 2020                 [Page 11]
 
 Internet-Draft                hash-to-curve                 October 2019
 
-
-      in constant time, compute inv0(x) := x^(q - 2).  Notice on input
-      0, the output is 0 as required.
 
    o  I2OSP and OS2IP: These functions are used to convert an octet
       string to and from a non-negative integer as described in
@@ -664,6 +661,9 @@ Internet-Draft                hash-to-curve                 October 2019
    This variant SHOULD be used when points on the target elliptic curve
    are serialized using the SORT compression method given in IEEE
    1363a-2004 [p1363a], Section 5.5.6.1.2, and other similar methods.
+
+
+
 
 
 
