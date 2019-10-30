@@ -295,6 +295,9 @@ ul.toc li {
 <link href="#rfc.section.3" rel="Chapter" title="3 Roadmap">
 <link href="#rfc.section.3.1" rel="Chapter" title="3.1 Domain separation requirements">
 <link href="#rfc.section.4" rel="Chapter" title="4 Utility Functions">
+<link href="#rfc.section.4.1" rel="Chapter" title="4.1 sgn0 variants">
+<link href="#rfc.section.4.1.1" rel="Chapter" title="4.1.1 Big endian variant">
+<link href="#rfc.section.4.1.2" rel="Chapter" title="4.1.2 Little endian variant">
 <link href="#rfc.section.5" rel="Chapter" title="5 Hashing to a Finite Field">
 <link href="#rfc.section.5.1" rel="Chapter" title="5.1 Security considerations">
 <link href="#rfc.section.5.2" rel="Chapter" title="5.2 Performance considerations">
@@ -354,6 +357,11 @@ ul.toc li {
 <link href="#rfc.appendix.E.1" rel="Chapter" title="E.1 Finding Z for the Shallue and van de Woestijne map">
 <link href="#rfc.appendix.E.2" rel="Chapter" title="E.2 Finding Z for Simplified SWU">
 <link href="#rfc.appendix.E.3" rel="Chapter" title="E.3 Finding Z for Elligator 2">
+<link href="#rfc.appendix.F" rel="Chapter" title="F sqrt functions">
+<link href="#rfc.appendix.F.1" rel="Chapter" title="F.1 p = 3 (mod 4)">
+<link href="#rfc.appendix.F.2" rel="Chapter" title="F.2 p = 5 (mod 8)">
+<link href="#rfc.appendix.F.3" rel="Chapter" title="F.3 p = 9 (mod 16)">
+<link href="#rfc.appendix.F.4" rel="Chapter" title="F.4 Constant-time Tonelli-Shanks algorithm">
 <link href="#rfc.authors" rel="Chapter">
 
 
@@ -467,7 +475,13 @@ ul.toc li {
 </li>
 </ul><li>4.   <a href="#rfc.section.4">Utility Functions</a>
 </li>
-<li>5.   <a href="#rfc.section.5">Hashing to a Finite Field</a>
+<ul><li>4.1.   <a href="#rfc.section.4.1">sgn0 variants</a>
+</li>
+<ul><li>4.1.1.   <a href="#rfc.section.4.1.1">Big endian variant</a>
+</li>
+<li>4.1.2.   <a href="#rfc.section.4.1.2">Little endian variant</a>
+</li>
+</ul></ul><li>5.   <a href="#rfc.section.5">Hashing to a Finite Field</a>
 </li>
 <ul><li>5.1.   <a href="#rfc.section.5.1">Security considerations</a>
 </li>
@@ -585,6 +599,16 @@ ul.toc li {
 </li>
 <li>E.3.   <a href="#rfc.appendix.E.3">Finding Z for Elligator 2</a>
 </li>
+</ul><li>Appendix F.   <a href="#rfc.appendix.F">sqrt functions</a>
+</li>
+<ul><li>F.1.   <a href="#rfc.appendix.F.1">p = 3 (mod 4)</a>
+</li>
+<li>F.2.   <a href="#rfc.appendix.F.2">p = 5 (mod 8)</a>
+</li>
+<li>F.3.   <a href="#rfc.appendix.F.3">p = 9 (mod 16)</a>
+</li>
+<li>F.4.   <a href="#rfc.appendix.F.4">Constant-time Tonelli-Shanks algorithm</a>
+</li>
 </ul><li><a href="#rfc.authors">Authors' Addresses</a>
 </li>
 
@@ -609,7 +633,7 @@ ul.toc li {
 <a href="#rfc.section.2.1">2.1.</a> <a href="#bg-curves" id="bg-curves">Elliptic curves</a>
 </h1>
 <p id="rfc.section.2.1.p.1">The following is a brief definition of elliptic curves, with an emphasis on important parameters and their relation to hashing to curves.  For further reference on elliptic curves, consult <a href="#CFADLNV05" class="xref">[CFADLNV05]</a> or <a href="#W08" class="xref">[W08]</a>.</p>
-<p id="rfc.section.2.1.p.2">Let F be the finite field GF(q) of prime characteristic p. In most cases F is a prime field, so q = p. Otherwise, F is a field extension, so q = p^m for an integer m &gt; 1. This document assumes that elements of field extensions are written in a primitive element or polynomial basis, i.e., as of m elements of GF(p) written in ascending order by degree. For example, if q = p^2 and the primitive element basis is {1, i}, then the vector (a, b) corresponds to the element a + b * i.</p>
+<p id="rfc.section.2.1.p.2">Let F be the finite field GF(q) of prime characteristic p. In most cases F is a prime field, so q = p. Otherwise, F is a field extension, so q = p^m for an integer m &gt; 1. This document writes elements of field extensions in a primitive element or polynomial basis, i.e., as a vector of m elements of GF(p) written in ascending order by degree.  The entries of this vector are indexed in ascending order starting from 1, i.e., x = (x_1, x_2, &#8230;, x_m).  For example, if q = p^2 and the primitive element basis is (1, i), then x = (a, b) corresponds to the element a + b * i, where x_1 = a and x_2 = b.</p>
 <p id="rfc.section.2.1.p.3">An elliptic curve E is specified by an equation in two variables and a finite field F. An elliptic curve equation takes one of several standard forms, including (but not limited to) Weierstrass, Montgomery, and Edwards.</p>
 <p id="rfc.section.2.1.p.4">The curve E induces an algebraic group whose elements are those points with coordinates (x, y) satisfying the curve equation, and where x and y are elements of F.  This group has order n, meaning that there are n distinct points.  This document uses additive notation for the elliptic curve group operation.</p>
 <p id="rfc.section.2.1.p.5">For security reasons, groups of prime order MUST be used. Elliptic curves induce subgroups of prime order. Let G be a subgroup of the curve of prime order r, where n = h * r.  In this equation, h is an integer called the cofactor.  An algorithm that takes as input an arbitrary point on the curve E and produces as output a point in the subgroup G of E is said to &#8220;clear the cofactor.&#8221; Such algorithms are discussed in <a href="#cofactor-clearing" class="xref">Section 7</a>.</p>
@@ -679,7 +703,7 @@ ul.toc li {
 <h1 id="rfc.section.2.2.4">
 <a href="#rfc.section.2.2.4">2.2.4.</a> <a href="#term-serialization" id="term-serialization">Serialization</a>
 </h1>
-<p id="rfc.section.2.2.4.p.1">A procedure related to encoding is the conversion of an elliptic curve point to a bit string.  This is called serialization, and is typically used for compactly storing or transmitting points.  For example, <a href="#SECG1" class="xref">[SECG1]</a> gives a standard method for serializing points.  The reverse operation, deserialization, converts a bit string to an elliptic curve point.</p>
+<p id="rfc.section.2.2.4.p.1">A procedure related to encoding is the conversion of an elliptic curve point to a bit string.  This is called serialization, and is typically used for compactly storing or transmitting points.  The reverse operation, deserialization, converts a bit string to an elliptic curve point.  For example, <a href="#SEC1" class="xref">[SEC1]</a> and <a href="#p1363a" class="xref">[p1363a]</a> give standard methods for serialization and deserialization.</p>
 <p id="rfc.section.2.2.4.p.2">Deserialization is different from encoding in that only certain strings (namely, those output by the serialization procedure) can be deserialized.  In contrast, this document is concerned with encodings from arbitrary bit strings to elliptic curve points.  This document does not cover serialization or deserialization.</p>
 <h1 id="rfc.section.2.2.5">
 <a href="#rfc.section.2.2.5">2.2.5.</a> <a href="#term-domain-separation" id="term-domain-separation">Domain separation</a>
@@ -771,71 +795,33 @@ is_square(x) := { True,  if x^((q - 1) / 2) is 0 or 1 in F;
 </pre>
 <p></p>
 
-<ul><li>sqrt(x): The sqrt operation is a multi-valued function, i.e. there exist two roots of x in the field F whenever x is square.  To maintain compatibility across implementations while allowing implementors leeway for optimizations, this document does not require sqrt() to return a particular value. Instead, as explained in <a href="#point-sign" class="xref">Section 6.3</a>, any higher-level function that computes square roots also specifies how to determine the sign of the result.  <br><br> The preferred way of computing square roots is to fix a deterministic algorithm particular to F. We give algorithms for the three most common cases immediately below; other cases are analogous.  <br><br> Note that Case 3 below applies to GF(p^2) when p = 3 (mod 8).  <a href="#AR13" class="xref">[AR13]</a> and <a href="#S85" class="xref">[S85]</a> describe methods that work for other field extensions.  Regardless of the method chosen, the sqrt function MUST be performed in constant time.</li></ul>
+<ul>
+<li>sqrt(x): The sqrt operation is a multi-valued function, i.e. there exist two roots of x in the field F whenever x is square.  To maintain compatibility across implementations while allowing implementors leeway for optimizations, this document does not require sqrt() to return a particular value. Instead, as explained in <a href="#point-sign" class="xref">Section 6.3</a>, any higher-level function that computes square roots also specifies how to determine the sign of the result.  <br><br> The preferred way of computing square roots is to fix a deterministic algorithm particular to F. We give several algorithms in <a href="#appx-sqrt" class="xref">Appendix F</a>.  Regardless of the method chosen, the sqrt function should be implemented in a way that resists timing side channels, i.e., in constant time.</li>
+<li>sgn0(x): This function returns either +1 or -1 indicating the &#8220;sign&#8221; of x, where sgn0(x) == -1 just when x is &#8220;negative&#8221;.  In other words, this function always considers 0 to be positive.  This function may be implemented in multiple ways; <a href="#sgn0-variants" class="xref">Section 4.1</a> defines two variants.  Throughout the document, sgn0 is used generically to mean either of these variants.  Each suite in <a href="#suites" class="xref">Section 8</a> specifies the sgn0 variant to be used.</li>
+<li>abs(x): The absolute value of x is defined in terms of sgn0 in the natural way, namely, abs(x) := sgn0(x) * x.</li>
+<li>inv0(x): This function returns the multiplicative inverse of x in F, extended to all of F by fixing inv0(0) == 0.  To implement inv0 in constant time, compute inv0(x) := x^(q - 2).  Notice on input 0, the output is 0 as required.</li>
+<li>I2OSP and OS2IP: These functions are used to convert an octet string to and from a non-negative integer as described in <a href="#RFC8017" class="xref">[RFC8017]</a>.</li>
+<li>a || b: denotes the concatenation of bit strings a and b.</li>
+</ul>
+<h1 id="rfc.section.4.1">
+<a href="#rfc.section.4.1">4.1.</a> <a href="#sgn0-variants" id="sgn0-variants">sgn0 variants</a>
+</h1>
+<p id="rfc.section.4.1.p.1">This section defines two ways of determining the &#8220;sign&#8221; of an element of F.  The variant that should be used is a matter of convention.  Other sgn0 variants are possible, but the two given below cover commonly used notions of sign.</p>
+<p id="rfc.section.4.1.p.2">It is RECOMMENDED to select the variant that matches the point decompression method of the target curve.  In particular, since point decompression requires computing a square root and then choosing the sign of the resulting point, all decompression methods specify, implicitly or explicitly, a method for determining the sign of an element of F.  It is convenient for hash-to-curve and decompression to agree on a notion of sign, since this may permit simpler implementations.</p>
+<p id="rfc.section.4.1.p.3">See <a href="#bg-curves" class="xref">Section 2.1</a> for a discussion of representing elements of field extensions as vectors; this representation is used in both of the sgn0 variants below.</p>
+<p id="rfc.section.4.1.p.4">Note that any valid sgn0 function for field extensions must iterate over the entire vector representation of the input element.  To see why, imagine a function sgn0* that ignores the final entry in its input vector, and consider a field element x = (0, x_2).  Since sgn0* ignores x_2, sgn0*(x) == sgn0*(-x), which is incorrect when x_2 != 0.  The same argument applies to all entries of any x, establishing the claim.</p>
+<h1 id="rfc.section.4.1.1">
+<a href="#rfc.section.4.1.1">4.1.1.</a> <a href="#sgn0-be" id="sgn0-be">Big endian variant</a>
+</h1>
+<p id="rfc.section.4.1.1.p.1">The following sgn0 variant is defined such that sgn0_be(x) = -1 just when the big-endian encoding of x is lexically greater than the encoding of -x.</p>
+<p id="rfc.section.4.1.1.p.2">This variant SHOULD be used when points on the target elliptic curve are serialized using the SORT compression method given in IEEE 1363a-2004 <a href="#p1363a" class="xref">[p1363a]</a>, Section 5.5.6.1.2, and other similar methods.</p>
 <pre>
-s = sqrt(x)
+sgn0_be(x)
 
 Parameters:
-- F, a finite field of characteristic p and order q = p^m, m &gt;= 1.
-
-Input: x, an element of F.
-Output: s, an element of F such that (s^2) == x.
-
-======
-
-Case 1: q = 3 (mod 4)
-
-Constants:
-1. c1 = (q + 1) / 4     // Integer arithmetic
-
-Procedure:
-1. return x^c1
-
-======
-
-Case 2: q = 5 (mod 8)
-
-Constants:
-1. c1 = sqrt(-1) in F, i.e., (c1^2) == -1 in F
-2. c2 = (q + 3) / 8     // Integer arithmetic
-
-Procedure:
-1. t1 = x^c2
-2.  e = (t1^2) == x
-3.  s = CMOV(t1 * c1, t1, e)
-3. return s
-
-======
-
-Case 3: q = 9 (mod 16)
-
-Constants:
-1. c1 = sqrt(-1) in F, i.e., (c1^2) == -1 in F
-2. c2 = sqrt(c1) in F, i.e., (c2^2) == c1 in F
-3. c3 = sqrt(-c1) in F, i.e., (c3^2) == -c1 in F
-4. c4 = (q + 7) / 16    // Integer arithmetic
-
-Procedure:
-1.  t1 = x^c4
-2.  t2 = c1 * t1
-3.  t3 = c2 * t1
-4.  t4 = c3 * t1
-5.  e1 = (t2^2) == x
-6.  e2 = (t3^2) == x
-7.  t1 = CMOV(t1, t2, e1)  // Select t2 if (t2^2) == x
-8.  t2 = CMOV(t4, t3, e2)  // Select t3 if (t3^2) == x
-9.  e3 = (t2^2) == x
-10.  s = CMOV(t1, t2, e3)  // Select the sqrt from t1 and t2
-11. return s
-</pre>
-<p></p>
-
-<ul><li>sgn0(x): This function returns either +1 or -1 indicating the &#8220;sign&#8221; of x, where sgn0(x) == -1 just when x is lexically greater than -x.  Thus, this function considers 0 to be positive.  The following procedure implements sgn0(x) in constant time.  See <a href="#bg-curves" class="xref">Section 2.1</a> for a discussion of representing x as a vector.</li></ul>
-<pre>
-sgn0(x)
-
-Parameters:
-- F, a finite field of characteristic p and order q = p^m, m &gt;= 1.
+- F, a finite field of characteristic p and order q = p^m.
+- p, the characteristic of F (see immediately above).
+- m, the extension degree of F, m &gt;= 1 (see immediately above).
 
 Input: x, an element of F.
 Output: -1 or 1 (an integer).
@@ -850,14 +836,40 @@ Steps:
 5.   sign = CMOV(sign, sign_i, sign == 0)
 6. return CMOV(sign, 1, sign == 0)    // Regard x == 0 as positive
 </pre>
+<h1 id="rfc.section.4.1.2">
+<a href="#rfc.section.4.1.2">4.1.2.</a> <a href="#sgn0-le" id="sgn0-le">Little endian variant</a>
+</h1>
+<p id="rfc.section.4.1.2.p.1">The following sgn0 variant is defined such that sgn0_le(x) = -1 just when x != 0 and the parity of the least significant nonzero entry of the vector representation of x is 1.</p>
+<p id="rfc.section.4.1.2.p.2">This variant SHOULD be used when points on the target elliptic curve are serialized using any of the following methods:</p>
 <p></p>
 
 <ul>
-<li>abs(x): The absolute value of x is defined in terms of sgn0 in the natural way, namely, abs(x) := sgn0(x) * x.</li>
-<li>inv0(x): This function returns the multiplicative inverse of x in F, extended to all of F by fixing inv0(0) == 0.  To implement inv0 in constant time, compute inv0(x) := x^(q - 2).  Notice on input 0, the output is 0 as required.</li>
-<li>I2OSP and OS2IP: These functions are used to convert an octet string to and from a non-negative integer as described in <a href="#RFC8017" class="xref">[RFC8017]</a>.</li>
-<li>a || b: denotes the concatenation of bit strings a and b.</li>
+<li>the LSB compression method given in IEEE 1363a-2004 <a href="#p1363a" class="xref">[p1363a]</a>, Section 5.5.6.1.1,</li>
+<li>the method given in <a href="#SEC1" class="xref">[SEC1]</a> Section 2.3.3, or</li>
+<li>the method given in ANSI X9.62-1998 <a href="#x9.62" class="xref">[x9.62]</a>, Section 4.2.1.</li>
 </ul>
+<p id="rfc.section.4.1.2.p.4">This variant is also compatible with the compression method specified for the Ed25519 and Ed448 elliptic curves <a href="#RFC8032" class="xref">[RFC8032]</a>.</p>
+<pre>
+sgn0_le(x)
+
+Parameters:
+- F, a finite field of characteristic p and order q = p^m.
+- p, the characteristic of F (see immediately above).
+- m, the extension degree of F, m &gt;= 1 (see immediately above).
+
+Input: x, an element of F.
+Output: -1 or 1 (an integer).
+
+Notation: x_i is the i^th element of the vector representation of x.
+
+Steps:
+1. sign = 0
+2. for i in (1, 2, ..., m):
+3.   sign_i = CMOV(1, -1, x_i mod 2 == 1)
+4.   sign_i = CMOV(sign_i, 0, x_i == 0)
+5.   sign = CMOV(sign, sign_i, sign == 0)
+6. return CMOV(sign, 1, sign == 0)     // regard x == 0 as positive
+</pre>
 <h1 id="rfc.section.5">
 <a href="#rfc.section.5">5.</a> <a href="#hashtobase" id="hashtobase">Hashing to a Finite Field</a>
 </h1>
@@ -897,7 +909,7 @@ Parameters:
 - H, a cryptographic hash function.
 - F, a finite field of characteristic p and order q = p^m.
 - p, the characteristic of F (see immediately above).
-- m, the extension degree of F (see immediately above).
+- m, the extension degree of F, m &gt;= 1 (see immediately above).
 - L = ceil((ceil(log2(p)) + k) / 8), where k is the security
   parameter of the cryptosystem (e.g., k = 128).
 - HKDF-Extract and HKDF-Expand are as defined in RFC5869,
@@ -918,7 +930,7 @@ Steps:
 3. for i in (1, ..., m):
 4.   info = info_pfx || I2OSP(i, 1)
 5.   t = HKDF-Expand(msg_prime, info, L)
-6.   e_i = OS2IP(t) (mod p)
+6.   e_i = OS2IP(t) mod p
 7. u = (e_1, ..., e_m)
 8. return u
 </pre>
@@ -1428,6 +1440,7 @@ clear_cofactor(P) := h_eff * P
 <li>E, the target elliptic curve over a field F.</li>
 <li>p, the characteristic of the field F.</li>
 <li>m, the extension degree of the field F.</li>
+<li>sgn0, one of the variants specified in <a href="#sgn0-variants" class="xref">Section 4.1</a>.</li>
 <li>H, the hash function used by hash_to_base (<a href="#hashtobase-sec" class="xref">Section 5.1</a>).</li>
 <li>L, the length of HKDF-Expand output in hash_to_base (<a href="#hashtobase-sec" class="xref">Section 5.1</a>).</li>
 <li>f, a mapping function from <a href="#mappings" class="xref">Section 6</a>.</li>
@@ -1527,6 +1540,7 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 </li>
 <li>p: 2^256 - 2^224 + 2^192 + 2^96 - 1</li>
 <li>m: 1</li>
+<li>sgn0: sgn0_le (<a href="#sgn0-le" class="xref">Section 4.1.2</a>)</li>
 <li>H: SHA-256</li>
 <li>L: 48</li>
 <li>h_eff: 1</li>
@@ -1563,6 +1577,7 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 </li>
 <li>p: 2^384 - 2^128 - 2^96 + 2^32 - 1</li>
 <li>m: 1</li>
+<li>sgn0: sgn0_le (<a href="#sgn0-le" class="xref">Section 4.1.2</a>)</li>
 <li>H: SHA-512</li>
 <li>L: 72</li>
 <li>h_eff: 1</li>
@@ -1598,6 +1613,7 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 </li>
 <li>p: 2^521 - 1</li>
 <li>m: 1</li>
+<li>sgn0: sgn0_le (<a href="#sgn0-le" class="xref">Section 4.1.2</a>)</li>
 <li>H: SHA-512</li>
 <li>L: 96</li>
 <li>h_eff: 1</li>
@@ -1638,6 +1654,7 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <ul>
 <li>p: 2^255 - 19</li>
 <li>m: 1</li>
+<li>sgn0: sgn0_le (<a href="#sgn0-le" class="xref">Section 4.1.2</a>)</li>
 <li>H: SHA-256</li>
 <li>L: 48</li>
 <li>Z: 2</li>
@@ -1680,6 +1697,7 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <ul>
 <li>p: 2^448 - 2^224 - 1</li>
 <li>m: 1</li>
+<li>sgn0: sgn0_le (<a href="#sgn0-le" class="xref">Section 4.1.2</a>)</li>
 <li>H: SHA-512</li>
 <li>L: 84</li>
 <li>Z: -1</li>
@@ -1720,6 +1738,7 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>E: y^2 = x^3 + 7</li>
 <li>p: 2^256 - 2^32 - 2^9 - 2^8 - 2^7 - 2^6 - 2^4 - 1</li>
 <li>m: 1</li>
+<li>sgn0: sgn0_le (<a href="#sgn0-le" class="xref">Section 4.1.2</a>)</li>
 <li>H: SHA-256</li>
 <li>L: 48</li>
 <li>h_eff: 1</li>
@@ -1761,6 +1780,7 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>E: y^2 = x^3 + 4</li>
 <li>p: 0x1a0111ea397fe69a4b1ba7b6434bacd764774b84f38512bf6730d2a0f6b0f6241eabfffeb153ffffb9feffffffffaaab</li>
 <li>m: 1</li>
+<li>sgn0: sgn0_be (<a href="#sgn0-be" class="xref">Section 4.1.1</a>)</li>
 <li>H: SHA-256</li>
 <li>L: 64</li>
 <li>h_eff: 0xd201000000010001</li>
@@ -1806,6 +1826,7 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <ul>
 <li>E: y^2 = x^3 + 4 * (1 + I)</li>
 <li>p, m, F: defined above</li>
+<li>sgn0: sgn0_be (<a href="#sgn0-be" class="xref">Section 4.1.1</a>)</li>
 <li>H: SHA-256</li>
 <li>L: 64</li>
 <li>h_eff: 0xbc69f08f2ee75b3584c6a0ea91b352888e2a8e9145ad7689986ff031508ffe1329c2f178731db956d82bf015d1212b02ec0ec69d7477c1ae954cbc06689f6a359894c0adebbf6b4e8020005aaa95551</li>
@@ -1827,7 +1848,7 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <h1 id="rfc.section.11">
 <a href="#rfc.section.11">11.</a> <a href="#acknowledgements" id="acknowledgements">Acknowledgements</a>
 </h1>
-<p id="rfc.section.11.p.1">The authors would like to thank Adam Langley for his detailed writeup of Elligator 2 with Curve25519 <a href="#L13" class="xref">[L13]</a>; Christopher Patton and Benjamin Lipp for educational discussions; and Sean Devlin, Justin Drake, Dan Harkins, Thomas Icart, Michael Scott, and Mathy Vanhoef for helpful feedback.</p>
+<p id="rfc.section.11.p.1">The authors would like to thank Adam Langley for his detailed writeup of Elligator 2 with Curve25519 <a href="#L13" class="xref">[L13]</a>; Christopher Patton and Benjamin Lipp for educational discussions; and Sean Devlin, Justin Drake, Dan Harkins, Thomas Icart, Leo Reyzin, Michael Scott, and Mathy Vanhoef for helpful feedback.</p>
 <h1 id="rfc.section.12">
 <a href="#rfc.section.12">12.</a> <a href="#contributors" id="contributors">Contributors</a>
 </h1>
@@ -1876,6 +1897,11 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <td class="reference"><b id="RFC8017">[RFC8017]</b></td>
 <td class="top">
 <a>Moriarty, K.</a>, <a>Kaliski, B.</a>, <a>Jonsson, J.</a> and <a>A. Rusch</a>, "<a href="https://tools.ietf.org/html/rfc8017">PKCS #1: RSA Cryptography Specifications Version 2.2</a>", RFC 8017, DOI 10.17487/RFC8017, November 2016.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC8032">[RFC8032]</b></td>
+<td class="top">
+<a>Josefsson, S.</a> and <a>I. Liusvaara</a>, "<a href="https://tools.ietf.org/html/rfc8032">Edwards-Curve Digital Signature Algorithm (EdDSA)</a>", RFC 8032, DOI 10.17487/RFC8032, January 2017.</td>
 </tr>
 </tbody></table>
 <h1 id="rfc.references.2">
@@ -1945,6 +1971,11 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <td class="reference"><b id="BP18">[BP18]</b></td>
 <td class="top">
 <a title="University of Bergen, Norway and MIRACL Labs, London, England">Budroni, A.</a> and <a title="University of Trento, Italy">F. Pintore</a>, "<a href="https://doi.org/10.1145/3313880.3313884">Hashing to G2 on BLS pairing-friendly curves</a>", In ACM Communications in Computer Algebra, pages 63-66, DOI 10.1145/3313880.3313884, September 2018.</td>
+</tr>
+<tr>
+<td class="reference"><b id="C93">[C93]</b></td>
+<td class="top">
+<a>Cohen, H.</a>, "<a href="https://doi.org/10.1007/978-3-662-02945-9">A Course in Computational Algebraic Number Theory</a>", publisher Springer-Verlag, ISBN 9783642081422, 1993.</td>
 </tr>
 <tr>
 <td class="reference"><b id="CFADLNV05">[CFADLNV05]</b></td>
@@ -2031,6 +2062,10 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <a title="Integrity Sciences, Inc. Westboro, MA.">Jablon, D.</a>, "<a href="https://doi.org/10.1145/242896.242897">Strong password-only authenticated key exchange</a>", In SIGCOMM Computer Communication Review, vol 26 issue 5, pages 5-26, DOI 10.1145/242896.242897, 1996.</td>
 </tr>
 <tr>
+<td class="reference"><b id="jubjub-fq">[jubjub-fq]</b></td>
+<td class="top">"<a href="https://github.com/zkcrypto/jubjub/blob/master/src/fq.rs">zkcrypto/jubjub - fq.rs</a>", 2019.</td>
+</tr>
+<tr>
 <td class="reference"><b id="KLR10">[KLR10]</b></td>
 <td class="top">
 <a title="Universite de Rennes">Kammerer, J.</a>, <a title="Universite de Rennes">Lercier, R.</a> and <a title="Universite Pierre et Marie Curie">G. Renault</a>, "<a href="https://doi.org/10.1007/978-3-642-17455-1_18">Encoding points on hyperelliptic curves over finite fields in deterministic polynomial time</a>", In PAIRING 2010, pages 278-297, DOI 10.1007/978-3-642-17455-1_18, 2010.</td>
@@ -2049,6 +2084,11 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <td class="reference"><b id="LBB19">[LBB19]</b></td>
 <td class="top">
 <a title="INRIA Paris">Lipp, B.</a>, <a title="INRIA Paris">Blanchet, B.</a> and <a title="INRIA Paris">K. Bhargavan</a>, "<a href="https://hal.inria.fr/hal-02100345/">A Mechanised Proof of the WireGuard Virtual Private Network Protocol</a>", In INRIA Research Report No. 9269, April 2019.</td>
+</tr>
+<tr>
+<td class="reference"><b id="p1363a">[p1363a]</b></td>
+<td class="top">
+<a>IEEE Computer Society</a>, "<a href="https://standards.ieee.org/standard/1363a-2004.html">IEEE Standard Specifications for Public-Key Cryptography---Amendment 1: Additional Techniques</a>", March 2004.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RSS11">[RSS11]</b></td>
@@ -2076,14 +2116,14 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">Scott, M.</a>, <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">Benger, N.</a>, <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">Charlemagne, M.</a>, <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">Dominguez Perez, L.</a> and <a title="School of Computing Dublin City University, Ballymun. Dublin, Ireland.">E. Kachisa</a>, "<a href="https://doi.org/10.1007/978-3-642-03298-1_8">Fast Hashing to G2 on Pairing-Friendly Curves</a>", In Pairing-Based Cryptography - Pairing 2009, pages 102-113, DOI 10.1007/978-3-642-03298-1_8, 2009.</td>
 </tr>
 <tr>
+<td class="reference"><b id="SEC1">[SEC1]</b></td>
+<td class="top">
+<a>Standards for Efficient Cryptography Group (SECG)</a>, "<a href="http://www.secg.org/sec1-v2.pdf">SEC 1: Elliptic Curve Cryptography</a>", May 2009.</td>
+</tr>
+<tr>
 <td class="reference"><b id="SEC2">[SEC2]</b></td>
 <td class="top">
 <a>Standards for Efficient Cryptography Group (SECG)</a>, "<a href="http://www.secg.org/sec2-v2.pdf">SEC 2: Recommended Elliptic Curve Domain Parameters</a>", January 2010.</td>
-</tr>
-<tr>
-<td class="reference"><b id="SECG1">[SECG1]</b></td>
-<td class="top">
-<a>Standards for Efficient Cryptography Group (SECG)</a>, "<a href="http://www.secg.org/sec1-v2.pdf">SEC 1: Elliptic Curve Cryptography</a>", May 2009.</td>
 </tr>
 <tr>
 <td class="reference"><b id="SP.800-185">[SP.800-185]</b></td>
@@ -2128,7 +2168,12 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <tr>
 <td class="reference"><b id="WB19">[WB19]</b></td>
 <td class="top">
-<a title="Stanford University">Wahby, R.</a> and <a title="Stanford University">D. Boneh</a>, "<a href="https://eprint.iacr.org/2019/403">Fast and simple constant-time hashing to the BLS12-381 elliptic curve</a>", Technical report ePrint 2019/403, 2019.</td>
+<a title="Stanford University">Wahby, R.</a> and <a title="Stanford University">D. Boneh</a>, "<a href="https://eprint.iacr.org/2019/403">Fast and simple constant-time hashing to the BLS12-381 elliptic curve</a>", In IACR Trans. CHES, volume 2019, issue 4, DOI 10.13154/tches.v2019.i4.154-179, ePrint 2019/403, August 2019.</td>
+</tr>
+<tr>
+<td class="reference"><b id="x9.62">[x9.62]</b></td>
+<td class="top">
+<a>ANSI</a>, "<a>Public Key Cryptography for the Financial Services Industry: the Elliptic Curve Digital Signature Algorithm (ECDSA)</a>", ANSI X9.62-1998, September 1998.</td>
 </tr>
 </tbody></table>
 <h1 id="rfc.appendix.A">
@@ -2619,8 +2664,8 @@ Steps:
 <p id="rfc.section.E.1.p.1">The below function outputs an appropriate Z for the Shallue and van de Woestijne map (<a href="#svdw" class="xref">Section 6.5.1</a>).</p>
 <pre>
 def find_z_svdw(F, A, B):
-    g = lambda x: F(x) ** 3 + F(A) * F(x) + F(B)
-    h = lambda Z: -(F(3) * Z ** 2 + F(4) * A) / (F(4) * g(Z))
+    g = lambda x: F(x)^3 + F(A) * F(x) + F(B)
+    h = lambda Z: -(F(3) * Z^2 + F(4) * A) / (F(4) * g(Z))
     ctr = F.gen()
     while True:
         for Z_cand in (F(ctr), F(-ctr)):
@@ -2648,7 +2693,7 @@ def find_z_svdw(F, A, B):
 # - A and B, the coefficients of the curve equation y^2 = x^3 + A * x + B
 def find_z_sswu(F, A, B):
     R.&lt;xx&gt; = F[]                        # Polynomial ring over F
-    g = xx ** 3 + F(A) * xx + F(B)      # y^2 = g(x) = x^3 + A x + B
+    g = xx^3 + F(A) * xx + F(B)         # y^2 = g(x) = x^3 + A * x + B
     ctr = F.gen()
     while True:
         for Z_cand in (F(ctr), F(-ctr)):
@@ -2682,6 +2727,145 @@ def find_z_ell2(F):
                 continue
             return Z_cand
         ctr += 1
+</pre>
+<h1 id="rfc.appendix.F">
+<a href="#rfc.appendix.F">Appendix F.</a> <a href="#appx-sqrt" id="appx-sqrt">sqrt functions</a>
+</h1>
+<p id="rfc.section.F.p.1">This section defines special-purpose sqrt functions for the three most common cases, p = 3 (mod 4), p = 5 (mod 8), and p = 9 (mod 16).  In addition, it gives a generic constant-time algorithm that works for any prime modulus.</p>
+<h1 id="rfc.appendix.F.1">
+<a href="#rfc.appendix.F.1">F.1.</a> <a href="#sqrt-3mod4" id="sqrt-3mod4">p = 3 (mod 4)</a>
+</h1>
+<pre>
+sqrt_3mod4(x)
+
+Parameters:
+- F, a finite field of characteristic p and order q = p^m.
+- p, the characteristic of F (see immediately above).
+- m, the extension degree of F, m &gt;= 1 (see immediately above).
+
+Input: x, an element of F.
+Output: s, an element of F such that (s^2) == x.
+
+Constants:
+1. c1 = (q + 1) / 4     // Integer arithmetic
+
+Procedure:
+1. return x^c1
+</pre>
+<h1 id="rfc.appendix.F.2">
+<a href="#rfc.appendix.F.2">F.2.</a> <a href="#sqrt-5mod8" id="sqrt-5mod8">p = 5 (mod 8)</a>
+</h1>
+<pre>
+sqrt_5mod8(x)
+
+Parameters:
+- F, a finite field of characteristic p and order q = p^m.
+- p, the characteristic of F (see immediately above).
+- m, the extension degree of F, m &gt;= 1 (see immediately above).
+
+Input: x, an element of F.
+Output: s, an element of F such that (s^2) == x.
+
+Constants:
+1. c1 = sqrt(-1) in F, i.e., (c1^2) == -1 in F
+2. c2 = (q + 3) / 8     // Integer arithmetic
+
+Procedure:
+1. t1 = x^c2
+2.  e = (t1^2) == x
+3.  s = CMOV(t1 * c1, t1, e)
+3. return s
+</pre>
+<h1 id="rfc.appendix.F.3">
+<a href="#rfc.appendix.F.3">F.3.</a> <a href="#sqrt-9mod16" id="sqrt-9mod16">p = 9 (mod 16)</a>
+</h1>
+<p id="rfc.section.F.3.p.1">Note that this case also applies to GF(p^2) when p = 3 (mod 8).  <a href="#AR13" class="xref">[AR13]</a> and <a href="#S85" class="xref">[S85]</a> describe methods that work for other field extensions.</p>
+<pre>
+sqrt_9mod16(x)
+
+Parameters:
+- F, a finite field of characteristic p and order q = p^m.
+- p, the characteristic of F (see immediately above).
+- m, the extension degree of F, m &gt;= 1 (see immediately above).
+
+Input: x, an element of F.
+Output: s, an element of F such that (s^2) == x.
+
+Constants:
+1. c1 = sqrt(-1) in F, i.e., (c1^2) == -1 in F
+2. c2 = sqrt(c1) in F, i.e., (c2^2) == c1 in F
+3. c3 = sqrt(-c1) in F, i.e., (c3^2) == -c1 in F
+4. c4 = (q + 7) / 16    // Integer arithmetic
+
+Procedure:
+1.  t1 = x^c4
+2.  t2 = c1 * t1
+3.  t3 = c2 * t1
+4.  t4 = c3 * t1
+5.  e1 = (t2^2) == x
+6.  e2 = (t3^2) == x
+7.  t1 = CMOV(t1, t2, e1)  // Select t2 if (t2^2) == x
+8.  t2 = CMOV(t4, t3, e2)  // Select t3 if (t3^2) == x
+9.  e3 = (t2^2) == x
+10.  s = CMOV(t1, t2, e3)  // Select the sqrt from t1 and t2
+11. return s
+</pre>
+<h1 id="rfc.appendix.F.4">
+<a href="#rfc.appendix.F.4">F.4.</a> <a href="#sqrt-ts" id="sqrt-ts">Constant-time Tonelli-Shanks algorithm</a>
+</h1>
+<p id="rfc.section.F.4.p.1">This algorithm is a constant-time version of the classic Tonelli-Shanks algorithm (<a href="#C93" class="xref">[C93]</a>, Algorithm 1.5.1) due to Sean Bowe, Jack Grigg, and Eirik Ogilvie-Wigley <a href="#jubjub-fq" class="xref">[jubjub-fq]</a>, adapted and optimized by Michael Scott.</p>
+<p id="rfc.section.F.4.p.2">This algorithm applies to GF(p) for any p.  Note, however, that the special-purpose algorithms given in the prior sections are faster, when they apply.</p>
+<pre>
+sqrt_ts_ct(x)
+
+Parameters:
+- F, a finite field of order p
+- p, the characteristic of F (see immediately above)
+
+Input x, an element of F.
+Output: r, an element of F such that (r^2) == 2.
+
+Constants (see discussion below):
+1. c1, the largest integer such that 2^c1 divides p - 1.
+2. c2 = (p - 1) / (2^c1)        // Integer arithmetic
+3. c3 = (c2 - 1) / 2            // Integer arithmetic
+4. c4, a non-square value in F
+5. c5 = c4^c2 in F
+
+Procedure:
+1.  r = x^c3
+2.  t = r * r * x
+3.  r = r * x
+4.  b = t
+5.  c = c5
+6.  for k in (m, m - 1, ..., 2):
+7.      for j in (1, 2, ..., k - 1):
+8.           b = b * b
+9.      r = CMOV(r, r * c, b != 1)
+10.     c = c * c
+11.     t = CMOV(t, t * c, b != 1)
+12.     b = t
+13. return r
+</pre>
+<p id="rfc.section.F.4.p.3">The constants used in this procedure can be computed as follows:</p>
+<pre>
+precompute_ts(p)
+
+Input: p, a prime
+Output: the required constants c1, ..., c5
+
+Procedure:
+1.  c1 = 0
+2.  c2 = p - 1
+3.  while c2 is even:
+4.      c2 = c2 / 2             // Integer arithmetic
+5.      c1 = c1 + 1
+6.  c3 = (c2 - 1) / 2           // Integer arithmetic
+7.  c4 = 1
+8.  while c4 is square mod p:
+9.      c4 = c4 + 1
+10. c5 = c4^c2 mod p
+11. return (c1, c2, c3, c4, c5)
 </pre>
 <h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
 <div class="avoidbreak">
