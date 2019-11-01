@@ -2253,15 +2253,15 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <ul>
 <li>A&#8217; = 2 * (a + d) / (a - d)</li>
 <li>B&#8217; = 4 / (a - d)</li>
-<li>s = (1 + y) / (1 - y)</li>
-<li>t = (1 + y) / (x * (1 - y))</li>
+<li>s = (1 + w) / (1 - w)</li>
+<li>t = (1 + w) / (v * (1 - w))</li>
 </ul>
 <p id="rfc.section.B.1.p.6">whose inverse is given by:</p>
 <p></p>
 
 <ul>
-<li>x = s / t</li>
-<li>y = (s - 1) / (s + 1)</li>
+<li>v = s / t</li>
+<li>w = (s - 1) / (s + 1)</li>
 </ul>
 <p id="rfc.section.B.1.p.8">Composing the mapping immediately above with the mapping from Montgomery to Weierstrass curves in <a href="#appx-rational-map-mont" class="xref">Appendix B.2</a> yields a mapping from twisted Edwards curves to Weierstrass curves of the form required by the mappings in <a href="#weierstrass" class="xref">Section 6.6</a>.  This mapping can be used to apply the Shallue-van de Woestijne method (<a href="#svdw" class="xref">Section 6.6.1</a>) to twisted Edwards curves.</p>
 <h1 id="rfc.appendix.B.2">
@@ -2273,14 +2273,14 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <ul>
 <li>C = (3 - A&#8217;^2) / (3 * B&#8217;^2)</li>
 <li>D = (2 * A&#8217;^3 - 9 * A&#8217;) / (27 * B&#8217;^3)</li>
-<li>x = (3 * s - A&#8217;) / (3 * B&#8217;)</li>
+<li>x = (3 * s + A&#8217;) / (3 * B&#8217;)</li>
 <li>y = t / B&#8217;</li>
 </ul>
 <p id="rfc.section.B.2.p.3">The inverse map, from the point (x, y) to the point (s, t), is given by</p>
 <p></p>
 
 <ul>
-<li>s = (3 * B&#8217; * x + A&#8217;) / 3</li>
+<li>s = (3 * B&#8217; * x - A&#8217;) / 3</li>
 <li>t = y * B&#8217;</li>
 </ul>
 <p id="rfc.section.B.2.p.5">This mapping can be used to apply the Shallue-van de Woestijne method (<a href="#svdw" class="xref">Section 6.6.1</a>) to Montgomery curves.</p>

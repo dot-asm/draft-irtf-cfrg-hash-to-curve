@@ -3152,15 +3152,15 @@ Internet-Draft                hash-to-curve                November 2019
 
    o  B' = 4 / (a - d)
 
-   o  s = (1 + y) / (1 - y)
+   o  s = (1 + w) / (1 - w)
 
-   o  t = (1 + y) / (x * (1 - y))
+   o  t = (1 + w) / (v * (1 - w))
 
    whose inverse is given by:
 
-   o  x = s / t
+   o  v = s / t
 
-   o  y = (s - 1) / (s + 1)
+   o  w = (s - 1) / (s + 1)
 
    Composing the mapping immediately above with the mapping from
    Montgomery to Weierstrass curves in Appendix B.2 yields a mapping
@@ -3179,7 +3179,7 @@ B.2.  Montgomery to Weierstrass curves
 
    o  D = (2 * A'^3 - 9 * A') / (27 * B'^3)
 
-   o  x = (3 * s - A') / (3 * B')
+   o  x = (3 * s + A') / (3 * B')
 
    o  y = t / B'
 
@@ -3194,7 +3194,7 @@ Faz-Hernandez, et al.      Expires May 4, 2020                 [Page 57]
 Internet-Draft                hash-to-curve                November 2019
 
 
-   o  s = (3 * B' * x + A') / 3
+   o  s = (3 * B' * x - A') / 3
 
    o  t = y * B'
 
