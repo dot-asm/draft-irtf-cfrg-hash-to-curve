@@ -283,7 +283,8 @@ ul.toc li {
 
   <link href="#rfc.toc" rel="Contents">
 <link href="#rfc.section.1" rel="Chapter" title="1 Introduction">
-<link href="#rfc.section.1.1" rel="Chapter" title="1.1 Requirements">
+<link href="#rfc.section.1.1" rel="Chapter" title="1.1 How to use this document">
+<link href="#rfc.section.1.2" rel="Chapter" title="1.2 Requirements">
 <link href="#rfc.section.2" rel="Chapter" title="2 Background">
 <link href="#rfc.section.2.1" rel="Chapter" title="2.1 Elliptic curves">
 <link href="#rfc.section.2.2" rel="Chapter" title="2.2 Terminology">
@@ -304,34 +305,36 @@ ul.toc li {
 <link href="#rfc.section.5.3" rel="Chapter" title="5.3 Implementation">
 <link href="#rfc.section.5.4" rel="Chapter" title="5.4 Alternative hash_to_base functions">
 <link href="#rfc.section.6" rel="Chapter" title="6 Deterministic Mappings">
-<link href="#rfc.section.6.1" rel="Chapter" title="6.1 Interface">
-<link href="#rfc.section.6.2" rel="Chapter" title="6.2 Notation">
-<link href="#rfc.section.6.3" rel="Chapter" title="6.3 Sign of the resulting point">
-<link href="#rfc.section.6.4" rel="Chapter" title="6.4 Exceptional cases">
-<link href="#rfc.section.6.5" rel="Chapter" title="6.5 Mappings for Weierstrass curves">
-<link href="#rfc.section.6.5.1" rel="Chapter" title="6.5.1 Shallue-van de Woestijne Method">
-<link href="#rfc.section.6.5.2" rel="Chapter" title="6.5.2 Simplified Shallue-van de Woestijne-Ulas Method">
-<link href="#rfc.section.6.5.3" rel="Chapter" title="6.5.3 Simplified SWU for AB == 0">
-<link href="#rfc.section.6.6" rel="Chapter" title="6.6 Mappings for Montgomery curves">
-<link href="#rfc.section.6.6.1" rel="Chapter" title="6.6.1 Elligator 2 Method">
-<link href="#rfc.section.6.7" rel="Chapter" title="6.7 Mappings for Twisted Edwards curves">
-<link href="#rfc.section.6.7.1" rel="Chapter" title="6.7.1 Rational maps from Montgomery to twisted Edwards curves">
-<link href="#rfc.section.6.7.2" rel="Chapter" title="6.7.2 Elligator 2 Method">
-<link href="#rfc.section.6.8" rel="Chapter" title="6.8 Mappings for Supersingular curves">
-<link href="#rfc.section.6.8.1" rel="Chapter" title="6.8.1 Boneh-Franklin Method">
-<link href="#rfc.section.6.8.2" rel="Chapter" title="6.8.2 Elligator 2, A == 0 Method">
+<link href="#rfc.section.6.1" rel="Chapter" title="6.1 Choosing a mapping function">
+<link href="#rfc.section.6.2" rel="Chapter" title="6.2 Interface">
+<link href="#rfc.section.6.3" rel="Chapter" title="6.3 Notation">
+<link href="#rfc.section.6.4" rel="Chapter" title="6.4 Sign of the resulting point">
+<link href="#rfc.section.6.5" rel="Chapter" title="6.5 Exceptional cases">
+<link href="#rfc.section.6.6" rel="Chapter" title="6.6 Mappings for Weierstrass curves">
+<link href="#rfc.section.6.6.1" rel="Chapter" title="6.6.1 Shallue-van de Woestijne Method">
+<link href="#rfc.section.6.6.2" rel="Chapter" title="6.6.2 Simplified Shallue-van de Woestijne-Ulas Method">
+<link href="#rfc.section.6.6.3" rel="Chapter" title="6.6.3 Simplified SWU for AB == 0">
+<link href="#rfc.section.6.7" rel="Chapter" title="6.7 Mappings for Montgomery curves">
+<link href="#rfc.section.6.7.1" rel="Chapter" title="6.7.1 Elligator 2 Method">
+<link href="#rfc.section.6.8" rel="Chapter" title="6.8 Mappings for Twisted Edwards curves">
+<link href="#rfc.section.6.8.1" rel="Chapter" title="6.8.1 Rational maps from Montgomery to twisted Edwards curves">
+<link href="#rfc.section.6.8.2" rel="Chapter" title="6.8.2 Elligator 2 Method">
+<link href="#rfc.section.6.9" rel="Chapter" title="6.9 Mappings for Supersingular curves">
+<link href="#rfc.section.6.9.1" rel="Chapter" title="6.9.1 Boneh-Franklin Method">
+<link href="#rfc.section.6.9.2" rel="Chapter" title="6.9.2 Elligator 2, A == 0 Method">
 <link href="#rfc.section.7" rel="Chapter" title="7 Clearing the cofactor">
 <link href="#rfc.section.8" rel="Chapter" title="8 Suites for Hashing">
-<link href="#rfc.section.8.1" rel="Chapter" title="8.1 Suite ID naming conventions">
-<link href="#rfc.section.8.2" rel="Chapter" title="8.2 Suites for NIST P-256">
-<link href="#rfc.section.8.3" rel="Chapter" title="8.3 Suites for NIST P-384">
-<link href="#rfc.section.8.4" rel="Chapter" title="8.4 Suites for NIST P-521">
-<link href="#rfc.section.8.5" rel="Chapter" title="8.5 Suites for curve25519 and edwards25519">
-<link href="#rfc.section.8.6" rel="Chapter" title="8.6 Suites for curve448 and edwards448">
-<link href="#rfc.section.8.7" rel="Chapter" title="8.7 Suites for secp256k1">
-<link href="#rfc.section.8.8" rel="Chapter" title="8.8 Suites for BLS12-381">
-<link href="#rfc.section.8.8.1" rel="Chapter" title="8.8.1 BLS12-381 G1">
-<link href="#rfc.section.8.8.2" rel="Chapter" title="8.8.2 BLS12-381 G2">
+<link href="#rfc.section.8.1" rel="Chapter" title="8.1 Defining a new hash-to-curve suite">
+<link href="#rfc.section.8.2" rel="Chapter" title="8.2 Suite ID naming conventions">
+<link href="#rfc.section.8.3" rel="Chapter" title="8.3 Suites for NIST P-256">
+<link href="#rfc.section.8.4" rel="Chapter" title="8.4 Suites for NIST P-384">
+<link href="#rfc.section.8.5" rel="Chapter" title="8.5 Suites for NIST P-521">
+<link href="#rfc.section.8.6" rel="Chapter" title="8.6 Suites for curve25519 and edwards25519">
+<link href="#rfc.section.8.7" rel="Chapter" title="8.7 Suites for curve448 and edwards448">
+<link href="#rfc.section.8.8" rel="Chapter" title="8.8 Suites for secp256k1">
+<link href="#rfc.section.8.9" rel="Chapter" title="8.9 Suites for BLS12-381">
+<link href="#rfc.section.8.9.1" rel="Chapter" title="8.9.1 BLS12-381 G1">
+<link href="#rfc.section.8.9.2" rel="Chapter" title="8.9.2 BLS12-381 G2">
 <link href="#rfc.section.9" rel="Chapter" title="9 IANA Considerations">
 <link href="#rfc.section.10" rel="Chapter" title="10 Security Considerations">
 <link href="#rfc.section.11" rel="Chapter" title="11 Acknowledgements">
@@ -340,7 +343,9 @@ ul.toc li {
 <link href="#rfc.references.1" rel="Chapter" title="13.1 Normative References">
 <link href="#rfc.references.2" rel="Chapter" title="13.2 Informative References">
 <link href="#rfc.appendix.A" rel="Chapter" title="A Related Work">
-<link href="#rfc.appendix.B" rel="Chapter" title="B Rational maps from twisted Edwards to Weierstrass and Montgomery curves">
+<link href="#rfc.appendix.B" rel="Chapter" title="B Rational maps">
+<link href="#rfc.appendix.B.1" rel="Chapter" title="B.1 Twisted Edwards to Weierstrass and Montgomery curves">
+<link href="#rfc.appendix.B.2" rel="Chapter" title="B.2 Montgomery to Weierstrass curves">
 <link href="#rfc.appendix.C" rel="Chapter" title="C Isogeny maps for Suites">
 <link href="#rfc.appendix.C.1" rel="Chapter" title="C.1 3-isogeny map for secp256k1">
 <link href="#rfc.appendix.C.2" rel="Chapter" title="C.2 11-isogeny map for BLS12-381 G1">
@@ -369,7 +374,7 @@ ul.toc li {
 
   <meta name="dct.creator" content="Faz-Hernandez, A., Scott, S., Sullivan, N., Wahby, R., and C. Wood" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-irtf-cfrg-hash-to-curve-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-10-31" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-11-01" />
   <meta name="dct.abstract" content="This document specifies a number of algorithms that may be used to encode or hash an arbitrary string to a point on an elliptic curve." />
   <meta name="description" content="This document specifies a number of algorithms that may be used to encode or hash an arbitrary string to a point on an elliptic curve." />
 
@@ -393,7 +398,7 @@ ul.toc li {
 <td class="right">S. Scott</td>
 </tr>
 <tr>
-<td class="left">Expires: May 3, 2020</td>
+<td class="left">Expires: May 4, 2020</td>
 <td class="right">Cornell Tech</td>
 </tr>
 <tr>
@@ -422,7 +427,7 @@ ul.toc li {
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">October 31, 2019</td>
+<td class="right">November 01, 2019</td>
 </tr>
 
     	
@@ -438,7 +443,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on May 3, 2020.</p>
+<p>This Internet-Draft will expire on May 4, 2020.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -450,7 +455,9 @@ ul.toc li {
 
   	<li>1.   <a href="#rfc.section.1">Introduction</a>
 </li>
-<ul><li>1.1.   <a href="#rfc.section.1.1">Requirements</a>
+<ul><li>1.1.   <a href="#rfc.section.1.1">How to use this document</a>
+</li>
+<li>1.2.   <a href="#rfc.section.1.2">Requirements</a>
 </li>
 </ul><li>2.   <a href="#rfc.section.2">Background</a>
 </li>
@@ -492,61 +499,65 @@ ul.toc li {
 </li>
 </ul><li>6.   <a href="#rfc.section.6">Deterministic Mappings</a>
 </li>
-<ul><li>6.1.   <a href="#rfc.section.6.1">Interface</a>
+<ul><li>6.1.   <a href="#rfc.section.6.1">Choosing a mapping function</a>
 </li>
-<li>6.2.   <a href="#rfc.section.6.2">Notation</a>
+<li>6.2.   <a href="#rfc.section.6.2">Interface</a>
 </li>
-<li>6.3.   <a href="#rfc.section.6.3">Sign of the resulting point</a>
+<li>6.3.   <a href="#rfc.section.6.3">Notation</a>
 </li>
-<li>6.4.   <a href="#rfc.section.6.4">Exceptional cases</a>
+<li>6.4.   <a href="#rfc.section.6.4">Sign of the resulting point</a>
 </li>
-<li>6.5.   <a href="#rfc.section.6.5">Mappings for Weierstrass curves</a>
+<li>6.5.   <a href="#rfc.section.6.5">Exceptional cases</a>
 </li>
-<ul><li>6.5.1.   <a href="#rfc.section.6.5.1">Shallue-van de Woestijne Method</a>
+<li>6.6.   <a href="#rfc.section.6.6">Mappings for Weierstrass curves</a>
 </li>
-<li>6.5.2.   <a href="#rfc.section.6.5.2">Simplified Shallue-van de Woestijne-Ulas Method</a>
+<ul><li>6.6.1.   <a href="#rfc.section.6.6.1">Shallue-van de Woestijne Method</a>
 </li>
-<li>6.5.3.   <a href="#rfc.section.6.5.3">Simplified SWU for AB == 0</a>
+<li>6.6.2.   <a href="#rfc.section.6.6.2">Simplified Shallue-van de Woestijne-Ulas Method</a>
 </li>
-</ul><li>6.6.   <a href="#rfc.section.6.6">Mappings for Montgomery curves</a>
+<li>6.6.3.   <a href="#rfc.section.6.6.3">Simplified SWU for AB == 0</a>
 </li>
-<ul><li>6.6.1.   <a href="#rfc.section.6.6.1">Elligator 2 Method</a>
+</ul><li>6.7.   <a href="#rfc.section.6.7">Mappings for Montgomery curves</a>
 </li>
-</ul><li>6.7.   <a href="#rfc.section.6.7">Mappings for Twisted Edwards curves</a>
+<ul><li>6.7.1.   <a href="#rfc.section.6.7.1">Elligator 2 Method</a>
 </li>
-<ul><li>6.7.1.   <a href="#rfc.section.6.7.1">Rational maps from Montgomery to twisted Edwards curves</a>
+</ul><li>6.8.   <a href="#rfc.section.6.8">Mappings for Twisted Edwards curves</a>
 </li>
-<li>6.7.2.   <a href="#rfc.section.6.7.2">Elligator 2 Method</a>
+<ul><li>6.8.1.   <a href="#rfc.section.6.8.1">Rational maps from Montgomery to twisted Edwards curves</a>
 </li>
-</ul><li>6.8.   <a href="#rfc.section.6.8">Mappings for Supersingular curves</a>
+<li>6.8.2.   <a href="#rfc.section.6.8.2">Elligator 2 Method</a>
 </li>
-<ul><li>6.8.1.   <a href="#rfc.section.6.8.1">Boneh-Franklin Method</a>
+</ul><li>6.9.   <a href="#rfc.section.6.9">Mappings for Supersingular curves</a>
 </li>
-<li>6.8.2.   <a href="#rfc.section.6.8.2">Elligator 2, A == 0 Method</a>
+<ul><li>6.9.1.   <a href="#rfc.section.6.9.1">Boneh-Franklin Method</a>
+</li>
+<li>6.9.2.   <a href="#rfc.section.6.9.2">Elligator 2, A == 0 Method</a>
 </li>
 </ul></ul><li>7.   <a href="#rfc.section.7">Clearing the cofactor</a>
 </li>
 <li>8.   <a href="#rfc.section.8">Suites for Hashing</a>
 </li>
-<ul><li>8.1.   <a href="#rfc.section.8.1">Suite ID naming conventions</a>
+<ul><li>8.1.   <a href="#rfc.section.8.1">Defining a new hash-to-curve suite</a>
 </li>
-<li>8.2.   <a href="#rfc.section.8.2">Suites for NIST P-256</a>
+<li>8.2.   <a href="#rfc.section.8.2">Suite ID naming conventions</a>
 </li>
-<li>8.3.   <a href="#rfc.section.8.3">Suites for NIST P-384</a>
+<li>8.3.   <a href="#rfc.section.8.3">Suites for NIST P-256</a>
 </li>
-<li>8.4.   <a href="#rfc.section.8.4">Suites for NIST P-521</a>
+<li>8.4.   <a href="#rfc.section.8.4">Suites for NIST P-384</a>
 </li>
-<li>8.5.   <a href="#rfc.section.8.5">Suites for curve25519 and edwards25519</a>
+<li>8.5.   <a href="#rfc.section.8.5">Suites for NIST P-521</a>
 </li>
-<li>8.6.   <a href="#rfc.section.8.6">Suites for curve448 and edwards448</a>
+<li>8.6.   <a href="#rfc.section.8.6">Suites for curve25519 and edwards25519</a>
 </li>
-<li>8.7.   <a href="#rfc.section.8.7">Suites for secp256k1</a>
+<li>8.7.   <a href="#rfc.section.8.7">Suites for curve448 and edwards448</a>
 </li>
-<li>8.8.   <a href="#rfc.section.8.8">Suites for BLS12-381</a>
+<li>8.8.   <a href="#rfc.section.8.8">Suites for secp256k1</a>
 </li>
-<ul><li>8.8.1.   <a href="#rfc.section.8.8.1">BLS12-381 G1</a>
+<li>8.9.   <a href="#rfc.section.8.9">Suites for BLS12-381</a>
 </li>
-<li>8.8.2.   <a href="#rfc.section.8.8.2">BLS12-381 G2</a>
+<ul><li>8.9.1.   <a href="#rfc.section.8.9.1">BLS12-381 G1</a>
+</li>
+<li>8.9.2.   <a href="#rfc.section.8.9.2">BLS12-381 G2</a>
 </li>
 </ul></ul><li>9.   <a href="#rfc.section.9">IANA Considerations</a>
 </li>
@@ -564,9 +575,13 @@ ul.toc li {
 </li>
 </ul><li>Appendix A.   <a href="#rfc.appendix.A">Related Work</a>
 </li>
-<li>Appendix B.   <a href="#rfc.appendix.B">Rational maps from twisted Edwards to Weierstrass and Montgomery curves</a>
+<li>Appendix B.   <a href="#rfc.appendix.B">Rational maps</a>
 </li>
-<li>Appendix C.   <a href="#rfc.appendix.C">Isogeny maps for Suites</a>
+<ul><li>B.1.   <a href="#rfc.appendix.B.1">Twisted Edwards to Weierstrass and Montgomery curves</a>
+</li>
+<li>B.2.   <a href="#rfc.appendix.B.2">Montgomery to Weierstrass curves</a>
+</li>
+</ul><li>Appendix C.   <a href="#rfc.appendix.C">Isogeny maps for Suites</a>
 </li>
 <ul><li>C.1.   <a href="#rfc.appendix.C.1">3-isogeny map for secp256k1</a>
 </li>
@@ -620,9 +635,15 @@ ul.toc li {
 <p id="rfc.section.1.p.3">This document aims to bridge this gap by providing a thorough set of recommended algorithms for a range of curve types.  Each algorithm conforms to a common interface: it takes as input an arbitrary-length bit string and produces as output a point on an elliptic curve.  We provide implementation details for each algorithm, describe the security rationale behind each recommendation, and give guidance for elliptic curves that are not explicitly covered.</p>
 <p id="rfc.section.1.p.4">This document does not cover rejection sampling methods, sometimes known as &#8220;try-and-increment&#8221; or &#8220;hunt-and-peck,&#8221; because the goal is to describe algorithms that can plausibly be made constant time. Use of these rejection methods is NOT RECOMMENDED, because they have been a perennial cause of side-channel vulnerabilities.</p>
 <h1 id="rfc.section.1.1">
-<a href="#rfc.section.1.1">1.1.</a> <a href="#requirements" id="requirements">Requirements</a>
+<a href="#rfc.section.1.1">1.1.</a> <a href="#howto" id="howto">How to use this document</a>
 </h1>
-<p id="rfc.section.1.1.p.1">The key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;SHALL&#8221;, &#8220;SHALL NOT&#8221;, &#8220;SHOULD&#8221;, &#8220;SHOULD NOT&#8221;, &#8220;RECOMMENDED&#8221;, &#8220;MAY&#8221;, and &#8220;OPTIONAL&#8221; in this document are to be interpreted as described in <a href="#RFC2119" class="xref">[RFC2119]</a>.</p>
+<p id="rfc.section.1.1.p.1">This document is intended for use by both implementors and protocol designers.</p>
+<p id="rfc.section.1.1.p.2">For implementors, the necessary and sufficient level of specification is a hash-to-curve suite, which fixes all of the parameters listed in <a href="#suites" class="xref">Section 8</a>, plus a domain separation tag (<a href="#domain-separation" class="xref">Section 3.1</a>).  Starting from working operations on the target elliptic curve and its base field, a hash-to-curve suite requires implementing the specified encoding function (<a href="#roadmap" class="xref">Section 3</a>), its constituent subroutines (<a href="#hashtobase" class="xref">Section 5</a>, <a href="#mappings" class="xref">Section 6</a>, <a href="#cofactor-clearing" class="xref">Section 7</a>), and a few utility functions (<a href="#utility" class="xref">Section 4</a>).</p>
+<p id="rfc.section.1.1.p.3">Correspondingly, designers specifying a protocol that requires hashing to an elliptic curve should either choose an existing hash-to-curve suite or specify a new one (see <a href="#new-suite" class="xref">Section 8.1</a>).  In addition, designers should choose a domain separation tag following the guidelines in <a href="#domain-separation" class="xref">Section 3.1</a>.</p>
+<h1 id="rfc.section.1.2">
+<a href="#rfc.section.1.2">1.2.</a> <a href="#requirements" id="requirements">Requirements</a>
+</h1>
+<p id="rfc.section.1.2.p.1">The key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;SHALL&#8221;, &#8220;SHALL NOT&#8221;, &#8220;SHOULD&#8221;, &#8220;SHOULD NOT&#8221;, &#8220;RECOMMENDED&#8221;, &#8220;MAY&#8221;, and &#8220;OPTIONAL&#8221; in this document are to be interpreted as described in <a href="#RFC2119" class="xref">[RFC2119]</a>.</p>
 <h1 id="rfc.section.2">
 <a href="#rfc.section.2">2.</a> <a href="#background" id="background">Background</a>
 </h1>
@@ -763,7 +784,7 @@ Steps:
 </h1>
 <p id="rfc.section.3.1.p.1">All uses of the encoding functions defined in this document MUST include domain separation (<a href="#term-domain-separation" class="xref">Section 2.2.5</a>) to avoid interfering with other uses of similar functionality.</p>
 <p id="rfc.section.3.1.p.2">Protocols that instantiate multiple, independent hash functions based on either hash_to_curve or encode_to_curve MUST enforce domain separation between those hash functions.  This requirement applies both in the case of multiple hashes to the same curve and in the case of multiple hashes to different curves.  (This is because the hash_to_base primitive (<a href="#hashtobase" class="xref">Section 5</a>) requires domain separation to guarantee independent outputs.)</p>
-<p id="rfc.section.3.1.p.3">Care is required when selecting and using a domain separation tag.  The following requirements apply:</p>
+<p id="rfc.section.3.1.p.3">Domain separation is enforced with a domain separation tag (DST), which is an octet string.  Care is required when selecting and using a domain separation tag.  The following requirements apply:</p>
 <p></p>
 
 <ol>
@@ -771,9 +792,9 @@ Steps:
 <li>Tags MUST begin with a fixed protocol identification string.  This identification string should be unique to the protocol.</li>
 <li>Tags SHOULD include a protocol version number.</li>
 <li>For protocols that define multiple ciphersuites, each ciphersuite&#8217;s tag MUST be different. For this purpose, it is RECOMMENDED to include a ciphersuite identifier in each tag.</li>
-<li>For protocols that use multiple encodings, either to the same curve or to different curves, each encoding MUST use a different tag.  For this purpose, it is RECOMMENDED to include the encoding&#8217;s Suite ID (<a href="#suites" class="xref">Section 8</a>) in the domain separation tag.</li>
+<li>For protocols that use multiple encodings, either to the same curve or to different curves, each encoding MUST use a different tag.  For this purpose, it is RECOMMENDED to include the encoding&#8217;s Suite ID (<a href="#suites" class="xref">Section 8</a>) in the domain separation tag.  For independent encodings based on the same suite, each tag should also include a distinct identifier, e.g., &#8220;ENC1&#8221; and &#8220;ENC2&#8221;.</li>
 </ol>
-<p id="rfc.section.3.1.p.5">As an example, consider a fictional key exchange protocol named Quux that defines several different ciphersuites.  A reasonable choice of tag is &#8220;QUUX-V&lt;xx&gt;-CS&lt;yy&gt;&#8221;, where &lt;xx&gt; and &lt;yy&gt; are two-digit numbers indicating the version and ciphersuite, respectively.</p>
+<p id="rfc.section.3.1.p.5">As an example, consider a fictional protocol named Quux that defines several different ciphersuites.  A reasonable choice of tag is &#8220;QUUX-V&lt;xx&gt;-CS&lt;yy&gt;&#8221;, where &lt;xx&gt; and &lt;yy&gt; are two-digit numbers indicating the version and ciphersuite, respectively.</p>
 <p id="rfc.section.3.1.p.6">As another example, consider a fictional protocol named Baz that requires two independent random oracles, where one oracle outputs points on the curve E1 and the other outputs points on the curve E2.  Reasonable choices of tags for the E1 and E2 oracles are &#8220;BAZ-V&lt;xx&gt;-CS&lt;yy&gt;-E1&#8221; and &#8220;BAZ-V&lt;xx&gt;-CS&lt;yy&gt;-E2&#8221;, respectively, where &lt;xx&gt; and &lt;yy&gt; are as described above.</p>
 <h1 id="rfc.section.4">
 <a href="#rfc.section.4">4.</a> <a href="#utility" id="utility">Utility Functions</a>
@@ -793,7 +814,7 @@ is_square(x) := { True,  if x^((q - 1) / 2) is 0 or 1 in F;
 <p></p>
 
 <ul>
-<li>sqrt(x): The sqrt operation is a multi-valued function, i.e. there exist two roots of x in the field F whenever x is square.  To maintain compatibility across implementations while allowing implementors leeway for optimizations, this document does not require sqrt() to return a particular value. Instead, as explained in <a href="#point-sign" class="xref">Section 6.3</a>, any higher-level function that computes square roots also specifies how to determine the sign of the result.  <br><br> The preferred way of computing square roots is to fix a deterministic algorithm particular to F. We give several algorithms in <a href="#appx-sqrt" class="xref">Appendix F</a>.  Regardless of the method chosen, the sqrt function should be implemented in a way that resists timing side channels, i.e., in constant time.</li>
+<li>sqrt(x): The sqrt operation is a multi-valued function, i.e. there exist two roots of x in the field F whenever x is square.  To maintain compatibility across implementations while allowing implementors leeway for optimizations, this document does not require sqrt() to return a particular value. Instead, as explained in <a href="#point-sign" class="xref">Section 6.4</a>, any higher-level function that computes square roots also specifies how to determine the sign of the result.  <br><br> The preferred way of computing square roots is to fix a deterministic algorithm particular to F. We give several algorithms in <a href="#appx-sqrt" class="xref">Appendix F</a>.  Regardless of the method chosen, the sqrt function should be implemented in a way that resists timing side channels, i.e., in constant time.</li>
 <li>sgn0(x): This function returns either +1 or -1 indicating the &#8220;sign&#8221; of x, where sgn0(x) == -1 just when x is &#8220;negative&#8221;.  In other words, this function always considers 0 to be positive.  This function may be implemented in multiple ways; <a href="#sgn0-variants" class="xref">Section 4.1</a> defines two variants.  Throughout the document, sgn0 is used generically to mean either of these variants.  Each suite in <a href="#suites" class="xref">Section 8</a> specifies the sgn0 variant to be used.</li>
 <li>abs(x): The absolute value of x is defined in terms of sgn0 in the natural way, namely, abs(x) := sgn0(x) * x.</li>
 <li>inv0(x): This function returns the multiplicative inverse of x in F, extended to all of F by fixing inv0(0) == 0.  To implement inv0 in constant time, compute inv0(x) := x^(q - 2).  Notice on input 0, the output is 0 as required.</li>
@@ -947,23 +968,32 @@ Steps:
 <li>MUST support domain separation via a supplied domain separation tag (DST).  Care is required when implementing domain separation: this document assumes that instantiating hash_to_base with distinct DSTs yields independent hash functions.</li>
 </ul>
 <p id="rfc.section.5.4.p.4">The efficiency considerations of <a href="#hashtobase-perf" class="xref">Section 5.2</a> should also be followed.  In particular, it SHOULD be possible to hash one msg with multiple ctr values without requiring multiple passes over msg.</p>
-<p id="rfc.section.5.4.p.5">Finally, the Suite ID value MUST be modified to indicate that an alternative hash_to_base function is being used.  <a href="#suiteIDformat" class="xref">Section 8.1</a> gives details.</p>
+<p id="rfc.section.5.4.p.5">Finally, the Suite ID value MUST be modified to indicate that an alternative hash_to_base function is being used.  <a href="#suiteIDformat" class="xref">Section 8.2</a> gives details.</p>
 <h1 id="rfc.section.6">
 <a href="#rfc.section.6">6.</a> <a href="#mappings" id="mappings">Deterministic Mappings</a>
 </h1>
-<p id="rfc.section.6.p.1">The mappings in this section are suitable for constructing either nonuniform or random oracle encodings using the constructions of <a href="#roadmap" class="xref">Section 3</a>.</p>
+<p id="rfc.section.6.p.1">The mappings in this section are suitable for constructing either nonuniform or random oracle encodings using the constructions of <a href="#roadmap" class="xref">Section 3</a>.  Certain mappings restrict the form of the curve or its parameters.  For each mapping presented, this document lists the relevant restrictions.</p>
+<p id="rfc.section.6.p.2">Note that mappings in this section are not interchangeable: different mappings will almost certainly output different points when evaluated on the same input.</p>
 <h1 id="rfc.section.6.1">
-<a href="#rfc.section.6.1">6.1.</a> <a href="#interface" id="interface">Interface</a>
+<a href="#rfc.section.6.1">6.1.</a> <a href="#choosing-mapping" id="choosing-mapping">Choosing a mapping function</a>
 </h1>
-<p id="rfc.section.6.1.p.1">The generic interface shared by all mappings in this section is as follows:</p>
+<p id="rfc.section.6.1.p.1">This section gives brief guidelines on choosing a mapping function for a given elliptic curve.  Note that the suites given in <a href="#suites" class="xref">Section 8</a> are recommended mappings for the respective curves.</p>
+<p id="rfc.section.6.1.p.2">If the target elliptic curve is a supersingular curve supported by either the Boneh-Franklin method (<a href="#bfmap" class="xref">Section 6.9.1</a>) or the Elligator 2 method for A == 0 (<a href="#ell2a0" class="xref">Section 6.9.2</a>), that mapping is the recommended one.</p>
+<p id="rfc.section.6.1.p.3">Otherwise, if the target elliptic curve is a Montgomery curve (<a href="#montgomery" class="xref">Section 6.7</a>), the Elligator 2 method (<a href="#elligator2" class="xref">Section 6.7.1</a>) is recommended.  Similarly, if the target elliptic curve is a twisted Edwards curve (<a href="#twisted-edwards" class="xref">Section 6.8</a>), the twisted Edwards Elligator 2 method (<a href="#ell2edwards" class="xref">Section 6.8.2</a>) is recommended.</p>
+<p id="rfc.section.6.1.p.4">The remaining cases are Weierstrass curves.  For curves supported by the Simplified SWU method (<a href="#simple-swu" class="xref">Section 6.6.2</a>), that mapping is the recommended one.  Otherwise, the Simplified SWU method for AB == 0 (<a href="#simple-swu-AB0" class="xref">Section 6.6.3</a>) is recommended if the goal is best performance, while the Shallue-van de Woestijne method (<a href="#svdw" class="xref">Section 6.6.1</a>) is recommended if the goal is simplicity of implementation.  (The reason for this distinction is that the Simplified SWU method for AB == 0 requires implementing an isogeny map in addition to the mapping function, while the Shallue-van de Woestijne method does not.)</p>
+<p id="rfc.section.6.1.p.5">The Shallue-van de Woestijne method (<a href="#svdw" class="xref">Section 6.6.1</a>) works with any curve, and may be used in cases where a generic mapping is required.  Note, however, that this mapping is almost always more computationally expensive than the curve-specific recommendations above.</p>
+<h1 id="rfc.section.6.2">
+<a href="#rfc.section.6.2">6.2.</a> <a href="#interface" id="interface">Interface</a>
+</h1>
+<p id="rfc.section.6.2.p.1">The generic interface shared by all mappings in this section is as follows:</p>
 <pre>
 (x, y) = map_to_curve(u)
 </pre>
-<p id="rfc.section.6.1.p.2">The input u and outputs x and y are elements of the field F.  The coordinates (x, y) specify a point on an elliptic curve defined over F.  Note that the point (x, y) is not a uniformly random point. If uniformity is required for security, the random oracle construction of <a href="#roadmap" class="xref">Section 3</a> MUST be used instead.</p>
-<h1 id="rfc.section.6.2">
-<a href="#rfc.section.6.2">6.2.</a> <a href="#notation" id="notation">Notation</a>
+<p id="rfc.section.6.2.p.2">The input u and outputs x and y are elements of the field F.  The coordinates (x, y) specify a point on an elliptic curve defined over F.  Note that the point (x, y) is not a uniformly random point. If uniformity is required for security, the random oracle construction of <a href="#roadmap" class="xref">Section 3</a> MUST be used instead.</p>
+<h1 id="rfc.section.6.3">
+<a href="#rfc.section.6.3">6.3.</a> <a href="#notation" id="notation">Notation</a>
 </h1>
-<p id="rfc.section.6.2.p.1">As a rough style guide the following convention is used:</p>
+<p id="rfc.section.6.3.p.1">As a rough style guide the following convention is used:</p>
 <p></p>
 
 <ul>
@@ -973,27 +1003,27 @@ Steps:
 <li>t1, t2, &#8230;: are reusable temporary variables. For notable variables, distinct names are used easing the debugging process when correlating with test vectors.</li>
 <li>c1, c2, &#8230;: are constant values, which can be computed in advance.</li>
 </ul>
-<h1 id="rfc.section.6.3">
-<a href="#rfc.section.6.3">6.3.</a> <a href="#point-sign" id="point-sign">Sign of the resulting point</a>
-</h1>
-<p id="rfc.section.6.3.p.1">In general, elliptic curves have equations of the form y^2 = g(x).  Most of the mappings in this section first identify an x such that g(x) is square, then take a square root to find y. Since there are two square roots when g(x) != 0, this results in an ambiguity regarding the sign of y.</p>
-<p id="rfc.section.6.3.p.2">To resolve this ambiguity, the mappings in this section specify the sign of the y-coordinate in terms of the input to the mapping function.  Two main reasons support this approach. First, this covers elliptic curves over any field in a uniform way, and second, it gives implementors leeway to optimize their square-root implementations.</p>
 <h1 id="rfc.section.6.4">
-<a href="#rfc.section.6.4">6.4.</a> <a href="#map-exceptions" id="map-exceptions">Exceptional cases</a>
+<a href="#rfc.section.6.4">6.4.</a> <a href="#point-sign" id="point-sign">Sign of the resulting point</a>
 </h1>
-<p id="rfc.section.6.4.p.1">Mappings may have have exceptional cases, i.e., inputs u on which the mapping is undefined. These cases must be handled carefully, especially for constant-time implementations.</p>
-<p id="rfc.section.6.4.p.2">For each mapping in this section, we discuss the exceptional cases and show how to handle them in constant time. Note that all implementations SHOULD use inv0 (<a href="#utility" class="xref">Section 4</a>) to compute multiplicative inverses, to avoid exceptional cases that result from attempting to compute the inverse of 0.</p>
+<p id="rfc.section.6.4.p.1">In general, elliptic curves have equations of the form y^2 = g(x).  Most of the mappings in this section first identify an x such that g(x) is square, then take a square root to find y. Since there are two square roots when g(x) != 0, this results in an ambiguity regarding the sign of y.</p>
+<p id="rfc.section.6.4.p.2">To resolve this ambiguity, the mappings in this section specify the sign of the y-coordinate in terms of the input to the mapping function.  Two main reasons support this approach. First, this covers elliptic curves over any field in a uniform way, and second, it gives implementors leeway to optimize their square-root implementations.</p>
 <h1 id="rfc.section.6.5">
-<a href="#rfc.section.6.5">6.5.</a> <a href="#mappings-for-weierstrass-curves" id="mappings-for-weierstrass-curves">Mappings for Weierstrass curves</a>
+<a href="#rfc.section.6.5">6.5.</a> <a href="#map-exceptions" id="map-exceptions">Exceptional cases</a>
 </h1>
-<p id="rfc.section.6.5.p.1">The following mappings apply to elliptic curves defined by the equation E: y^2 = g(x) = x^3 + A * x + B, where 4 * A^3 + 27 * B^2 != 0.</p>
-<h1 id="rfc.section.6.5.1">
-<a href="#rfc.section.6.5.1">6.5.1.</a> <a href="#svdw" id="svdw">Shallue-van de Woestijne Method</a>
+<p id="rfc.section.6.5.p.1">Mappings may have have exceptional cases, i.e., inputs u on which the mapping is undefined. These cases must be handled carefully, especially for constant-time implementations.</p>
+<p id="rfc.section.6.5.p.2">For each mapping in this section, we discuss the exceptional cases and show how to handle them in constant time. Note that all implementations SHOULD use inv0 (<a href="#utility" class="xref">Section 4</a>) to compute multiplicative inverses, to avoid exceptional cases that result from attempting to compute the inverse of 0.</p>
+<h1 id="rfc.section.6.6">
+<a href="#rfc.section.6.6">6.6.</a> <a href="#weierstrass" id="weierstrass">Mappings for Weierstrass curves</a>
 </h1>
-<p id="rfc.section.6.5.1.p.1">Shallue and van de Woestijne <a href="#SW06" class="xref">[SW06]</a> describe a mapping that applies to essentially any elliptic curve.  This generality, however, comes at a price: this mapping is strictly more expensive to evaluate than the other mappings in this document.</p>
-<p id="rfc.section.6.5.1.p.2">The parameterization given below works for essentially any Weierstrass curve; its derivation is detailed in <a href="#W19" class="xref">[W19]</a>.  Fouque and Tibouchi <a href="#FT12" class="xref">[FT12]</a> give a different parameterization of this mapping that works for Barreto-Naehrig pairing-friendly curves <a href="#BN05" class="xref">[BN05]</a>, i.e., curves y^2 = x^3 + B over fields of characteristic q = 1 (mod 3).  Wahby and Boneh <a href="#WB19" class="xref">[WB19]</a> suggest a small modification to the Fouque-Tibouchi parameters that results in a uniform method for handling exceptional cases; that method is the one used below.</p>
-<p id="rfc.section.6.5.1.p.3">Preconditions: A Weierstrass curve y^2 = x^3 + A * x + B over F = GF(p^m) where p &gt; 5 and odd.</p>
-<p id="rfc.section.6.5.1.p.4">Constants:</p>
+<p id="rfc.section.6.6.p.1">The following mappings apply to elliptic curves defined by the equation E: y^2 = g(x) = x^3 + A * x + B, where 4 * A^3 + 27 * B^2 != 0.</p>
+<h1 id="rfc.section.6.6.1">
+<a href="#rfc.section.6.6.1">6.6.1.</a> <a href="#svdw" id="svdw">Shallue-van de Woestijne Method</a>
+</h1>
+<p id="rfc.section.6.6.1.p.1">Shallue and van de Woestijne <a href="#SW06" class="xref">[SW06]</a> describe a mapping that applies to essentially any elliptic curve.  (Note, however, that this mapping is more expensive to evaluate than the other mappings in this document.)</p>
+<p id="rfc.section.6.6.1.p.2">The parameterization given below is for Weierstrass curves; its derivation is detailed in <a href="#W19" class="xref">[W19]</a>.  This parameterization also works for Montgomery (<a href="#montgomery" class="xref">Section 6.7</a>) and twisted Edwards (<a href="#twisted-edwards" class="xref">Section 6.8</a>) curves via the rational maps given in <a href="#appx-rational-map" class="xref">Appendix B</a>: first evaluate the Shallue-van de Woestijne mapping to an equivalent Weierstrass curve, then map that point to the target Montgomery or twisted Edwards curve using the corresponding rational map.</p>
+<p id="rfc.section.6.6.1.p.3">Preconditions: A Weierstrass curve y^2 = x^3 + A * x + B over F = GF(p^m) where p &gt; 5 and odd.</p>
+<p id="rfc.section.6.6.1.p.4">Constants:</p>
 <p></p>
 
 <ul>
@@ -1006,9 +1036,9 @@ Steps:
 </ol>
 </li>
 </ul>
-<p id="rfc.section.6.5.1.p.6">Sign of y: Inputs u and -u give the same x-coordinate.  Thus, we set sgn0(y) == sgn0(u).</p>
-<p id="rfc.section.6.5.1.p.7">Exceptions: The exceptional cases for u occur when (1 + u^2 * g(Z)) * (1 - u^2 * g(Z)) == 0.  The restrictions on Z given above ensure that implementations that use inv0 to invert this product are exception free.</p>
-<p id="rfc.section.6.5.1.p.8">Operations:</p>
+<p id="rfc.section.6.6.1.p.6">Sign of y: Inputs u and -u give the same x-coordinate.  Thus, we set sgn0(y) == sgn0(u).</p>
+<p id="rfc.section.6.6.1.p.7">Exceptions: The exceptional cases for u occur when (1 + u^2 * g(Z)) * (1 - u^2 * g(Z)) == 0.  The restrictions on Z given above ensure that implementations that use inv0 to invert this product are exception free.</p>
+<p id="rfc.section.6.6.1.p.8">Operations:</p>
 <pre>
 1. t1 = u^2 * g(Z)
 2. t2 = 1 + t1
@@ -1025,10 +1055,10 @@ Steps:
 13. If sgn0(u) != sgn0(y), set y = -y
 14. return (x, y)
 </pre>
-<h1 id="rfc.section.6.5.1.1">
-<a href="#rfc.section.6.5.1.1">6.5.1.1.</a> <a href="#implementation" id="implementation">Implementation</a>
+<h1 id="rfc.section.6.6.1.1">
+<a href="#rfc.section.6.6.1.1">6.6.1.1.</a> <a href="#implementation" id="implementation">Implementation</a>
 </h1>
-<p id="rfc.section.6.5.1.1.p.1">The following procedure implements the Shallue and van de Woestijne method in a straight-line fashion.</p>
+<p id="rfc.section.6.6.1.1.p.1">The following procedure implements the Shallue and van de Woestijne method in a straight-line fashion.</p>
 <pre>
 map_to_curve_svdw(u)
 Input: u, an element of F.
@@ -1078,12 +1108,12 @@ Steps:
 35.   y = CMOV(-y, y, e3)       // Select correct sign of y
 36. return (x, y)
 </pre>
-<h1 id="rfc.section.6.5.2">
-<a href="#rfc.section.6.5.2">6.5.2.</a> <a href="#simple-swu" id="simple-swu">Simplified Shallue-van de Woestijne-Ulas Method</a>
+<h1 id="rfc.section.6.6.2">
+<a href="#rfc.section.6.6.2">6.6.2.</a> <a href="#simple-swu" id="simple-swu">Simplified Shallue-van de Woestijne-Ulas Method</a>
 </h1>
-<p id="rfc.section.6.5.2.p.1">The function map_to_curve_simple_swu(u) implements a simplification of the Shallue-van de Woestijne-Ulas mapping <a href="#U07" class="xref">[U07]</a> described by Brier et al. <a href="#BCIMRT10" class="xref">[BCIMRT10]</a>, which they call the &#8220;simplified SWU&#8221; map. Wahby and Boneh <a href="#WB19" class="xref">[WB19]</a> generalize this mapping to curves over fields of odd characteristic p &gt; 3.</p>
-<p id="rfc.section.6.5.2.p.2">Preconditions: A Weierstrass curve y^2 = x^3 + A * x + B over F = GF(p^m) where p &gt; 5 and odd, A != 0, and B != 0.</p>
-<p id="rfc.section.6.5.2.p.3">Constants:</p>
+<p id="rfc.section.6.6.2.p.1">The function map_to_curve_simple_swu(u) implements a simplification of the Shallue-van de Woestijne-Ulas mapping <a href="#U07" class="xref">[U07]</a> described by Brier et al. <a href="#BCIMRT10" class="xref">[BCIMRT10]</a>, which they call the &#8220;simplified SWU&#8221; map. Wahby and Boneh <a href="#WB19" class="xref">[WB19]</a> generalize this mapping to curves over fields of odd characteristic p &gt; 3.</p>
+<p id="rfc.section.6.6.2.p.2">Preconditions: A Weierstrass curve y^2 = x^3 + A * x + B over F = GF(p^m) where p &gt; 5 and odd, A != 0, and B != 0.</p>
+<p id="rfc.section.6.6.2.p.3">Constants:</p>
 <p></p>
 
 <ul>
@@ -1096,9 +1126,9 @@ Steps:
 </ol>
 </li>
 </ul>
-<p id="rfc.section.6.5.2.p.5">Sign of y: Inputs u and -u give the same x-coordinate.  Thus, we set sgn0(y) == sgn0(u).</p>
-<p id="rfc.section.6.5.2.p.6">Exceptions: The exceptional cases are values of u such that Z^2 * u^4 + Z * u^2 == 0. This includes u == 0, and may include other values depending on Z. Implementations must detect this case and set x1 = B / (Z * A), which guarantees that g(x1) is square by the condition on Z given above.</p>
-<p id="rfc.section.6.5.2.p.7">Operations:</p>
+<p id="rfc.section.6.6.2.p.5">Sign of y: Inputs u and -u give the same x-coordinate.  Thus, we set sgn0(y) == sgn0(u).</p>
+<p id="rfc.section.6.6.2.p.6">Exceptions: The exceptional cases are values of u such that Z^2 * u^4 + Z * u^2 == 0. This includes u == 0, and may include other values depending on Z. Implementations must detect this case and set x1 = B / (Z * A), which guarantees that g(x1) is square by the condition on Z given above.</p>
+<p id="rfc.section.6.6.2.p.7">Operations:</p>
 <pre>
 1.  t1 = inv0(Z^2 * u^4 + Z * u^2)
 2.  x1 = (-B / A) * (1 + t1)
@@ -1111,10 +1141,10 @@ Steps:
 9.  If sgn0(u) != sgn0(y), set y = -y
 10. return (x, y)
 </pre>
-<h1 id="rfc.section.6.5.2.1">
-<a href="#rfc.section.6.5.2.1">6.5.2.1.</a> <a href="#implementation-1" id="implementation-1">Implementation</a>
+<h1 id="rfc.section.6.6.2.1">
+<a href="#rfc.section.6.6.2.1">6.6.2.1.</a> <a href="#implementation-1" id="implementation-1">Implementation</a>
 </h1>
-<p id="rfc.section.6.5.2.1.p.1">The following procedure implements the simplified SWU mapping in a straight-line fashion.  <a href="#samplecode" class="xref">Appendix D</a> gives an optimized straight-line procedure for P-256 <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.  For more information on optimizing this mapping, see <a href="#WB19" class="xref">[WB19]</a> Section 4 or the example code found at <a href="#hash2curve-repo" class="xref">[hash2curve-repo]</a>.</p>
+<p id="rfc.section.6.6.2.1.p.1">The following procedure implements the simplified SWU mapping in a straight-line fashion.  <a href="#samplecode" class="xref">Appendix D</a> gives an optimized straight-line procedure for P-256 <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.  For more information on optimizing this mapping, see <a href="#WB19" class="xref">[WB19]</a> Section 4 or the example code found at <a href="#hash2curve-repo" class="xref">[hash2curve-repo]</a>.</p>
 <pre>
 map_to_curve_simple_swu(u)
 Input: u, an element of F.
@@ -1148,70 +1178,70 @@ Steps:
 21.   y = CMOV(-y, y, e3)
 22. return (x, y)
 </pre>
-<h1 id="rfc.section.6.5.3">
-<a href="#rfc.section.6.5.3">6.5.3.</a> <a href="#simple-swu-AB0" id="simple-swu-AB0">Simplified SWU for AB == 0</a>
+<h1 id="rfc.section.6.6.3">
+<a href="#rfc.section.6.6.3">6.6.3.</a> <a href="#simple-swu-AB0" id="simple-swu-AB0">Simplified SWU for AB == 0</a>
 </h1>
-<p id="rfc.section.6.5.3.p.1">Wahby and Boneh <a href="#WB19" class="xref">[WB19]</a> show how to adapt the simplified SWU mapping to Weierstrass curves having A == 0 or B == 0, which the mapping of <a href="#simple-swu" class="xref">Section 6.5.2</a> does not support.  (The case A == B == 0 is excluded because y^2 = x^3 is not an elliptic curve.)</p>
-<p id="rfc.section.6.5.3.p.2">This method applies to curves like secp256k1 <a href="#SEC2" class="xref">[SEC2]</a> and to pairing-friendly curves in the Barreto-Lynn-Scott <a href="#BLS03" class="xref">[BLS03]</a>, Barreto-Naehrig <a href="#BN05" class="xref">[BN05]</a>, and other families.</p>
-<p id="rfc.section.6.5.3.p.3">This method requires finding another elliptic curve</p>
+<p id="rfc.section.6.6.3.p.1">Wahby and Boneh <a href="#WB19" class="xref">[WB19]</a> show how to adapt the simplified SWU mapping to Weierstrass curves having A == 0 or B == 0, which the mapping of <a href="#simple-swu" class="xref">Section 6.6.2</a> does not support.  (The case A == B == 0 is excluded because y^2 = x^3 is not an elliptic curve.)</p>
+<p id="rfc.section.6.6.3.p.2">This method applies to curves like secp256k1 <a href="#SEC2" class="xref">[SEC2]</a> and to pairing-friendly curves in the Barreto-Lynn-Scott <a href="#BLS03" class="xref">[BLS03]</a>, Barreto-Naehrig <a href="#BN05" class="xref">[BN05]</a>, and other families.</p>
+<p id="rfc.section.6.6.3.p.3">This method requires finding another elliptic curve</p>
 <pre>
 E': y^2 = g'(x) = x^3 + A' * x + B'
 </pre>
-<p id="rfc.section.6.5.3.p.4">that is isogenous to E and has A&#8217; != 0 and B&#8217; != 0.  (One might do this, for example, using <a href="#SAGE" class="xref">[SAGE]</a>; for details, see <a href="#WB19" class="xref">[WB19]</a>, Appendix A.) This isogeny defines a map iso_map(x&#8217;, y&#8217;) that takes as input a point on E&#8217; and produces as output a point on E.</p>
-<p id="rfc.section.6.5.3.p.5">Once E&#8217; and iso_map are identified, this mapping works as follows: on input u, first apply the simplified SWU mapping to get a point on E&#8217;, then apply the isogeny map to that point to get a point on E.</p>
-<p id="rfc.section.6.5.3.p.6">Note that iso_map is a group homomorphism, meaning that point addition commutes with iso_map.  Thus, when using this mapping in the hash_to_curve construction of <a href="#roadmap" class="xref">Section 3</a>, one can effect a small optimization by first mapping u0 and u1 to E&#8217;, adding the resulting points on E&#8217;, and then applying iso_map to the sum.  This gives the same result while requiring only one evaluation of iso_map.</p>
-<p id="rfc.section.6.5.3.p.7">Preconditions: An elliptic curve E&#8217; with A&#8217; != 0 and B&#8217; != 0 that is isogenous to the target curve E with isogeny map iso_map(x, y) from E&#8217; to E.</p>
-<p id="rfc.section.6.5.3.p.8">Helper functions:</p>
+<p id="rfc.section.6.6.3.p.4">that is isogenous to E and has A&#8217; != 0 and B&#8217; != 0.  (One might do this, for example, using <a href="#SAGE" class="xref">[SAGE]</a>; for details, see <a href="#WB19" class="xref">[WB19]</a>, Appendix A.) This isogeny defines a map iso_map(x&#8217;, y&#8217;) that takes as input a point on E&#8217; and produces as output a point on E.</p>
+<p id="rfc.section.6.6.3.p.5">Once E&#8217; and iso_map are identified, this mapping works as follows: on input u, first apply the simplified SWU mapping to get a point on E&#8217;, then apply the isogeny map to that point to get a point on E.</p>
+<p id="rfc.section.6.6.3.p.6">Note that iso_map is a group homomorphism, meaning that point addition commutes with iso_map.  Thus, when using this mapping in the hash_to_curve construction of <a href="#roadmap" class="xref">Section 3</a>, one can effect a small optimization by first mapping u0 and u1 to E&#8217;, adding the resulting points on E&#8217;, and then applying iso_map to the sum.  This gives the same result while requiring only one evaluation of iso_map.</p>
+<p id="rfc.section.6.6.3.p.7">Preconditions: An elliptic curve E&#8217; with A&#8217; != 0 and B&#8217; != 0 that is isogenous to the target curve E with isogeny map iso_map(x, y) from E&#8217; to E.</p>
+<p id="rfc.section.6.6.3.p.8">Helper functions:</p>
 <p></p>
 
 <ul>
-<li>map_to_curve_simple_swu is the mapping of <a href="#simple-swu" class="xref">Section 6.5.2</a> to E&#8217;</li>
+<li>map_to_curve_simple_swu is the mapping of <a href="#simple-swu" class="xref">Section 6.6.2</a> to E&#8217;</li>
 <li>iso_map is the isogeny map from E&#8217; to E</li>
 </ul>
-<p id="rfc.section.6.5.3.p.10">Sign of y: for this map, the sign is determined by map_to_curve_simple_swu.  No further sign adjustments are necessary.</p>
-<p id="rfc.section.6.5.3.p.11">Exceptions: map_to_curve_simple_swu handles its exceptional cases.  Exceptional cases of iso_map MUST return the identity point on E.</p>
-<p id="rfc.section.6.5.3.p.12">Operations:</p>
+<p id="rfc.section.6.6.3.p.10">Sign of y: for this map, the sign is determined by map_to_curve_simple_swu.  No further sign adjustments are necessary.</p>
+<p id="rfc.section.6.6.3.p.11">Exceptions: map_to_curve_simple_swu handles its exceptional cases.  Exceptional cases of iso_map MUST return the identity point on E.</p>
+<p id="rfc.section.6.6.3.p.12">Operations:</p>
 <pre>
 1. (x', y') = map_to_curve_simple_swu(u)    // (x', y') is on E'
 2.   (x, y) = iso_map(x', y')               // (x, y) is on E
 3. return (x, y)
 </pre>
-<p id="rfc.section.6.5.3.p.13">See <a href="#hash2curve-repo" class="xref">[hash2curve-repo]</a> or <a href="#WB19" class="xref">[WB19]</a>, Section 4.3 for details on implementing the isogeny map.</p>
-<h1 id="rfc.section.6.6">
-<a href="#rfc.section.6.6">6.6.</a> <a href="#montgomery" id="montgomery">Mappings for Montgomery curves</a>
+<p id="rfc.section.6.6.3.p.13">See <a href="#hash2curve-repo" class="xref">[hash2curve-repo]</a> or <a href="#WB19" class="xref">[WB19]</a>, Section 4.3 for details on implementing the isogeny map.</p>
+<h1 id="rfc.section.6.7">
+<a href="#rfc.section.6.7">6.7.</a> <a href="#montgomery" id="montgomery">Mappings for Montgomery curves</a>
 </h1>
-<p id="rfc.section.6.6.p.1">The mapping defined in <a href="#elligator2" class="xref">Section 6.6.1</a> implements Elligator 2 <a href="#BHKL13" class="xref">[BHKL13]</a> for curves defined by the Weierstrass equation y^2 = x^3 + A * x^2 + B * x, where A * B * (A^2 - 4 * B) != 0 and A^2 - 4 * B is non-square in F.</p>
-<p id="rfc.section.6.6.p.2">Such a Weierstrass curve is related to the Montgomery curve B&#8217; * y&#8217;^2 = x&#8217;^3 + A&#8217; * x&#8217;^2 + x&#8217; by the following change of variables:</p>
+<p id="rfc.section.6.7.p.1">The mapping defined in <a href="#elligator2" class="xref">Section 6.7.1</a> implements Elligator 2 <a href="#BHKL13" class="xref">[BHKL13]</a> for curves defined by the Weierstrass equation y^2 = x^3 + A * x^2 + B * x.</p>
+<p id="rfc.section.6.7.p.2">Such a Weierstrass curve is related to the Montgomery curve B&#8217; * t^2 = s^3 + A&#8217; * s^2 + s by the following change of variables:</p>
 <p></p>
 
 <ul>
 <li>A = A&#8217; / B&#8217;</li>
 <li>B = 1 / B&#8217;^2</li>
-<li>x = x&#8217; / B&#8217;</li>
-<li>y = y&#8217; / B&#8217;</li>
+<li>x = s / B&#8217;</li>
+<li>y = t / B&#8217;</li>
 </ul>
-<p id="rfc.section.6.6.p.4">The Elligator 2 mapping given below returns a point (x, y) on the Weierstrass curve defined above.  This point can be converted to a point (x&#8217;, y&#8217;) on the original Montgomery curve by computing</p>
+<p id="rfc.section.6.7.p.4">The Elligator 2 mapping given below returns a point (x, y) on the Weierstrass curve defined above.  This point can be converted to a point (s, t) on the original Montgomery curve by computing</p>
 <p></p>
 
 <ul>
-<li>x&#8217; = B&#8217; * x</li>
-<li>y&#8217; = B&#8217; * y</li>
+<li>s = B&#8217; * x</li>
+<li>t = B&#8217; * y</li>
 </ul>
-<p id="rfc.section.6.6.p.6">Note that when B and B&#8217; are equal to 1, the above two curve equations are identical and no conversion is necessary.  This is the case, for example, for Curve25519 and Curve448 <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
-<h1 id="rfc.section.6.6.1">
-<a href="#rfc.section.6.6.1">6.6.1.</a> <a href="#elligator2" id="elligator2">Elligator 2 Method</a>
+<p id="rfc.section.6.7.p.6">Note that when B and B&#8217; are equal to 1, the above two curve equations are identical and no conversion is necessary.  This is the case, for example, for Curve25519 and Curve448 <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
+<h1 id="rfc.section.6.7.1">
+<a href="#rfc.section.6.7.1">6.7.1.</a> <a href="#elligator2" id="elligator2">Elligator 2 Method</a>
 </h1>
-<p id="rfc.section.6.6.1.p.1">Preconditions: A Weierstrass curve y^2 = x^3 + A * x^2 + B * x where A != 0, B != 0, and A^2 - 4 * B is non-zero and non-square in F.</p>
-<p id="rfc.section.6.6.1.p.2">Constants:</p>
+<p id="rfc.section.6.7.1.p.1">Preconditions: A Weierstrass curve y^2 = x^3 + A * x^2 + B * x where A != 0, B != 0, and A^2 - 4 * B is non-zero and non-square in F.</p>
+<p id="rfc.section.6.7.1.p.2">Constants:</p>
 <p></p>
 
 <ul>
 <li>A and B, the parameters of the elliptic curve.</li>
 <li>Z, a non-square element of F.  <a href="#elligator-z-code" class="xref">Appendix E.3</a> gives a Sage <a href="#SAGE" class="xref">[SAGE]</a> script that outputs the RECOMMENDED Z.</li>
 </ul>
-<p id="rfc.section.6.6.1.p.4">Sign of y: Inputs u and -u give the same x-coordinate.  Thus, we set sgn0(y) == sgn0(u).</p>
-<p id="rfc.section.6.6.1.p.5">Exceptions: The exceptional case is Z * u^2 == -1, i.e., 1 + Z * u^2 == 0.  Implementations must detect this case and set x1 = -A.  Note that this can only happen when q = 3 (mod 4).</p>
-<p id="rfc.section.6.6.1.p.6">Operations:</p>
+<p id="rfc.section.6.7.1.p.4">Sign of y: Inputs u and -u give the same x-coordinate.  Thus, we set sgn0(y) == sgn0(u).</p>
+<p id="rfc.section.6.7.1.p.5">Exceptions: The exceptional case is Z * u^2 == -1, i.e., 1 + Z * u^2 == 0.  Implementations must detect this case and set x1 = -A.  Note that this can only happen when q = 3 (mod 4).</p>
+<p id="rfc.section.6.7.1.p.6">Operations:</p>
 <pre>
 1.  x1 = -A * inv0(1 + Z * u^2)
 2.  If x1 == 0, set x1 = -A.
@@ -1223,10 +1253,10 @@ E': y^2 = g'(x) = x^3 + A' * x + B'
 8.  If sgn0(u) != sgn0(y), set y = -y
 9.  return (x, y)
 </pre>
-<h1 id="rfc.section.6.6.1.1">
-<a href="#rfc.section.6.6.1.1">6.6.1.1.</a> <a href="#implementation-2" id="implementation-2">Implementation</a>
+<h1 id="rfc.section.6.7.1.1">
+<a href="#rfc.section.6.7.1.1">6.7.1.1.</a> <a href="#implementation-2" id="implementation-2">Implementation</a>
 </h1>
-<p id="rfc.section.6.6.1.1.p.1">The following procedure implements Elligator 2 in a straight-line fashion.  <a href="#samplecode" class="xref">Appendix D</a> gives optimized straight-line procedures for curve25519 and curve448 <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
+<p id="rfc.section.6.7.1.1.p.1">The following procedure implements Elligator 2 in a straight-line fashion.  <a href="#samplecode" class="xref">Appendix D</a> gives optimized straight-line procedures for curve25519 and curve448 <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
 <pre>
 map_to_curve_elligator2(u)
 Input: u, an element of F.
@@ -1254,99 +1284,100 @@ Steps:
 19.   y = CMOV(-y, y, e3)
 20. return (x, y)
 </pre>
-<h1 id="rfc.section.6.7">
-<a href="#rfc.section.6.7">6.7.</a> <a href="#mappings-for-twisted-edwards-curves" id="mappings-for-twisted-edwards-curves">Mappings for Twisted Edwards curves</a>
+<h1 id="rfc.section.6.8">
+<a href="#rfc.section.6.8">6.8.</a> <a href="#twisted-edwards" id="twisted-edwards">Mappings for Twisted Edwards curves</a>
 </h1>
-<p id="rfc.section.6.7.p.1">Twisted Edwards curves (a class of curves that includes Edwards curves) are given by the equation a * x^2 + y^2 = 1 + d * x^2 * y^2, with a != 0, d != 0, and a != d <a href="#BBJLP08" class="xref">[BBJLP08]</a>.</p>
-<p id="rfc.section.6.7.p.2">These curves are closely related to Montgomery curves (<a href="#montgomery" class="xref">Section 6.6</a>): every twisted Edwards curve is birationally equivalent to a Montgomery curve (<a href="#BBJLP08" class="xref">[BBJLP08]</a>, Theorem 3.2).  This equivalence yields an efficient way of hashing to a twisted Edwards curve: first, hash to the equivalent Montgomery curve, then transform the result into a point on the twisted Edwards curve via a rational map.  This method of hashing to a twisted Edwards curve thus requires identifying a corresponding Montgomery curve and rational map.  We describe how to identify such a curve and map immediately below.</p>
-<h1 id="rfc.section.6.7.1">
-<a href="#rfc.section.6.7.1">6.7.1.</a> <a href="#rational-map" id="rational-map">Rational maps from Montgomery to twisted Edwards curves</a>
+<p id="rfc.section.6.8.p.1">Twisted Edwards curves (a class of curves that includes Edwards curves) are given by the equation a * v^2 + w^2 = 1 + d * v^2 * w^2, with a != 0, d != 0, and a != d <a href="#BBJLP08" class="xref">[BBJLP08]</a>.</p>
+<p id="rfc.section.6.8.p.2">These curves are closely related to Montgomery curves (<a href="#montgomery" class="xref">Section 6.7</a>): every twisted Edwards curve is birationally equivalent to a Montgomery curve (<a href="#BBJLP08" class="xref">[BBJLP08]</a>, Theorem 3.2).  This equivalence yields an efficient way of hashing to a twisted Edwards curve: first, hash to the equivalent Montgomery curve, then transform the result into a point on the twisted Edwards curve via a rational map.  This method of hashing to a twisted Edwards curve thus requires identifying a corresponding Montgomery curve and rational map.  We describe how to identify such a curve and map immediately below.</p>
+<h1 id="rfc.section.6.8.1">
+<a href="#rfc.section.6.8.1">6.8.1.</a> <a href="#rational-map" id="rational-map">Rational maps from Montgomery to twisted Edwards curves</a>
 </h1>
-<p id="rfc.section.6.7.1.p.1">There are two ways to identify the correct Montgomery curve and rational map for use when hashing to a given twisted Edwards curve.</p>
-<p id="rfc.section.6.7.1.p.2">When hashing to a standardized twisted Edwards curve for which a corresponding Montgomery form and rational map are also standardized, the standard Montgomery form and rational map MUST be used to ensure compatibility with existing software.  Two such standardized curves are the edwards25519 and edwards448 curves, which correspond to the Montgomery curves curve25519 and curve448, respectively.  For both of these curves, <a href="#RFC7748" class="xref">[RFC7748]</a> lists both the Montgomery and twisted Edwards forms and gives the corresponding rational maps.</p>
-<p id="rfc.section.6.7.1.p.3">The rational map for edwards25519 (<a href="#RFC7748" class="xref">[RFC7748]</a>, Section 4.1) uses the constant sqrt_neg_486664 = sqrt(-486664) (mod 2^255 - 19).  To ensure compatibility, this constant MUST be chosen such that sgn0(sqrt_neg_486664) == 1.  Analogous ambiguities in other standardized rational maps MUST be resolved in the same way: for any constant k whose sign is ambiguous, k MUST be chosen such that sgn0(k) == 1.</p>
-<p id="rfc.section.6.7.1.p.4">The 4-isogeny map from curve448 to edwards448 (<a href="#RFC7748" class="xref">[RFC7748]</a>, Section 4.2) is unambiguous with respect to sign.</p>
-<p id="rfc.section.6.7.1.p.5">When defining new twisted Edwards curves, a Montgomery equivalent and rational map SHOULD be specified, and the sign of the rational map SHOULD be stated unambiguously.</p>
-<p id="rfc.section.6.7.1.p.6">When hashing to a twisted Edwards curve that does not have a standardized Montgomery form or rational map, the following procedure MUST be used to derive them.  For a twisted Edwards curve given by a * x^2 + y^2 = 1 + d * x^2 * y^2, first compute A and B, the parameters of the equivalent curve given by y&#8217;^2 = x&#8217;^3 + A * x&#8217;^2 + B * x&#8217;, as follows:</p>
+<p id="rfc.section.6.8.1.p.1">There are two ways to identify the correct Montgomery curve and rational map for use when hashing to a given twisted Edwards curve.</p>
+<p id="rfc.section.6.8.1.p.2">When hashing to a standardized twisted Edwards curve for which a corresponding Montgomery form and rational map are also standardized, the standard Montgomery form and rational map MUST be used to ensure compatibility with existing software.  Two such standardized curves are the edwards25519 and edwards448 curves, which correspond to the Montgomery curves curve25519 and curve448, respectively.  For both of these curves, <a href="#RFC7748" class="xref">[RFC7748]</a> lists both the Montgomery and twisted Edwards forms and gives the corresponding rational maps.</p>
+<p id="rfc.section.6.8.1.p.3">The rational map for edwards25519 (<a href="#RFC7748" class="xref">[RFC7748]</a>, Section 4.1) uses the constant sqrt_neg_486664 = sqrt(-486664) (mod 2^255 - 19).  To ensure compatibility, this constant MUST be chosen such that sgn0(sqrt_neg_486664) == 1.  Analogous ambiguities in other standardized rational maps MUST be resolved in the same way: for any constant k whose sign is ambiguous, k MUST be chosen such that sgn0(k) == 1.</p>
+<p id="rfc.section.6.8.1.p.4">The 4-isogeny map from curve448 to edwards448 (<a href="#RFC7748" class="xref">[RFC7748]</a>, Section 4.2) is unambiguous with respect to sign.</p>
+<p id="rfc.section.6.8.1.p.5">When defining new twisted Edwards curves, a Montgomery equivalent and rational map SHOULD be specified, and the sign of the rational map SHOULD be stated unambiguously.</p>
+<p id="rfc.section.6.8.1.p.6">When hashing to a twisted Edwards curve that does not have a standardized Montgomery form or rational map, the following procedure MUST be used to derive them.  For a twisted Edwards curve given by a * v^2 + w^2 = 1 + d * v^2 * w^2, first compute A and B, the parameters of the equivalent Weierstrass curve given by y^2 = x^3 + A * x^2 + B * x, as follows:</p>
 <p></p>
 
 <ul>
 <li>A = (a + d) / 2</li>
 <li>B = (a - d)^2 / 16</li>
 </ul>
-<p id="rfc.section.6.7.1.p.8">Note that the above curve is given in the Weierstrass form required by the Elligator 2 mapping of <a href="#elligator2" class="xref">Section 6.6.1</a>.  The rational map from the point (x&#8217;, y&#8217;) on this Weierstrass curve to the point (x, y) on the twisted Edwards curve is given by</p>
+<p id="rfc.section.6.8.1.p.8">Note that the above curve is given in the Weierstrass form required by the Elligator 2 mapping of <a href="#elligator2" class="xref">Section 6.7.1</a>.  The rational map from the point (x, y) on this Weierstrass curve to the point (v, w) on the twisted Edwards curve is given by</p>
 <p></p>
 
 <ul>
-<li>x = x&#8217; / y&#8217;</li>
-<li>y = (B&#8217; * x&#8217; - 1) / (B&#8217; * x&#8217; + 1), where B&#8217; = 1 / sqrt(B) = 4 / (a - d)</li>
+<li>B&#8217; = 1 / sqrt(B) = 4 / (a - d)</li>
+<li>v = x / y</li>
+<li>w = (B&#8217; * x - 1) / (B&#8217; * x + 1)</li>
 </ul>
-<p id="rfc.section.6.7.1.p.10">For completeness, we give the inverse map in <a href="#rational-map-inverse" class="xref">Appendix B</a>.  Note that the inverse map is not used when hashing to a twisted Edwards curve.</p>
-<p id="rfc.section.6.7.1.p.11">Rational maps may be undefined on certain inputs, e.g., when the denominator of one of the rational functions is zero.  In the map described above, the exceptional cases are y&#8217; == 0 or B&#8217; * x&#8217; == -1.  Implementations MUST detect exceptional cases and return the value (x, y) = (0, 1), which is a valid point on all twisted Edwards curves given by the equation above.</p>
-<p id="rfc.section.6.7.1.p.12">The following straight-line implementation of the above rational map handles the exceptional cases.  Implementations of other rational maps (e.g., the ones give in <a href="#RFC7748" class="xref">[RFC7748]</a>) are analogous.</p>
+<p id="rfc.section.6.8.1.p.10">For completeness, we give the inverse map in <a href="#appx-rational-map-edw" class="xref">Appendix B.1</a>.  Note that the inverse map is not used when hashing to a twisted Edwards curve.</p>
+<p id="rfc.section.6.8.1.p.11">Rational maps may be undefined on certain inputs, e.g., when the denominator of one of the rational functions is zero.  In the map described above, the exceptional cases are y == 0 or B&#8217; * x == -1.  Implementations MUST detect exceptional cases and return the value (v, w) = (0, 1), which is a valid point on all twisted Edwards curves given by the equation above.</p>
+<p id="rfc.section.6.8.1.p.12">The following straight-line implementation of the above rational map handles the exceptional cases.  Implementations of other rational maps (e.g., the ones give in <a href="#RFC7748" class="xref">[RFC7748]</a>) are analogous.</p>
 <pre>
-rational_map(x', y')
-Input: (x', y'), a point on the curve y'^2 = x'^3 + A * x'^2 + B * x'.
- Output: (x, y), a point on an equivalent twisted Edwards curve.
+rational_map(x, y)
+Input: (x, y), a point on the curve y^2 = x^3 + A * x^2 + B * x.
+Output: (v, w), a point on an equivalent twisted Edwards curve.
 
-1. t1 = x' * B'
+1. t1 = x * B'
 2. t2 = t1 + 1
-3. t3 = y' * t2
+3. t3 = y * t2
 4. t3 = inv0(t3)
-5.  x = t2 * t3
-6.  x = x * x'
-7.  y = t1 - 1
-8.  y = y * y'
-9.  y = y * t3
-10. e = y == 0
-11. y = CMOV(y, 1, e)
-12. return (x, y)
+5.  v = t2 * t3
+6.  v = v * x
+7.  w = t1 - 1
+8.  w = w * y
+9.  w = w * t3
+10. e = w == 0
+11. w = CMOV(w, 1, e)
+12. return (v, w)
 </pre>
-<h1 id="rfc.section.6.7.2">
-<a href="#rfc.section.6.7.2">6.7.2.</a> <a href="#ell2edwards" id="ell2edwards">Elligator 2 Method</a>
+<h1 id="rfc.section.6.8.2">
+<a href="#rfc.section.6.8.2">6.8.2.</a> <a href="#ell2edwards" id="ell2edwards">Elligator 2 Method</a>
 </h1>
-<p id="rfc.section.6.7.2.p.1">Preconditions: A twisted Edwards curve E and an equivalent curve M meeting the requirements in <a href="#rational-map" class="xref">Section 6.7.1</a>.</p>
-<p id="rfc.section.6.7.2.p.2">Helper functions:</p>
+<p id="rfc.section.6.8.2.p.1">Preconditions: A twisted Edwards curve E and an equivalent curve M meeting the requirements in <a href="#rational-map" class="xref">Section 6.8.1</a>.</p>
+<p id="rfc.section.6.8.2.p.2">Helper functions:</p>
 <p></p>
 
 <ul>
-<li>map_to_curve_elligator2 is the mapping of <a href="#elligator2" class="xref">Section 6.6.1</a> to the curve M.</li>
-<li>rational_map is a function that takes a point (x&#8217;, y&#8217;) on M and returns a point (x, y) on E, as defined in <a href="#rational-map" class="xref">Section 6.7.1</a>.</li>
+<li>map_to_curve_elligator2 is the mapping of <a href="#elligator2" class="xref">Section 6.7.1</a> to the curve M.</li>
+<li>rational_map is a function that takes a point (x, y) on M and returns a point (v, w) on E, as defined in <a href="#rational-map" class="xref">Section 6.8.1</a>.</li>
 </ul>
-<p id="rfc.section.6.7.2.p.4">Sign of y: for this map, the sign is determined by map_to_curve_elligator2.  No further sign adjustments are required.</p>
-<p id="rfc.section.6.7.2.p.5">Exceptions: The exceptions for the Elligator 2 mapping are as given in <a href="#elligator2" class="xref">Section 6.6.1</a>.  The exceptions for the rational map are as given in <a href="#rational-map" class="xref">Section 6.7.1</a>.  No other exceptions are possible.</p>
-<p id="rfc.section.6.7.2.p.6">The following procedure implements the Elligator 2 mapping for a twisted Edwards curve.</p>
+<p id="rfc.section.6.8.2.p.4">Sign of y (and w): for this map, the sign is determined by map_to_curve_elligator2.  No further sign adjustments are required.</p>
+<p id="rfc.section.6.8.2.p.5">Exceptions: The exceptions for the Elligator 2 mapping are as given in <a href="#elligator2" class="xref">Section 6.7.1</a>.  The exceptions for the rational map are as given in <a href="#rational-map" class="xref">Section 6.8.1</a>.  No other exceptions are possible.</p>
+<p id="rfc.section.6.8.2.p.6">The following procedure implements the Elligator 2 mapping for a twisted Edwards curve.  (Note that the output point is denoted (v, w) because it is a point on the target twisted Edwards curve.)</p>
 <pre>
 map_to_curve_elligator2_edwards(u)
 Input: u, an element of F.
-Output: (x, y), a point on E.
+Output: (v, w), a point on E.
 
-1. (x', y') = map_to_curve_elligator2(u)    // (x', y') is on M
-2.   (x, y) = rational_map(x', y')          // (x, y) is on E
-3. return (x, y)
+1. (x, y) = map_to_curve_elligator2(u)      // (x, y) is on M
+2. (v, w) = rational_map(x, y)              // (v, w) is on E
+3. return (v, w)
 </pre>
-<h1 id="rfc.section.6.8">
-<a href="#rfc.section.6.8">6.8.</a> <a href="#mappings-for-supersingular-curves" id="mappings-for-supersingular-curves">Mappings for Supersingular curves</a>
+<h1 id="rfc.section.6.9">
+<a href="#rfc.section.6.9">6.9.</a> <a href="#mappings-for-supersingular-curves" id="mappings-for-supersingular-curves">Mappings for Supersingular curves</a>
 </h1>
-<h1 id="rfc.section.6.8.1">
-<a href="#rfc.section.6.8.1">6.8.1.</a> <a href="#supersingular" id="supersingular">Boneh-Franklin Method</a>
+<h1 id="rfc.section.6.9.1">
+<a href="#rfc.section.6.9.1">6.9.1.</a> <a href="#bfmap" id="bfmap">Boneh-Franklin Method</a>
 </h1>
-<p id="rfc.section.6.8.1.p.1">The function map_to_curve_bf(u) implements the Boneh-Franklin method <a href="#BF01" class="xref">[BF01]</a> which covers the supersingular curves defined by y^2 = x^3 + B over a field F such that q = 2 (mod 3).</p>
-<p id="rfc.section.6.8.1.p.2">Preconditions: A supersingular curve over F such that q = 2 (mod 3).</p>
-<p id="rfc.section.6.8.1.p.3">Constants: B, the parameter of the supersingular curve.</p>
-<p id="rfc.section.6.8.1.p.4">Sign of y: determined by sign of u. No adjustments are necessary.</p>
-<p id="rfc.section.6.8.1.p.5">Exceptions: none.</p>
-<p id="rfc.section.6.8.1.p.6">Operations:</p>
+<p id="rfc.section.6.9.1.p.1">The function map_to_curve_bf(u) implements the Boneh-Franklin method <a href="#BF01" class="xref">[BF01]</a> which covers the supersingular curves defined by y^2 = x^3 + B over a field F such that q = 2 (mod 3).</p>
+<p id="rfc.section.6.9.1.p.2">Preconditions: A supersingular curve over F such that q = 2 (mod 3).</p>
+<p id="rfc.section.6.9.1.p.3">Constants: B, the parameter of the supersingular curve.</p>
+<p id="rfc.section.6.9.1.p.4">Sign of y: determined by sign of u. No adjustments are necessary.</p>
+<p id="rfc.section.6.9.1.p.5">Exceptions: none.</p>
+<p id="rfc.section.6.9.1.p.6">Operations:</p>
 <pre>
 1. w = (2 * q - 1) / 3    // Integer arithmetic
 2. x = (u^2 - B)^w
 3. y = u
 4. return (x, y)
 </pre>
-<h1 id="rfc.section.6.8.1.1">
-<a href="#rfc.section.6.8.1.1">6.8.1.1.</a> <a href="#implementation-3" id="implementation-3">Implementation</a>
+<h1 id="rfc.section.6.9.1.1">
+<a href="#rfc.section.6.9.1.1">6.9.1.1.</a> <a href="#implementation-3" id="implementation-3">Implementation</a>
 </h1>
-<p id="rfc.section.6.8.1.1.p.1">The following procedure implements the Boneh-Franklin&#8217;s algorithm in a straight-line fashion.</p>
+<p id="rfc.section.6.9.1.1.p.1">The following procedure implements the Boneh-Franklin&#8217;s algorithm in a straight-line fashion.</p>
 <pre>
 map_to_curve_bf(u)
 Input: u, an element of F.
@@ -1362,15 +1393,15 @@ Steps:
 4.  y = u
 5. return (x, y)
 </pre>
-<h1 id="rfc.section.6.8.2">
-<a href="#rfc.section.6.8.2">6.8.2.</a> <a href="#ell2a0" id="ell2a0">Elligator 2, A == 0 Method</a>
+<h1 id="rfc.section.6.9.2">
+<a href="#rfc.section.6.9.2">6.9.2.</a> <a href="#ell2a0" id="ell2a0">Elligator 2, A == 0 Method</a>
 </h1>
-<p id="rfc.section.6.8.2.p.1">The function map_to_curve_ell2A0(u) implements an adaptation of Elligator 2 <a href="#BLMP19" class="xref">[BLMP19]</a> targeting curves given by y^2 = x^3 + B * x over F such that q = 3 (mod 4).</p>
-<p id="rfc.section.6.8.2.p.2">Preconditions: An elliptic curve over F such that q = 3 (mod 4).</p>
-<p id="rfc.section.6.8.2.p.3">Constants: B, the parameter of the elliptic curve.</p>
-<p id="rfc.section.6.8.2.p.4">Sign of y: Inputs u and -u give the same x-coordinate.  Thus, we set sgn0(y) == sgn0(u).</p>
-<p id="rfc.section.6.8.2.p.5">Exceptions: none.</p>
-<p id="rfc.section.6.8.2.p.6">Operations:</p>
+<p id="rfc.section.6.9.2.p.1">The function map_to_curve_ell2A0(u) implements an adaptation of Elligator 2 <a href="#BLMP19" class="xref">[BLMP19]</a> targeting curves given by y^2 = x^3 + B * x over F such that q = 3 (mod 4).</p>
+<p id="rfc.section.6.9.2.p.2">Preconditions: An elliptic curve over F such that q = 3 (mod 4).</p>
+<p id="rfc.section.6.9.2.p.3">Constants: B, the parameter of the elliptic curve.</p>
+<p id="rfc.section.6.9.2.p.4">Sign of y: Inputs u and -u give the same x-coordinate.  Thus, we set sgn0(y) == sgn0(u).</p>
+<p id="rfc.section.6.9.2.p.5">Exceptions: none.</p>
+<p id="rfc.section.6.9.2.p.6">Operations:</p>
 <pre>
 1.  x1 = u
 2. gx1 = x1^3 + B * x1
@@ -1381,10 +1412,10 @@ Steps:
 7. If sgn0(u) != sgn0(y), set y = -y.
 8. return (x, y)
 </pre>
-<h1 id="rfc.section.6.8.2.1">
-<a href="#rfc.section.6.8.2.1">6.8.2.1.</a> <a href="#implementation-4" id="implementation-4">Implementation</a>
+<h1 id="rfc.section.6.9.2.1">
+<a href="#rfc.section.6.9.2.1">6.9.2.1.</a> <a href="#implementation-4" id="implementation-4">Implementation</a>
 </h1>
-<p id="rfc.section.6.8.2.1.p.1">The following procedure implements the Elligator 2 mapping for A == 0 in a straight-line fashion.</p>
+<p id="rfc.section.6.9.2.1.p.1">The following procedure implements the Elligator 2 mapping for A == 0 in a straight-line fashion.</p>
 <pre>
 map_to_curve_ell2A0(u)
 Input: u, an element of F.
@@ -1432,7 +1463,7 @@ clear_cofactor(P) := h_eff * P
 <p></p>
 
 <ul>
-<li>Suite ID, a short name used to refer to a given suite.  The ID also indicates whether a suite is a random oracle or nonuniform encoding (<a href="#term-rom" class="xref">Section 2.2.3</a>, <a href="#roadmap" class="xref">Section 3</a>).  <a href="#suiteIDformat" class="xref">Section 8.1</a> discusses the naming conventions for suite IDs.</li>
+<li>Suite ID, a short name used to refer to a given suite.  The ID also indicates whether a suite is a random oracle or nonuniform encoding (<a href="#term-rom" class="xref">Section 2.2.3</a>, <a href="#roadmap" class="xref">Section 3</a>).  <a href="#suiteIDformat" class="xref">Section 8.2</a> discusses the naming conventions for suite IDs.</li>
 <li>E, the target elliptic curve over a field F.</li>
 <li>p, the characteristic of the field F.</li>
 <li>m, the extension degree of the field F.</li>
@@ -1443,9 +1474,8 @@ clear_cofactor(P) := h_eff * P
 <li>h_eff, the scalar parameter for clear_cofactor (<a href="#cofactor-clearing" class="xref">Section 7</a>).</li>
 </ul>
 <p id="rfc.section.8.p.4">In addition to the above parameters, the mapping f may require additional parameters Z, M, rational_map, E&#8217;, and/or iso_map.  These MUST be specified when applicable.</p>
-<p id="rfc.section.8.p.5">All applications MUST choose a domain separation tag (DST) for use with hash_to_base (<a href="#hashtobase" class="xref">Section 5</a>), in accordance with the guidelines of <a href="#domain-separation" class="xref">Section 3.1</a>.  In addition, applications whose security requires a random oracle MUST use a suite specifying hash_to_curve (<a href="#roadmap" class="xref">Section 3</a>); see <a href="#suiteIDformat" class="xref">Section 8.1</a>.</p>
-<p id="rfc.section.8.p.6">When standardizing a new elliptic curve, corresponding hash-to-curve suites SHOULD be specified.</p>
-<p id="rfc.section.8.p.7">The below table lists the curves for which suites are defined and the subsection that gives the corresponding parameters.</p>
+<p id="rfc.section.8.p.5">All applications MUST choose a domain separation tag (DST) for use with hash_to_base (<a href="#hashtobase" class="xref">Section 5</a>), in accordance with the guidelines of <a href="#domain-separation" class="xref">Section 3.1</a>.  In addition, applications whose security requires a random oracle MUST use a suite specifying hash_to_curve (<a href="#roadmap" class="xref">Section 3</a>); see <a href="#suiteIDformat" class="xref">Section 8.2</a>.</p>
+<p id="rfc.section.8.p.6">The below table lists the curves for which suites are defined and the subsection that gives the corresponding parameters.</p>
 <table cellpadding="3" cellspacing="0" class="tt full center">
 <thead><tr>
 <th class="left">E</th>
@@ -1454,43 +1484,58 @@ clear_cofactor(P) := h_eff * P
 <tbody>
 <tr>
 <td class="left">NIST P-256</td>
-<td class="left"><a href="#suites-p256" class="xref">Section 8.2</a></td>
+<td class="left"><a href="#suites-p256" class="xref">Section 8.3</a></td>
 </tr>
 <tr>
 <td class="left">NIST P-384</td>
-<td class="left"><a href="#suites-p384" class="xref">Section 8.3</a></td>
+<td class="left"><a href="#suites-p384" class="xref">Section 8.4</a></td>
 </tr>
 <tr>
 <td class="left">NIST P-521</td>
-<td class="left"><a href="#suites-p521" class="xref">Section 8.4</a></td>
+<td class="left"><a href="#suites-p521" class="xref">Section 8.5</a></td>
 </tr>
 <tr>
 <td class="left">curve25519 / edwards25519</td>
-<td class="left"><a href="#suites-25519" class="xref">Section 8.5</a></td>
+<td class="left"><a href="#suites-25519" class="xref">Section 8.6</a></td>
 </tr>
 <tr>
 <td class="left">curve448 / edwards448</td>
-<td class="left"><a href="#suites-448" class="xref">Section 8.6</a></td>
+<td class="left"><a href="#suites-448" class="xref">Section 8.7</a></td>
 </tr>
 <tr>
 <td class="left">secp256k1</td>
-<td class="left"><a href="#suites-secp256k1" class="xref">Section 8.7</a></td>
+<td class="left"><a href="#suites-secp256k1" class="xref">Section 8.8</a></td>
 </tr>
 <tr>
 <td class="left">BLS12-381</td>
-<td class="left"><a href="#suites-bls12381" class="xref">Section 8.8</a></td>
+<td class="left"><a href="#suites-bls12381" class="xref">Section 8.9</a></td>
 </tr>
 </tbody>
 </table>
 <h1 id="rfc.section.8.1">
-<a href="#rfc.section.8.1">8.1.</a> <a href="#suiteIDformat" id="suiteIDformat">Suite ID naming conventions</a>
+<a href="#rfc.section.8.1">8.1.</a> <a href="#new-suite" id="new-suite">Defining a new hash-to-curve suite</a>
 </h1>
-<p id="rfc.section.8.1.p.1">Suite IDs MUST be constructed as follows:</p>
+<p id="rfc.section.8.1.p.1">The RECOMMENDED way to define a new hash-to-curve suite is:</p>
+<p></p>
+
+<ol>
+<li>E, F, p, and m are determined by the elliptic curve and the field.</li>
+<li>Choose a sgn0 variant following the guidelines in <a href="#sgn0-variants" class="xref">Section 4.1</a>.</li>
+<li>Choose a hash function H meeting the requirements in <a href="#hashtobase-sec" class="xref">Section 5.1</a>, and compute L as described in that section.</li>
+<li>Choose a mapping following the guidelines in <a href="#choosing-mapping" class="xref">Section 6.1</a>, and select any required parameters for that mapping.</li>
+<li>Choose h_eff to be either the cofactor of E or, if a fast cofactor clearing method is to be used, a value appropriate to that method as discussed in <a href="#cofactor-clearing" class="xref">Section 7</a>.</li>
+<li>Construct a Suite ID following the guidelines in <a href="#suiteIDformat" class="xref">Section 8.2</a>.</li>
+</ol>
+<p id="rfc.section.8.1.p.3">When hashing to an elliptic curve not listed in this section, corresponding hash-to-curve suites SHOULD be specified as described in this section.</p>
+<h1 id="rfc.section.8.2">
+<a href="#rfc.section.8.2">8.2.</a> <a href="#suiteIDformat" id="suiteIDformat">Suite ID naming conventions</a>
+</h1>
+<p id="rfc.section.8.2.p.1">Suite IDs MUST be constructed as follows:</p>
 <pre>
 CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 </pre>
-<p id="rfc.section.8.1.p.2">The fields CURVE_ID, HASH_ID, MAP_ID, and ENC_VAR are ASCII-encoded strings of at most 64 characters each.  Fields can contain only ASCII characters between 0x21 and 0x7E (inclusive) other than hyphen and underscore (i.e., 0x2d, and 0x5f).  As indicated above, each field (including the last) is followed by a hyphen (&#8220;-&#8220;, ASCII 0x2d); this helps to ensure that Suite IDs are prefix free.</p>
-<p id="rfc.section.8.1.p.3">Fields MUST be chosen as follows:</p>
+<p id="rfc.section.8.2.p.2">The fields CURVE_ID, HASH_ID, MAP_ID, and ENC_VAR are ASCII-encoded strings of at most 64 characters each.  Fields can contain only ASCII characters between 0x21 and 0x7E (inclusive) other than hyphen and underscore (i.e., 0x2d, and 0x5f).  As indicated above, each field (including the last) is followed by a hyphen (&#8220;-&#8220;, ASCII 0x2d); this helps to ensure that Suite IDs are prefix free.</p>
+<p id="rfc.section.8.2.p.3">Fields MUST be chosen as follows:</p>
 <p></p>
 
 <ul>
@@ -1505,27 +1550,27 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <p> ENC_VAR MAY also be used to encode other information used to identify variants, for example, a version number.  The RECOMMENDED way to do so is to add one or more subfields separated by colons.  For example, &#8220;RO:V02&#8221; is an appropriate ENC_VAR value for the second version of a random-oracle suite, while &#8220;RO:V02:FOO01:BAR17&#8221; might be used to indicate a variant of that suite.</p>
 </li>
 </ul>
-<h1 id="rfc.section.8.2">
-<a href="#rfc.section.8.2">8.2.</a> <a href="#suites-p256" id="suites-p256">Suites for NIST P-256</a>
+<h1 id="rfc.section.8.3">
+<a href="#rfc.section.8.3">8.3.</a> <a href="#suites-p256" id="suites-p256">Suites for NIST P-256</a>
 </h1>
-<p id="rfc.section.8.2.p.1">This section defines ciphersuites for the NIST P-256 elliptic curve <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.</p>
-<p id="rfc.section.8.2.p.2">The suites P256-SHA256-SSWU-RO- and P256-SHA256-SSWU-NU- share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.3.p.1">This section defines ciphersuites for the NIST P-256 elliptic curve <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.</p>
+<p id="rfc.section.8.3.p.2">The suites P256-SHA256-SSWU-RO- and P256-SHA256-SSWU-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
-<li>f: Simplified SWU method, <a href="#simple-swu" class="xref">Section 6.5.2</a>
+<li>f: Simplified SWU method, <a href="#simple-swu" class="xref">Section 6.6.2</a>
 </li>
 <li>Z: -10</li>
 </ul>
-<p id="rfc.section.8.2.p.4">The suites P256-SHA256-SVDW-RO- and P256-SHA256-SVDW-NU- share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.3.p.4">The suites P256-SHA256-SVDW-RO- and P256-SHA256-SVDW-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
-<li>f: Shallue-van de Woestijne method, <a href="#svdw" class="xref">Section 6.5.1</a>
+<li>f: Shallue-van de Woestijne method, <a href="#svdw" class="xref">Section 6.6.1</a>
 </li>
 <li>Z: -3</li>
 </ul>
-<p id="rfc.section.8.2.p.6">The common parameters for the above suites are:</p>
+<p id="rfc.section.8.3.p.6">The common parameters for the above suites are:</p>
 <p></p>
 
 <ul>
@@ -1541,28 +1586,28 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>L: 48</li>
 <li>h_eff: 1</li>
 </ul>
-<p id="rfc.section.8.2.p.8">An optimized example implementation of the Simplified SWU mapping to P-256 is given in <a href="#sswu-map-to-3mod4" class="xref">Appendix D.2</a>.</p>
-<h1 id="rfc.section.8.3">
-<a href="#rfc.section.8.3">8.3.</a> <a href="#suites-p384" id="suites-p384">Suites for NIST P-384</a>
+<p id="rfc.section.8.3.p.8">An optimized example implementation of the Simplified SWU mapping to P-256 is given in <a href="#sswu-map-to-3mod4" class="xref">Appendix D.2</a>.</p>
+<h1 id="rfc.section.8.4">
+<a href="#rfc.section.8.4">8.4.</a> <a href="#suites-p384" id="suites-p384">Suites for NIST P-384</a>
 </h1>
-<p id="rfc.section.8.3.p.1">This section defines ciphersuites for the NIST P-384 elliptic curve <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.</p>
-<p id="rfc.section.8.3.p.2">The suites P384-SHA512-SSWU-RO- and P384-SHA512-SSWU-NU- share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.4.p.1">This section defines ciphersuites for the NIST P-384 elliptic curve <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.</p>
+<p id="rfc.section.8.4.p.2">The suites P384-SHA512-SSWU-RO- and P384-SHA512-SSWU-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
-<li>f: Simplified SWU method, <a href="#simple-swu" class="xref">Section 6.5.2</a>
+<li>f: Simplified SWU method, <a href="#simple-swu" class="xref">Section 6.6.2</a>
 </li>
 <li>Z: -12</li>
 </ul>
-<p id="rfc.section.8.3.p.4">The suites P384-SHA512-SVDW-RO- and P384-SHA512-SVDW-NU- share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.4.p.4">The suites P384-SHA512-SVDW-RO- and P384-SHA512-SVDW-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
-<li>f: Shallue-van de Woestijne method, <a href="#svdw" class="xref">Section 6.5.1</a>
+<li>f: Shallue-van de Woestijne method, <a href="#svdw" class="xref">Section 6.6.1</a>
 </li>
 <li>Z: -1</li>
 </ul>
-<p id="rfc.section.8.3.p.6">The common parameters for the above suites are:</p>
+<p id="rfc.section.8.4.p.6">The common parameters for the above suites are:</p>
 <p></p>
 
 <ul>
@@ -1578,28 +1623,28 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>L: 72</li>
 <li>h_eff: 1</li>
 </ul>
-<p id="rfc.section.8.3.p.8">An optimized example implementation of the Simplified SWU mapping to P-384 is given in <a href="#sswu-map-to-3mod4" class="xref">Appendix D.2</a>.</p>
-<h1 id="rfc.section.8.4">
-<a href="#rfc.section.8.4">8.4.</a> <a href="#suites-p521" id="suites-p521">Suites for NIST P-521</a>
+<p id="rfc.section.8.4.p.8">An optimized example implementation of the Simplified SWU mapping to P-384 is given in <a href="#sswu-map-to-3mod4" class="xref">Appendix D.2</a>.</p>
+<h1 id="rfc.section.8.5">
+<a href="#rfc.section.8.5">8.5.</a> <a href="#suites-p521" id="suites-p521">Suites for NIST P-521</a>
 </h1>
-<p id="rfc.section.8.4.p.1">This section defines ciphersuites for the NIST P-521 elliptic curve <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.</p>
-<p id="rfc.section.8.4.p.2">The suites P521-SHA512-SSWU-RO- and P521-SHA512-SSWU-NU- share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.5.p.1">This section defines ciphersuites for the NIST P-521 elliptic curve <a href="#FIPS186-4" class="xref">[FIPS186-4]</a>.</p>
+<p id="rfc.section.8.5.p.2">The suites P521-SHA512-SSWU-RO- and P521-SHA512-SSWU-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
-<li>f: Simplified SWU method, <a href="#simple-swu" class="xref">Section 6.5.2</a>
+<li>f: Simplified SWU method, <a href="#simple-swu" class="xref">Section 6.6.2</a>
 </li>
 <li>Z: -4</li>
 </ul>
-<p id="rfc.section.8.4.p.4">The suites P521-SHA512-SVDW-RO- and P521-SHA512-SVDW-NU- share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.5.p.4">The suites P521-SHA512-SVDW-RO- and P521-SHA512-SVDW-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
-<li>f: Shallue-van de Woestijne method, <a href="#svdw" class="xref">Section 6.5.1</a>
+<li>f: Shallue-van de Woestijne method, <a href="#svdw" class="xref">Section 6.6.1</a>
 </li>
 <li>Z: 1</li>
 </ul>
-<p id="rfc.section.8.4.p.6">The common parameters for the above suites are:</p>
+<p id="rfc.section.8.5.p.6">The common parameters for the above suites are:</p>
 <p></p>
 
 <ul>
@@ -1615,12 +1660,12 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>L: 96</li>
 <li>h_eff: 1</li>
 </ul>
-<p id="rfc.section.8.4.p.8">An optimized example implementation of the Simplified SWU mapping to P-521 is given in <a href="#sswu-map-to-3mod4" class="xref">Appendix D.2</a>.</p>
-<h1 id="rfc.section.8.5">
-<a href="#rfc.section.8.5">8.5.</a> <a href="#suites-25519" id="suites-25519">Suites for curve25519 and edwards25519</a>
+<p id="rfc.section.8.5.p.8">An optimized example implementation of the Simplified SWU mapping to P-521 is given in <a href="#sswu-map-to-3mod4" class="xref">Appendix D.2</a>.</p>
+<h1 id="rfc.section.8.6">
+<a href="#rfc.section.8.6">8.6.</a> <a href="#suites-25519" id="suites-25519">Suites for curve25519 and edwards25519</a>
 </h1>
-<p id="rfc.section.8.5.p.1">This section defines ciphersuites for curve25519 and edwards25519 <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
-<p id="rfc.section.8.5.p.2">The suites curve25519-SHA256-ELL2-RO- and curve25519-SHA256-ELL2-NU- share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.6.p.1">This section defines ciphersuites for curve25519 and edwards25519 <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
+<p id="rfc.section.8.6.p.2">The suites curve25519-SHA256-ELL2-RO- and curve25519-SHA256-ELL2-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
@@ -1629,10 +1674,10 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>B = 1</li>
 </ul>
 </li>
-<li>f: Elligator 2 method, <a href="#elligator2" class="xref">Section 6.6.1</a>
+<li>f: Elligator 2 method, <a href="#elligator2" class="xref">Section 6.7.1</a>
 </li>
 </ul>
-<p id="rfc.section.8.5.p.4">The suites edwards25519-SHA256-EDELL2-RO- and edwards25519-SHA256-EDELL2-NU- share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.6.p.4">The suites edwards25519-SHA256-EDELL2-RO- and edwards25519-SHA256-EDELL2-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
@@ -1641,12 +1686,12 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>d = 0x52036cee2b6ffe738cc740797779e89800700a4d4141d8ab75eb4dca135978a3</li>
 </ul>
 </li>
-<li>f: Twisted Edwards Elligator 2 method, <a href="#ell2edwards" class="xref">Section 6.7.2</a>
+<li>f: Twisted Edwards Elligator 2 method, <a href="#ell2edwards" class="xref">Section 6.8.2</a>
 </li>
 <li>M: curve25519 defined in <a href="#RFC7748" class="xref">[RFC7748]</a>, Section 4.1</li>
 <li>rational_map: the birational map defined in <a href="#RFC7748" class="xref">[RFC7748]</a>, Section 4.1</li>
 </ul>
-<p id="rfc.section.8.5.p.6">The common parameters for all of the above suites are:</p>
+<p id="rfc.section.8.6.p.6">The common parameters for all of the above suites are:</p>
 <p></p>
 
 <ul>
@@ -1658,12 +1703,12 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>Z: 2</li>
 <li>h_eff: 8</li>
 </ul>
-<p id="rfc.section.8.5.p.8">Optimized example implementations of the above mappings are given in <a href="#map-to-curve25519" class="xref">Appendix D.3</a> and <a href="#map-to-edwards25519" class="xref">Appendix D.4</a>.</p>
-<h1 id="rfc.section.8.6">
-<a href="#rfc.section.8.6">8.6.</a> <a href="#suites-448" id="suites-448">Suites for curve448 and edwards448</a>
+<p id="rfc.section.8.6.p.8">Optimized example implementations of the above mappings are given in <a href="#map-to-curve25519" class="xref">Appendix D.3</a> and <a href="#map-to-edwards25519" class="xref">Appendix D.4</a>.</p>
+<h1 id="rfc.section.8.7">
+<a href="#rfc.section.8.7">8.7.</a> <a href="#suites-448" id="suites-448">Suites for curve448 and edwards448</a>
 </h1>
-<p id="rfc.section.8.6.p.1">This section defines ciphersuites for curve448 and edwards448 <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
-<p id="rfc.section.8.6.p.2">The suites curve448-SHA512-ELL2-RO- and curve448-SHA512-ELL2-NU- share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.7.p.1">This section defines ciphersuites for curve448 and edwards448 <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
+<p id="rfc.section.8.7.p.2">The suites curve448-SHA512-ELL2-RO- and curve448-SHA512-ELL2-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
@@ -1672,10 +1717,10 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>B = 1</li>
 </ul>
 </li>
-<li>f: Elligator 2 method, <a href="#elligator2" class="xref">Section 6.6.1</a>
+<li>f: Elligator 2 method, <a href="#elligator2" class="xref">Section 6.7.1</a>
 </li>
 </ul>
-<p id="rfc.section.8.6.p.4">The suites edwards448-SHA512-EDELL2-RO- and edwards448-SHA512-EDELL2-NU- share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.7.p.4">The suites edwards448-SHA512-EDELL2-RO- and edwards448-SHA512-EDELL2-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
@@ -1684,12 +1729,12 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>d = -39081</li>
 </ul>
 </li>
-<li>f: Twisted Edwards Elligator 2 method, <a href="#ell2edwards" class="xref">Section 6.7.2</a>
+<li>f: Twisted Edwards Elligator 2 method, <a href="#ell2edwards" class="xref">Section 6.8.2</a>
 </li>
 <li>M: curve448, defined in <a href="#RFC7748" class="xref">[RFC7748]</a>, Section 4.2</li>
 <li>rational_map: the 4-isogeny map defined in <a href="#RFC7748" class="xref">[RFC7748]</a>, Section 4.2</li>
 </ul>
-<p id="rfc.section.8.6.p.6">The common parameters for all of the above suites are:</p>
+<p id="rfc.section.8.7.p.6">The common parameters for all of the above suites are:</p>
 <p></p>
 
 <ul>
@@ -1701,16 +1746,16 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>Z: -1</li>
 <li>h_eff: 4</li>
 </ul>
-<p id="rfc.section.8.6.p.8">Optimized example implementations of the above mappings are given in <a href="#map-to-curve448" class="xref">Appendix D.5</a> and <a href="#map-to-edwards448" class="xref">Appendix D.6</a>.</p>
-<h1 id="rfc.section.8.7">
-<a href="#rfc.section.8.7">8.7.</a> <a href="#suites-secp256k1" id="suites-secp256k1">Suites for secp256k1</a>
+<p id="rfc.section.8.7.p.8">Optimized example implementations of the above mappings are given in <a href="#map-to-curve448" class="xref">Appendix D.5</a> and <a href="#map-to-edwards448" class="xref">Appendix D.6</a>.</p>
+<h1 id="rfc.section.8.8">
+<a href="#rfc.section.8.8">8.8.</a> <a href="#suites-secp256k1" id="suites-secp256k1">Suites for secp256k1</a>
 </h1>
-<p id="rfc.section.8.7.p.1">This section defines ciphersuites for the secp256k1 elliptic curve <a href="#SEC2" class="xref">[SEC2]</a>.</p>
-<p id="rfc.section.8.7.p.2">The suites secp256k1-SHA256-SSWU-RO- and secp256k1-SHA256-SSWU-NU- share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.8.p.1">This section defines ciphersuites for the secp256k1 elliptic curve <a href="#SEC2" class="xref">[SEC2]</a>.</p>
+<p id="rfc.section.8.8.p.2">The suites secp256k1-SHA256-SSWU-RO- and secp256k1-SHA256-SSWU-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
-<li>f: Simplified SWU for AB == 0, <a href="#simple-swu-AB0" class="xref">Section 6.5.3</a>
+<li>f: Simplified SWU for AB == 0, <a href="#simple-swu-AB0" class="xref">Section 6.6.3</a>
 </li>
 <li>Z: -11</li>
 <li>E&#8217;: y&#8217;^2 = x&#8217;^3 + A&#8217; * x&#8217; + B&#8217;, where <ul>
@@ -1721,15 +1766,15 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>iso_map: the 3-isogeny map from E&#8217; to E given in <a href="#appx-iso-secp256k1" class="xref">Appendix C.1</a>
 </li>
 </ul>
-<p id="rfc.section.8.7.p.4">The suites secp256k1-SHA256-SVDW-RO- and secp256k1-SHA256-SVDW-NU- share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.8.p.4">The suites secp256k1-SHA256-SVDW-RO- and secp256k1-SHA256-SVDW-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
-<li>f: Shallue-van de Woestijne method, <a href="#svdw" class="xref">Section 6.5.1</a>
+<li>f: Shallue-van de Woestijne method, <a href="#svdw" class="xref">Section 6.6.1</a>
 </li>
 <li>Z: 1</li>
 </ul>
-<p id="rfc.section.8.7.p.6">The common parameters for all of the above suites are:</p>
+<p id="rfc.section.8.8.p.6">The common parameters for all of the above suites are:</p>
 <p></p>
 
 <ul>
@@ -1741,19 +1786,19 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>L: 48</li>
 <li>h_eff: 1</li>
 </ul>
-<p id="rfc.section.8.7.p.8">An optimized example implementation of the Simplified SWU mapping to the curve E&#8217; isogenous to secp256k1 is given in <a href="#sswu-map-to-3mod4" class="xref">Appendix D.2</a>.</p>
-<h1 id="rfc.section.8.8">
-<a href="#rfc.section.8.8">8.8.</a> <a href="#suites-bls12381" id="suites-bls12381">Suites for BLS12-381</a>
+<p id="rfc.section.8.8.p.8">An optimized example implementation of the Simplified SWU mapping to the curve E&#8217; isogenous to secp256k1 is given in <a href="#sswu-map-to-3mod4" class="xref">Appendix D.2</a>.</p>
+<h1 id="rfc.section.8.9">
+<a href="#rfc.section.8.9">8.9.</a> <a href="#suites-bls12381" id="suites-bls12381">Suites for BLS12-381</a>
 </h1>
-<p id="rfc.section.8.8.p.1">This section defines ciphersuites for groups G1 and G2 of the BLS12-381 elliptic curve <a href="#draft-yonezawa-pfc-01" class="xref">[draft-yonezawa-pfc-01]</a>.</p>
-<h1 id="rfc.section.8.8.1">
-<a href="#rfc.section.8.8.1">8.8.1.</a> <a href="#suites-bls12381-g1" id="suites-bls12381-g1">BLS12-381 G1</a>
+<p id="rfc.section.8.9.p.1">This section defines ciphersuites for groups G1 and G2 of the BLS12-381 elliptic curve <a href="#draft-yonezawa-pfc-01" class="xref">[draft-yonezawa-pfc-01]</a>.</p>
+<h1 id="rfc.section.8.9.1">
+<a href="#rfc.section.8.9.1">8.9.1.</a> <a href="#suites-bls12381-g1" id="suites-bls12381-g1">BLS12-381 G1</a>
 </h1>
-<p id="rfc.section.8.8.1.p.1">The suites BLS12381G1-SHA256-SSWU-RO- and BLS12381G1-SHA256-SSWU-NU- share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.9.1.p.1">The suites BLS12381G1-SHA256-SSWU-RO- and BLS12381G1-SHA256-SSWU-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
-<li>f: Simplified SWU for AB == 0, <a href="#simple-swu-AB0" class="xref">Section 6.5.3</a>
+<li>f: Simplified SWU for AB == 0, <a href="#simple-swu-AB0" class="xref">Section 6.6.3</a>
 </li>
 <li>Z: 11</li>
 <li>E&#8217;: y&#8217;^2 = x&#8217;^3 + A&#8217; * x&#8217; + B&#8217;, where <ul>
@@ -1764,15 +1809,15 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>iso_map: the 11-isogeny map from E&#8217; to E given in <a href="#appx-iso-bls12381-g1" class="xref">Appendix C.2</a>
 </li>
 </ul>
-<p id="rfc.section.8.8.1.p.3">The suites BLS12381G1-SHA256-SVDW-RO- and BLS12381G1-SHA256-SVDW-NU- share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.9.1.p.3">The suites BLS12381G1-SHA256-SVDW-RO- and BLS12381G1-SHA256-SVDW-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
-<li>f: Shallue-van de Woestijne method, <a href="#svdw" class="xref">Section 6.5.1</a>
+<li>f: Shallue-van de Woestijne method, <a href="#svdw" class="xref">Section 6.6.1</a>
 </li>
 <li>Z: -3</li>
 </ul>
-<p id="rfc.section.8.8.1.p.5">The common parameters for the above suites are:</p>
+<p id="rfc.section.8.9.1.p.5">The common parameters for the above suites are:</p>
 <p></p>
 
 <ul>
@@ -1784,12 +1829,12 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>L: 64</li>
 <li>h_eff: 0xd201000000010001</li>
 </ul>
-<p id="rfc.section.8.8.1.p.7">Note that this h_eff value is chosen for compatibility with the fast cofactor clearing method described by Scott (<a href="#WB19" class="xref">[WB19]</a> Section 5).</p>
-<p id="rfc.section.8.8.1.p.8">An optimized example implementation of the Simplified SWU mapping to the curve E&#8217; isogenous to BLS12-381 G1 is given in <a href="#sswu-map-to-3mod4" class="xref">Appendix D.2</a>.</p>
-<h1 id="rfc.section.8.8.2">
-<a href="#rfc.section.8.8.2">8.8.2.</a> <a href="#suites-bls12381-g2" id="suites-bls12381-g2">BLS12-381 G2</a>
+<p id="rfc.section.8.9.1.p.7">Note that this h_eff value is chosen for compatibility with the fast cofactor clearing method described by Scott (<a href="#WB19" class="xref">[WB19]</a> Section 5).</p>
+<p id="rfc.section.8.9.1.p.8">An optimized example implementation of the Simplified SWU mapping to the curve E&#8217; isogenous to BLS12-381 G1 is given in <a href="#sswu-map-to-3mod4" class="xref">Appendix D.2</a>.</p>
+<h1 id="rfc.section.8.9.2">
+<a href="#rfc.section.8.9.2">8.9.2.</a> <a href="#suites-bls12381-g2" id="suites-bls12381-g2">BLS12-381 G2</a>
 </h1>
-<p id="rfc.section.8.8.2.p.1">Group G2 of BLS12-381 is defined over a field F = GF(p^m) defined as:</p>
+<p id="rfc.section.8.9.2.p.1">Group G2 of BLS12-381 is defined over a field F = GF(p^m) defined as:</p>
 <p></p>
 
 <ul>
@@ -1797,11 +1842,11 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>m: 2</li>
 <li>(1, I) is the basis for F, where I^2 + 1 == 0 in F</li>
 </ul>
-<p id="rfc.section.8.8.2.p.3">The suites BLS12381G2-SHA256-SSWU-RO- and BLS12381G2-SHA256-SSWU-NU- share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.9.2.p.3">The suites BLS12381G2-SHA256-SSWU-RO- and BLS12381G2-SHA256-SSWU-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
-<li>f: Simplified SWU for AB == 0, <a href="#simple-swu-AB0" class="xref">Section 6.5.3</a>
+<li>f: Simplified SWU for AB == 0, <a href="#simple-swu-AB0" class="xref">Section 6.6.3</a>
 </li>
 <li>Z: -(2 + I)</li>
 <li>E&#8217;: y&#8217;^2 = x&#8217;^3 + A&#8217; * x&#8217; + B&#8217;, where <ul>
@@ -1812,15 +1857,15 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>iso_map: the isogeny map from E&#8217; to E given in <a href="#appx-iso-bls12381-g2" class="xref">Appendix C.3</a>
 </li>
 </ul>
-<p id="rfc.section.8.8.2.p.5">The suites BLS12381G2-SHA256-SVDW-RO- and BLS12381G2-SHA256-SVDW-NU- share the following parameters, in addition to the common parameters below.</p>
+<p id="rfc.section.8.9.2.p.5">The suites BLS12381G2-SHA256-SVDW-RO- and BLS12381G2-SHA256-SVDW-NU- share the following parameters, in addition to the common parameters below.</p>
 <p></p>
 
 <ul>
-<li>f: Shallue-van de Woestijne method, <a href="#svdw" class="xref">Section 6.5.1</a>
+<li>f: Shallue-van de Woestijne method, <a href="#svdw" class="xref">Section 6.6.1</a>
 </li>
 <li>Z: I</li>
 </ul>
-<p id="rfc.section.8.8.2.p.7">The common parameters for the above suites are:</p>
+<p id="rfc.section.8.9.2.p.7">The common parameters for the above suites are:</p>
 <p></p>
 
 <ul>
@@ -1831,7 +1876,7 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <li>L: 64</li>
 <li>h_eff: 0xbc69f08f2ee75b3584c6a0ea91b352888e2a8e9145ad7689986ff031508ffe1329c2f178731db956d82bf015d1212b02ec0ec69d7477c1ae954cbc06689f6a359894c0adebbf6b4e8020005aaa95551</li>
 </ul>
-<p id="rfc.section.8.8.2.p.9">Note that this h_eff value is chosen for compatibility with the fast cofactor clearing method described by Budroni and Pintore (<a href="#BP18" class="xref">[BP18]</a>, Section 4.1).</p>
+<p id="rfc.section.8.9.2.p.9">Note that this h_eff value is chosen for compatibility with the fast cofactor clearing method described by Budroni and Pintore (<a href="#BP18" class="xref">[BP18]</a>, Section 4.1).</p>
 <h1 id="rfc.section.9">
 <a href="#rfc.section.9">9.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a>
 </h1>
@@ -2177,40 +2222,68 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <p id="rfc.section.A.p.1">The problem of mapping arbitrary bit strings to elliptic curve points has been the subject of both practical and theoretical research.  This section briefly describes the background and research results that underly the recommendations in this document.  This section is provided for informational purposes only.</p>
 <p id="rfc.section.A.p.2">A naive but generally insecure method of mapping a string alpha to a point on an elliptic curve E having n points is to first fix a point P that generates the elliptic curve group, and a hash function Hn from bit strings to integers less than n; then compute Hn(alpha) * P, where the * operator represents scalar multiplication. The reason this approach is insecure is that the resulting point has a known discrete log relationship to P.  Thus, except in cases where this method is specified by the protocol, it must not be used; doing so risks catastrophic security failures.</p>
 <p id="rfc.section.A.p.3">Boneh et al. <a href="#BLS01" class="xref">[BLS01]</a> describe an encoding method they call MapToGroup, which works roughly as follows: first, use the input string to initialize a pseudorandom number generator, then use the generator to produce a pseudorandom value x in F.  If x is the x-coordinate of a point on the elliptic curve, output that point. Otherwise, generate a new pseudorandom value x in F and try again.  Since a random value x in F has probability about 1/2 of corresponding to a point on the curve, the expected number of tries is just two.  However, the running time of this method depends on the input string, which means that it is not safe to use in protocols sensitive to timing side channels.</p>
-<p id="rfc.section.A.p.4">Schinzel and Skalba <a href="#SS04" class="xref">[SS04]</a> introduce a method of constructing elliptic curve points deterministically, for a restricted class of curves and a very small number of points.  Skalba <a href="#S05" class="xref">[S05]</a> generalizes this construction to more curves and more points on those curves.  Shallue and van de Woestijne <a href="#SW06" class="xref">[SW06]</a> further generalize and simplify Skalba&#8217;s construction, yielding concretely efficient maps to a constant fraction of the points on almost any curve.  Ulas <a href="#U07" class="xref">[U07]</a> describes a simpler version of this map, and Brier et al. <a href="#BCIMRT10" class="xref">[BCIMRT10]</a> give a further simplification, which the authors call the &#8220;simplified SWU&#8221; map.  The simplified map applies only to fields of characteristic p = 3 (mod 4); Wahby and Boneh <a href="#WB19" class="xref">[WB19]</a> generalize to fields of any characteristic.</p>
-<p id="rfc.section.A.p.5">Boneh and Franklin give a deterministic algorithm mapping to certain supersingular curves over fields of characteristic p = 2 (mod 3) <a href="#BF01" class="xref">[BF01]</a>.  Icart gives another deterministic algorithm which maps to any curve over a field of characteristic p = 2 (mod 3) <a href="#Icart09" class="xref">[Icart09]</a>.  Several extensions and generalizations follow this work, including <a href="#FSV09" class="xref">[FSV09]</a>, <a href="#FT10" class="xref">[FT10]</a>, <a href="#KLR10" class="xref">[KLR10]</a>, <a href="#F11" class="xref">[F11]</a>, and <a href="#CK11" class="xref">[CK11]</a>.</p>
-<p id="rfc.section.A.p.6">Following the work of Farashahi <a href="#F11" class="xref">[F11]</a>, Fouque et al. <a href="#FJT13" class="xref">[FJT13]</a> describe a mapping to curves of characteristic p = 3 (mod 4) having a number of points divisible by 4.  Bernstein et al. <a href="#BHKL13" class="xref">[BHKL13]</a> optimize this mapping and describe a related mapping that they call &#8220;Elligator 2,&#8221; which applies to any curve over a field of odd characteristic having a point of order 2.  This includes Curve25519 and Curve448, both of which are CFRG-recommended curves <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
-<p id="rfc.section.A.p.7">An important caveat regarding all of the above deterministic mapping functions is that none of them map to the entire curve, but rather to some fraction of the points. This means that they cannot be used directly to construct a random oracle that outputs points on the curve.</p>
-<p id="rfc.section.A.p.8">Brier et al. <a href="#BCIMRT10" class="xref">[BCIMRT10]</a> give two solutions to this problem.  The first, which Brier et al. prove applies to Icart&#8217;s method, computes f(H0(msg)) + f(H1(msg)) for two distinct hash functions H0 and H1 from bit strings to F and a mapping f from F to the elliptic curve E.  The second, which applies to essentially all deterministic mappings but is more costly, computes f(H0(msg)) + H2(msg) * P, for P a generator of the elliptic curve group and H2 a hash from bit strings to integers modulo r, the order of the elliptic curve group.  Farashahi et al. <a href="#FFSTV13" class="xref">[FFSTV13]</a> improve the analysis of the first method, showing that it applies to essentially all deterministic mappings.  Tibouchi and Kim <a href="#TK17" class="xref">[TK17]</a> further refine the analysis and describe additional optimizations.</p>
-<p id="rfc.section.A.p.9">Complementary to the problem of mapping from bit strings to elliptic curve points, Bernstein et al. <a href="#BHKL13" class="xref">[BHKL13]</a> study the problem of mapping from elliptic curve points to uniformly random bit strings, giving solutions for a class of curves including Montgomery and twisted Edwards curves.  Tibouchi <a href="#T14" class="xref">[T14]</a> and Aranha et al. <a href="#AFQTZ14" class="xref">[AFQTZ14]</a> generalize these results.  This document does not deal with this complementary problem.</p>
+<p id="rfc.section.A.p.4">Schinzel and Skalba <a href="#SS04" class="xref">[SS04]</a> introduce a method of constructing elliptic curve points deterministically, for a restricted class of curves and a very small number of points.  Skalba <a href="#S05" class="xref">[S05]</a> generalizes this construction to more curves and more points on those curves.  Shallue and van de Woestijne <a href="#SW06" class="xref">[SW06]</a> further generalize and simplify Skalba&#8217;s construction, yielding concretely efficient maps to a constant fraction of the points on almost any curve.  Fouque and Tibouchi <a href="#FT12" class="xref">[FT12]</a> give a parameterization of this mapping for Barreto-Naehrig pairing-friendly curves <a href="#BN05" class="xref">[BN05]</a>.</p>
+<p id="rfc.section.A.p.5">Ulas <a href="#U07" class="xref">[U07]</a> describes a simpler version of the Shallue-van de Woestijne map, and Brier et al. <a href="#BCIMRT10" class="xref">[BCIMRT10]</a> give a further simplification, which the authors call the &#8220;simplified SWU&#8221; map.  That simplified map applies only to fields of characteristic p = 3 (mod 4); Wahby and Boneh <a href="#WB19" class="xref">[WB19]</a> generalize to fields of any characteristic, and give further optimizations.</p>
+<p id="rfc.section.A.p.6">Boneh and Franklin give a deterministic algorithm mapping to certain supersingular curves over fields of characteristic p = 2 (mod 3) <a href="#BF01" class="xref">[BF01]</a>.  Icart gives another deterministic algorithm which maps to any curve over a field of characteristic p = 2 (mod 3) <a href="#Icart09" class="xref">[Icart09]</a>.  Several extensions and generalizations follow this work, including <a href="#FSV09" class="xref">[FSV09]</a>, <a href="#FT10" class="xref">[FT10]</a>, <a href="#KLR10" class="xref">[KLR10]</a>, <a href="#F11" class="xref">[F11]</a>, and <a href="#CK11" class="xref">[CK11]</a>.</p>
+<p id="rfc.section.A.p.7">Following the work of Farashahi <a href="#F11" class="xref">[F11]</a>, Fouque et al. <a href="#FJT13" class="xref">[FJT13]</a> describe a mapping to curves of characteristic p = 3 (mod 4) having a number of points divisible by 4.  Bernstein et al. <a href="#BHKL13" class="xref">[BHKL13]</a> optimize this mapping and describe a related mapping that they call &#8220;Elligator 2,&#8221; which applies to any curve over a field of odd characteristic having a point of order 2.  This includes Curve25519 and Curve448, both of which are CFRG-recommended curves <a href="#RFC7748" class="xref">[RFC7748]</a>.</p>
+<p id="rfc.section.A.p.8">An important caveat regarding all of the above deterministic mapping functions is that none of them map to the entire curve, but rather to some fraction of the points. This means that they cannot be used directly to construct a random oracle that outputs points on the curve.</p>
+<p id="rfc.section.A.p.9">Brier et al. <a href="#BCIMRT10" class="xref">[BCIMRT10]</a> give two solutions to this problem.  The first, which Brier et al. prove applies to Icart&#8217;s method, computes f(H0(msg)) + f(H1(msg)) for two distinct hash functions H0 and H1 from bit strings to F and a mapping f from F to the elliptic curve E.  The second, which applies to essentially all deterministic mappings but is more costly, computes f(H0(msg)) + H2(msg) * P, for P a generator of the elliptic curve group and H2 a hash from bit strings to integers modulo r, the order of the elliptic curve group.  Farashahi et al. <a href="#FFSTV13" class="xref">[FFSTV13]</a> improve the analysis of the first method, showing that it applies to essentially all deterministic mappings.  Tibouchi and Kim <a href="#TK17" class="xref">[TK17]</a> further refine the analysis and describe additional optimizations.</p>
+<p id="rfc.section.A.p.10">Complementary to the problem of mapping from bit strings to elliptic curve points, Bernstein et al. <a href="#BHKL13" class="xref">[BHKL13]</a> study the problem of mapping from elliptic curve points to uniformly random bit strings, giving solutions for a class of curves including Montgomery and twisted Edwards curves.  Tibouchi <a href="#T14" class="xref">[T14]</a> and Aranha et al. <a href="#AFQTZ14" class="xref">[AFQTZ14]</a> generalize these results.  This document does not deal with this complementary problem.</p>
 <h1 id="rfc.appendix.B">
-<a href="#rfc.appendix.B">Appendix B.</a> <a href="#rational-map-inverse" id="rational-map-inverse">Rational maps from twisted Edwards to Weierstrass and Montgomery curves</a>
+<a href="#rfc.appendix.B">Appendix B.</a> <a href="#appx-rational-map" id="appx-rational-map">Rational maps</a>
 </h1>
-<p id="rfc.section.B.p.1">The inverse of the rational map specified in <a href="#rational-map" class="xref">Section 6.7.1</a>, i.e., the map from the point (x&#8217;, y&#8217;) on the Weierstrass curve y&#8217;^2 = x&#8217;^3 + A * x&#8217;^2 + B * x&#8217; to the point (x, y) on the twisted Edwards curve a * x^2 + y^2 = 1 + d * x^2 * y^2 is given by:</p>
-<p></p>
-
-<ul>
-<li>x&#8217; = (1 + y) / (B&#8217; * (1 - y))</li>
-<li>y&#8217; = (1 + y) / (B&#8217; * x * (1 - y))</li>
-</ul>
-<p id="rfc.section.B.p.3">where</p>
+<p id="rfc.section.B.p.1">This section gives several useful rational maps.</p>
+<h1 id="rfc.appendix.B.1">
+<a href="#rfc.appendix.B.1">B.1.</a> <a href="#appx-rational-map-edw" id="appx-rational-map-edw">Twisted Edwards to Weierstrass and Montgomery curves</a>
+</h1>
+<p id="rfc.section.B.1.p.1">The inverse of the rational map specified in <a href="#rational-map" class="xref">Section 6.8.1</a>, i.e., the map from the point (v, w) on the twisted Edwards curve a * v^2 + w^2 = 1 + d * v^2 * w^2 to the point (x, y) on the Weierstrass curve y^2 = x^3 + A * x^2 + B * x is given by:</p>
 <p></p>
 
 <ul>
 <li>A = (a + d) / 2</li>
 <li>B = (a - d)^2 / 16</li>
 <li>B&#8217; = 1 / sqrt(B) = 4 / (a - d)</li>
+<li>x = (1 + w) / (B&#8217; * (1 - w))</li>
+<li>y = (1 + w) / (B&#8217; * v * (1 - w))</li>
 </ul>
-<p id="rfc.section.B.p.5">This map is undefined when y == 1 or x == 0.  In this case, return the point (0, 0).</p>
-<p id="rfc.section.B.p.6">It may also be useful to map to a Montgomery curve of the form B&#8217; * y&#8217;&#8216;^2 = x&#8217;&#8216;^3 + A&#8217; * x&#8217;&#8216;^2 + x&#8217;&#8217;.  This curve is equivalent to the twisted Edwards curve above via the following rational map (<a href="#BBJLP08" class="xref">[BBJLP08]</a>, Theorem 3.2):</p>
+<p id="rfc.section.B.1.p.3">This map is undefined when w == 1 or v == 0.  In this case, return the point (x, y) = (0, 0).</p>
+<p id="rfc.section.B.1.p.4">It may also be useful to map to a Montgomery curve of the form B&#8217; * t^2 = s^3 + A&#8217; * s^2 + s.  This curve is equivalent to the twisted Edwards curve above via the following rational map (<a href="#BBJLP08" class="xref">[BBJLP08]</a>, Theorem 3.2):</p>
 <p></p>
 
 <ul>
 <li>A&#8217; = 2 * (a + d) / (a - d)</li>
 <li>B&#8217; = 4 / (a - d)</li>
-<li>x&#8217;&#8217; = (1 + y) / (1 - y)</li>
-<li>y&#8217;&#8217; = (1 + y) / (x * (1 - y))</li>
+<li>s = (1 + y) / (1 - y)</li>
+<li>t = (1 + y) / (x * (1 - y))</li>
 </ul>
+<p id="rfc.section.B.1.p.6">whose inverse is given by:</p>
+<p></p>
+
+<ul>
+<li>x = s / t</li>
+<li>y = (s - 1) / (s + 1)</li>
+</ul>
+<p id="rfc.section.B.1.p.8">Composing the mapping immediately above with the mapping from Montgomery to Weierstrass curves in <a href="#appx-rational-map-mont" class="xref">Appendix B.2</a> yields a mapping from twisted Edwards curves to Weierstrass curves of the form required by the mappings in <a href="#weierstrass" class="xref">Section 6.6</a>.  This mapping can be used to apply the Shallue-van de Woestijne method (<a href="#svdw" class="xref">Section 6.6.1</a>) to twisted Edwards curves.</p>
+<h1 id="rfc.appendix.B.2">
+<a href="#rfc.appendix.B.2">B.2.</a> <a href="#appx-rational-map-mont" id="appx-rational-map-mont">Montgomery to Weierstrass curves</a>
+</h1>
+<p id="rfc.section.B.2.p.1">The rational map from the point (s, t) on the Montgomery curve B&#8217; * t^2 = s^3 + A&#8217; * s^2 + s to the point (x, y) on the equivalent Weierstrass curve y^2 = x^3 + C * x + D is given by:</p>
+<p></p>
+
+<ul>
+<li>C = (3 - A&#8217;^2) / (3 * B&#8217;^2)</li>
+<li>D = (2 * A&#8217;^3 - 9 * A&#8217;) / (27 * B&#8217;^3)</li>
+<li>x = (3 * s - A&#8217;) / (3 * B&#8217;)</li>
+<li>y = t / B&#8217;</li>
+</ul>
+<p id="rfc.section.B.2.p.3">The inverse map, from the point (x, y) to the point (s, t), is given by</p>
+<p></p>
+
+<ul>
+<li>s = (3 * B&#8217; * x + A&#8217;) / 3</li>
+<li>t = y * B&#8217;</li>
+</ul>
+<p id="rfc.section.B.2.p.5">This mapping can be used to apply the Shallue-van de Woestijne method (<a href="#svdw" class="xref">Section 6.6.1</a>) to Montgomery curves.</p>
 <h1 id="rfc.appendix.C">
 <a href="#rfc.appendix.C">Appendix C.</a> <a href="#appx-iso" id="appx-iso">Isogeny maps for Suites</a>
 </h1>
@@ -2220,7 +2293,7 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <h1 id="rfc.appendix.C.1">
 <a href="#rfc.appendix.C.1">C.1.</a> <a href="#appx-iso-secp256k1" id="appx-iso-secp256k1">3-isogeny map for secp256k1</a>
 </h1>
-<p id="rfc.section.C.1.p.1">This section specifies the isogeny map for the secp256k1 suite listed in <a href="#suites-secp256k1" class="xref">Section 8.7</a>.</p>
+<p id="rfc.section.C.1.p.1">This section specifies the isogeny map for the secp256k1 suite listed in <a href="#suites-secp256k1" class="xref">Section 8.8</a>.</p>
 <p id="rfc.section.C.1.p.2">The 3-isogeny map from (x&#8217;, y&#8217;) on E&#8217; to (x, y) on E is given by the following rational functions:</p>
 <p></p>
 
@@ -2434,8 +2507,8 @@ CURVE_ID || "-" || HASH_ID || "-" || MAP_ID || "-" || ENC_VAR || "-"
 <h1 id="rfc.appendix.D.2">
 <a href="#rfc.appendix.D.2">D.2.</a> <a href="#sswu-map-to-3mod4" id="sswu-map-to-3mod4">Simplified SWU for p = 3 (mod 4)</a>
 </h1>
-<p id="rfc.section.D.2.p.1">The following is a straight-line implementation of the Simplified SWU mapping that applies to any curve over GF(p) for p = 3 (mod 4).  This includes the ciphersuites for NIST curves P-256, P-384, and P-521 <a href="#FIPS186-4" class="xref">[FIPS186-4]</a> given in <a href="#suites" class="xref">Section 8</a>.  It also includes the curves isogenous to secp256k1 (<a href="#suites-secp256k1" class="xref">Section 8.7</a>) and BLS12-381 G1 (<a href="#suites-bls12381-g1" class="xref">Section 8.8.1</a>).</p>
-<p id="rfc.section.D.2.p.2">The implementations for these curves differ only in the constants and the base field.  The constant definitions below are given in terms of the parameters for the Simplified SWU mapping; for parameter values for the curves listed above, see <a href="#suites-p256" class="xref">Section 8.2</a> (P-256), <a href="#suites-p384" class="xref">Section 8.3</a> (P-384), <a href="#suites-p521" class="xref">Section 8.4</a> (P-521), <a href="#suites-secp256k1" class="xref">Section 8.7</a> (E&#8217; isogenous to secp256k1), and <a href="#suites-bls12381-g1" class="xref">Section 8.8.1</a> (E&#8217; isogenous to BLS12-381 G1).</p>
+<p id="rfc.section.D.2.p.1">The following is a straight-line implementation of the Simplified SWU mapping that applies to any curve over GF(p) for p = 3 (mod 4).  This includes the ciphersuites for NIST curves P-256, P-384, and P-521 <a href="#FIPS186-4" class="xref">[FIPS186-4]</a> given in <a href="#suites" class="xref">Section 8</a>.  It also includes the curves isogenous to secp256k1 (<a href="#suites-secp256k1" class="xref">Section 8.8</a>) and BLS12-381 G1 (<a href="#suites-bls12381-g1" class="xref">Section 8.9.1</a>).</p>
+<p id="rfc.section.D.2.p.2">The implementations for these curves differ only in the constants and the base field.  The constant definitions below are given in terms of the parameters for the Simplified SWU mapping; for parameter values for the curves listed above, see <a href="#suites-p256" class="xref">Section 8.3</a> (P-256), <a href="#suites-p384" class="xref">Section 8.4</a> (P-384), <a href="#suites-p521" class="xref">Section 8.5</a> (P-521), <a href="#suites-secp256k1" class="xref">Section 8.8</a> (E&#8217; isogenous to secp256k1), and <a href="#suites-bls12381-g1" class="xref">Section 8.9.1</a> (E&#8217; isogenous to BLS12-381 G1).</p>
 <pre>
 map_to_curve_simple_swu_3mod4(u)
 
@@ -2487,7 +2560,7 @@ Steps:
 <h1 id="rfc.appendix.D.3">
 <a href="#rfc.appendix.D.3">D.3.</a> <a href="#map-to-curve25519" id="map-to-curve25519">curve25519 (Elligator 2)</a>
 </h1>
-<p id="rfc.section.D.3.p.1">The following is a straight-line implementation of Elligator 2 for curve25519 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-25519" class="xref">Section 8.5</a>.</p>
+<p id="rfc.section.D.3.p.1">The following is a straight-line implementation of Elligator 2 for curve25519 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-25519" class="xref">Section 8.6</a>.</p>
 <pre>
 map_to_curve_elligator2_curve25519(u)
 
@@ -2546,7 +2619,7 @@ Steps:
 <h1 id="rfc.appendix.D.4">
 <a href="#rfc.appendix.D.4">D.4.</a> <a href="#map-to-edwards25519" id="map-to-edwards25519">edwards25519 (Elligator 2)</a>
 </h1>
-<p id="rfc.section.D.4.p.1">The following is a straight-line implementation of Elligator 2 for edwards25519 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-25519" class="xref">Section 8.5</a>.  The subroutine map_to_curve_elligator2_curve25519 is defined in <a href="#map-to-curve25519" class="xref">Appendix D.3</a>.</p>
+<p id="rfc.section.D.4.p.1">The following is a straight-line implementation of Elligator 2 for edwards25519 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-25519" class="xref">Section 8.6</a>.  The subroutine map_to_curve_elligator2_curve25519 is defined in <a href="#map-to-curve25519" class="xref">Appendix D.3</a>.</p>
 <pre>
 map_to_curve_elligator2_edwards25519(u)
 
@@ -2575,7 +2648,7 @@ Steps:
 <h1 id="rfc.appendix.D.5">
 <a href="#rfc.appendix.D.5">D.5.</a> <a href="#map-to-curve448" id="map-to-curve448">curve448 (Elligator 2)</a>
 </h1>
-<p id="rfc.section.D.5.p.1">The following is a straight-line implementation of Elligator 2 for curve448 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-448" class="xref">Section 8.6</a>.</p>
+<p id="rfc.section.D.5.p.1">The following is a straight-line implementation of Elligator 2 for curve448 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-448" class="xref">Section 8.7</a>.</p>
 <pre>
 map_to_curve_elligator2_curve448(u)
 
@@ -2619,7 +2692,7 @@ Steps:
 <h1 id="rfc.appendix.D.6">
 <a href="#rfc.appendix.D.6">D.6.</a> <a href="#map-to-edwards448" id="map-to-edwards448">edwards448 (Elligator 2)</a>
 </h1>
-<p id="rfc.section.D.6.p.1">The following is a straight-line implementation of Elligator 2 for edwards448 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-448" class="xref">Section 8.6</a>.  The subroutine map_to_curve_elligator2_curve448 is defined in <a href="#map-to-curve448" class="xref">Appendix D.5</a>.</p>
+<p id="rfc.section.D.6.p.1">The following is a straight-line implementation of Elligator 2 for edwards448 <a href="#RFC7748" class="xref">[RFC7748]</a> as specified in <a href="#suites-448" class="xref">Section 8.7</a>.  The subroutine map_to_curve_elligator2_curve448 is defined in <a href="#map-to-curve448" class="xref">Appendix D.5</a>.</p>
 <pre>
 map_to_curve_elligator2_edwards448(u)
 
@@ -2674,7 +2747,7 @@ Steps:
 <h1 id="rfc.appendix.E.1">
 <a href="#rfc.appendix.E.1">E.1.</a> <a href="#svdw-z-code" id="svdw-z-code">Finding Z for the Shallue and van de Woestijne map</a>
 </h1>
-<p id="rfc.section.E.1.p.1">The below function outputs an appropriate Z for the Shallue and van de Woestijne map (<a href="#svdw" class="xref">Section 6.5.1</a>).</p>
+<p id="rfc.section.E.1.p.1">The below function outputs an appropriate Z for the Shallue and van de Woestijne map (<a href="#svdw" class="xref">Section 6.6.1</a>).</p>
 <pre>
 def find_z_svdw(F, A, B):
     g = lambda x: F(x)^3 + F(A) * F(x) + F(B)
@@ -2699,7 +2772,7 @@ def find_z_svdw(F, A, B):
 <h1 id="rfc.appendix.E.2">
 <a href="#rfc.appendix.E.2">E.2.</a> <a href="#sswu-z-code" id="sswu-z-code">Finding Z for Simplified SWU</a>
 </h1>
-<p id="rfc.section.E.2.p.1">The below function outputs an appropriate Z for the Simplified SWU map (<a href="#simple-swu" class="xref">Section 6.5.2</a>).</p>
+<p id="rfc.section.E.2.p.1">The below function outputs an appropriate Z for the Simplified SWU map (<a href="#simple-swu" class="xref">Section 6.6.2</a>).</p>
 <pre>
 # Arguments:
 # - F, a field object, e.g., F = GF(2^521 - 1)
@@ -2727,7 +2800,7 @@ def find_z_sswu(F, A, B):
 <h1 id="rfc.appendix.E.3">
 <a href="#rfc.appendix.E.3">E.3.</a> <a href="#elligator-z-code" id="elligator-z-code">Finding Z for Elligator 2</a>
 </h1>
-<p id="rfc.section.E.3.p.1">The below function outputs an appropriate Z for the Elligator 2 map (<a href="#elligator2" class="xref">Section 6.6.1</a>).</p>
+<p id="rfc.section.E.3.p.1">The below function outputs an appropriate Z for the Elligator 2 map (<a href="#elligator2" class="xref">Section 6.7.1</a>).</p>
 <pre>
 # Argument:
 # - F, a field object, e.g., F = GF(2^255 - 19)
