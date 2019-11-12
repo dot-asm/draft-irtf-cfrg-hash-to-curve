@@ -1,6 +1,108 @@
 [
 
   {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/194",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/194/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/194/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/194/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/194",
+    "id": 521680729,
+    "node_id": "MDU6SXNzdWU1MjE2ODA3Mjk=",
+    "number": 194,
+    "title": "Consider mentioning Lemire's \"multiply-then-shift\" strategy as alternative to modulo reduction in hash_to_base",
+    "user": {
+      "login": "peteroupc",
+      "id": 2554980,
+      "node_id": "MDQ6VXNlcjI1NTQ5ODA=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/2554980?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/peteroupc",
+      "html_url": "https://github.com/peteroupc",
+      "followers_url": "https://api.github.com/users/peteroupc/followers",
+      "following_url": "https://api.github.com/users/peteroupc/following{/other_user}",
+      "gists_url": "https://api.github.com/users/peteroupc/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/peteroupc/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/peteroupc/subscriptions",
+      "organizations_url": "https://api.github.com/users/peteroupc/orgs",
+      "repos_url": "https://api.github.com/users/peteroupc/repos",
+      "events_url": "https://api.github.com/users/peteroupc/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/peteroupc/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-11-12T17:06:50Z",
+    "updated_at": "2019-11-12T17:06:50Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "Consider whether the strategy mentioned in \"[A fast alternative to the modulo reduction](https://lemire.me/blog/2016/06/27/a-fast-alternative-to-the-modulo-reduction/)\", by @Lemire , is useful to mention as an alternative to the \"mod p\" in the hash_to_base function in the draft, and possibly elsewhere a mod operation appears in that draft.  This alternative is especially worth mentioning if the alternative&mdash;\r\n\r\n- can be implemented in constant time, similarly to modulo reduction, and\r\n- has similar or better performance to modulo reduction."
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/193",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/193/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/193/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/193/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/193",
+    "id": 521205692,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzM5NjMwODc0",
+    "number": 193,
+    "title": "Extension fields everywhere.",
+    "user": {
+      "login": "armfazh",
+      "id": 10335519,
+      "node_id": "MDQ6VXNlcjEwMzM1NTE5",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10335519?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/armfazh",
+      "html_url": "https://github.com/armfazh",
+      "followers_url": "https://api.github.com/users/armfazh/followers",
+      "following_url": "https://api.github.com/users/armfazh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/armfazh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/armfazh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/armfazh/subscriptions",
+      "organizations_url": "https://api.github.com/users/armfazh/orgs",
+      "repos_url": "https://api.github.com/users/armfazh/repos",
+      "events_url": "https://api.github.com/users/armfazh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/armfazh/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-11-11T21:47:45Z",
+    "updated_at": "2019-11-12T18:39:07Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/193",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/193",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/193.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/193.patch"
+    },
+    "body": "Changes:\r\n- Matching polynomial basis with polynomial representation, like in FIPS 186-4 (Sec. D.1.1.3).\r\n- F is an extension field.\r\n\r\n"
+  },
+  {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/192",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/192/labels{/name}",
@@ -41,9 +143,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2019-11-08T17:06:30Z",
-    "updated_at": "2019-11-11T18:14:52Z",
+    "updated_at": "2019-11-12T18:43:14Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -260,7 +362,7 @@
     "milestone": null,
     "comments": 3,
     "created_at": "2019-11-03T04:12:24Z",
-    "updated_at": "2019-11-09T01:35:45Z",
+    "updated_at": "2019-11-11T19:35:13Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -1521,7 +1623,10 @@
     "closed_at": "2019-10-30T16:29:51Z",
     "author_association": "NONE",
     "body": "The current draft only seems to standardize the algorithms with SHA-2. I'd like to see support for SHA-3 and SHAKE (and cSHAKE) if possible so that we don't have to write an extension/another RFC later on.\r\n\r\nusing cSHAKE would allow to replace the hash and HKDF with one algorithm."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/164",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -1661,10 +1766,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/163.patch"
     },
     "body": "This is mostly a minor edit to address the above.\r\n\r\nThe most major thing is a new (small) section laying out the convention for creating a new Suite ID. The reason for having the convention is that it's best if suite IDs are prefix-free, and this convention helps with that."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/162",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3130,7 +3232,10 @@
     "closed_at": "2019-07-07T06:38:26Z",
     "author_association": "NONE",
     "body": "Field calculation \\pmod{p} at steps 15,16 of Icart method (lines 311,312)\r\nused later as a power at step 17\r\nmight be a copy-paste\r\nthat should be calculation over integers instead."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/134",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3226,10 +3331,7 @@
     "closed_at": "2019-07-08T23:30:52Z",
     "author_association": "COLLABORATOR",
     "body": "From Björn Haase on the list:\r\n\r\n> Regarding the Elligator 2 map, the algorithm shown in the  github version of the draft is actually slower than necessary. It requires two exponentiations (for one inverse and one square root).\r\n>\r\n> Some time ago Mike Hamburg did point me to a solution on how to implement this with one single exponentiation. The algorithm is found also somewhere hidden within the Ed25519 paper of Bernstein, Duif, Lange, Schwabe and Yang. Still Benoît and me did consider it helpful to write down the faster algorithm explicitly in our last paper, because we thought that there might be others that missed this optimization opportunity :-).\r\n>\r\n> You'll find the explicit write-down in section 8.2 on page 33 of\r\n>\r\n> https://tches.iacr.org/index.php/TCHES/article/view/7384\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/132",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4765,7 +4867,10 @@
     "closed_at": "2019-10-27T02:46:15Z",
     "author_association": "COLLABORATOR",
     "body": "In a previous commit I tried to improve consistency for spacing around math operators, but I didn't quite catch them all.\r\n\r\n~~I think the biggest remaining one is whether `=` should have surrounding spaces or not.~~ done (#136)\r\n\r\nTODO: implement consistent style"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/104",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4867,10 +4972,7 @@
     "closed_at": "2019-06-02T21:08:41Z",
     "author_association": "COLLABORATOR",
     "body": "(moved here from #100)\r\n\r\nA brief search of the document doesn't turn up any instances discussing what to do if/when the map is undefined. This is probably important, since in practice many of these maps will have some undefined inputs, and it would be unfortunate if different implementations diverged in their behavior.\r\n\r\nSince the document appears to be encouraging constant-time implementations, it's not clear that there's a good blanket recommendation that would apply to every map. So it might be useful to think about how to handle undefined behavior on a map-by-map basis, in a way that is amenable to constant-time implementations. I'm happy to help out with this."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/102",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6339,7 +6441,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/75.patch"
     },
     "body": "Solves #66."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/74",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6441,10 +6546,7 @@
     "closed_at": "2019-02-07T15:38:57Z",
     "author_association": "COLLABORATOR",
     "body": "It reads:\r\n```\r\n   8. Output (X3(t, u), sqrt(g(X3)))\r\n```\r\nwhereas it should be:\r\n```\r\n   8. Output (X3, sqrt(g(X3)))\r\n```\r\n\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/72",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -7855,7 +7957,10 @@
     "closed_at": "2019-02-09T16:42:05Z",
     "author_association": "NONE",
     "body": "https://github.com/chris-wood/draft-sullivan-cfrg-hash-to-curve/blob/fdb70a5f0c836a4ab8090c5a84952c688e5ccc35/draft-irtf-cfrg-hash-to-curve.txt#L566\r\n\r\nShould the sign in front of t^2 be minus rather than plus (see step 4 of the algorithm, which computes alpha^2 + alpha where alpha is -t^2; see also Proposition 7 of https://eprint.iacr.org/2009/340.pdf)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/44",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -7995,10 +8100,7 @@
     "closed_at": "2019-10-27T06:15:25Z",
     "author_association": "COLLABORATOR",
     "body": "The Decaf approach \r\n\r\nhttps://www.shiftleft.org/papers/decaf/\r\n\r\nhttps://ristretto.group/"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/42",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -9542,7 +9644,10 @@
     "closed_at": "2019-02-09T16:42:35Z",
     "author_association": "COLLABORATOR",
     "body": "For what little it's worth, (I think that) none of the algorithms\r\nspecified in this I-D work for 2y^2=x^3+x/GF(8^91+5), because p=1 mod 3, p=1\r\nmod 4, and j=1728.\r\n\r\nFor this special curve, I sketched a modification of Elligator 2, which I\r\ncalled Elligator i, in Sections 5.2 (math) and C.10 (pseudocode) of\r\nhttps://datatracker.ietf.org/doc/draft-brown-ec-2y2-x3-x-mod-8-to-91-plus-5/\r\nthough I am not sure which set of curves it would generalize to.  (I admit I\r\ndon't recall trying Icart or SWU on this special curve: maybe some\r\nvariations of these would have worked just as well.)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/14",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -9638,10 +9743,7 @@
     "closed_at": "2019-02-09T16:35:54Z",
     "author_association": "COLLABORATOR",
     "body": "- Current pseudocode relies on I2OSP failing to avoid looping forever when ctr > 256^4. Although this only happens with probability 2^-32, perhaps it should be an explicit condition for the loop. This should also be acknowledged in the introduction, since the size of this counter determines the probability of failure, as in the MapToGroup approach.\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/12",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
