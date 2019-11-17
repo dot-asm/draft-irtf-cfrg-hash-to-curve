@@ -34,17 +34,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 2,
     "created_at": "2019-11-12T17:06:50Z",
-    "updated_at": "2019-11-12T17:06:50Z",
-    "closed_at": null,
+    "updated_at": "2019-11-16T21:30:59Z",
+    "closed_at": "2019-11-16T21:18:45Z",
     "author_association": "NONE",
     "body": "Consider whether the strategy mentioned in \"[A fast alternative to the modulo reduction](https://lemire.me/blog/2016/06/27/a-fast-alternative-to-the-modulo-reduction/)\", by @Lemire , is useful to mention as an alternative to the \"mod p\" in the hash_to_base function in the draft, and possibly elsewhere a mod operation appears in that draft.  This alternative is especially worth mentioning if the alternative&mdash;\r\n\r\n- can be implemented in constant time, similarly to modulo reduction, and\r\n- has similar or better performance to modulo reduction."
   },
@@ -82,7 +82,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -91,8 +91,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-11-11T21:47:45Z",
-    "updated_at": "2019-11-12T18:39:07Z",
-    "closed_at": null,
+    "updated_at": "2019-11-17T03:28:30Z",
+    "closed_at": "2019-11-17T03:28:30Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/193",
@@ -136,7 +136,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -145,8 +145,8 @@
     "milestone": null,
     "comments": 2,
     "created_at": "2019-11-08T17:06:30Z",
-    "updated_at": "2019-11-12T18:43:14Z",
-    "closed_at": null,
+    "updated_at": "2019-11-12T18:47:39Z",
+    "closed_at": "2019-11-12T18:47:38Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/192",
@@ -306,9 +306,9 @@
 
     ],
     "milestone": null,
-    "comments": 7,
+    "comments": 8,
     "created_at": "2019-11-05T19:42:38Z",
-    "updated_at": "2019-11-09T09:37:08Z",
+    "updated_at": "2019-11-16T22:46:32Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -360,9 +360,9 @@
 
     ],
     "milestone": null,
-    "comments": 3,
+    "comments": 4,
     "created_at": "2019-11-03T04:12:24Z",
-    "updated_at": "2019-11-11T19:35:13Z",
+    "updated_at": "2019-11-16T21:42:58Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
