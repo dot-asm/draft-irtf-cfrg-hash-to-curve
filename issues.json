@@ -1,6 +1,156 @@
 [
 
   {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/201",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/201/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/201/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/201/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/201",
+    "id": 553168229,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzY1NTQ1Njcy",
+    "number": 201,
+    "title": "update poc/ code to be compatible with python3",
+    "user": {
+      "login": "kwantam",
+      "id": 716593,
+      "node_id": "MDQ6VXNlcjcxNjU5Mw==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/716593?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kwantam",
+      "html_url": "https://github.com/kwantam",
+      "followers_url": "https://api.github.com/users/kwantam/followers",
+      "following_url": "https://api.github.com/users/kwantam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kwantam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kwantam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kwantam/subscriptions",
+      "organizations_url": "https://api.github.com/users/kwantam/orgs",
+      "repos_url": "https://api.github.com/users/kwantam/repos",
+      "events_url": "https://api.github.com/users/kwantam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kwantam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2020-01-21T22:11:18Z",
+    "updated_at": "2020-01-22T02:17:32Z",
+    "closed_at": "2020-01-22T02:17:32Z",
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/201",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/201",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/201.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/201.patch"
+    },
+    "body": "This PR updates the code to work with Python3/Sage9.\r\n\r\nI've tested with Sage9 and with Sage8.1, and both appear to work correctly.\r\n\r\n--\r\n\r\nSeems good to go now. Closes #199."
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/200",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/200/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/200/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/200/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/200",
+    "id": 551369137,
+    "node_id": "MDU6SXNzdWU1NTEzNjkxMzc=",
+    "number": 200,
+    "title": "Null-terminated (octet) strings for message and Domain-Separation Tag",
+    "user": {
+      "login": "mratsim",
+      "id": 22738317,
+      "node_id": "MDQ6VXNlcjIyNzM4MzE3",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/22738317?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mratsim",
+      "html_url": "https://github.com/mratsim",
+      "followers_url": "https://api.github.com/users/mratsim/followers",
+      "following_url": "https://api.github.com/users/mratsim/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mratsim/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mratsim/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mratsim/subscriptions",
+      "organizations_url": "https://api.github.com/users/mratsim/orgs",
+      "repos_url": "https://api.github.com/users/mratsim/repos",
+      "events_url": "https://api.github.com/users/mratsim/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mratsim/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 5,
+    "created_at": "2020-01-17T11:44:23Z",
+    "updated_at": "2020-01-21T08:01:49Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "Linked to https://github.com/ethereum/eth2.0-specs/issues/1576\r\n\r\nThe current spec uses the terms `strings`, `bit string`, `octet string` however their representation is not explained.\r\nIn particular the ``hash_to_curve`` section does not mention that the message should be terminated by a null byte but the reference implementation does append a null byte:\r\n\r\nImplementation\r\n\r\nhttps://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/blob/6cf7fa9742e2f85f5ee6454861afd462e38d4230/poc/hash_to_base.py#L59-L67\r\n\r\nSpec\r\n\r\n```\r\nhash_to_base(msg, ctr)\r\n\r\nParameters:\r\n- DST, a domain separation tag (see discussion above).\r\n- H, a cryptographic hash function.\r\n- F, a finite field of characteristic p and order q = p^m.\r\n- p, the characteristic of F (see immediately above).\r\n- m, the extension degree of F, m >= 1 (see immediately above).\r\n- L = ceil((ceil(log2(p)) + k) / 8), where k is the security\r\n  parameter of the cryptosystem (e.g., k = 128).\r\n- HKDF-Extract and HKDF-Expand are as defined in RFC5869,\r\n  instantiated with the hash function H.\r\n\r\nInputs:\r\n- msg is the message to hash.\r\n- ctr is 0, 1, or 2.\r\n  This is used to efficiently create independent\r\n  instances of hash_to_base (see discussion above).\r\n\r\nOutput:\r\n- u, an element in F.\r\n\r\nSteps:\r\n1. msg_prime = HKDF-Extract(DST, msg || I2OSP(0, 1))\r\n2. info_pfx = \"H2C\" || I2OSP(ctr, 1)   # \"H2C\" is a 3-byte ASCII string\r\n3. for i in (1, ..., m):\r\n4.   info = info_pfx || I2OSP(i, 1)\r\n5.   tv = HKDF-Expand(msg_prime, info, L)\r\n6.   e_i = OS2IP(tv) mod p\r\n7. u = (e_1, ..., e_m)\r\n8. return u\r\n```\r\n\r\nAssuming a message MUST be terminated by a null-byte. Does that also apply to the Domain Separation Tag?"
+  },
+  {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/199",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/199/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/199/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/199/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/issues/199",
+    "id": 550908355,
+    "node_id": "MDU6SXNzdWU1NTA5MDgzNTU=",
+    "number": 199,
+    "title": "Update to Python 3",
+    "user": {
+      "login": "mratsim",
+      "id": 22738317,
+      "node_id": "MDQ6VXNlcjIyNzM4MzE3",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/22738317?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mratsim",
+      "html_url": "https://github.com/mratsim",
+      "followers_url": "https://api.github.com/users/mratsim/followers",
+      "following_url": "https://api.github.com/users/mratsim/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mratsim/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mratsim/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mratsim/subscriptions",
+      "organizations_url": "https://api.github.com/users/mratsim/orgs",
+      "repos_url": "https://api.github.com/users/mratsim/repos",
+      "events_url": "https://api.github.com/users/mratsim/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mratsim/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 2,
+    "created_at": "2020-01-16T16:12:45Z",
+    "updated_at": "2020-01-22T02:17:32Z",
+    "closed_at": "2020-01-22T02:17:32Z",
+    "author_association": "NONE",
+    "body": "Python 2 has been end-of-life'd on January 1st 2020 and is not supported anymore.\r\n\r\nCurrently the codebase relies on Python 2: https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/blob/6cf7fa9742e2f85f5ee6454861afd462e38d4230/poc/hash_to_base.py#L11-L12\r\n\r\nBesides this line there are issue with `xrange` and byte strings being detected as Unicode objects.\r\n\r\nI'm not familiar with Sagemath but according to this ticket all internal Sagemath tests are passing since 2 weeks ago: https://trac.sagemath.org/ticket/26212.\r\nThe other meta-issues have not been updated for more than a year and are probably stale (https://trac.sagemath.org/ticket/15980 / https://trac.sagemath.org/ticket/16052)\r\n"
+  },
+  {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/198",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/198/labels{/name}",
@@ -41,9 +191,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 3,
     "created_at": "2019-12-14T01:32:04Z",
-    "updated_at": "2019-12-14T01:34:33Z",
+    "updated_at": "2020-01-22T01:03:37Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -97,7 +247,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-12-14T00:55:02Z",
-    "updated_at": "2019-12-14T03:29:31Z",
+    "updated_at": "2019-12-15T20:03:35Z",
     "closed_at": "2019-12-14T03:29:30Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -149,9 +299,9 @@
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 4,
     "created_at": "2019-12-13T00:52:15Z",
-    "updated_at": "2019-12-14T02:00:44Z",
+    "updated_at": "2020-01-22T01:40:32Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -160,7 +310,7 @@
       "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/196.diff",
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/196.patch"
     },
-    "body": "It is re-based on top of #189 .\r\n\r\nJSON test vectors for matching compatible implementations.\r\n\r\nExample:\r\n```json\r\n{\r\n  \"ciphersuite\": \"P256-SHA256-SSWU-RO-\",\r\n  \"curve\": \"P256\",\r\n  \"dst\": \"QUUX-V01-CS02\",\r\n  \"field\": {\r\n    \"m\": \"0x1\",\r\n    \"p\": \"0xffffffff00000001000000000000000000000000ffffffffffffffffffffffff\"\r\n  },\r\n  \"hash\": \"sha256\",\r\n  \"map\": {\r\n    \"name\": \"SSWU\",\r\n    \"sgn0\": \"sgn0_le\"\r\n  },\r\n  \"randomOracle\": true,\r\n  \"vectors\": [\r\n    {\r\n      \"P\": {\r\n        \"x\": \"0x8beb73a82ebeb6b400456f4da126aacbfa9b8049b71b250d2b7e4885b6b466bd\",\r\n        \"y\": \"0x15826dc578f4fbc1ac5fc3f9e15da3ece18be914f332bce8ce5bf1371805d149\"\r\n      },\r\n      \"msg\": \"\"\r\n    },\r\n ]\r\n}\r\n```"
+    "body": "It is re-based on top of #189 and #201 .\r\n\r\nJSON test vectors for matching compatible implementations.\r\n\r\nExample:\r\n```json\r\n{\r\n  \"ciphersuite\": \"P256-SHA256-SSWU-RO-\",\r\n  \"curve\": \"P256\",\r\n  \"dst\": \"QUUX-V01-CS02\",\r\n  \"field\": {\r\n    \"m\": \"0x1\",\r\n    \"p\": \"0xffffffff00000001000000000000000000000000ffffffffffffffffffffffff\"\r\n  },\r\n  \"hash\": \"sha256\",\r\n  \"map\": {\r\n    \"name\": \"SSWU\",\r\n    \"sgn0\": \"sgn0_le\"\r\n  },\r\n  \"randomOracle\": true,\r\n  \"vectors\": [\r\n    {\r\n      \"P\": {\r\n        \"x\": \"0x8beb73a82ebeb6b400456f4da126aacbfa9b8049b71b250d2b7e4885b6b466bd\",\r\n        \"y\": \"0x15826dc578f4fbc1ac5fc3f9e15da3ece18be914f332bce8ce5bf1371805d149\"\r\n      },\r\n      \"msg\": \"\"\r\n    },\r\n ]\r\n}\r\n```"
   },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/195",
@@ -407,9 +557,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 2,
     "created_at": "2019-11-07T19:14:41Z",
-    "updated_at": "2019-11-27T20:10:46Z",
+    "updated_at": "2019-12-17T17:26:06Z",
     "closed_at": null,
     "author_association": "FIRST_TIME_CONTRIBUTOR",
     "pull_request": {
@@ -1377,9 +1527,9 @@
 
     ],
     "milestone": null,
-    "comments": 8,
+    "comments": 10,
     "created_at": "2019-10-23T21:41:53Z",
-    "updated_at": "2019-12-07T00:55:32Z",
+    "updated_at": "2020-01-20T23:30:21Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "At this point we don't have any clear examples of when people would want to do this.\r\n\r\nIt might become the case in the future that someone wants to do it. If so, it would be easy to create a new document that incorporates all of h2c by reference and specifies Boneh-Franklin and/or Ell2-A0.\r\n\r\nThe advantage of getting rid of them here is reducing confusion and reducing document surface area. To me this is a win.\r\n\r\nThoughts?\r\n\r\nCC @grittygrease @armfazh @chris-wood @JustinDrake"
@@ -1437,7 +1587,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/172.patch"
     },
     "body": "This PR updates the Z selection criteria to [avoid patent infringement](https://mailarchive.ietf.org/arch/msg/cfrg/jV4Wr4fbMKkd4vzsbEhKbous16Y) for S-SWU, and to add Sage scripts for generating parameters.\r\n\r\nI've also promoted the S-vdW map (using the more general parameterization, rather than the one in #167, which has issues I pointed out there), rewritten the pseudocode, etc.\r\n\r\nOne change from the prior version of this document is that this version no longer tries to establish a canonical Z. Rather, it gives the criteria, and then gives a Sage script for computing the RECOMMENDED Z."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/171",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -1593,10 +1746,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/169.patch"
     },
     "body": "This informs the reader of brute-force attacks if the output of hash_to_base (or derived values) is leaked. Suggested defence is to preprocess the input of hash_to_base.\r\n\r\nComments are welcome!"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/168",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3084,7 +3234,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/142.patch"
     },
     "body": "...but promise to return them in the future :)\r\n\r\nIf we get the poc code updated in time, we can put these back before submitting the draft."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/141",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3240,10 +3393,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/139.patch"
     },
     "body": "This essentially captures what's in #124:\r\n\r\n- add \"HASH-TO-CURVE\" literal in hash_to_base for H() separation\r\n\r\n- change ctr argument in encode_to_curve for free separation from hash_to_curve\r\n\r\n- add a new section in roadmap with requirements for domain separation\r\n\r\n- add a new definition for domain separation\r\n\r\nNote that this does *not* comprehend #137. I think we can treat that as a separate question for now."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/138",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4667,7 +4817,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Moving these from #104.\r\n\r\n- [x] consider removing unused implementations (e.g., ell2edwards, fouquetibouchi)\r\n\r\n- [ ] update test vectors\r\n\r\n- [x] ~~update hacspec implementations to cover new encodings~~ remove hacspec for now (can bring back later if necessary)\r\n\r\n- [x] clear cofactors to match the document\r\n\r\n- [x] edwards448: use 4-isogeny from RFC7748 rather than current rational map\r\n\r\n- [x] #117 --- make sure to use CMOV in straight-line impls"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/111",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4849,10 +5002,7 @@
     "closed_at": "2019-10-27T03:04:43Z",
     "author_association": "COLLABORATOR",
     "body": "Most of the maps can be made faster by dealing in projective rather than affine coordinates, since this should suffice to eliminate inversions (maybe with one more trick here and there).\r\n\r\nIf the goal is to suggest nicely optimized implementations everywhere, one possibility is to allow all map definitions to give projective outputs and then separately handle conversion back to affine coordinates.\r\n\r\nMapping to a projective point and then clearing the denominator is just as fast as mapping directly to an affine coordinate. In most cases, it's faster end-to-end: if the higher-level application does further operations on the output of the map, it's safe to assume those operations will be over projective coordinates, in which case converting to affine coordinates first is unnecessary and strictly slower.\r\n\r\nThis probably requires a small discussion (appx? elsewhere?) about projective coordinates, conversions, etc. Happy to take a crack at this."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/108",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6295,7 +6445,10 @@
     "closed_at": "2019-06-04T15:38:24Z",
     "author_association": "COLLABORATOR",
     "body": "### background\r\nThe `sqrt(x)` function mathematically provides two correct answers, say r0, r1 \\in Fp such that `r0^2=r1^2=x` and r0+r1 = p\r\n### issue\r\nMost of the encoding papers prove how to obtain points on a elliptic curve internally using the `sqrt` function and this is enough for mathematical purposes. \r\nHowever, for implementation purposes this could bring a source of errors/incompatibilities if the `sqrt` function is not defined accordingly. \r\nI see two options to fix this issue:\r\n\r\n1. Declare explicitly how to compute the `sqrt` function for each case. Although that for `p=3 mod 4` is easy, the remainder cases are not easy to state.\r\n\r\n2. Declare explicitly which root to choose. Relying on math, the document can state, for example, that the valid root to use is the one that is odd (or even). It is known that either `r0` or `r1` will be odd. This allows the implementer to use the best-known algorithm for computing `sqrt` as soon as the root returned by it be the one that is odd (or even).\r\n\r\nI believe that Option 2 is suitable and more flexible. \r\nHappy to hear your comments about it.\r\n\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/81",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6439,10 +6592,7 @@
     "closed_at": "2019-06-05T14:53:11Z",
     "author_association": "COLLABORATOR",
     "body": "Bug: points calculated by Elligator2 suite must be multiplied by the cofactor at the end (Sage script does not do that). Also I consider this task is not optional as the document says.\r\n\r\n_Originally posted by @armfazh in https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/pull/77#issuecomment-462507667_"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/78",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -7836,7 +7986,10 @@
     "closed_at": "2019-06-03T22:48:04Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/51",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -7980,10 +8133,7 @@
     "closed_at": "2018-10-22T19:29:48Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/48",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -9461,7 +9611,10 @@
     "closed_at": "2019-02-10T00:06:38Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/21",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -9661,10 +9814,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/19.patch"
     },
     "body": "Proposed new structure changes the emphasis to \"mapping-to-curve\" algorithms. Has a very brief background chapter introducing encoding/serialization/hash-to-curve(aka random oracles).\r\nTechnical details/related work pushed to appendix for relevant info."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/18",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
