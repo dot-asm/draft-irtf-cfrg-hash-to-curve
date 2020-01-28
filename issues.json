@@ -1,6 +1,60 @@
 [
 
   {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/205",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/205/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/205/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/205/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/205",
+    "id": 555941205,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzY3NzkyNDg0",
+    "number": 205,
+    "title": "Adding a link to a Go reference implementation.",
+    "user": {
+      "login": "armfazh",
+      "id": 10335519,
+      "node_id": "MDQ6VXNlcjEwMzM1NTE5",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10335519?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/armfazh",
+      "html_url": "https://github.com/armfazh",
+      "followers_url": "https://api.github.com/users/armfazh/followers",
+      "following_url": "https://api.github.com/users/armfazh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/armfazh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/armfazh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/armfazh/subscriptions",
+      "organizations_url": "https://api.github.com/users/armfazh/orgs",
+      "repos_url": "https://api.github.com/users/armfazh/repos",
+      "events_url": "https://api.github.com/users/armfazh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/armfazh/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 3,
+    "created_at": "2020-01-28T02:05:58Z",
+    "updated_at": "2020-01-28T18:46:36Z",
+    "closed_at": "2020-01-28T18:46:36Z",
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/205",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/205",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/205.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/205.patch"
+    },
+    "body": "Adds a link to a Go reference implementation."
+  },
+  {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/204",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/204/labels{/name}",
@@ -88,17 +142,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 4,
     "created_at": "2020-01-23T22:11:54Z",
-    "updated_at": "2020-01-24T22:07:09Z",
-    "closed_at": null,
+    "updated_at": "2020-01-27T03:24:13Z",
+    "closed_at": "2020-01-27T03:24:13Z",
     "author_association": "COLLABORATOR",
     "body": "In the past we decided that we wouldn't add suites for curves under 128-bit security, because we didn't want to encourage people to use them. But it looks like we might want to add a suite for P-224, even though this violates that decision.\r\n\r\nThe reason I think we should at least discuss it is that, per a couple talks at Real World Crypto, both Google and Apple are using P-224, and in at least one of the talks someone specifically mentioned hashing to P-224.\r\n\r\nI realize this won't be so common going forward and also that adding a suite now doesn't help either Google's or Apple's usage, so I can see the argument against. Still, thought it was worth revisiting the decision in light of more-widespread-than-expected usage...\r\n\r\nThoughts? @chris-wood @armfazh @grittygrease"
   },
@@ -143,9 +197,9 @@
 
     ],
     "milestone": null,
-    "comments": 13,
+    "comments": 15,
     "created_at": "2020-01-22T16:05:32Z",
-    "updated_at": "2020-01-24T00:29:08Z",
+    "updated_at": "2020-01-27T23:02:41Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Sorry to reopen this can of worms, but I think there are a couple reasons to worry about the current version of hash-to-base.\r\n\r\n1. @BjoernMHaase points out that, for embedded systems, hashing can be much more expensive than field or curve operations. The reason is, hashing is done on the main (sometimes 8-bit!) processor, whereas field and curve operations use a specialized co-processor. The result is that, in his CPace implementation, he doesn't want to use our version of hash-to-base.\r\n\r\n    It seems reasonable to expect this to be an issue for several classes of hash-to-curve applications. I think we should be responsive to it, and come up with a simplified version of hash-to-base that's safe in this context.\r\n\r\n2. @reyzin points out that in the VRF draft they were very careful to make sure that all invocations of SHA-2 are domain separated, but our use of H in hash-to-base is incompatible with this. In fact, we sat down and talked through it yesterday, and there does not appear to be a safe and cheap way of domain separating uses of H outside of hash-to-base from its uses inside. The only way to do it appears to be to select a random, 32-byte string (e.g., by hashing a domain separation tag) and prepending that value to every use of H outside of hash-to-base.\r\n\r\n    This is really unsatisfying: first, it adds an extra invocation of the compression function, which is bad in resource-constrained contexts (per (1), above). Second, it means that domain separation requirements \"escape\" the hash-to-curve draft, in the sense that implementors need to understand how hash-to-curve uses H in order to safely reuse H in upper-layer protocols---an abstraction violation.\r\n\r\n3. We've heard from several people that they want to use SHA3, and our version of hash-to-base is overdesigned for this purpose. I don't care so much about overdesign in itself---it would be great if we could have a one size fits all version of hash-to-base---but given issues 1 and 2, we have an opportunity to revisit.\r\n\r\nI'm working on a couple proposals to fix this, one based on KMAC (or perhaps SHAKE) and one that's designed to be safe (including in the sense of (2) above) and efficient for Merkle-Damgaard functions (but should also be safe and efficient for SHA-3). For now I'm not proposing a specific course of action, just giving early warning that this is an issue we should think carefully about."
@@ -245,9 +299,9 @@
 
     ],
     "milestone": null,
-    "comments": 7,
+    "comments": 10,
     "created_at": "2020-01-17T11:44:23Z",
-    "updated_at": "2020-01-25T13:52:47Z",
+    "updated_at": "2020-01-25T15:05:56Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "Linked to https://github.com/ethereum/eth2.0-specs/issues/1576\r\n\r\nThe current spec uses the terms `strings`, `bit string`, `octet string` however their representation is not explained.\r\nIn particular the ``hash_to_curve`` section does not mention that the message should be terminated by a null byte but the reference implementation does append a null byte:\r\n\r\nImplementation\r\n\r\nhttps://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/blob/6cf7fa9742e2f85f5ee6454861afd462e38d4230/poc/hash_to_base.py#L59-L67\r\n\r\nSpec\r\n\r\n```\r\nhash_to_base(msg, ctr)\r\n\r\nParameters:\r\n- DST, a domain separation tag (see discussion above).\r\n- H, a cryptographic hash function.\r\n- F, a finite field of characteristic p and order q = p^m.\r\n- p, the characteristic of F (see immediately above).\r\n- m, the extension degree of F, m >= 1 (see immediately above).\r\n- L = ceil((ceil(log2(p)) + k) / 8), where k is the security\r\n  parameter of the cryptosystem (e.g., k = 128).\r\n- HKDF-Extract and HKDF-Expand are as defined in RFC5869,\r\n  instantiated with the hash function H.\r\n\r\nInputs:\r\n- msg is the message to hash.\r\n- ctr is 0, 1, or 2.\r\n  This is used to efficiently create independent\r\n  instances of hash_to_base (see discussion above).\r\n\r\nOutput:\r\n- u, an element in F.\r\n\r\nSteps:\r\n1. msg_prime = HKDF-Extract(DST, msg || I2OSP(0, 1))\r\n2. info_pfx = \"H2C\" || I2OSP(ctr, 1)   # \"H2C\" is a 3-byte ASCII string\r\n3. for i in (1, ..., m):\r\n4.   info = info_pfx || I2OSP(i, 1)\r\n5.   tv = HKDF-Expand(msg_prime, info, L)\r\n6.   e_i = OS2IP(tv) mod p\r\n7. u = (e_1, ..., e_m)\r\n8. return u\r\n```\r\n\r\nAssuming a message MUST be terminated by a null-byte. Does that also apply to the Domain Separation Tag?"
@@ -551,9 +605,9 @@
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 3,
     "created_at": "2019-11-12T17:06:50Z",
-    "updated_at": "2019-11-16T21:30:59Z",
+    "updated_at": "2020-01-28T16:55:02Z",
     "closed_at": "2019-11-16T21:18:45Z",
     "author_association": "NONE",
     "body": "Consider whether the strategy mentioned in \"[A fast alternative to the modulo reduction](https://lemire.me/blog/2016/06/27/a-fast-alternative-to-the-modulo-reduction/)\", by @Lemire , is useful to mention as an alternative to the \"mod p\" in the hash_to_base function in the draft, and possibly elsewhere a mod operation appears in that draft.  This alternative is especially worth mentioning if the alternative&mdash;\r\n\r\n- can be implemented in constant time, similarly to modulo reduction, and\r\n- has similar or better performance to modulo reduction."
@@ -1525,7 +1579,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/176.patch"
     },
     "body": "This patch does three (roughly) related things:\r\n\r\n1. It defines two variants of sgn0, \"little endian\" (LE) and \"big endian\" (BE).\r\n  - LE is a generalization of IEEE P1363a-2004 Section 5.5.6.1.1, ANSI X9.62-1998, Section 4.2.1, and [SEC 1 Section 2.3.3](https://secg.org/sec1-v2.pdf). (All three of these use the same notion of sign: the value of the least significant bit.)\r\n      \r\n      This is the notion of sign used by most widely-deployed curves. For example, it's the one specified in RFC 8032 (Sections 5.1.3 and 5.2.3) and the one used in TLS (per [RFC 4492, Section 5.1.2](https://tools.ietf.org/html/rfc4492#section-5.1.2)).\r\n\r\n  - BE is equivalent to the method given in IEEE P1363a-2004, Section 5.5.6.1.2.\r\n\r\n      This is the form used by [BLS12-381](https://github.com/zkcrypto/pairing/blob/master/src/bls12_381/README.md), and is the same as what we used to call sgn0.\r\n\r\n2. It adds a sgn0 parameter to each suite that specifies which sgn0 function to use. All suites use sgn0_le except BLS12-381, which corresponds with widely-used notions of sign for each curve.\r\n\r\n3. It clarifies the sqrt functions and gives a constant-time version of Tonelli-Shanks (which works for any p) due to Sean Bowe, Jack Grigg, Eirik Ogilvie-Wigley, and Michael Scott. It also moves these to the appendix, since we treat sqrt as non-normative (in particular, we don't care about how implementors compute the sign)."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/175",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -1579,10 +1636,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/175.patch"
     },
     "body": "This patch gives guidance on how to define a new hash_to_base function and use it\r\nin a way that won't interfere with existing suites.\r\n\r\ncloses #165 "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/174",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3174,7 +3228,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/146.patch"
     },
     "body": "This adds optimized pcode for the above curves, plus an explanation of projective coordinate conversions.\r\n\r\ncloses #133\r\ncloses #4\r\n\r\nI'm going to do some extra proofreading tomorrow with fresh eyes, after which I'll mark it ready for merge. (Also,need to merge #145 first)\r\n\r\nReady for review now, though."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/145",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3228,10 +3285,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/145.patch"
     },
     "body": "This commit fixes some clarity issues that @reyzin pointed out in personal communication.\r\n\r\nAlso clarify which values are integer arithmetic and which are field arithmetic in implementations, which I think responds to #135."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/144",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4725,7 +4779,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/116.patch"
     },
     "body": "This updates hash2base to use the same method described in the Pairing WG's BLS signatures [spec-v1](https://github.com/pairingwg/bls_standard/blob/master/minutes/spec-v1.md).\r\n\r\nExecutive summary:\r\n\r\nThe idea behind this change is that it makes it possible to call hash2base multiple times (for the random oracle construction) while hashing the input message exactly once. This avoids requiring applications to specify pre-hashing and also avoids requiring implementors to make non-black-box use of a hash function (e.g., computing a \"partial\" hash of a message and then \"finishing\" the hash in two different ways to get the two different evaluations for the random oracle construction).\r\n\r\nOne potential downside of this change is that it requires adding an argument `ctr` to all of the map2curve functions, which is \"passed through\" to hash2base. (This PR makes that change.) To address this slight ugliness, this PR makes `ctr` optional and defaults it to 0 if not specified. That way, one can still sensibly refer to a value like `map2curve(alpha)`.\r\n\r\nDetails:\r\n\r\nThe reasoning is as follows. In the current hash2base, one might want to call, say,\r\n\r\n    hash2base(msg || I2OSP(1, 1))\r\n    hash2base(msg || I2OSP(2, 1))\r\n\r\nand this results in computing, inside the hash2base calls,\r\n\r\n    m_prime_1 = H(msg || I2OSP(1, 1))\r\n    m_prime_2 = H(msg || I2OSP(2, 1))\r\n\r\nIf `msg` is long, this is inefficient. One way to avoid this is, as I mentioned above, to \"partially evaluate\" H on `msg`. But requiring implementors to make non-black-box use of H is undesirable, because it constrains their implementations (for example, what happens if your crypto library doesn't let you partially evaluate H?).\r\n\r\nThe other way to avoid this is to make applications pre-hash messages. That's fine, but requiring them to do that for efficiency is a little unfriendly, because it means that if they forget to specify pre-hashing in their protocol, they have to change the protocol to fix it.\r\n\r\nThis PR gives a third option: call\r\n\r\n    hash2base(msg, 1)\r\n    hash2base(msg, 2)\r\n\r\nThis results in computing, inside the hash2base calls,\r\n\r\n    m_prime_1 = H(msg) || I2OSP(1, 1)\r\n    m_prime_2 = H(msg) || I2OSP(2, 1)\r\n\r\nSince the concatenation is outside the call to H, both invocations of hash2base can share the same evaluation of `H(msg)`. This allows seamlessly optimizing the implementation of hash2base in a way that is guaranteed to be backward compatible, which means that applications do not have to worry about breaking changes that come as a result of pre-hashing."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/115",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4779,10 +4836,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/115.patch"
     },
     "body": "This clarifies the definition of square roots as requested by @chris-wood's comment on #104 and captured in #106.\r\n\r\nSee note in #114 about sequencing merges and rebases to keep a clean commit history, if desired.\r\n\r\ncloses #106"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/114",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6391,7 +6445,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/86.patch"
     },
     "body": "Changes:\r\n - Adds two new encodings FT and BF.\r\n - BF works for supersingular curves.\r\n - It is based on the suggested changes of\r\n   Ela B. Lee (#20) for the case of pairing-friendly\r\n   curves.\r\n - FT encoding supports all pairing-friendly curves.\r\n - FT also supports SECP256K1 (Bitcoin curve).\r\n\r\nAddresses: #16, #9 (partially), #39."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/85",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6439,10 +6496,7 @@
     "closed_at": "2019-03-01T18:29:18Z",
     "author_association": "COLLABORATOR",
     "body": "I think the way we specify the FFSTV (and potentially all the algorithms) is a bit clunky (at best) or ambiguous.\r\n\r\nIf we look at https://github.com/chris-wood/draft-irtf-cfrg-hash-to-curve/blob/master/draft-irtf-cfrg-hash-to-curve.md#general-construction-ffstv13-ffstv\r\n\r\n```\r\n~~~\r\nhash2curve(alpha) = F(H0(alpha)) + F(H1(alpha))\r\n~~~\r\n\r\nThis construction works for the Icart, SWU, and Simplfied SWU encodings.\r\n\r\nHere, H0 and H1 are constructed as follows:\r\n\r\n~~~\r\nH0(alpha) = HashToBase(alpha || 0x2)\r\nH1(alpha) = HashToBase(alpha || 0x3)\r\n~~~\r\n```\r\n\r\nJust to check we are in agreement with what this is/should be doing. As it is written, you will hash alpha (with 0x02 or 0x03), pass the result to F. Which generally speaking will compute another hash. \r\n\r\nI.e. in Icart, you would effectively have `u = HashToBase(HashToBase(alpha || 0x02))` when computing the first of those? Which is a bit confusing since HashToBase outputs an element in Fp.\r\n\r\nAs an alternative, would we consider rewriting the algorithms to all be `Fp -> E`... Which saves the redundant hashing for some algorithms, but is messy since SWU actually needs `(Fp x Fp) -> E`.\r\n\r\nAnyway, just checking that the above is a correct reading."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/84",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -7944,7 +7998,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/56.patch"
     },
     "body": "Addresses #6, #40 and partially addresses #51.\r\n\r\nTrying to be a bit more rigorous with the HashToBase definition, and usage of the Legendre symbol computation. We could additionally specify hash functions which should be used with each field size?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/55",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -7992,10 +8049,7 @@
     "closed_at": "2019-01-26T01:30:48Z",
     "author_association": "COLLABORATOR",
     "body": "As per the title, as one concrete existing implementation of this functionality, plus an existing spec. We should consider whether we want to agree with the existing Signal specification https://signal.org/docs/specifications/xeddsa/."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/54",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -9519,7 +9573,10 @@
     "closed_at": "2019-03-19T02:10:48Z",
     "author_association": "COLLABORATOR",
     "body": "See #23."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/25",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -9573,10 +9630,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/25.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/24",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
