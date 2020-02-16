@@ -1,6 +1,60 @@
 [
 
   {
+    "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/209",
+    "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
+    "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/209/labels{/name}",
+    "comments_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/209/comments",
+    "events_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/209/events",
+    "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/209",
+    "id": 565833797,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mzc1Nzc0ODky",
+    "number": 209,
+    "title": "Fix bug in appendix D.1.",
+    "user": {
+      "login": "chris-wood",
+      "id": 2172048,
+      "node_id": "MDQ6VXNlcjIxNzIwNDg=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2172048?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chris-wood",
+      "html_url": "https://github.com/chris-wood",
+      "followers_url": "https://api.github.com/users/chris-wood/followers",
+      "following_url": "https://api.github.com/users/chris-wood/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chris-wood/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chris-wood/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chris-wood/subscriptions",
+      "organizations_url": "https://api.github.com/users/chris-wood/orgs",
+      "repos_url": "https://api.github.com/users/chris-wood/repos",
+      "events_url": "https://api.github.com/users/chris-wood/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chris-wood/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2020-02-16T01:19:26Z",
+    "updated_at": "2020-02-16T19:27:50Z",
+    "closed_at": "2020-02-16T19:27:50Z",
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/pulls/209",
+      "html_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/209",
+      "diff_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/209.diff",
+      "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/209.patch"
+    },
+    "body": "Addresses #201."
+  },
+  {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/208",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
     "labels_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/208/labels{/name}",
@@ -285,7 +339,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2020-01-23T22:51:27Z",
-    "updated_at": "2020-01-25T14:01:25Z",
+    "updated_at": "2020-02-16T01:22:17Z",
     "closed_at": "2020-01-25T14:01:25Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -487,9 +541,9 @@
 
     ],
     "milestone": null,
-    "comments": 10,
+    "comments": 11,
     "created_at": "2020-01-17T11:44:23Z",
-    "updated_at": "2020-01-25T15:05:56Z",
+    "updated_at": "2020-02-16T01:22:05Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "Linked to https://github.com/ethereum/eth2.0-specs/issues/1576\r\n\r\nThe current spec uses the terms `strings`, `bit string`, `octet string` however their representation is not explained.\r\nIn particular the ``hash_to_curve`` section does not mention that the message should be terminated by a null byte but the reference implementation does append a null byte:\r\n\r\nImplementation\r\n\r\nhttps://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/blob/6cf7fa9742e2f85f5ee6454861afd462e38d4230/poc/hash_to_base.py#L59-L67\r\n\r\nSpec\r\n\r\n```\r\nhash_to_base(msg, ctr)\r\n\r\nParameters:\r\n- DST, a domain separation tag (see discussion above).\r\n- H, a cryptographic hash function.\r\n- F, a finite field of characteristic p and order q = p^m.\r\n- p, the characteristic of F (see immediately above).\r\n- m, the extension degree of F, m >= 1 (see immediately above).\r\n- L = ceil((ceil(log2(p)) + k) / 8), where k is the security\r\n  parameter of the cryptosystem (e.g., k = 128).\r\n- HKDF-Extract and HKDF-Expand are as defined in RFC5869,\r\n  instantiated with the hash function H.\r\n\r\nInputs:\r\n- msg is the message to hash.\r\n- ctr is 0, 1, or 2.\r\n  This is used to efficiently create independent\r\n  instances of hash_to_base (see discussion above).\r\n\r\nOutput:\r\n- u, an element in F.\r\n\r\nSteps:\r\n1. msg_prime = HKDF-Extract(DST, msg || I2OSP(0, 1))\r\n2. info_pfx = \"H2C\" || I2OSP(ctr, 1)   # \"H2C\" is a 3-byte ASCII string\r\n3. for i in (1, ..., m):\r\n4.   info = info_pfx || I2OSP(i, 1)\r\n5.   tv = HKDF-Expand(msg_prime, info, L)\r\n6.   e_i = OS2IP(tv) mod p\r\n7. u = (e_1, ..., e_m)\r\n8. return u\r\n```\r\n\r\nAssuming a message MUST be terminated by a null-byte. Does that also apply to the Domain Separation Tag?"
@@ -1551,7 +1605,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/180.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/179",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -1605,10 +1662,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/179.patch"
     },
     "body": "Very tiny consistency issue I noticed.\r\n\r\nI guess we could go the other way and get rid of the parens... what looks better to you?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/178",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3200,7 +3254,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/150.patch"
     },
     "body": "closes #149"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/149",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -3254,10 +3311,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/149.patch"
     },
     "body": "The `hash_to_base` function has two parameters.\r\n\r\nNote: I'm note sure how new lines are determined. It looks like line 1260 is now longer than the others."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/148",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4757,7 +4811,10 @@
     "closed_at": "2019-06-18T19:58:43Z",
     "author_association": "COLLABORATOR",
     "body": "The current descriptions of the maps include cofactor clearing. In the ROM case this is not good: ofactor clearing is potentially an expensive operation, and it commutes with point addition.\r\n\r\nTODO: the standard should be written in a way that makes clear that the cofactor clearing operation happens *after* point addition in the ROM case.\r\n\r\n#118 and #119 should probably handle this issue."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/119",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -4811,10 +4868,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/119.patch"
     },
     "body": "Changes:\r\n - Gives a brief description about hash curve looks like.\r\n - Promotes clear cofactor as a section.\r\n - Introduces the notion of G, a group/subgroup of interest.\r\n - ~~Updates ROM to be consistent with hash2curve.~~\r\n - ~~Sketches the suite section (here more work is needed).~~"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/118",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6429,7 +6483,10 @@
     "closed_at": "2019-03-11T18:48:00Z",
     "author_association": "COLLABORATOR",
     "body": "\r\nin section 5.3.5. Fouque-Tibouchi Method\r\nThe reference to BLS curve points to the work of BLS signatures.\r\nBLS signatures ->  [BLS01]\r\nBLS curve -> [BLS02]\r\n\r\n[BLS02] Paulo S. L. M. Barreto, Ben Lynn, and Michael Scott. Constructing elliptic curves with prescribed embedding degrees. SCN. 2002"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/89",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -6483,10 +6540,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/89.patch"
     },
     "body": "Fixes #88."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/88",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -7962,7 +8016,10 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/60.patch"
     },
     "body": "For #50."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/59",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -8024,10 +8081,7 @@
       "patch_url": "https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve/pull/59.patch"
     },
     "body": "Some attempts to formalize HashToBase a bit more.\r\nIncludes sage script for computing.\r\nPartially includes #54 #42 #12 "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/58",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -9569,7 +9623,10 @@
     "closed_at": "2018-07-13T20:23:42Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/29",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
@@ -9617,10 +9674,7 @@
     "closed_at": "2018-07-13T20:23:42Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve/issues/28",
     "repository_url": "https://api.github.com/repos/cfrg/draft-irtf-cfrg-hash-to-curve",
