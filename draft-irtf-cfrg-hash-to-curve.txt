@@ -3553,7 +3553,7 @@ D.1.  Interface and projective coordinate systems
    mappings of Section 6.  Specifically, each mapping function in this
    section has the following signature:
 
-       (xn, xd, yn, nd) = map_to_curve(u)
+       (xn, xd, yn, yd) = map_to_curve(u)
 
    The resulting point (x, y) is given by (xn / xd, yn / yd).
 
